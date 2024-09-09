@@ -37,6 +37,7 @@
     border: 2px dotted grey;
     background-color: white;
     border-radius: 0.25em;
+    text-align: center;
 }
 
 .webex-incorrect,
@@ -46,6 +47,7 @@ input.webex-solveme.webex-incorrect,
     background-color: var(--incorrect_alpha);
     color: black;
     border-radius: 0.25em;
+    text-align: center;
 }
 .webex-correct,
 input.webex-solveme.webex-correct,
@@ -54,6 +56,7 @@ input.webex-solveme.webex-correct,
     background-color: var(--correct_alpha);
     color: black;
     border-radius: 0.25em;
+    text-align: center;
 }
 
 .unchecked .webex-incorrect span::before,
@@ -90,9 +93,10 @@ input.webex-solveme.webex-correct,
     height: 2em;
     margin-bottom: 0.5em;
     border-radius: 0.5em;
-    background-color: var(--highlight);
+    background-color: #0466c8;
     color: white;
     padding: 0 0.5em;
+    border-color: transparent;
 }
 .webex-solution pre.sourceCode {
     border-color: var(--correct);
