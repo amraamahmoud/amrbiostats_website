@@ -1,0 +1,68 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  comments:
+    giscus:
+      repo: amraamahmoud/AMRBiostats
+  open-graph:
+    title: AMRBiostats
+  title: AMRBiostats
+  site-url: https://www.amrbiostats.com
+  description: A collection of resources for biostatistics and R programming.
+  favicon: /images/favicon.png
+  search:
+    type: textbox
+    collapse-after: 1
+  reader-mode: false
+  back-to-top-navigation: true
+  navbar:
+    search: true
+    logo: /images/favicon.png
+    pinned: true
+    left:
+    - text: GitHub {{< iconify octicon:mark-github-16 size=20px >}}
+      href: https://github.com/amraamahmoud/amrbiostats_website.git
+      target: _blank
+    - text: Contact {{< iconify mdi:email-arrow-right size=23px >}}
+      href: mailto:consultation@amrbiostats.com
+    right:
+    - text: About Author {{< iconify solar:user-id-linear size=20px >}}
+      href: author.qmd
+    - text: Tutorials {{< iconify mdi:cast-tutorial size=18px >}}
+      menu:
+      - text: Maths Refresher {{< iconify ion:refresh size=20px >}}
+        href: tut_maths.qmd
+    background: info
+    foreground: light
+  page-footer:
+    border: true
+    left:
+    - text: License {{< iconify carbon:license-draft >}}
+      href: https://creativecommons.org/licenses/by/4.0/legalcode
+      target: _blank
+    - text: Report an issue {{< iconify mdi:git-issue >}}
+      href: https://github.com/amraamahmoud/amrbiostats_website/issues
+      target: _blank
+    right:
+    - text: GitHub {{< iconify ri:github-fill >}}
+      href: https://github.com/amraamahmoud/amrbiostats_website.git
+      target: _blank
+format:
+  html:
+    theme: cerulean
+    css:
+    - styles.css
+    - include/webex.css
+    smooth-scroll: true
+    toc: true
+    linkcolor: '#033c73'
+    link-external-newwindow: true
+    lightbox: true
+    fig-responsive: true
+    include-after-body: include/webex.js
+    number-sections: true
+    number-depth: 5
+editor: visual
+execute:
+  freeze: true

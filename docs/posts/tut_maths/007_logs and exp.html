@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-08-24">
+<meta name="description" content="Review basic rules of exponential and logarithmic functions">
 
-<title>AMRBiostats - Accurate, Modern, and Reliable Biostatistics</title>
+<title>AMRBiostats - 7 Exponential and Logarithmic Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//images/favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,12 +70,44 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="include/webex.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../include/webex.css">
 <meta property="og:title" content="AMRBiostats">
-<meta property="og:description" content="A collection of resources for biostatistics and R programming.">
+<meta property="og:description" content="Review basic rules of exponential and logarithmic functions">
+<meta property="og:image" content="https://www.amrbiostats.com/images/logarithm.png">
 <meta property="og:site_name" content="AMRBiostats">
+<meta property="og:image:height" content="230">
+<meta property="og:image:width" content="800">
 </head>
 
 <body class="nav-fixed">
@@ -82,10 +117,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/favicon.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/favicon.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">AMRBiostats</span>
     </a>
   </div>
@@ -106,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./author.html"> 
+    <a class="nav-link" href="../../author.html"> 
 <span class="menu-text">About Author <iconify-icon role="img" inline="" icon="solar:user-id-linear" style="font-size: 20px;" aria-label="Icon user-id-linear from solar Iconify.design set." title="Icon user-id-linear from solar Iconify.design set."></iconify-icon></span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -115,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-tutorials--iconify-mdicast-tutorial-size18px-">    
         <li>
-    <a class="dropdown-item" href="./tut_maths.html">
+    <a class="dropdown-item" href="../../tut_maths.html">
  <span class="dropdown-text">Maths Refresher <iconify-icon role="img" inline="" icon="ion:refresh" style="font-size: 20px;" aria-label="Icon refresh from ion Iconify.design set." title="Icon refresh from ion Iconify.design set."></iconify-icon></span></a>
   </li>  
     </ul>
@@ -128,54 +163,254 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#exponential-function" id="toc-exponential-function" class="nav-link active" data-scroll-target="#exponential-function"><span class="header-section-number">1</span> Exponential function</a></li>
+  <li><a href="#logarithmic-function" id="toc-logarithmic-function" class="nav-link" data-scroll-target="#logarithmic-function"><span class="header-section-number">2</span> Logarithmic function</a></li>
+  <li><a href="#relation-between-exponential-and-logarithmic-functions" id="toc-relation-between-exponential-and-logarithmic-functions" class="nav-link" data-scroll-target="#relation-between-exponential-and-logarithmic-functions"><span class="header-section-number">3</span> Relation between exponential and logarithmic functions</a></li>
+  <li><a href="#basic-laws-of-exponents" id="toc-basic-laws-of-exponents" class="nav-link" data-scroll-target="#basic-laws-of-exponents"><span class="header-section-number">4</span> Basic laws of exponents</a></li>
+  <li><a href="#basic-laws-of-logarithms" id="toc-basic-laws-of-logarithms" class="nav-link" data-scroll-target="#basic-laws-of-logarithms"><span class="header-section-number">5</span> Basic laws of logarithms</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
+  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">7</span> Add your comments</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles content column-page">
-  <div class="about-entity">
-    <img src="/images/logo_main.png" class="about-image
-  rectangle " style="width: 20em;">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Accurate, Modern, and Reliable Biostatistics</h1>
+<h1 class="title">7 Exponential and Logarithmic Functions</h1>
 </div>
-<div class="quarto-title-meta column-page">
+
+<div>
+  <div class="description">
+    Review basic rules of exponential and logarithmic functions
   </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 24, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://github.com/amraamahmoud/AMRBiostats.git" class="about-link" rel="" target="_blank">
-     <span class="about-link-text"><img src="./images/github.svg" class="img-fluid"></span>
-  </a>
-  <a href="mailto:consultation@amrbiostats.com" class="about-link" rel="" target="">
-     <span class="about-link-text"><img src="./images/line-md--email-arrow-up-twotone.svg" class="img-fluid"></span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
-<section id="welcome-to-amrbiostats" class="level2 unnumbered" style="text-align: center">
-<h2 class="unnumbered" data-anchor-id="welcome-to-amrbiostats">Welcome to AMRBiostats</h2>
-</section>
-<p>This website aims to provide a valuable resource for students and researchers aiming to learn biostatistics and the R programming language. It was built entirely using the <span style="color: #68a1d3"><iconify-icon role="img" inline="" icon="simple-icons:quarto" aria-label="Icon quarto from simple-icons Iconify.design set." title="Icon quarto from simple-icons Iconify.design set."></iconify-icon></span> <a href="https://quarto.org/">Quarto</a><sup>®</sup> and <a href="https://www.r-project.org">R</a>. Additionally, <a href="https://github.com/features/copilot">GitHub Copilot</a> was utilized to increase productivity via streamlining the typing process.</p>
-<section id="what-you-will-find-here" class="level2 unnumbered" style="text-align: center">
-<h2 class="unnumbered" data-anchor-id="what-you-will-find-here">What You Will Find Here</h2>
-</section>
+
+
+<p><br></p>
+<section id="exponential-function" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="exponential-function"><span class="header-section-number">1</span> Exponential function</h2>
 <ul>
-<li><p>Tutorials: Step-by-step guides on biostatistics and R programming.</p></li>
-<li><p>Code Examples: Ready-to-use R scripts for various statistical analyses.</p></li>
-<li><p>Articles: In-depth articles explaining complex biostatistics topics.</p></li>
-<li><p>Consultation and Coaching: You can request personalized guidance or courses tailored to your needs to address the challenges frequently encountered in biostatistics.</p></li>
+<li><p>The exponential function has the form <span class="math inline">\(\displaystyle y= f(x) =a^x\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(a\)</span> is a constant known as the base, <span class="math inline">\(a \gt 0\)</span> and <span class="math inline">\(a \ne 0\)</span>.</p></li>
+<li><p><span class="math inline">\(x\)</span> is the exponent.</p></li>
+<li><p>The natural exponential function <span class="math inline">\(y = e^x\)</span> is a specific type of exponential functions where the base is the constant <span class="math inline">\(e\)</span>, known as Euler’s number (<span class="math inline">\(e \approx 2.718281828459045…\)</span>).</p></li>
+<li><p>A graphical presentation of an exponential function with bases less or greater than <span class="math inline">\(1\)</span> is depicted in Figure 1.</p></li>
+</ul></li>
 </ul>
-<section id="license" class="level2 unnumbered" style="text-align: center">
-<h2 class="unnumbered" data-anchor-id="license">License</h2>
-</section>
-<p>The material on this website is licensed under The Creative Commons Attribution 4.0 International. You are allowed to reuse and redistribute the material on the condition that the author is appropriately credited using the following attribution:</p>
-
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="007_logs-and-exp_files/figure-html/fig-1-1.png" class="img-fluid figure-img" width="672">
 </div>
- <!-- /main -->
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Plot of exponential functions with bases less or greater than 1
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="logarithmic-function" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="logarithmic-function"><span class="header-section-number">2</span> Logarithmic function</h2>
+<ul>
+<li><p>The logarithmic function has the form <span class="math inline">\(y = f(x) = \log_ax\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(a\)</span> is a constant known as the base of logarithm, <span class="math inline">\(a \gt 0\)</span> and <span class="math inline">\(a \ne 1\)</span>.</p></li>
+<li><p><span class="math inline">\(x \gt 0\)</span> (i.e., the function is defined only if <span class="math inline">\(x\)</span> is positive).</p></li>
+<li><p>It is read as <span class="math inline">\(\log\)</span> to the base <span class="math inline">\(a\)</span> of <span class="math inline">\(x\)</span>.</p></li>
+<li><p>If the base <span class="math inline">\(a=10\)</span>, then it is known as the common logarithm (<span class="math inline">\(\log\)</span>), but if <span class="math inline">\(a = e\)</span>, then it is known as the natural logarithm (<span class="math inline">\(\ln\)</span>).</p></li>
+<li><p>R function for the common logarithm is <code>log10()</code> and for the natural logarithm is <code>log()</code>.</p></li>
+<li><p>A graphical presentation of the logarithmic function <span class="math inline">\(y =log_{10}\ x\)</span> is depicted in Figure 2.</p></li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="007_logs-and-exp_files/figure-html/fig-2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Plot of logarithmic function with base 10
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="relation-between-exponential-and-logarithmic-functions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="relation-between-exponential-and-logarithmic-functions"><span class="header-section-number">3</span> Relation between exponential and logarithmic functions</h2>
+<ul>
+<li><p>Each function is the inverse of the other (i.e., each function undoes the other):</p>
+<ul>
+<li><p><span class="math inline">\(a^{\log_ax} = x\)</span>, for <span class="math inline">\(x&gt;0\)</span></p></li>
+<li><p><span class="math inline">\(\log_a a^x = x\)</span></p></li>
+</ul></li>
+<li><p>If <span class="math inline">\(a^y = x\)</span>, then <span class="math inline">\(y = \log_a x\)</span>.</p></li>
+<li><p>Similarly, if <span class="math inline">\(\log_a x = y\)</span>, then <span class="math inline">\(x = a^y\)</span>.</p></li>
+</ul>
+</section>
+<section id="basic-laws-of-exponents" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="basic-laws-of-exponents"><span class="header-section-number">4</span> Basic laws of exponents</h2>
+<ol type="1">
+<li><p><span class="math inline">\(a^m a^n = a^{m+n}\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \frac{a^m}{a^n} = a^{m-n}\)</span></p></li>
+<li><p><span class="math inline">\((a^m)^n = a^{mn}\)</span></p></li>
+<li><p><span class="math inline">\((ab)^n = a^nb^n\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle (\frac{a}{b})^n = \frac{a^n}{b^n}\)</span></p></li>
+<li><p><span class="math inline">\(a^0 = 1\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle a^{-n} = \frac{1}{a^n}\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle a^{\frac{1}{n}} =\sqrt[n]{a}\)</span>, this is referred to as the <span class="math inline">\(n^{th}\)</span> root of <span class="math inline">\(a\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle a^{\frac{m}{n}} = \sqrt[n]{a^m}\)</span></p></li>
+</ol>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Example M.7.1 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Calculate <span class="math inline">\(\displaystyle \frac{2^7}{2^5} + 4^0\)</span></p>
+<p><span class="math display">\[
+\displaystyle \frac{2^7}{2^5} + 4^0 =
+\]</span> <span class="math display">\[
+\displaystyle 2^{(7-5)}  + 4^0\ {\color{#0466c8}(\text {apply rule 2}\rightarrow)} =
+\]</span> <span class="math display">\[
+\displaystyle 2^2  + 1\ {\color{#0466c8}(\text {apply rule 6}\rightarrow)} =
+\]</span> <span class="math display">\[
+\displaystyle 4 + 1 = 5
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="basic-laws-of-logarithms" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="basic-laws-of-logarithms"><span class="header-section-number">5</span> Basic laws of logarithms</h2>
+<ol type="1">
+<li><p><span class="math inline">\(\log_a x^b = b\log_a x\)</span></p></li>
+<li><p><span class="math inline">\(\log_a (xy) = \log_a x + \log_a y\)</span></p></li>
+<li><p><span class="math inline">\(\log_a \frac{x}{y} = \log_a x - \log_a y\)</span></p></li>
+<li><p><span class="math inline">\(\log_a x = \displaystyle \frac{\log_b x}{\log_b a}\)</span></p></li>
+<li><p><span class="math inline">\(\log_a x = \displaystyle \frac{1}{\log_x a}\)</span></p></li>
+<li><p><span class="math inline">\(\log_a 1 = 0\)</span></p></li>
+<li><p><span class="math inline">\(\log_a a = 1\)</span></p></li>
+</ol>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Example M.7.2 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><span style="color: #ba181b">Exercise M.7.1 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false"><span style="color: #ba181b">Exercise M.7.2 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false"><span style="color: #ba181b">Exercise M.7.3 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Write <span class="math inline">\((4 \log_{10} x + 3 \log_{10} 5y)\)</span> as a single logarithm.</p>
+<p><span class="math display">\[
+4 \log_{10} x + 3 \log_{10} 5y =
+\]</span></p>
+<p><span class="math display">\[
+\log_{10} x^4 + \log_{10} (5y)^3 {\color{#0466c8}(\text {apply rule 1}\rightarrow)} =
+\]</span> <span class="math display">\[
+\log_{10} x^4 \cdot (5y)^3 {\color{#0466c8}(\text {apply rule 2}\rightarrow)} =
+\]</span> <span class="math display">\[
+\log_{10} 125 x^4 y^3
+\]</span></p>
+<div style="color: #0466c8;">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To apply the above manipulations, the base of the logarithm should be the same for all terms.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Solve the equation <span class="math inline">\(125^{x-2} = 5^{2-x}\)</span> for <span class="math inline">\(x\)</span></p>
+<div class="webex-solution">
+<button>
+Click to show/hide answer
+</button>
+<p><span class="math display">\[
+125^{x-2} = 5^{2-x} \Rightarrow
+\]</span> <span class="math display">\[
+(5^3)^{x-2} = 5^{2-x} \Rightarrow
+\]</span> <span class="math display">\[
+5^{3 (x-2)} = 5^{2-x} \Rightarrow
+\]</span> <span class="math display">\[
+5^{3x-6} = 5^{2-x} \Rightarrow
+\]</span> <span class="math display">\[
+3x-6 = 2-x \Rightarrow
+\]</span> <span class="math display">\[
+3x+x = 2+6 \Rightarrow
+\]</span> <span class="math display">\[
+4x = 8 \Rightarrow
+\]</span> <span class="math display">\[
+x = 2
+\]</span></p>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Solve the equation <span class="math inline">\(\log_2 (3y-1) = 3\)</span> for <span class="math inline">\(y\)</span></p>
+<p>The answer is <span class="math inline">\(y =\)</span> <input class="webex-solveme nospaces" size="1" data-answer="[&quot;3&quot;]"></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>If <span class="math inline">\(y = \log_a x\)</span>, then <span class="math inline">\(a^y = x\)</span></p>
+</div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p>Solve the equation <span class="math inline">\(3\ln (\sqrt[3]{y-e}) - \ln 2 = 1\)</span> for <span class="math inline">\(y\)</span></p>
+<p>The answer is <span class="math inline">\(y =\)</span> <input class="webex-solveme nospaces" size="2" data-answer="[&quot;3e&quot;]"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
+<ul>
+<li><p>Exponential and Logarithmic Functions. Byju’s. Retrieved August 24, 2024, from <a href="https://byjus.com/maths/exponential-and-logarithmic-functions/" class="uri">https://byjus.com/maths/exponential-and-logarithmic-functions/</a></p></li>
+<li><p>Chapman, A., G., Herald, M., &amp; Libertini, J. Logarithms and Exponential Functions. In APEX PreCalculus. LibreTexts. Retrieved August 24, 2024, from <a href="https://math.libretexts.org/Bookshelves/Precalculus/APEX_PreCalculus_(Chapman_Herald_and_Libertini)/01%3A_Numbers_and_Functions/1.05%3A_Logarithms_and_Exponential_Functions" class="uri">https://math.libretexts.org/Bookshelves/Precalculus/APEX_PreCalculus_(Chapman_Herald_and_Libertini)/01%3A_Numbers_and_Functions/1.05%3A_Logarithms_and_Exponential_Functions</a></p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">7</span> Add your comments</h2>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -402,6 +637,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -789,6 +1031,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://giscus.app/client.js" data-repo="amraamahmoud/AMRBiostats" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -824,5 +1070,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

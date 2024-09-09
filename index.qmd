@@ -1,0 +1,49 @@
+---
+about: 
+  template: trestles
+  image-shape: rectangle
+  image: "/images/logo_main.png"
+  links:
+    - text: "![](/images/github.svg)"
+      href: https://github.com/amraamahmoud/AMRBiostats.git
+      target: _blank
+    - text: "![](/images/line-md--email-arrow-up-twotone.svg)"
+      href: mailto:consultation@amrbiostats.com
+      
+format: 
+  html: 
+    page-layout: full
+    grid:
+      body-width: 1200px
+      margin-width: 0px
+      sidebar-width: 0px
+      gutter-width: 0rem
+    fig-responsive: true
+    toc: false
+    title: "Accurate, Modern, and Reliable Biostatistics"
+    comments: false
+---
+
+::: {style="text-align: center"}
+## Welcome to AMRBiostats {.unnumbered}
+:::
+
+This website aims to provide a valuable resource for students and researchers aiming to learn biostatistics and the R programming language. It was built entirely using the [{{< iconify simple-icons:quarto >}}]{style="color: #68a1d3"} [Quarto](https://quarto.org/)^®^ and [R](https://www.r-project.org). Additionally, [GitHub Copilot](https://github.com/features/copilot) was utilized to increase productivity via streamlining the typing process.
+
+::: {style="text-align: center"}
+## What You Will Find Here {.unnumbered}
+:::
+
+-   Tutorials: Step-by-step guides on biostatistics and R programming.
+
+-   Code Examples: Ready-to-use R scripts for various statistical analyses.
+
+-   Articles: In-depth articles explaining complex biostatistics topics.
+
+-   Consultation and Coaching: You can request personalized guidance or courses tailored to your needs to address the challenges frequently encountered in biostatistics.
+
+::: {style="text-align: center"}
+## License {.unnumbered}
+:::
+
+The material on this website is licensed under The Creative Commons Attribution 4.0 International. You are allowed to reuse and redistribute the material on the condition that the author is appropriately credited using the following attribution:

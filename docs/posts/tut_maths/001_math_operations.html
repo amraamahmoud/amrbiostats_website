@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-08-09">
+<meta name="description" content="Review mathematical operations and their order">
 
-<title>AMRBiostats - Accurate, Modern, and Reliable Biostatistics</title>
+<title>AMRBiostats - 1 Mathematical Operations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +22,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//images/favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,13 +103,48 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="include/webex.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../include/webex.css">
 <meta property="og:title" content="AMRBiostats">
-<meta property="og:description" content="A collection of resources for biostatistics and R programming.">
+<meta property="og:description" content="Review mathematical operations and their order">
+<meta property="og:image" content="https://www.amrbiostats.com/images/math-operation.png">
 <meta property="og:site_name" content="AMRBiostats">
+<meta property="og:image:height" content="222">
+<meta property="og:image:width" content="800">
 </head>
 
 <body class="nav-fixed">
@@ -82,10 +154,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/favicon.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/favicon.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">AMRBiostats</span>
     </a>
   </div>
@@ -106,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./author.html"> 
+    <a class="nav-link" href="../../author.html"> 
 <span class="menu-text">About Author <iconify-icon role="img" inline="" icon="solar:user-id-linear" style="font-size: 20px;" aria-label="Icon user-id-linear from solar Iconify.design set." title="Icon user-id-linear from solar Iconify.design set."></iconify-icon></span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -115,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-tutorials--iconify-mdicast-tutorial-size18px-">    
         <li>
-    <a class="dropdown-item" href="./tut_maths.html">
+    <a class="dropdown-item" href="../../tut_maths.html">
  <span class="dropdown-text">Maths Refresher <iconify-icon role="img" inline="" icon="ion:refresh" style="font-size: 20px;" aria-label="Icon refresh from ion Iconify.design set." title="Icon refresh from ion Iconify.design set."></iconify-icon></span></a>
   </li>  
     </ul>
@@ -128,54 +200,309 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-1" id="toc-sec-1" class="nav-link active" data-scroll-target="#sec-1"><span class="header-section-number">1</span> Order of mathematical operations</a></li>
+  <li><a href="#using-r-as-calculator" id="toc-using-r-as-calculator" class="nav-link" data-scroll-target="#using-r-as-calculator"><span class="header-section-number">2</span> Using R as calculator</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
+  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">4</span> Add your comments</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles content column-page">
-  <div class="about-entity">
-    <img src="/images/logo_main.png" class="about-image
-  rectangle " style="width: 20em;">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Accurate, Modern, and Reliable Biostatistics</h1>
+<h1 class="title">1 Mathematical Operations</h1>
 </div>
-<div class="quarto-title-meta column-page">
+
+<div>
+  <div class="description">
+    Review mathematical operations and their order
   </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 9, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://github.com/amraamahmoud/AMRBiostats.git" class="about-link" rel="" target="_blank">
-     <span class="about-link-text"><img src="./images/github.svg" class="img-fluid"></span>
-  </a>
-  <a href="mailto:consultation@amrbiostats.com" class="about-link" rel="" target="">
-     <span class="about-link-text"><img src="./images/line-md--email-arrow-up-twotone.svg" class="img-fluid"></span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
-<section id="welcome-to-amrbiostats" class="level2 unnumbered" style="text-align: center">
-<h2 class="unnumbered" data-anchor-id="welcome-to-amrbiostats">Welcome to AMRBiostats</h2>
-</section>
-<p>This website aims to provide a valuable resource for students and researchers aiming to learn biostatistics and the R programming language. It was built entirely using the <span style="color: #68a1d3"><iconify-icon role="img" inline="" icon="simple-icons:quarto" aria-label="Icon quarto from simple-icons Iconify.design set." title="Icon quarto from simple-icons Iconify.design set."></iconify-icon></span> <a href="https://quarto.org/">Quarto</a><sup>®</sup> and <a href="https://www.r-project.org">R</a>. Additionally, <a href="https://github.com/features/copilot">GitHub Copilot</a> was utilized to increase productivity via streamlining the typing process.</p>
-<section id="what-you-will-find-here" class="level2 unnumbered" style="text-align: center">
-<h2 class="unnumbered" data-anchor-id="what-you-will-find-here">What You Will Find Here</h2>
-</section>
+
+
+<p><br></p>
+<section id="sec-1" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="sec-1"><span class="header-section-number">1</span> Order of mathematical operations</h2>
 <ul>
-<li><p>Tutorials: Step-by-step guides on biostatistics and R programming.</p></li>
-<li><p>Code Examples: Ready-to-use R scripts for various statistical analyses.</p></li>
-<li><p>Articles: In-depth articles explaining complex biostatistics topics.</p></li>
-<li><p>Consultation and Coaching: You can request personalized guidance or courses tailored to your needs to address the challenges frequently encountered in biostatistics.</p></li>
+<li>Mathematical operations are performed from left to right in a specific order as depicted in the following figure:</li>
 </ul>
-<section id="license" class="level2 unnumbered" style="text-align: center">
-<h2 class="unnumbered" data-anchor-id="license">License</h2>
-</section>
-<p>The material on this website is licensed under The Creative Commons Attribution 4.0 International. You are allowed to reuse and redistribute the material on the condition that the author is appropriately credited using the following attribution:</p>
-
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
+<div style="text-align: center">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+A("Parentheses (P)") --&gt; B("Exponents (E)")
+B --&gt; C("Multiplication and Division (MD)")
+C --&gt; D("Addition and Subtraction (AS)")
+</pre>
 </div>
- <!-- /main -->
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<ul>
+<li>This sequence can be memorized using the acronym <strong>PEMDAS</strong>.</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Example M.1.1 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><span style="color: #ba181b">Exercise M.1.1 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><span style="color: #ba181b">Exercise M.1.2 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Calculate&nbsp; <span class="math inline">\(\displaystyle 2\times(3+4)-6 \times 4^2\)</span></p>
+<p><span class="math display">\[
+2 \times(3+4)-6 \times 4^2 =
+\]</span></p>
+<p><span class="math display">\[2 \times(7)-6 \times 4^2=\]</span></p>
+<p><span class="math display">\[
+\\2 \times(7)-6 \times 16 =
+\]</span></p>
+<p><span class="math display">\[
+\\14-96= -82
+\]</span></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="tabset-M11" class="quarto-float">
+<figure class="quarto-float quarto-float-tabset figure">
+<div aria-describedby="tabset-M11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Calculate&nbsp;<span class="math inline">\(\displaystyle \left( 3+\frac{4}{2} \right)^3-\sqrt{4\times9}\times2+2\)</span></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tabset quarto-uncaptioned" id="tabset-M11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Exercise M.1.1
+</figcaption>
+</figure>
+</div>
+<div class="webex-solution">
+<button>
+Click to show/hide answer
+</button>
+<p><span class="math display">\[
+(3+\frac{4}{2})^3-\sqrt{4\times9}\times2+2 =
+\]</span></p>
+<p><span class="math display">\[
+(3+2)^3-\sqrt{4\times9}\times2+2 =
+\]</span></p>
+<p><span class="math display">\[
+(5)^3-\sqrt{4\times9}\times2+2=
+\]</span></p>
+<p><span class="math display">\[
+125-\sqrt{4\times9}\times2+2=
+\]</span></p>
+<p><span class="math display">\[
+125-\sqrt{36}\times2+2=
+\]</span></p>
+<p><span class="math display">\[
+125-6\times2+2=
+\]</span></p>
+<p><span class="math display">\[
+125-12+2=115
+\]</span></p>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="tabset-M12" class="quarto-float">
+<figure class="quarto-float quarto-float-tabset figure">
+<div aria-describedby="tabset-M12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Calculate <span class="math inline">\(\displaystyle \frac{1^2+5^2+7}{4-1}\)</span></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tabset quarto-uncaptioned" id="tabset-M12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Exercise M.1.2
+</figcaption>
+</figure>
+</div>
+<p>The answer is <input class="webex-solveme nospaces" size="2" data-answer="[&quot;11&quot;]"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="using-r-as-calculator" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="using-r-as-calculator"><span class="header-section-number">2</span> Using R as calculator</h2>
+<ul>
+<li><p>These calculations can be performed easily in R.</p></li>
+<li><p>The different operators used in R for mathematical operations are shown in the table below:</p></li>
+</ul>
+<div class="grid">
+<div class="g-col-2">
+
+</div>
+<div class="g-col-8">
+<table class="caption-top table">
+<caption>Table of arithmetic operators in R</caption>
+<colgroup>
+<col style="width: 77%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th style="text-align: center;">Operator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Addition</td>
+<td style="text-align: center;"><span class="math inline">\(+\)</span></td>
+</tr>
+<tr class="even">
+<td>Subtraction</td>
+<td style="text-align: center;"><span class="math inline">\(-\)</span></td>
+</tr>
+<tr class="odd">
+<td>Multiplication</td>
+<td style="text-align: center;"><span class="math inline">\(*\)</span></td>
+</tr>
+<tr class="even">
+<td>Division</td>
+<td style="text-align: center;"><span class="math inline">\(/\)</span></td>
+</tr>
+<tr class="odd">
+<td>Exponentiation</td>
+<td style="text-align: center;">^ or <span class="math inline">\(**\)</span></td>
+</tr>
+<tr class="even">
+<td>Integer division (returns result as integer discarding any remainder)</td>
+<td style="text-align: center;"><span class="math inline">\(\text{\%/\%}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Modulo (returns the remainder of division)</td>
+<td style="text-align: center;"><span class="math inline">\(\text{\%\%}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="g-col-2">
+
+</div>
+</div>
+<p><br></p>
+<ul>
+<li>Now, let’s try to calculate the expression in <a href="#tabset-M11" class="quarto-xref">Exercise M.1.1</a> using R to make sure that we get the same answer:</li>
+</ul>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span><span class="sc">+</span><span class="dv">4</span><span class="sc">/</span><span class="dv">2</span>)<span class="sc">^</span><span class="dv">3</span><span class="sc">-</span>(<span class="dv">4</span><span class="sc">*</span><span class="dv">9</span>)<span class="sc">^</span><span class="fl">0.5</span><span class="sc">*</span><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span>  <span class="co"># option 1: raising to the power 0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 115</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span><span class="sc">+</span><span class="dv">4</span><span class="sc">/</span><span class="dv">2</span>)<span class="sc">^</span><span class="dv">3</span><span class="sc">-</span><span class="fu">sqrt</span>(<span class="dv">4</span><span class="sc">*</span><span class="dv">9</span>)<span class="sc">*</span><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span>  <span class="co"># option 2: using sqrt() function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 115</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Example M.1.2 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Example M.1.3 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false"><span style="color: #ba181b">Exercise M.1.3 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">/</span><span class="dv">3</span>      <span class="co"># division</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.333333</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">%/%</span> <span class="dv">3</span>  <span class="co"># integer division      </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">%%</span> <span class="dv">3</span>   <span class="co"># modulo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">/</span><span class="dv">2</span><span class="sc">*</span><span class="dv">3</span>          </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<ul>
+<li><p>In this expression, division precedes multiplication.</p></li>
+<li><p>When different operators have the same precedence, they are evaluated according to the order they appear from left to right.</p></li>
+</ul>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Write an R code to calculate <a href="#tabset-M12" class="quarto-xref">Exercise M.1.2</a></p>
+<div class="cell" data-webex.hide="Click to show/hide answer">
+<div class="webex-solution">
+<button>
+Click to show/hide answer
+</button>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">^</span><span class="dv">2</span><span class="sc">+</span><span class="dv">5</span><span class="sc">^</span><span class="dv">2</span><span class="sc">+</span><span class="dv">7</span>)<span class="sc">/</span>(<span class="dv">4-1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
+<ul>
+<li><p>Bougioukas, K., I. Practical Statistics in Medical Research with R. Retrieved August 09, 2024, from <a href="https://practical-stats-med-r.netlify.app/" class="uri">https://practical-stats-med-r.netlify.app/</a></p></li>
+<li><p>Order of Operations. Statistics Online, Pennsylvania State University, Eberly College of Science. Retrieved August 09, 2024, from <a href="https://online.stat.psu.edu/statprogram/reviews/algebra/order-of-operations" class="uri">https://online.stat.psu.edu/statprogram/reviews/algebra/order-of-operations</a></p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">4</span> Add your comments</h2>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -402,6 +729,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -789,6 +1123,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://giscus.app/client.js" data-repo="amraamahmoud/AMRBiostats" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -824,5 +1162,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
