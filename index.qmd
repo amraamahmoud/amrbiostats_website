@@ -50,5 +50,5 @@ The material on this website is licensed under The Creative Commons Attribution 
 
 -  Amr Mahmoud (2024). AMRBiostats: amraamahmoud/amrbiostats_website. Zenodo. <https://doi.org/10.5281/zenodo.13737929>
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13737929.svg)](https://doi.org/10.5281/zenodo.13737929)
+[![](https://zenodo.org/badge/DOI/10.5281/zenodo.13737929.svg)](https://doi.org/10.5281/zenodo.13737929)
 
