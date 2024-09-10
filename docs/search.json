@@ -389,7 +389,7 @@
     "href": "posts/tut_maths/007_logs_and_exp.html#logarithmic-function",
     "title": "7 Exponential and Logarithmic Functions",
     "section": "2 Logarithmic function",
-    "text": "2 Logarithmic function\n\nThe logarithmic function has the form \\(y = f(x) = \\log_ax\\):\n\n\\(a\\) is a constant known as the base of logarithm, \\(a \\gt 0\\) and \\(a \\ne 1\\).\n\\(x \\gt 0\\) (i.e., the function is defined only if \\(x\\) is positive).\nIt is read as \\(\\log\\) to the base \\(a\\) of \\(x\\).\nIf the base \\(a=10\\), then it is known as the common logarithm (\\(\\log\\)), but if \\(a = e\\), then it is known as the natural logarithm (\\(\\ln\\)).\nR function for the common logarithm is log10() and for the natural logarithm is log().\nA graphical presentation of the logarithmic function \\(y =log_{10}\\ x\\) is depicted in Figure 2."
+    "text": "2 Logarithmic function\n\nThe logarithmic function has the form \\(y = f(x) = \\log_ax\\):\n\n\\(a\\) is a constant known as the base of logarithm, \\(a \\gt 0\\) and \\(a \\ne 1\\).\n\\(x \\gt 0\\) (i.e., the function is defined only if \\(x\\) is positive).\nIt is read as \\(\\log\\) to the base \\(a\\) of \\(x\\).\nIf the base \\(a=10\\), then it is known as the common logarithm (\\(\\log\\)), but if \\(a = e\\), then it is known as the natural logarithm (\\(\\ln\\)).\nR function for the common logarithm is log10() and for the natural logarithm is log().\nA graphical presentation of the logarithmic function \\(y =log_{10}\\ x\\) is depicted in Figure 2.\n\n\n\n\n\n\n\n\n\n\nFigure 2: Plot of logarithmic function with base 10"
   },
   {
     "objectID": "posts/tut_maths/007_logs_and_exp.html#relation-between-exponential-and-logarithmic-functions",
