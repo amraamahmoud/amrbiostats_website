@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-08-13">
+<meta name="description" content="Review common methods of factorization">
 
-<title>AMRBiostats - Accurate, Modern, and Reliable Biostatistics</title>
+<title>AMRBiostats - 3 Factorization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//images/favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,15 +70,44 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="include/webex.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../include/webex.css">
 <meta property="og:title" content="AMRBiostats">
-<meta property="og:description" content="A collection of resources for biostatistics and R programming.">
-<meta property="og:image" content="https://www.amrbiostats.com/images/opengraph.png">
+<meta property="og:description" content="Review common methods of factorization">
+<meta property="og:image" content="https://www.amrbiostats.com/images/factorization.png">
 <meta property="og:site_name" content="AMRBiostats">
-<meta property="og:image:height" content="630">
-<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="222">
+<meta property="og:image:width" content="800">
 </head>
 
 <body class="nav-fixed">
@@ -85,10 +117,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/favicon.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/favicon.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">AMRBiostats</span>
     </a>
   </div>
@@ -109,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./author.html"> 
+    <a class="nav-link" href="../../author.html"> 
 <span class="menu-text">About Author <iconify-icon role="img" inline="" icon="solar:user-id-linear" style="font-size: 20px;" aria-label="Icon user-id-linear from solar Iconify.design set." title="Icon user-id-linear from solar Iconify.design set."></iconify-icon></span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -118,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-tutorials--iconify-mdicast-tutorial-size18px-">    
         <li>
-    <a class="dropdown-item" href="./tut_maths.html">
+    <a class="dropdown-item" href="../../tut_maths.html">
  <span class="dropdown-text">Maths Refresher <iconify-icon role="img" inline="" icon="ion:refresh" style="font-size: 20px;" aria-label="Icon refresh from ion Iconify.design set." title="Icon refresh from ion Iconify.design set."></iconify-icon></span></a>
   </li>  
     </ul>
@@ -131,58 +163,267 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition"><span class="header-section-number">1</span> Definition</a></li>
+  <li><a href="#factorization-of-polynomials" id="toc-factorization-of-polynomials" class="nav-link" data-scroll-target="#factorization-of-polynomials"><span class="header-section-number">2</span> Factorization of polynomials</a>
+  <ul>
+  <li><a href="#polynomials" id="toc-polynomials" class="nav-link" data-scroll-target="#polynomials"><span class="header-section-number">2.1</span> Polynomials</a></li>
+  <li><a href="#methods-of-factoring-polynomials" id="toc-methods-of-factoring-polynomials" class="nav-link" data-scroll-target="#methods-of-factoring-polynomials"><span class="header-section-number">2.2</span> Methods of factoring polynomials</a>
+  <ul>
+  <li><a href="#greatest-common-factor" id="toc-greatest-common-factor" class="nav-link" data-scroll-target="#greatest-common-factor"><span class="header-section-number">2.2.1</span> Greatest common factor</a></li>
+  <li><a href="#the-difference-of-two-squares" id="toc-the-difference-of-two-squares" class="nav-link" data-scroll-target="#the-difference-of-two-squares"><span class="header-section-number">2.2.2</span> The difference of two squares</a></li>
+  <li><a href="#quadratic-expression" id="toc-quadratic-expression" class="nav-link" data-scroll-target="#quadratic-expression"><span class="header-section-number">2.2.3</span> Quadratic expression</a></li>
+  <li><a href="#cubic-factorization" id="toc-cubic-factorization" class="nav-link" data-scroll-target="#cubic-factorization"><span class="header-section-number">2.2.4</span> Cubic factorization</a>
+  <ul class="collapse">
+  <li><a href="#cubic-binomial" id="toc-cubic-binomial" class="nav-link" data-scroll-target="#cubic-binomial"><span class="header-section-number">2.2.4.1</span> Cubic binomial</a></li>
+  <li><a href="#long-or-synthetic-division-for-cubic-polynomial" id="toc-long-or-synthetic-division-for-cubic-polynomial" class="nav-link" data-scroll-target="#long-or-synthetic-division-for-cubic-polynomial"><span class="header-section-number">2.2.4.2</span> Long or Synthetic division for cubic polynomial</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
+  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">4</span> Add your comments</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles content column-page">
-  <div class="about-entity">
-    <img src="/images/logo_main.png" class="about-image
-  rectangle " style="width: 20em;">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Accurate, Modern, and Reliable Biostatistics</h1>
+<h1 class="title">3 Factorization</h1>
 </div>
-<div class="quarto-title-meta column-page">
+
+<div>
+  <div class="description">
+    Review common methods of factorization
   </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 13, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://github.com/amraamahmoud/AMRBiostats.git" class="about-link" rel="" target="_blank">
-     <span class="about-link-text"><img src="./images/github.svg" class="img-fluid"></span>
-  </a>
-  <a href="mailto:consultation@amrbiostats.com" class="about-link" rel="" target="">
-     <span class="about-link-text"><img src="./images/line-md--email-arrow-up-twotone.svg" class="img-fluid"></span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
-<section id="welcome-to-amrbiostats" class="level2 unnumbered" style="text-align: center">
-<h2 class="unnumbered" data-anchor-id="welcome-to-amrbiostats">Welcome to AMRBiostats</h2>
-</section>
-<p>This website aims to provide a valuable resource for students and researchers aiming to learn biostatistics and the R programming language. It was built entirely using <span style="color: #68a1d3"><iconify-icon role="img" inline="" icon="simple-icons:quarto" aria-label="Icon quarto from simple-icons Iconify.design set." title="Icon quarto from simple-icons Iconify.design set."></iconify-icon></span> <a href="https://quarto.org/">Quarto</a><sup>®</sup> and <a href="https://www.r-project.org">R</a>. Additionally, <a href="https://github.com/features/copilot">GitHub Copilot</a> was utilized to increase productivity via streamlining the typing process.</p>
-<section id="what-you-will-find-here" class="level2 unnumbered" style="text-align: center">
-<h2 class="unnumbered" data-anchor-id="what-you-will-find-here">What You Will Find Here</h2>
-</section>
-<ul>
-<li><p>Tutorials: Step-by-step guides on biostatistics and R programming.</p></li>
-<li><p>Code Examples: Ready-to-use R scripts for various statistical analyses.</p></li>
-<li><p>Articles: In-depth articles explaining complex biostatistics topics.</p></li>
-<li><p>Consultation and Coaching: You can request personalized guidance or courses tailored to your needs to address the challenges frequently encountered in biostatistics.</p></li>
-</ul>
-<section id="license" class="level2 unnumbered" style="text-align: center">
-<h2 class="unnumbered" data-anchor-id="license">License</h2>
-</section>
-<p>The material on this website is licensed under The Creative Commons Attribution 4.0 International. You are allowed to reuse and redistribute the material on the condition that the author is appropriately credited using the following attribution:</p>
-<ul>
-<li>Amr Mahmoud (2024). AMRBiostats: amraamahmoud/amrbiostats_website. Zenodo. <a href="https://doi.org/10.5281/zenodo.13737929" class="uri">https://doi.org/10.5281/zenodo.13737929</a></li>
-</ul>
-<p><a href="https://doi.org/10.5281/zenodo.13737929"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.13737929.svg" class="img-fluid"></a></p>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
+<p><br></p>
+<section id="definition" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="definition"><span class="header-section-number">1</span> Definition</h2>
+<ul>
+<li>Factorization is the breaking down of a complex mathematical expression into a product of simpler terms known as factors.</li>
+<li>The product of these factors, when multiplied, is equal to the original expression.</li>
+</ul>
+</section>
+<section id="factorization-of-polynomials" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="factorization-of-polynomials"><span class="header-section-number">2</span> Factorization of polynomials</h2>
+<section id="polynomials" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="polynomials"><span class="header-section-number">2.1</span> Polynomials</h3>
+<ul>
+<li>Polynomial expressions contain different terms and can take the form: <span class="math display">\[
+ax^n+bx^{n-1}+cx^{n-2}+...+k
+\]</span>
+<ul>
+<li><p><span class="math inline">\(a, b, c, ..., k\)</span> are constants and <span class="math inline">\(n\)</span> is a positive integer.</p></li>
+<li><p><span class="math inline">\(a, b, c, ...\)</span> are referred to as the coefficients, while <span class="math inline">\(k\)</span> is referred to as the constant term.</p></li>
+<li><p>The constant term (<span class="math inline">\(k\)</span>) can be considered as <span class="math inline">\(kx^0\)</span>.</p></li>
+<li><p>The highest power (<span class="math inline">\(n\)</span>) in the polynomial is known as the degree of the polynomial.</p></li>
+<li><p>Based on the degree, the polynomial can be classified as:</p>
+<ul>
+<li><p>Cubic polynomial, if the degree is three.</p></li>
+<li><p>Quadratic polynomial, if the degree is two.</p></li>
+<li><p>Linear polynomial, if the degree is one.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="methods-of-factoring-polynomials" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="methods-of-factoring-polynomials"><span class="header-section-number">2.2</span> Methods of factoring polynomials</h3>
+<section id="greatest-common-factor" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="greatest-common-factor"><span class="header-section-number">2.2.1</span> Greatest common factor</h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Example M.3.1 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Example M.3.2 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Factor&nbsp;<span class="math inline">\(x^2+3x\)</span></p>
+<p><span class="math display">\[
+x^2+3x=
+\]</span></p>
+<p><span class="math display">\[x(x+3)\]</span></p>
 </div>
- <!-- /main -->
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Factor&nbsp;<span class="math inline">\(4y^2+8y\)</span></p>
+<p><span class="math display">\[
+4y^2+8y=
+\]</span></p>
+<p><span class="math display">\[
+4y(y+2)
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The common factor <span class="math inline">\(4y\)</span> was chosen instead of <span class="math inline">\(2y\)</span> because it is the greatest common factor.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-difference-of-two-squares" class="level4" data-number="2.2.2">
+<h4 data-number="2.2.2" class="anchored" data-anchor-id="the-difference-of-two-squares"><span class="header-section-number">2.2.2</span> The difference of two squares</h4>
+<ul>
+<li>A binomial with the form <span class="math inline">\(x^2 - y^2\)</span> can be factored to <span class="math inline">\((x + y)(x - y)\)</span></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Example M.3.3 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Example M.3.4 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Factorize&nbsp;<span class="math inline">\(x^2-9\)</span></p>
+<p><span class="math display">\[
+x^2-9 =
+\]</span></p>
+<p><span class="math display">\[
+(x+3)(x-3)
+\]</span></p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Factor&nbsp;<span class="math inline">\(16y^2-49\)</span></p>
+<p><span class="math display">\[
+16y^2-49=
+\]</span></p>
+<p><span class="math display">\[
+(4y)^2-(7)^2=
+\]</span></p>
+<p><span class="math display">\[
+(4y+7)(4y-7)
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="quadratic-expression" class="level4" data-number="2.2.3">
+<h4 data-number="2.2.3" class="anchored" data-anchor-id="quadratic-expression"><span class="header-section-number">2.2.3</span> Quadratic expression</h4>
+<ul>
+<li><p>It is a polynomial of degree 2.</p></li>
+<li><p>Its form is <span class="math inline">\(ax^2+bx+c\)</span>, where <span class="math inline">\(a\neq 0\)</span>.</p></li>
+<li><p>It can be factored into two binomials.</p></li>
+<li><p><strong>If the coefficient</strong> <span class="math inline">\(a = 1\)</span>:</p>
+<ul>
+<li>Find two numbers that multiply to give the constant <span class="math inline">\((c)\)</span> and their sum gives the coefficient <span class="math inline">\((b)\)</span>.</li>
+</ul></li>
+<li><p><strong>If the coefficient</strong> <span class="math inline">\(a \ne 1\)</span>:</p>
+<ul>
+<li><p>Calculate <span class="math inline">\(a\times c\)</span>.</p></li>
+<li><p>Find two numbers (e.g., <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span>) that their product is equal to <span class="math inline">\((a\times c)\)</span> and their sum gives the coefficient <span class="math inline">\((b)\)</span>.</p></li>
+<li><p>Replace the term <span class="math inline">\(bx\)</span> with the terms <span class="math inline">\(b_1x\)</span> and <span class="math inline">\(b_2x\)</span>.</p></li>
+<li><p>Simplify by taking a common factor of every two terms.</p></li>
+<li><p>Simplify further by taking one parenthesis as a common factor.</p></li>
+</ul></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Example M.3.5 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Example M.3.6 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Factor&nbsp;<span class="math inline">\(x^2-3x-10\)</span></p>
+<ul>
+<li><p><span class="math inline">\(a=1,\ b=-3,\ c=-10\)</span></p></li>
+<li><p>The product of <span class="math inline">\(-5\)</span> and <span class="math inline">\(2\)</span> equals <span class="math inline">\(-10\ (\text {the constant}\ c)\)</span> and their sum equals <span class="math inline">\(-3\ (\text {the coefficient}\ b)\)</span>, so this expression can be factored to:</p></li>
+</ul>
+<p><span class="math display">\[
+(x-5)(x+2)
+\]</span></p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Factor <span class="math inline">\(2x^2-7x-15\)</span></p>
+<ul>
+<li><p><span class="math inline">\(a=2,\ b=-7,\ c=-15\)</span></p></li>
+<li><p><span class="math inline">\(a\times c=2\times -15=-30\)</span></p></li>
+<li><p>The product of <span class="math inline">\(-10\)</span> and <span class="math inline">\(3\)</span> is equal to <span class="math inline">\(-30\ (a\times c)\)</span> and their sum gives <span class="math inline">\(-7\ (\text {the coefficient}\ b)\)</span>, so <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span> are <span class="math inline">\(-10\)</span> and <span class="math inline">\(3\)</span>.</p></li>
+<li><p>The above expression becomes:</p></li>
+</ul>
+<p><span class="math display">\[
+2x^2-10x+3x-15 =
+\]</span></p>
+<p><span class="math display">\[
+(2x^2-10x)+(3x-15) =
+\]</span></p>
+<p><span class="math display">\[
+2x(x-5)+3(x-5) =
+\]</span></p>
+<ul>
+<li>Simplify further by taking <span class="math inline">\((x-5)\)</span> as a common factor, so the expression can be factored to:</li>
+</ul>
+<p><span class="math display">\[
+(2x+3)(x-5)
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="cubic-factorization" class="level4" data-number="2.2.4">
+<h4 data-number="2.2.4" class="anchored" data-anchor-id="cubic-factorization"><span class="header-section-number">2.2.4</span> Cubic factorization</h4>
+<section id="cubic-binomial" class="level5" data-number="2.2.4.1">
+<h5 data-number="2.2.4.1" class="anchored" data-anchor-id="cubic-binomial"><span class="header-section-number">2.2.4.1</span> Cubic binomial</h5>
+<ul>
+<li><p>Use sum or difference of cubes:</p>
+<ul>
+<li><p><span class="math inline">\(a^3 + b^3 = (a + b)(a^2 - ab + b^2)\)</span></p></li>
+<li><p><span class="math inline">\(a^3 - b^3 = (a - b)(a^2 + ab + b^2)\)</span></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="long-or-synthetic-division-for-cubic-polynomial" class="level5" data-number="2.2.4.2">
+<h5 data-number="2.2.4.2" class="anchored" data-anchor-id="long-or-synthetic-division-for-cubic-polynomial"><span class="header-section-number">2.2.4.2</span> Long or Synthetic division for cubic polynomial</h5>
+<ul>
+<li><p>If one root of the cubic polynomial (e.g., <span class="math inline">\(x = r\)</span>) is known, long or synthetic division can be used to divide the cubic polynomial by <span class="math inline">\(x - r\)</span>.</p></li>
+<li><p>The quotient will be a quadratic polynomial, which can then be factored further.</p></li>
+<li><p>These methods are not covered here, but for technical details refer to <a href="https://www.mathsisfun.com/algebra/polynomials-division-long.html">Math is Fun</a> for long division or <a href="https://byjus.com/maths/synthetic-division/">BYJU’S</a> for synthetic division.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+<section id="references" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
+<ul>
+<li><p>Basic Algebra. Help Engineers Learn Mathematics (HELM) workbooks. Loughborough University. Retrieved August 13, 2024, from <a href="https://www.lboro.ac.uk/media/media/schoolanddepartments/mlsc/downloads/Basic%20Algebra.pdf" class="uri">https://www.lboro.ac.uk/media/media/schoolanddepartments/mlsc/downloads/Basic%20Algebra.pdf</a></p></li>
+<li><p>Factorisation. Byju’s. Retrieved August 13, 2024, from <a href="https://byjus.com/maths/factorisation/" class="uri">https://byjus.com/maths/factorisation/</a></p></li>
+<li><p>Factoring. In Intermediate Algebra 1e (OpenStax). LibreTexts. Retrieved August 13, 2024, from <a href="https://math.libretexts.org/Bookshelves/Algebra/Intermediate_Algebra_1e_(OpenStax)/06%3A_Factoring" class="uri">https://math.libretexts.org/Bookshelves/Algebra/Intermediate_Algebra_1e_(OpenStax)/06%3A_Factoring</a></p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">4</span> Add your comments</h2>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -409,6 +650,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -796,6 +1044,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://giscus.app/client.js" data-repo="amraamahmoud/AMRBiostats" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -831,5 +1083,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
