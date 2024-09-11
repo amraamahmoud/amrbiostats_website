@@ -28,7 +28,7 @@ format:
 ## Welcome to AMRBiostats {.unnumbered}
 :::
 
-This website aims to provide a valuable resource for students and researchers aiming to learn biostatistics and the R programming language. It was built entirely using the [{{< iconify simple-icons:quarto >}}]{style="color: #68a1d3"} [Quarto](https://quarto.org/)^®^ and [R](https://www.r-project.org). Additionally, [GitHub Copilot](https://github.com/features/copilot) was utilized to increase productivity via streamlining the typing process.
+This website aims to provide a valuable resource for students and researchers aiming to learn biostatistics and the R programming language. It was built entirely using [{{< iconify simple-icons:quarto >}}]{style="color: #68a1d3"} [Quarto](https://quarto.org/)^®^ and [R](https://www.r-project.org). Additionally, [GitHub Copilot](https://github.com/features/copilot) was utilized to increase productivity via streamlining the typing process.
 
 ::: {style="text-align: center"}
 ## What You Will Find Here {.unnumbered}

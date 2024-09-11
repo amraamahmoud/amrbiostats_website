@@ -1,63 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.amrbiostats.com/author.html</loc>
-    <lastmod>2024-09-07T18:03:51.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/tut_maths.html</loc>
-    <lastmod>2024-09-08T08:29:43.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/tut_maths/005_summation.html</loc>
-    <lastmod>2024-09-09T14:51:55.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/tut_maths/006_product.html</loc>
-    <lastmod>2024-09-09T13:59:04.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/tut_maths/010_derivatives.html</loc>
-    <lastmod>2024-09-10T04:20:52.768Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/tut_maths/001_math_operations.html</loc>
-    <lastmod>2024-09-09T19:23:06.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/tut_maths/002_simplify_brackets.html</loc>
-    <lastmod>2024-09-09T13:47:05.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/tut_maths/003_factorization.html</loc>
-    <lastmod>2024-09-09T13:52:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/LICENSE.html</loc>
-    <lastmod>2024-09-09T18:46:37.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/tut_maths/011_integrals.html</loc>
-    <lastmod>2024-09-09T15:36:26.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/tut_maths/009_limits.html</loc>
-    <lastmod>2024-09-09T14:10:29.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/tut_maths/008_matrices.html</loc>
-    <lastmod>2024-09-09T14:06:41.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/tut_maths/007_logs_and_exp.html</loc>
-    <lastmod>2024-09-10T09:34:04.312Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/tut_maths/004_surd_indices.html</loc>
-    <lastmod>2024-09-09T13:54:54.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.amrbiostats.com/index.html</loc>
-    <lastmod>2024-09-09T19:36:45.000Z</lastmod>
+    <lastmod>2024-09-11T04:27:04.200Z</lastmod>
   </url>
 </urlset>

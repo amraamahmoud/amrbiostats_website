@@ -1,0 +1,29 @@
+---
+title: "Maths Refresher"
+listing: 
+  contents: "/posts/tut_maths/"
+  sort: "date"
+  categories: false
+  type: grid
+  grid-columns: 4
+  filter-ui: true
+  sort-ui: true
+  feed: true
+  image-height: 100%
+  fields: [image, title, reading-time, date, description]  
+format: 
+  html: 
+    page-layout: full
+    title-block-banner: false
+    comments: false
+---
+
+::: {style="margin-bottom: 30px; text-align: justify"}
+-   This section is intended to revise some of the basic mathematical concepts that are commonly encountered in biostatistics. However, it is not intended to be a comprehensive guide to mathematics, but rather a refresher for those who may have forgotten some of the basic concepts. The main topics covered here include basic algebra and calculus.
+
+-   The topic thumbnails below are clickable and will take you to the respective posts.
+
+-   The thumbnails include information about the publication date, so you can easily identify the most recent posts, and an approximate reading time for each post.
+:::
+
+------------------------------------------------------------------------

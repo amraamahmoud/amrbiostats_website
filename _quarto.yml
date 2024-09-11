@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
 website:
   comments:
     giscus:
