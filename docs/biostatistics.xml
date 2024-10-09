@@ -2241,10 +2241,10 @@ Note
 <h3 data-number="1.2" class="anchored" data-anchor-id="ordered-aray"><span class="header-section-number">1.2</span> Ordered aray</h3>
 <ul>
 <li><p>It is a set of data arranged in ascending or descending order.</p></li>
-<li><p>Example: Consider the following set of raw data (5, 3, 7, 2, 8, 4, 6, 1)</p>
+<li><p>For example, consider the following set of raw data (5, 3, 7, 2, 8, 4, 6, 1)</p>
 <ul>
-<li>The ordered array of the data is (1, 2, 3, 4, 5, 6, 7, 8)</li>
-</ul></li>
+<li><p>The ordered array of the data is (1, 2, 3, 4, 5, 6, 7, 8).</p></li>
+<li><p>This can be done using the <code>sort()</code> function in R as follows:</p></li>
 </ul>
 <div class="cell">
 <details class="code-fold">
@@ -2291,7 +2291,8 @@ font-style: inherit;"># display the ordered array</span></span>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5 6 7 8</code></pre>
 </div>
-</div>
+</div></li>
+</ul>
 </section>
 <section id="frequency-distribution" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="frequency-distribution"><span class="header-section-number">1.3</span> Frequency distribution</h3>
@@ -2305,10 +2306,10 @@ font-style: inherit;"># display the ordered array</span></span>
 <ul>
 <li><p>These variables can be summarized by counting the number of observations in each category (this count is known as the absolute frequency).</p></li>
 <li><p>The relative frequency of each category is the proportion of observations in that category relative to the total number of observations.</p></li>
-<li><p>Example: Consider the variable <code>vs</code> (engine type) in the <code>mtcars</code> dataset:</p>
+<li><p>For example, consider the variable <code>vs</code> (engine type) in the <code>mtcars</code> dataset:</p>
 <ul>
 <li><p>This variable contains two categories: <code>0</code> (V-shaped) and <code>1</code> (Straight).</p></li>
-<li><p>The frequency distribution of the variable <code>vs</code> can be calculated using base R functions or directly using custom functions from <code>vtable</code> and <code>gtsummary</code> packages:</p></li>
+<li><p>The frequency distribution and relative frequency of the variable <code>vs</code> can be calculated using base R functions or directly using custom functions from <code>vtable</code> and <code>gtsummary</code> packages:</p></li>
 </ul></li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -2596,23 +2597,23 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
 <span id="cb16-9">  )</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fprrgwqerw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fprrgwqerw table {
+<div id="ocqagofvor" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ocqagofvor table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fprrgwqerw thead, #fprrgwqerw tbody, #fprrgwqerw tfoot, #fprrgwqerw tr, #fprrgwqerw td, #fprrgwqerw th {
+#ocqagofvor thead, #ocqagofvor tbody, #ocqagofvor tfoot, #ocqagofvor tr, #ocqagofvor td, #ocqagofvor th {
   border-style: none;
 }
 
-#fprrgwqerw p {
+#ocqagofvor p {
   margin: 0;
   padding: 0;
 }
 
-#fprrgwqerw .gt_table {
+#ocqagofvor .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2638,12 +2639,12 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-left-color: #D3D3D3;
 }
 
-#fprrgwqerw .gt_caption {
+#ocqagofvor .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fprrgwqerw .gt_title {
+#ocqagofvor .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2655,7 +2656,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-width: 0;
 }
 
-#fprrgwqerw .gt_subtitle {
+#ocqagofvor .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2667,7 +2668,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-top-width: 0;
 }
 
-#fprrgwqerw .gt_heading {
+#ocqagofvor .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2679,13 +2680,13 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#fprrgwqerw .gt_bottom_border {
+#ocqagofvor .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fprrgwqerw .gt_col_headings {
+#ocqagofvor .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2700,7 +2701,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#fprrgwqerw .gt_col_heading {
+#ocqagofvor .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2720,7 +2721,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   overflow-x: hidden;
 }
 
-#fprrgwqerw .gt_column_spanner_outer {
+#ocqagofvor .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2732,15 +2733,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 4px;
 }
 
-#fprrgwqerw .gt_column_spanner_outer:first-child {
+#ocqagofvor .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fprrgwqerw .gt_column_spanner_outer:last-child {
+#ocqagofvor .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fprrgwqerw .gt_column_spanner {
+#ocqagofvor .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2752,11 +2753,11 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   width: 100%;
 }
 
-#fprrgwqerw .gt_spanner_row {
+#ocqagofvor .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fprrgwqerw .gt_group_heading {
+#ocqagofvor .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2782,7 +2783,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   text-align: left;
 }
 
-#fprrgwqerw .gt_empty_group_heading {
+#ocqagofvor .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2797,15 +2798,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   vertical-align: middle;
 }
 
-#fprrgwqerw .gt_from_md > :first-child {
+#ocqagofvor .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fprrgwqerw .gt_from_md > :last-child {
+#ocqagofvor .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fprrgwqerw .gt_row {
+#ocqagofvor .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2824,7 +2825,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   overflow-x: hidden;
 }
 
-#fprrgwqerw .gt_stub {
+#ocqagofvor .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2837,7 +2838,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#fprrgwqerw .gt_stub_row_group {
+#ocqagofvor .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2851,15 +2852,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   vertical-align: top;
 }
 
-#fprrgwqerw .gt_row_group_first td {
+#ocqagofvor .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fprrgwqerw .gt_row_group_first th {
+#ocqagofvor .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fprrgwqerw .gt_summary_row {
+#ocqagofvor .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2869,16 +2870,16 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#fprrgwqerw .gt_first_summary_row {
+#ocqagofvor .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fprrgwqerw .gt_first_summary_row.thick {
+#ocqagofvor .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fprrgwqerw .gt_last_summary_row {
+#ocqagofvor .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2888,7 +2889,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#fprrgwqerw .gt_grand_summary_row {
+#ocqagofvor .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2898,7 +2899,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#fprrgwqerw .gt_first_grand_summary_row {
+#ocqagofvor .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2908,7 +2909,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-top-color: #D3D3D3;
 }
 
-#fprrgwqerw .gt_last_grand_summary_row_top {
+#ocqagofvor .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2918,11 +2919,11 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#fprrgwqerw .gt_striped {
+#ocqagofvor .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fprrgwqerw .gt_table_body {
+#ocqagofvor .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2931,7 +2932,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#fprrgwqerw .gt_footnotes {
+#ocqagofvor .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2945,7 +2946,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#fprrgwqerw .gt_footnote {
+#ocqagofvor .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2954,7 +2955,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#fprrgwqerw .gt_sourcenotes {
+#ocqagofvor .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2968,7 +2969,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#fprrgwqerw .gt_sourcenote {
+#ocqagofvor .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2976,64 +2977,73 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#fprrgwqerw .gt_left {
+#ocqagofvor .gt_left {
   text-align: left;
 }
 
-#fprrgwqerw .gt_center {
+#ocqagofvor .gt_center {
   text-align: center;
 }
 
-#fprrgwqerw .gt_right {
+#ocqagofvor .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fprrgwqerw .gt_font_normal {
+#ocqagofvor .gt_font_normal {
   font-weight: normal;
 }
 
-#fprrgwqerw .gt_font_bold {
+#ocqagofvor .gt_font_bold {
   font-weight: bold;
 }
 
-#fprrgwqerw .gt_font_italic {
+#ocqagofvor .gt_font_italic {
   font-style: italic;
 }
 
-#fprrgwqerw .gt_super {
+#ocqagofvor .gt_super {
   font-size: 65%;
 }
 
-#fprrgwqerw .gt_footnote_marks {
+#ocqagofvor .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fprrgwqerw .gt_asterisk {
+#ocqagofvor .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fprrgwqerw .gt_indent_1 {
+#ocqagofvor .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fprrgwqerw .gt_indent_2 {
+#ocqagofvor .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fprrgwqerw .gt_indent_3 {
+#ocqagofvor .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fprrgwqerw .gt_indent_4 {
+#ocqagofvor .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fprrgwqerw .gt_indent_5 {
+#ocqagofvor .gt_indent_5 {
   text-indent: 25px;
+}
+
+#ocqagofvor .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ocqagofvor div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
@@ -3044,8 +3054,11 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
 </colgroup>
 <thead>
 <tr class="header gt_col_headings">
-<th id="<strong>Characteristic</strong>" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
-<th id="<strong>N = 32</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N = 32</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+<th id="<div data-qmd-base64=&quot;KipDaGFyYWN0ZXJpc3RpYyoq&quot;><div class='gt_from_md'><p><strong>Characteristic</strong></p>
+</div></div>" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><p><strong>Characteristic</strong></p></th>
+<th id="<div data-qmd-base64=&quot;KipOID0gMzIqKg==&quot;><div class='gt_from_md'><p><strong>N = 32</strong></p>
+</div></div><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;line-height: 0;&quot;><sup>1</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><p><strong>N = 32</strong></p>
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height: 0;"><sup>1</sup></span></th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
@@ -3064,7 +3077,8 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
 </tr>
 </tbody><tfoot class="gt_footnotes">
 <tr class="even">
-<td colspan="2" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%)</td>
+<td colspan="2" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height: 0;"><sup>1</sup></span>
+<p>n (%)</p></td>
 </tr>
 </tfoot>
 
@@ -3863,7 +3877,21 @@ font-style: inherit;">0.5</span>)</span>
 <li>The figures shows that the V-shaped engine is more common in cars with automatic transmission compared to manual transmission.</li>
 </ul></li>
 </ul>
-<p>::: {.callout-note style=“color: #0466c8;” - It is recommended to start the baseline of the y-axis at zero to avoid inaccurate interpretations. :::</p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>It is recommended to start the baseline of the y-axis at zero to avoid inaccurate interpretations.</li>
+</ul>
+</div>
+</div>
 </section>
 <section id="pie-chart" class="level4" data-number="2.1.2">
 <h4 data-number="2.1.2" class="anchored" data-anchor-id="pie-chart"><span class="header-section-number">2.1.2</span> Pie chart</h4>
@@ -4054,7 +4082,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span id="cb22-24">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">theme_few</span>() <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">theme_void</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
 <span id="cb22-25">  <span class="fu" style="color: #4758AB;
@@ -4149,20 +4177,20 @@ font-style: inherit;">0.5</span>)</span>
 <h2 data-number="2" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">2</span> Random variables</h2>
 <ul>
 <li><p>When the values of the variable are the result of chance factors (i.e., the values are subject to randomness or uncertainty), the variable is refered to as a random variable.</p></li>
-<li><p>Example: When a coin is flipped, the outcome (head or tail) is random and can not be predicted with certainty until experiment is performed (i.e., the coin is flipped).</p></li>
+<li><p>For example, when a coin is flipped, the outcome (head or tail) is random and can not be predicted with certainty until experiment is performed (i.e., the coin is flipped).</p></li>
 </ul>
 <section id="types-of-variables" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="types-of-variables"><span class="header-section-number">2.1</span> Types of variables</h3>
 <section id="independent-and-dependent-variables" class="level4" data-number="2.1.1">
 <h4 data-number="2.1.1" class="anchored" data-anchor-id="independent-and-dependent-variables"><span class="header-section-number">2.1.1</span> Independent and Dependent variables</h4>
 <ul>
-<li><p>Independent variable:</p>
+<li><p><strong>Independent variable</strong>:</p>
 <ul>
 <li><p>It is a variable that is manipulated or controlled by the researcher during an experiment.</p></li>
 <li><p>It has other names such as predictor, explanatory, or treatment variable.</p></li>
 <li><p>It may have different levels or categories.</p></li>
 </ul></li>
-<li><p>Dependent variable:</p>
+<li><p><strong>Dependent variable</strong>:</p>
 <ul>
 <li><p>It is a variable that is measured or observed during an experiment in response to changes in the independent variable(s).</p></li>
 <li><p>It has other names such as outcome or response variable.</p></li>
@@ -4180,12 +4208,12 @@ font-style: inherit;">0.5</span>)</span>
 <section id="qualitative-and-quantitative-variables" class="level4" data-number="2.1.2">
 <h4 data-number="2.1.2" class="anchored" data-anchor-id="qualitative-and-quantitative-variables"><span class="header-section-number">2.1.2</span> Qualitative and Quantitative variables</h4>
 <ul>
-<li><p>Qualitative (categorical) variables:</p>
+<li><p><strong>Qualitative (categorical) variables</strong>:</p>
 <ul>
 <li><p>They can not be measured in the usual sense but can be only classified into categories (i.e., they express a quality or attribute).</p></li>
 <li><p>Examples: hair color, socioeconomic status, etc.</p></li>
 </ul></li>
-<li><p>Quantitative (numerical) variables:</p>
+<li><p><strong>Quantitative (numerical) variables</strong>:</p>
 <ul>
 <li><p>They represent measurable quantities that can be expressed in terms of numbers.</p></li>
 <li><p>Examples: age, weight, blood pressure, etc.</p></li>
@@ -4215,7 +4243,7 @@ Note
 <section id="discrete-and-continuous-variables" class="level4" data-number="2.1.3">
 <h4 data-number="2.1.3" class="anchored" data-anchor-id="discrete-and-continuous-variables"><span class="header-section-number">2.1.3</span> Discrete and Continuous variables</h4>
 <ul>
-<li><p>Discrete variables:</p>
+<li><p><strong>Discrete variables</strong>:</p>
 <ul>
 <li><p>They can take only whole numbers (i.e., integers).</p></li>
 <li><p>They can be described as having no intermediate values between two adjacent values (i.e., they have gaps or interruptions in the values that they can assume).</p></li>
@@ -4223,10 +4251,10 @@ Note
 <li><p>Examples:</p>
 <ul>
 <li><p>Number of migraine attacks, number of children in a family, number of hospital admissions , etc.</p></li>
-<li><p>The above variables can take whole numbers such as 0, 1, 2, 3, etc., but they can not be fractional numbers such as 1.34, 2.76, etc.</p></li>
+<li><p>The above variables can take whole numbers such as 0, 1, 2, 3, …., but they can not be fractional numbers such as 1.34, 2.76, etc.</p></li>
 </ul></li>
 </ul></li>
-<li><p>Continuous variables:</p>
+<li><p><strong>Continuous variables</strong>:</p>
 <ul>
 <li><p>Unlike discrete variables, continuous variables can take any value within a given range.</p></li>
 <li><p>They do not have gaps or interruptions in the values that they can assume (i.e., between any two values, there are an infinite number of other values).</p></li>
@@ -4267,16 +4295,16 @@ Note
 <li><p>These properties include the order of the categories, the distance between the categories, and the presence of a true zero point.</p></li>
 <li><p>According to Stevens (1946), there are four scales of measurement:</p>
 <ol type="1">
-<li><p>Nominal scale:</p>
+<li><p><strong>Nominal scale</strong>:</p>
 <ul>
 <li><p>It involves naming or classifying observations into categories that are mutually exclusive (i.e., categories that do not overlap) and collectively exhaustive (i.e., every observation must fall into one of the categories).</p></li>
 <li><p>The categories have no inherent order or ranking.</p></li>
 <li><p>Examples of nominal scale variables:</p>
-<ul>
+<ol type="i">
 <li><p>Blood type (A, B, AB, and O).</p></li>
 <li><p>Hair color (black, brown, blonde, and red).</p></li>
 <li><p>Gender (male and female).</p></li>
-</ul>
+</ol>
 <div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -4293,19 +4321,19 @@ Note
 </div>
 </div></li>
 </ul></li>
-<li><p>Ordinal scale:</p>
+<li><p><strong>Ordinal scale</strong>:</p>
 <ul>
 <li><p>Like the nominal scale, the ordinal scale involves naming or classifying observations into categories that are mutually exclusive and collectively exhaustive.</p></li>
 <li><p>However, the categories have <em>a natural order or ranking</em>.</p></li>
 <li><p>The distance or the the difference between the categories is not necessarily equal (i.e., the difference between the categories is not meaningful in a numerical sense).</p></li>
 <li><p>Examples of ordinal scale variables:</p>
-<ul>
+<ol type="i">
 <li><p>Educational level (elementary, high school, college, and postgraduate).</p></li>
 <li><p>Socioeconomic status (low, middle, and high).</p></li>
 <li><p>Pain severity (mild, moderate, and severe).</p></li>
 <li><p>Cancer stage (stage I, stage II, stage III, and stage IV).</p></li>
 <li><p>Likert scale (strongly disagree, disagree, neutral, agree, and strongly agree).</p></li>
-</ul>
+</ol>
 <div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -4317,13 +4345,13 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Consider for example the variable <strong>pain severity</strong>, the difference between <strong>mild</strong> and <strong>moderate</strong> is not necessarily equal to the difference between <strong>moderate</strong> and <strong>severe</strong>.</li>
-<li>Even if we can code the categories as 1, 2, and 3, no mathematical operations can be performed on these numbers.</li>
+<li><p>Consider for example the variable <strong>pain severity</strong>, the difference between <strong>mild</strong> and <strong>moderate</strong> is not necessarily equal to the difference between <strong>moderate</strong> and <strong>severe</strong>.</p></li>
+<li><p>Even if we can code the categories as 1, 2, and 3, no mathematical operations can be performed on these numbers.</p></li>
 </ul>
 </div>
 </div></li>
 </ul></li>
-<li><p>Interval scale:</p>
+<li><p><strong>Interval scale</strong>:</p>
 <ul>
 <li><p>It is a quantitative scale.</p></li>
 <li><p>The measurements are ordered (ranked).</p></li>
@@ -4331,10 +4359,10 @@ Note
 <li><p>It does not have a true zero point (i.e., the value of zero does not indicate the absence of the quantity being measured). This zero point is arbitrary.</p></li>
 <li><p>The ratio of two measurements is not meaningful because of the absence of a true zero point.</p></li>
 <li><p>Examples of interval scale variables:</p>
-<ul>
+<ol type="i">
 <li><p>Temperature measured in Celsius or Fahrenheit.</p></li>
 <li><p>Intelligence Quotient (IQ) scores.</p></li>
-</ul>
+</ol>
 <div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -4346,26 +4374,26 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Consider the temperature measured in Celsius, the difference between 10°C and 15°C is equal to the difference between 20°C and 25°C.</li>
-<li>However, the ratio of 20°C to 10°C is not meaningful (i.e., we can not say that 20°C is twice as hot as 10°).</li>
-<li>The value of zero Celsius does not imply the absence of temperature (i.e., the absence of molecular kinetic energy).</li>
+<li><p>Consider the temperature measured in Celsius, the difference between 10°C and 15°C is equal to the difference between 20°C and 25°C.</p></li>
+<li><p>However, the ratio of 20°C to 10°C is not meaningful (i.e., we can not say that 20°C is twice as hot as 10°).</p></li>
+<li><p>The value of zero Celsius does not imply the absence of temperature (i.e., the absence of molecular kinetic energy).</p></li>
 </ul>
 </div>
 </div></li>
 </ul></li>
-<li><p>Ratio scale:</p>
+<li><p><strong>Ratio scale</strong>:</p>
 <ul>
 <li><p>It has the properties of the interval scale with the addition of:</p>
-<ul>
+<ol type="i">
 <li><p>A true zero point.</p></li>
 <li><p>The ratio of two measurements is meaningful.</p></li>
-</ul></li>
+</ol></li>
 <li><p>Examples of ratio scale variables:</p>
-<ul>
+<ol type="i">
 <li><p>Age.</p></li>
 <li><p>Weight.</p></li>
 <li><p>Temperature measured in Kelvin (this scale has a true zero point).</p></li>
-</ul></li>
+</ol></li>
 </ul></li>
 </ol></li>
 </ul>
@@ -4468,12 +4496,12 @@ Note
 <section id="main-areas-of-statistics" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="main-areas-of-statistics"><span class="header-section-number">3</span> Main areas of statistics</h2>
 <ul>
-<li><p>Descriptive statistics:</p>
+<li><p><strong>Descriptive statistics</strong>:</p>
 <ul>
 <li><p>It is used to summarize and describe data collected from a sample or population.</p></li>
 <li><p>It includes measures of central tendency (average), measures of dispersion (spread), and graphical representation of data.</p></li>
 </ul></li>
-<li><p>Inferential statistics:</p>
+<li><p><strong>Inferential statistics</strong>:</p>
 <ul>
 <li><p>It is used to draw conclusions (i.e., make inferences) about a population based on data collected from a sample withdrawn from that population.</p></li>
 <li><p>It includes hypothesis testing, confidence intervals, and other statistical methods.</p></li>
