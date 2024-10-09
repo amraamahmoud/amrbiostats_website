@@ -20,6 +20,7 @@ format:
     toc: false
     css: styles_about.css
     comments: false
+    sidebar: false
 ---
 
 ## About {.unnumbered}

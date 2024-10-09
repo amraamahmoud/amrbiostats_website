@@ -2,17 +2,19 @@ project:
   type: website
   output-dir: docs
 website:
+  page-navigation: true
   comments:
     giscus:
-      repo: amraamahmoud/AMRBiostats
+      repo: amraamahmoud/amrbiostats_website
   open-graph:
     title: AMRBiostats
-  title: AMRBiostats
+  title: "AMRBiostats"
   image: /images/opengraph.png
   site-url: https://www.amrbiostats.com
   description: A collection of resources for biostatistics and R programming.
   favicon: /images/favicon.png
   search:
+    location: navbar
     type: textbox
     collapse-after: 1
   reader-mode: false
@@ -22,20 +24,37 @@ website:
     logo: /images/favicon.png
     pinned: true
     left:
+    - text: About Author {{< iconify solar:user-id-linear size=20px >}}
+      href: author.qmd
     - text: GitHub {{< iconify octicon:mark-github-16 size=20px >}}
       href: https://github.com/amraamahmoud/amrbiostats_website.git
       target: _blank
     - text: Contact {{< iconify mdi:email-arrow-right size=23px >}}
       href: mailto:consultation@amrbiostats.com
     right:
-    - text: About Author {{< iconify solar:user-id-linear size=20px >}}
-      href: author.qmd
-    - text: Tutorials {{< iconify mdi:cast-tutorial size=18px >}}
-      menu:
-      - text: Maths Refresher {{< iconify ion:refresh size=20px >}}
-        href: tut_maths.qmd
+      - text: Maths Refresher {{< iconify hugeicons:calculate size=24px >}} 
+        href: maths_refresher.qmd
+      - text: Biostatistics {{< iconify uis:graph-bar size=20px >}}
+        href: biostatistics.qmd
     background: info
     foreground: light
+  sidebar:
+    - title: "Maths Refresher"
+      border: true
+      contents:
+        - section: maths_refresher.qmd
+          contents:
+            - auto: "posts/maths_refresher/*.qmd"
+    - title: "Biostatistics"
+      contents: 
+        - section: biostatistics.qmd
+          contents:
+            - section: "Introduction"
+              contents:
+                - auto: "posts/biostats/*intro.qmd"
+            - section: "Descriptive Statistics"
+              contents:
+                - auto: "posts/biostats/*desc_stats.qmd"
   page-footer:
     border: true
     left:
@@ -52,6 +71,8 @@ website:
 format:
   html:
     theme: cerulean
+    code-fold: true
+    code-summary: "Click to show code"
     css:
     - styles.css
     - include/webex.css

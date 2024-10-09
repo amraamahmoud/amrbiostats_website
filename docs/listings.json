@@ -1,18 +1,27 @@
 [
   {
-    "listing": "/tut_maths.html",
+    "listing": "/maths_refresher.html",
     "items": [
-      "/posts/tut_maths/001_math_operations.html",
-      "/posts/tut_maths/002_simplify_brackets.html",
-      "/posts/tut_maths/003_factorization.html",
-      "/posts/tut_maths/004_surd_indices.html",
-      "/posts/tut_maths/005_summation.html",
-      "/posts/tut_maths/006_product.html",
-      "/posts/tut_maths/007_logs_and_exp.html",
-      "/posts/tut_maths/008_matrices.html",
-      "/posts/tut_maths/009_limits.html",
-      "/posts/tut_maths/010_derivatives.html",
-      "/posts/tut_maths/011_integrals.html"
+      "/posts/maths_refresher/001_math_operations.html",
+      "/posts/maths_refresher/002_simplify_brackets.html",
+      "/posts/maths_refresher/003_factorization.html",
+      "/posts/maths_refresher/004_surd_indices.html",
+      "/posts/maths_refresher/005_summation.html",
+      "/posts/maths_refresher/006_product.html",
+      "/posts/maths_refresher/007_logs_and_exp.html",
+      "/posts/maths_refresher/008_matrices.html",
+      "/posts/maths_refresher/009_limits.html",
+      "/posts/maths_refresher/010_derivatives.html",
+      "/posts/maths_refresher/011_integrals.html"
+    ]
+  },
+  {
+    "listing": "/biostatistics.html",
+    "items": [
+      "/posts/biostats/A001_intro.html",
+      "/posts/biostats/A002_intro.html",
+      "/posts/biostats/B001_desc_stats.html",
+      "/posts/biostats/B002_desc_stats.html"
     ]
   }
 ]

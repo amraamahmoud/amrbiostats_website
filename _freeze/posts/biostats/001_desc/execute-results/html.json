@@ -1,0 +1,17 @@
+{
+  "hash": "64c46e538a2e5e97223d85d35bc4169c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Measures of central TEndsf\"\ndescription: \"Review basic laws of differentiation\"\nimage: \"/images/derivative.png\"\ndate: \"2024-09-03\"\nformat: \n  html: \n    fig-align: center\n    page-layout: article\n    code-fold: show\n    toc: true\n    toc-depth: 5\n    toc-expand: true\n    lightbox: false\ncrossref: \n  custom: \n    - kind: float\n      reference-prefix: \"Example M.10.\"\n      key: tabset\n      space-before-numbering: false\n---\n\n::: {.cell}\n\n:::\n\n\nTesting the new headline",
+    "supporting": [
+      "001_desc_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

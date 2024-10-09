@@ -1,0 +1,42 @@
+---
+title: "Biostatistics"
+listing: 
+  - id: introduction
+    contents: "/posts/biostats/*intro.qmd"
+    type: grid
+    sort: "date"
+    categories: false
+    grid-columns: 4
+    filter-ui: true
+    sort-ui: true
+    feed: true
+    image-height: 70%
+    fields: [title, reading-time, date, image]  
+  - id: desc_stats
+    contents: "/posts/biostats/*desc_stats.qmd"
+    type: grid
+    sort: "date"
+    categories: false
+    grid-columns: 3
+    filter-ui: true
+    sort-ui: true
+    feed: true
+    image-height: 70%
+    fields: [title, description, reading-time, date, image]  
+format: 
+  html: 
+    page-layout: full
+    title-block-banner: false
+    comments: false
+    toc: false
+---
+
+## Introduction
+
+::: {#introduction}
+:::
+
+## Descriptive Statistics
+
+::: {#desc_stats}
+:::

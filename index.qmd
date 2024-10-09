@@ -22,6 +22,7 @@ format:
     toc: false
     title: "Accurate, Modern, and Reliable Biostatistics"
     comments: false
+    sidebar: false
 ---
 
 ::: {style="text-align: center"}

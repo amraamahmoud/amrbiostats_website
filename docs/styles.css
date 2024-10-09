@@ -277,7 +277,7 @@ footer.footer div.nav-footer p:first-child {
 }
 
 .nav-footer .footer-items .nav-link:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 
@@ -294,7 +294,7 @@ footer.footer div.nav-footer p:first-child {
 
 .quarto-grid-item.card-left {
     border: 1.5px solid #004e92;
-    background: linear-gradient(to left, #0466c8, #004e92);
+    background: linear-gradient(to bottom, #0466c8, #004e92);
     border-radius: 5px;
     color: white;
     transition: all 0.5s ease-in-out;
@@ -396,7 +396,9 @@ input.webex-solveme.webex-correct,
     color: #0466c8 !important;
 }
 
-
+.sidebar-navigation a:hover {
+  transform: scale(1.05);
+}
 
 
 .text-muted {
@@ -434,7 +436,14 @@ pre > code {
 }
 
 
-
+div.sidebar-item-container .active, div.sidebar-item-container .show > .nav-link, div.sidebar-item-container .sidebar-link > code {
+    color: white;
+    background: linear-gradient(to left, #0466c8, #004e92);
+    border-radius: 3px;
+    padding-left: 3px;
+    height: 22px;
+    padding-top: 3px;
+}
 
 
 
@@ -507,6 +516,15 @@ img {
 }
 
 
+/*Adjust card sizes*/
+
+.quarto-grid-item div.post-contents {
+    padding-top: 5px;
+}
+
+.quarto-grid-item .card-attribution.end {
+    padding-top: 3px;
+}
 
 
 
