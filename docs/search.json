@@ -536,7 +536,7 @@
     "href": "biostatistics.html#descriptive-statistics",
     "title": "Biostatistics",
     "section": "2 Descriptive Statistics",
-    "text": "2 Descriptive Statistics\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nFrequency distribution\n\n\n11 min\n\n\nPart 1 – Qualitative variables\n\n\n\nSep 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrequency distribution 2\n\n\n38 min\n\n\nQuantitative variables\n\n\n\nOct 5, 2024\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "2 Descriptive Statistics\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nFrequency distribution 1\n\n\n11 min\n\n\nQualitative variables\n\n\n\nSep 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrequency distribution 2\n\n\n38 min\n\n\nQuantitative variables\n\n\n\nOct 5, 2024\n\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Biostatistics {{< iconify uis:graph-bar size=20px >}}",
       "Biostatistics"
@@ -1002,66 +1002,66 @@
   {
     "objectID": "posts/biostats/B001_desc_stats.html",
     "href": "posts/biostats/B001_desc_stats.html",
-    "title": "Frequency distribution",
+    "title": "Frequency distribution 1",
     "section": "",
     "text": "It is defined as the original set of measurements or observations collected from a study or an experiment without being organized, summarized, or manipulated.\n\n\n\n\n\nIt is a set of data arranged in ascending or descending order.\nFor example, consider the following set of raw data (5, 3, 7, 2, 8, 4, 6, 1)\n\nThe ordered array of the data is (1, 2, 3, 4, 5, 6, 7, 8).\nThis can be done using the sort() function in R as follows:\n\n\n\nClick to show code\n# create a vector of raw data\nraw_data &lt;- c(5, 3, 7, 2, 8, 4, 6, 1)\n\n# sort the raw data in ascending order\nordered_array &lt;- sort(raw_data)\n\n# display the ordered array\nordered_array\n\n\n[1] 1 2 3 4 5 6 7 8\n\n\n\n\n\n\n\nIt is used to summarize raw data by grouping the data into classes and counting the number of observations in each class.",
     "crumbs": [
       "Biostatistics {{< iconify uis:graph-bar size=20px >}}",
       "Biostatistics",
       "Descriptive Statistics",
-      "Frequency distribution"
+      "Frequency distribution 1"
     ]
   },
   {
     "objectID": "posts/biostats/B001_desc_stats.html#definitions",
     "href": "posts/biostats/B001_desc_stats.html#definitions",
-    "title": "Frequency distribution",
+    "title": "Frequency distribution 1",
     "section": "",
     "text": "It is defined as the original set of measurements or observations collected from a study or an experiment without being organized, summarized, or manipulated.\n\n\n\n\n\nIt is a set of data arranged in ascending or descending order.\nFor example, consider the following set of raw data (5, 3, 7, 2, 8, 4, 6, 1)\n\nThe ordered array of the data is (1, 2, 3, 4, 5, 6, 7, 8).\nThis can be done using the sort() function in R as follows:\n\n\n\nClick to show code\n# create a vector of raw data\nraw_data &lt;- c(5, 3, 7, 2, 8, 4, 6, 1)\n\n# sort the raw data in ascending order\nordered_array &lt;- sort(raw_data)\n\n# display the ordered array\nordered_array\n\n\n[1] 1 2 3 4 5 6 7 8\n\n\n\n\n\n\n\nIt is used to summarize raw data by grouping the data into classes and counting the number of observations in each class.",
     "crumbs": [
       "Biostatistics {{< iconify uis:graph-bar size=20px >}}",
       "Biostatistics",
       "Descriptive Statistics",
-      "Frequency distribution"
+      "Frequency distribution 1"
     ]
   },
   {
     "objectID": "posts/biostats/B001_desc_stats.html#frequency-distribution-of-categorical-variables",
     "href": "posts/biostats/B001_desc_stats.html#frequency-distribution-of-categorical-variables",
-    "title": "Frequency distribution",
+    "title": "Frequency distribution 1",
     "section": "2 Frequency distribution of categorical variables",
     "text": "2 Frequency distribution of categorical variables\n\nThese variables can be summarized by counting the number of observations in each category (this count is known as the absolute frequency).\nThe relative frequency of each category is the proportion of observations in that category relative to the total number of observations.\nFor example, consider the variable vs (engine type) in the mtcars dataset:\n\nThis variable contains two categories: 0 (V-shaped) and 1 (Straight).\nThe frequency distribution and relative frequency of the variable vs can be calculated using base R functions or directly using custom functions from vtable and gtsummary packages:\n\n\n\nBase RUsing sumtable()Using tbl_summary()\n\n\n\n\nClick to show code\n# load the mtcars dataset\ndata(mtcars)\n\n# display the values of the vs variable\nmtcars$vs\n\n\n [1] 0 0 1 1 0 1 0 1 1 1 1 0 0 0 0 0 0 1 1 1 1 0 0 0 0 1 0 1 0 0 0 1\n\n\nClick to show code\n# check the type of the vs variable\nclass(mtcars$vs)\n\n\n[1] \"numeric\"\n\n\nClick to show code\n# convert the variable to a factor\nmtcars$vs &lt;-\n  factor(\n    mtcars$vs,\n    levels = c(0, 1),\n    labels = c(\"V-shaped\",\n               \"Straight\"\n             )\n  )\nlevels(mtcars$vs)\n\n\n[1] \"V-shaped\" \"Straight\"\n\n\nClick to show code\n# create a frequency distribution table for the vs variable\nfreq_tbl &lt;- table(mtcars$vs)\nfreq_tbl\n\n\n\nV-shaped Straight \n      18       14 \n\n\nClick to show code\n# calculate the relative frequency\nrel_freq &lt;- prop.table(freq_tbl)\nrel_freq\n\n\n\nV-shaped Straight \n  0.5625   0.4375 \n\n\nClick to show code\n# display as percentage\nrbind(\n  names(rel_freq),\n  paste0(\n    round(\n      (rel_freq * 100), \n      digits = 1\n    ), \n    \"%\"\n  )\n)\n\n\n     [,1]       [,2]      \n[1,] \"V-shaped\" \"Straight\"\n[2,] \"56.2%\"    \"43.8%\"   \n\n\n\n\n\n\nClick to show code\nlibrary(vtable)\nlibrary(dplyr)\n\nmtcars %&gt;%\n  select(vs) %&gt;%  # select the vs variable\n  sumtable(\n    labels = 'Engine Type', # change the label of the vs variable\n    digits = 3, # set the number of digits \n  )\n\n\n\nSummary Statistics\n\n\nVariable\nN\nPercent\n\n\n\n\nEngine Type\n32\n\n\n\n... V-shaped\n18\n56.2%\n\n\n... Straight\n14\n43.8%\n\n\n\n\n\n\n\n\n\n\n\nClick to show code\nlibrary(gtsummary)\nlibrary(dplyr)\n\nmtcars %&gt;%\n  select(vs) %&gt;%  # select the vs variable\n  tbl_summary(\n    label = list(vs = \"Engine Type\"),  # change the label of the vs variable\n    digits = vs ~ c(0, 1)  # set the number of digits, 0 for frequency and 1 for relative frequency\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nN = 32\n1\n\n\n\n\nEngine Type\n\n\n\n\n    V-shaped\n18 (56.3%)\n\n\n    Straight\n14 (43.8%)\n\n\n\n1\nn (%)\n\n\n\n\n\n\n\n\n\n\n\n\n2.1 Graphical representation\n\n2.1.1 Bar chart\n\nThis type of charts is used to represent the frequency distribution of categorical variables.\nIt consists of a rectangular bar (column) for each category, where the height of the bar represents the absolute frequency or relative frequency of that category.\nThe bars can be arranged horizontally or vertically.\nFor ordinal scale variables, it is better to arrange the bars on the \\(x\\)-axis based on the order of the categories.\nThe frequency distribution of the vs variable can be represented using a bar chart as follows:\n\n\nBase RUsing ggplot2Horizontal bar chart\n\n\n\n\nClick to show code\n# create a bar chart for the vs variable\nbarplot(\n  freq_tbl,\n  main = \"Frequency distribution of the Engine Type\",\n  xlab = \"Engine Type\",\n  ylab = \"Frequency\",\n  col = c(\"skyblue\", \"lightgreen\"),\n  border = \"black\",\n  names.arg = c(\"V-shaped\", \"Straight\"),\n  ylim = c(0, 20),\n  width = c(0.2,0.2), \n  xlim = c(0,1), \n  space = 1\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\nClick to show code\nlibrary(ggplot2)\nlibrary(ggthemes)\nlibrary(patchwork)\n\n# create a data frame from the frequency table\nfreq_tbl_df &lt;-\n  data.frame(\n    engine_type =\n      factor(\n        names(freq_tbl), \n        levels = names(freq_tbl)\n      ),\n    freq = as.numeric(freq_tbl)\n  )\n\n# create a new column for the relative frequency\ntotal_freq &lt;- sum(freq_tbl)\n\nfreq_tbl_df &lt;-\n  freq_tbl_df %&gt;%\n  mutate(\n    rel_freq =\n      round(\n        (freq / total_freq) * 100,\n        digits = 1\n      )\n  )\n\n# create a bar chart with frequency on y-axis\nfig1 &lt;- \n  ggplot(\n  freq_tbl_df,\n  aes(\n    x = engine_type,\n    y = freq,\n    fill = engine_type\n  )\n) +\n  geom_col(width = 0.5) + # you can also use geom_bar(stat = \"identity\")\n  labs(\n    title = \"Frequency distribution \\n of the Engine Type\",\n    x = \"Engine Type\",\n    y = \"Frequency\"\n  ) +\n  scale_fill_manual(\n    values = c(\"skyblue\", \"lightgreen\")\n  ) +\n  scale_y_continuous(\n    limits = c(0,20),\n    expand = c(0, 0),\n  ) +\n  theme_few() +\n  theme(\n    axis.text.x = element_blank(), \n    legend.position = \"none\",\n    plot.title = element_text(hjust = 0.5)\n  )\n\n# create a bar chart with relative frequency on y-axis\nfig2 &lt;- \n  ggplot(\n  freq_tbl_df,\n  aes(\n    x = engine_type,\n    y = rel_freq,\n    fill = engine_type\n  )\n) +\n  geom_col(width = 0.5) + \n  labs(\n    title = \"Relative Frequency \\n distribution of the Engine Type\",\n    x = \"Engine Type\",\n    y = \"Relative Frequency (%)\", \n    fill = \"Engine Type\"\n  ) +\n  scale_fill_manual(\n    values = c(\"skyblue\", \"lightgreen\")\n  ) +\n  scale_y_continuous(\n    limits = c(0,60),\n    expand = c(0, 0),\n  ) +\n  theme_few() +\n  theme(\n    axis.text.x = element_blank(),\n    plot.title = element_text(hjust = 0.5)\n  )\n\nfig1 + plot_spacer() + fig2 + plot_layout(widths = c(1, 0.05, 1))\n\n\n\n\n\n\n\n\n\n\n\n\n\nClick to show code\n# Use the same code as described in the previous tab but just add coord_flip() to the ggplot object\n\n\nggplot(\n  freq_tbl_df,\n  aes(\n    x = engine_type,\n    y = rel_freq,\n    fill = engine_type\n  )\n) +\n  geom_col(width = 0.5) + \n  labs(\n    title = \"Relative Frequency distribution of the Engine Type\",\n    x = \"Engine Type\",\n    y = \"Relative Frequency (%)\", \n    fill = \"Engine Type\"\n  ) +\n  scale_fill_manual(\n    values = c(\"skyblue\", \"lightgreen\")\n  ) +\n  scale_y_continuous(\n    limits = c(0,60),\n    expand = c(0, 0),\n  ) +\n  coord_flip() +\n  theme_few() +\n  theme(\n    axis.text.y = element_blank(), \n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\nBar charts can be also used to compare the frequency distribution of a categorical variable across different groups.\nFor example, the following bar chart shows the differences in the frequency distribution of the vs variable across the am variable (transmission type; 0: automatic and 1: manual) in the mtcars dataset:\n\n\nClick to show code\nlibrary(ggplot2)\nlibrary(ggthemes)\n\nggplot(\n  mtcars,\n  aes(\nx = factor(am),\nfill = factor(vs),\n  )\n) +\n  geom_bar(\nposition = position_dodge(width = 0.55), # add small gap between bars \nwidth = 0.5\n  ) +\n  labs(\ntitle = \"Frequency distribution of Engine Type by Transmission Type\",\nx = \"Transmission Type\",\ny = \"Frequency\",\nfill = \"Engine Type\", \n  ) +\n  scale_fill_manual(\nvalues = c(\"skyblue\", \"lightgreen\")\n  ) +\n  scale_x_discrete(\nlabels = c(\"Automatic\", \"Manual\")  # change the labels of the x-axis\n  ) +\n  scale_y_continuous(\nexpand = c(0, 0), \nlimits = c(0, 15)\n  ) +\n  theme_few() +\n  theme(\nlegend.position = \"top\",\nplot.title = element_text(hjust = 0.5)\n  )\n\n\n\n\n\n\n\n\n\n\nThe figures shows that the V-shaped engine is more common in cars with automatic transmission compared to manual transmission.\n\n\n\n\n\n\n\n\nNote\n\n\n\n\nIt is recommended to start the baseline of the y-axis at zero to avoid inaccurate interpretations.\n\n\n\n\n\n2.1.2 Pie chart\n\nIt is also used to represent the frequency distribution of categorical variables.\nIt consists of a circle divided into parts, where each part represents a category.\nThe size of each part is equal to the angle, which is calculated by multiplying the relative frequency of the category by \\(360 ^\\circ\\) (the total angle of a circle).\nFor instance, the relative frequency of the V-shaped engine in the above example is \\(\\displaystyle \\frac{18}{32} = 0.5625\\), this corresponds to an angle of \\(\\displaystyle 0.5625 \\times 360 = 202.5^\\circ\\) degrees.\nThe pie chart is suitable for variables with a small number of categories; it becomes cluttered and hard to read when the number of categories is large.\nIf the number of observations is small, it is recommended to display the absolute frequency on the chart rather than the percentage, which can be misleading.\n\n\nBase RUsing ggplot2\n\n\n\n\nClick to show code\n# extract the relative frequencies from the data frame created above\npercentages &lt;- freq_tbl_df$rel_freq\n\n# create labels with the percentages\nlabels &lt;- \n    paste0(c(\"V-shaped\", \"Straight\"), \n           \"\\n\", \n           percentages, \n           \"%\"\n   )\n\n# create a pie chart \npie(\n  freq_tbl,\n  main = \"Pie chart of the Engine Type\",\n  col = c(\"skyblue\", \"lightgreen\"),\n  labels = labels,  # Use the percentage labels\n  clockwise = TRUE\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\nClick to show code\nlibrary(ggplot2)\nlibrary(ggthemes)\n\nggplot(\n  freq_tbl_df,\n  aes(\n    x = \"\",\n    y = rel_freq,\n    fill = engine_type\n  )\n) +\n  geom_bar(\n    stat = \"identity\",\n    width = 1\n  ) +\n  coord_polar(\"y\", start = 0) +\n  labs(\n    title = \"Pie chart of the Engine Type\",\n    fill = \"Engine Type\"\n  ) +\n  scale_fill_manual(\n    values = c(\"skyblue\", \"lightgreen\")\n  ) +\n  theme_void() +\n  theme(\n    legend.position = \"none\", \n    plot.title = element_text(hjust = 0.5)\n  ) +\n  geom_text(\n    aes(label = labels),\n    position = position_stack(vjust = 0.5)\n  )",
     "crumbs": [
       "Biostatistics {{< iconify uis:graph-bar size=20px >}}",
       "Biostatistics",
       "Descriptive Statistics",
-      "Frequency distribution"
+      "Frequency distribution 1"
     ]
   },
   {
     "objectID": "posts/biostats/B001_desc_stats.html#references",
     "href": "posts/biostats/B001_desc_stats.html#references",
-    "title": "Frequency distribution",
+    "title": "Frequency distribution 1",
     "section": "3 References",
     "text": "3 References\n\nDaniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley\nHeumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer\nLane, D. M. et al., (2019). Introduction to Statistics. Online Edition. Retrieved September 14, 2024, from https://openstax.org/details/introduction-statistics",
     "crumbs": [
       "Biostatistics {{< iconify uis:graph-bar size=20px >}}",
       "Biostatistics",
       "Descriptive Statistics",
-      "Frequency distribution"
+      "Frequency distribution 1"
     ]
   },
   {
     "objectID": "posts/biostats/B001_desc_stats.html#add-your-comments",
     "href": "posts/biostats/B001_desc_stats.html#add-your-comments",
-    "title": "Frequency distribution",
+    "title": "Frequency distribution 1",
     "section": "4 Add your comments",
     "text": "4 Add your comments",
     "crumbs": [
       "Biostatistics {{< iconify uis:graph-bar size=20px >}}",
       "Biostatistics",
       "Descriptive Statistics",
-      "Frequency distribution"
+      "Frequency distribution 1"
     ]
   },
   {

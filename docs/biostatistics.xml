@@ -2222,7 +2222,7 @@ Note
   <media:content url="https://www.amrbiostats.com/images/biostats.png" medium="image" type="image/png" height="43" width="144"/>
 </item>
 <item>
-  <title>Frequency distribution</title>
+  <title>Frequency distribution 1</title>
   <link>https://www.amrbiostats.com/posts/biostats/B001_desc_stats.html</link>
   <description><![CDATA[ 
 
@@ -2597,23 +2597,23 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
 <span id="cb16-9">  )</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="ocqagofvor" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ocqagofvor table {
+<div id="mxobhoooae" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mxobhoooae table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ocqagofvor thead, #ocqagofvor tbody, #ocqagofvor tfoot, #ocqagofvor tr, #ocqagofvor td, #ocqagofvor th {
+#mxobhoooae thead, #mxobhoooae tbody, #mxobhoooae tfoot, #mxobhoooae tr, #mxobhoooae td, #mxobhoooae th {
   border-style: none;
 }
 
-#ocqagofvor p {
+#mxobhoooae p {
   margin: 0;
   padding: 0;
 }
 
-#ocqagofvor .gt_table {
+#mxobhoooae .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2639,12 +2639,12 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-left-color: #D3D3D3;
 }
 
-#ocqagofvor .gt_caption {
+#mxobhoooae .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ocqagofvor .gt_title {
+#mxobhoooae .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2656,7 +2656,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-width: 0;
 }
 
-#ocqagofvor .gt_subtitle {
+#mxobhoooae .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2668,7 +2668,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-top-width: 0;
 }
 
-#ocqagofvor .gt_heading {
+#mxobhoooae .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2680,13 +2680,13 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#ocqagofvor .gt_bottom_border {
+#mxobhoooae .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ocqagofvor .gt_col_headings {
+#mxobhoooae .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2701,7 +2701,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#ocqagofvor .gt_col_heading {
+#mxobhoooae .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2721,7 +2721,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   overflow-x: hidden;
 }
 
-#ocqagofvor .gt_column_spanner_outer {
+#mxobhoooae .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2733,15 +2733,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 4px;
 }
 
-#ocqagofvor .gt_column_spanner_outer:first-child {
+#mxobhoooae .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ocqagofvor .gt_column_spanner_outer:last-child {
+#mxobhoooae .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ocqagofvor .gt_column_spanner {
+#mxobhoooae .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2753,11 +2753,11 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   width: 100%;
 }
 
-#ocqagofvor .gt_spanner_row {
+#mxobhoooae .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ocqagofvor .gt_group_heading {
+#mxobhoooae .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2783,7 +2783,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   text-align: left;
 }
 
-#ocqagofvor .gt_empty_group_heading {
+#mxobhoooae .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2798,15 +2798,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   vertical-align: middle;
 }
 
-#ocqagofvor .gt_from_md > :first-child {
+#mxobhoooae .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ocqagofvor .gt_from_md > :last-child {
+#mxobhoooae .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ocqagofvor .gt_row {
+#mxobhoooae .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2825,7 +2825,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   overflow-x: hidden;
 }
 
-#ocqagofvor .gt_stub {
+#mxobhoooae .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2838,7 +2838,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#ocqagofvor .gt_stub_row_group {
+#mxobhoooae .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2852,15 +2852,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   vertical-align: top;
 }
 
-#ocqagofvor .gt_row_group_first td {
+#mxobhoooae .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ocqagofvor .gt_row_group_first th {
+#mxobhoooae .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ocqagofvor .gt_summary_row {
+#mxobhoooae .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2870,16 +2870,16 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#ocqagofvor .gt_first_summary_row {
+#mxobhoooae .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ocqagofvor .gt_first_summary_row.thick {
+#mxobhoooae .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ocqagofvor .gt_last_summary_row {
+#mxobhoooae .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2889,7 +2889,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#ocqagofvor .gt_grand_summary_row {
+#mxobhoooae .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2899,7 +2899,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#ocqagofvor .gt_first_grand_summary_row {
+#mxobhoooae .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2909,7 +2909,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-top-color: #D3D3D3;
 }
 
-#ocqagofvor .gt_last_grand_summary_row_top {
+#mxobhoooae .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2919,11 +2919,11 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#ocqagofvor .gt_striped {
+#mxobhoooae .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ocqagofvor .gt_table_body {
+#mxobhoooae .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2932,7 +2932,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#ocqagofvor .gt_footnotes {
+#mxobhoooae .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2946,7 +2946,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#ocqagofvor .gt_footnote {
+#mxobhoooae .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2955,7 +2955,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#ocqagofvor .gt_sourcenotes {
+#mxobhoooae .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2969,7 +2969,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#ocqagofvor .gt_sourcenote {
+#mxobhoooae .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2977,72 +2977,72 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#ocqagofvor .gt_left {
+#mxobhoooae .gt_left {
   text-align: left;
 }
 
-#ocqagofvor .gt_center {
+#mxobhoooae .gt_center {
   text-align: center;
 }
 
-#ocqagofvor .gt_right {
+#mxobhoooae .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ocqagofvor .gt_font_normal {
+#mxobhoooae .gt_font_normal {
   font-weight: normal;
 }
 
-#ocqagofvor .gt_font_bold {
+#mxobhoooae .gt_font_bold {
   font-weight: bold;
 }
 
-#ocqagofvor .gt_font_italic {
+#mxobhoooae .gt_font_italic {
   font-style: italic;
 }
 
-#ocqagofvor .gt_super {
+#mxobhoooae .gt_super {
   font-size: 65%;
 }
 
-#ocqagofvor .gt_footnote_marks {
+#mxobhoooae .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ocqagofvor .gt_asterisk {
+#mxobhoooae .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ocqagofvor .gt_indent_1 {
+#mxobhoooae .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ocqagofvor .gt_indent_2 {
+#mxobhoooae .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ocqagofvor .gt_indent_3 {
+#mxobhoooae .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ocqagofvor .gt_indent_4 {
+#mxobhoooae .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ocqagofvor .gt_indent_5 {
+#mxobhoooae .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ocqagofvor .katex-display {
+#mxobhoooae .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ocqagofvor div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#mxobhoooae div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
