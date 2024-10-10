@@ -72,7 +72,7 @@ format:
   html:
     theme: cerulean
     code-fold: true
-    code-summary: "Click to show code"
+    code-summary: "Click to show/hide code"
     css:
     - styles.css
     - include/webex.css
