@@ -37,7 +37,7 @@
     border: 2px dotted grey;
     background-color: white;
     border-radius: 0.25em;
-    text-align: center;
+    text-align: -webkit-auto;
 }
 
 .webex-incorrect,
@@ -47,7 +47,7 @@ input.webex-solveme.webex-incorrect,
     background-color: var(--incorrect_alpha);
     color: black;
     border-radius: 0.25em;
-    text-align: center;
+    text-align: -webkit-auto;
 }
 .webex-correct,
 input.webex-solveme.webex-correct,
@@ -56,7 +56,7 @@ input.webex-solveme.webex-correct,
     background-color: var(--correct_alpha);
     color: black;
     border-radius: 0.25em;
-    text-align: center;
+    text-align: -webkit-auto;
 }
 
 .unchecked .webex-incorrect span::before,

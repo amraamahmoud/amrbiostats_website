@@ -8,9 +8,9 @@
 <title>AMRBiostats</title>
 <link>https://www.amrbiostats.com/maths_refresher.html</link>
 <atom:link href="https://www.amrbiostats.com/maths_refresher.xml" rel="self" type="application/rss+xml"/>
-<description>A collection of resources for biostatistics and R programming.</description>
+<description>A reliable resource for biostatistics and R programming</description>
 <image>
-<url>https://www.amrbiostats.com/images/opengraph.png</url>
+<url>https://www.amrbiostats.com/images/opengraph_new.jpg</url>
 <title>AMRBiostats</title>
 <link>https://www.amrbiostats.com/maths_refresher.html</link>
 </image>
@@ -1029,7 +1029,7 @@ Hint
 <li><p>In R, matrices can be created using the function <code>matrix()</code>:</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">A <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1069,7 +1069,7 @@ font-style: inherit;"># fill the matrix by rows</span></span>
 [2,]    5    9</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Any element can be extracted using the row and column index, For example, the element in the second row and first column (5) can be extracted from the matrix A as follows</span></span>
@@ -1097,7 +1097,7 @@ font-style: inherit;">1</span>]</span></code></pre></div>
 <li><p>R can be used to get the transpose of a matrix using the function <code>t()</code>:</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">A <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1135,7 +1135,7 @@ font-style: inherit;">TRUE</span>)</span>
 [2,]    5    7    6</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># get the transpose of the matrix A</span></span>
@@ -1182,7 +1182,7 @@ font-style: inherit;">t</span>(A) </span></code></pre></div>
 <li><p>The diagonal elements can be extracted from a matrix in R using the function <code>diag()</code>:</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">A <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1242,7 +1242,7 @@ font-style: inherit;">TRUE</span>)</span>
 [4,]   10   17   12    8</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">diag</span>(A)  <span class="co" style="color: #5E5E5E;
@@ -1256,7 +1256,7 @@ font-style: inherit;"># get the diagonal elements of the matrix A</span></span><
 <li><p>The <code>trace</code> can be calculated in R using the function <code>trace()</code> from the <code>psych</code> package:</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(psych)</span>
@@ -1310,7 +1310,7 @@ font-style: inherit;"># get the trace of the matrix A</span></span></code></pre>
 <li><p>The <code>determinant</code> and the <code>inverse</code> of a matrix can be calculated in R using the functions <code>det()</code> and <code>solve(),</code> respectively:</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1">A <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1344,7 +1344,7 @@ font-style: inherit;">TRUE</span>)</span>
 [2,]    2    6</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">det</span>(A)    <span class="co" style="color: #5E5E5E;
@@ -1355,7 +1355,7 @@ font-style: inherit;"># get the determinant of the matrix A     </span></span></
 <pre><code>[1] 10</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">solve</span>(A)  <span class="co" style="color: #5E5E5E;
@@ -1368,7 +1368,7 @@ font-style: inherit;"># get the inverse of the matrix A   </span></span></code><
 [2,] -0.2  0.4</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">round</span>(A <span class="sc" style="color: #5E5E5E;
@@ -1435,7 +1435,7 @@ Rank of a matrix <img src="https://latex.codecogs.com/png.latex?(r)">
 </ul>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">A <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1487,7 +1487,7 @@ font-style: inherit;">$</span>rank                   </span></code></pre></div>
 <pre><code>[1] 1</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Confirm matrix A is singular by calculating its determinant</span></span>
@@ -1499,7 +1499,7 @@ font-style: inherit;">det</span>(A)                       </span></code></pre></
 <pre><code>[1] 0</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get the inverse of the matrix A</span></span>
@@ -1595,7 +1595,7 @@ font-style: inherit;"># The error confirms that the matrix A is not invertible</
 </ul>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">A <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1685,7 +1685,7 @@ font-style: inherit;">%*%</span> B</span>
 </ul>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1">A <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -1741,7 +1741,7 @@ $vectors
 </ul>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># extract the first eigenvalue</span></span>
@@ -1758,7 +1758,7 @@ font-style: inherit;">1</span>]</span>
 <pre><code>[1] 5.772002</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># extract the second eigenvalue</span></span>
@@ -1775,7 +1775,7 @@ font-style: inherit;">2</span>]</span>
 <pre><code>[1] -2.772002</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># extract the first eigenvector</span></span>
@@ -1792,7 +1792,7 @@ font-style: inherit;">1</span>]</span>
 <pre><code>[1] 0.6224656 0.7826472</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># extract the second eigenvector</span></span>
@@ -1809,7 +1809,7 @@ font-style: inherit;">2</span>]</span>
 <pre><code>[1] -0.5322295  0.8466001</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Check if the first equality holds</span></span>
@@ -1835,7 +1835,7 @@ font-style: inherit;">6</span>))</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Check if the second equality holds</span></span>
@@ -2114,7 +2114,7 @@ Click to show/hide answer
 </button>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">product_series <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
@@ -2206,7 +2206,7 @@ Note
 <p><img src="https://latex.codecogs.com/png.latex?4!"> is read as “four factorial” and it can be calculated in R using the function <code>factorial()</code> as follows:</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">factorial</span>(<span class="dv" style="color: #AD0000;
@@ -2285,7 +2285,7 @@ font-style: inherit;">4</span>)</span></code></pre></div>
 </ul>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Option 1</span></span>
@@ -2325,7 +2325,7 @@ font-style: inherit;">4</span>)</span></code></pre></div>
 <pre><code>[1] 28</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Option 2</span></span>
@@ -3038,8 +3038,8 @@ Exercise M.1.2
 <table class="caption-top table">
 <caption>Table of arithmetic operators in R</caption>
 <colgroup>
-<col style="width: 75%">
-<col style="width: 25%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3089,7 +3089,7 @@ Exercise M.1.2
 </ul>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span><span class="sc" style="color: #5E5E5E;
@@ -3132,7 +3132,7 @@ font-style: inherit;"># option 1: raising to the power 0.5</span></span></code><
 <pre><code>[1] 115</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span><span class="sc" style="color: #5E5E5E;
@@ -3180,7 +3180,7 @@ font-style: inherit;"># option 2: using sqrt() function</span></span></code></pr
 <div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span><span class="sc" style="color: #5E5E5E;
@@ -3195,7 +3195,7 @@ font-style: inherit;"># division</span></span></code></pre></div>
 <pre><code>[1] 3.333333</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span> <span class="sc" style="color: #5E5E5E;
@@ -3210,7 +3210,7 @@ font-style: inherit;"># integer division      </span></span></code></pre></div>
 <pre><code>[1] 3</code></pre>
 </div>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span> <span class="sc" style="color: #5E5E5E;
@@ -3229,7 +3229,7 @@ font-style: inherit;"># modulo</span></span></code></pre></div>
 <div id="tabset-2-2" class="tab-pane" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span><span class="sc" style="color: #5E5E5E;
@@ -3259,7 +3259,7 @@ font-style: inherit;">3</span>          </span></code></pre></div>
 Click to show/hide answer
 </button>
 <details open="" class="code-fold">
-<summary>Click to show code</summary>
+<summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;

@@ -2,7 +2,7 @@
 about: 
   template: trestles
   image-shape: rectangle
-  image: "/images/logo_main.png"
+  image: "/images/logo_main_new.jpg"
   links:
     - text: "![](/images/github.svg)"
       href: https://github.com/amraamahmoud/AMRBiostats.git
@@ -20,7 +20,8 @@ format:
       gutter-width: 0rem
     fig-responsive: true
     toc: false
-    title: "Accurate, Modern, and Reliable Biostatistics"
+    title: "<span style='color: #0249ab;'> AMRBiostats </span>" 
+    subtitle: "<span style='color: #0249ab; font-weight: bold'> Accurate, Modern, and Reliable Biostatistics </span>"  
     comments: false
     sidebar: false
 ---

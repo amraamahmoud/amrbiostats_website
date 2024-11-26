@@ -1,0 +1,2356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-10-08">
+
+<title>Measures of Central Tendency – AMRBiostats</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../posts/biostats/B004_desc_stats.html" rel="next">
+<link href="../../posts/biostats/B002_desc_stats.html" rel="prev">
+<link href="../..//images/fav.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 1,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<link href="../../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="../../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="../../site_libs/datatables-binding-0.33/datatables.js"></script>
+<script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="../../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="../../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="../../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="../../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../include/webex.css">
+<meta property="og:title" content="AMRBiostats">
+<meta property="og:image" content="https://www.amrbiostats.com/images/biostats.jpg">
+<meta property="og:site_name" content="AMRBiostats">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/fav.svg" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">AMRBiostats</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../author.html"> 
+<span class="menu-text">About Author <iconify-icon role="img" inline="" icon="solar:user-id-linear" style="font-size: 20px;" aria-label="Icon user-id-linear from solar Iconify.design set." title="Icon user-id-linear from solar Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/amraamahmoud/amrbiostats_website.git" target="_blank"> 
+<span class="menu-text">GitHub <iconify-icon role="img" inline="" icon="octicon:mark-github-16" style="font-size: 20px;" aria-label="Icon mark-github-16 from octicon Iconify.design set." title="Icon mark-github-16 from octicon Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:consultation@amrbiostats.com"> 
+<span class="menu-text">Contact <iconify-icon role="img" inline="" icon="mdi:email-arrow-right" style="font-size: 23px;" aria-label="Icon email-arrow-right from mdi Iconify.design set." title="Icon email-arrow-right from mdi Iconify.design set."></iconify-icon></span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../maths_refresher.html"> 
+<span class="menu-text">Maths Refresher <iconify-icon role="img" inline="" icon="hugeicons:calculate" style="font-size: 24px;" aria-label="Icon calculate from hugeicons Iconify.design set." title="Icon calculate from hugeicons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../biostatistics.html" aria-current="page"> 
+<span class="menu-text">Biostatistics <iconify-icon role="img" inline="" icon="uis:graph-bar" style="font-size: 20px;" aria-label="Icon graph-bar from uis Iconify.design set." title="Icon graph-bar from uis Iconify.design set."></iconify-icon></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B001_desc_stats.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B003_desc_stats.html">Measures of Central Tendency</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../biostatistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Biostatistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/A001_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic Concepts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/A002_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Descriptive Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B001_desc_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequency distribution 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B002_desc_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequency distribution 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B003_desc_stats.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Measures of Central Tendency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B004_desc_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quantile algorithms</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background"><span class="header-section-number">1</span> Background</a></li>
+  <li><a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link" data-scroll-target="#measures-of-central-tendency"><span class="header-section-number">2</span> Measures of central tendency</a>
+  <ul>
+  <li><a href="#arithmetic-mean" id="toc-arithmetic-mean" class="nav-link" data-scroll-target="#arithmetic-mean"><span class="header-section-number">2.1</span> Arithmetic Mean</a>
+  <ul>
+  <li><a href="#characteristics-of-the-mean" id="toc-characteristics-of-the-mean" class="nav-link" data-scroll-target="#characteristics-of-the-mean"><span class="header-section-number">2.1.1</span> Characteristics of the mean</a></li>
+  </ul></li>
+  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median"><span class="header-section-number">2.2</span> Median</a>
+  <ul>
+  <li><a href="#characteristics-of-the-median" id="toc-characteristics-of-the-median" class="nav-link" data-scroll-target="#characteristics-of-the-median"><span class="header-section-number">2.2.1</span> Characteristics of the median</a></li>
+  </ul></li>
+  <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles"><span class="header-section-number">2.3</span> Quantiles</a>
+  <ul>
+  <li><a href="#calculation-of-quantiles" id="toc-calculation-of-quantiles" class="nav-link" data-scroll-target="#calculation-of-quantiles"><span class="header-section-number">2.3.1</span> Calculation of quantiles</a></li>
+  </ul></li>
+  <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode"><span class="header-section-number">2.4</span> Mode</a></li>
+  <li><a href="#geometric-mean" id="toc-geometric-mean" class="nav-link" data-scroll-target="#geometric-mean"><span class="header-section-number">2.5</span> Geometric mean</a>
+  <ul>
+  <li><a href="#geometric-mean-and-logarihmic-transformation" id="toc-geometric-mean-and-logarihmic-transformation" class="nav-link" data-scroll-target="#geometric-mean-and-logarihmic-transformation"><span class="header-section-number">2.5.1</span> Geometric mean and logarihmic transformation</a></li>
+  </ul></li>
+  <li><a href="#harmonic-mean" id="toc-harmonic-mean" class="nav-link" data-scroll-target="#harmonic-mean"><span class="header-section-number">2.6</span> Harmonic mean</a></li>
+  <li><a href="#trimmed-mean" id="toc-trimmed-mean" class="nav-link" data-scroll-target="#trimmed-mean"><span class="header-section-number">2.7</span> Trimmed mean</a></li>
+  <li><a href="#winsorized-mean" id="toc-winsorized-mean" class="nav-link" data-scroll-target="#winsorized-mean"><span class="header-section-number">2.8</span> Winsorized mean</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
+  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">4</span> Add your comments</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B001_desc_stats.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B003_desc_stats.html">Measures of Central Tendency</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Measures of Central Tendency</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 8, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="background" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="background"><span class="header-section-number">1</span> Background</h2>
+<ul>
+<li><p>Collected data possess many observations that we are not interested in each one individually.</p></li>
+<li><p>Instead, we are interested in summarizing the data in a concise and informative way.</p></li>
+<li><p>Descriptive measures are single numbers that summarize the data.</p></li>
+<li><p>They are used to describe the <code>center</code> and <code>spread</code> of the data.</p></li>
+<li><p>They can be calculated from the data of a sample or a population.</p></li>
+<li><p>Descriptive measures calculated from the sample are referred to as sample <code>statistics</code>, while those calculated from the population are referred to as population <code>parameters</code>.</p></li>
+</ul>
+</section>
+<section id="measures-of-central-tendency" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="measures-of-central-tendency"><span class="header-section-number">2</span> Measures of central tendency</h2>
+<ul>
+<li><p>Measures of central tendency are used to describe the center of the data (i.e., the average or typical value).</p></li>
+<li><p>They are also referred to as measures of location.</p></li>
+<li><p>The most common measures of central tendency are the <code>mean</code>, <code>median</code>, and <code>mode</code>.</p></li>
+</ul>
+<section id="arithmetic-mean" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="arithmetic-mean"><span class="header-section-number">2.1</span> Arithmetic Mean</h3>
+<ul>
+<li><p>It is calculated by summing all observations and dividing by the total number of observations.</p></li>
+<li><p>Let <span class="math inline">\(X\)</span> is a random variable:</p>
+<ul>
+<li><p>The mean of a finite population of size <span class="math inline">\(N\)</span> is denoted by <span class="math inline">\(\mu\)</span>, which reads as <code>mu</code>, while the mean of a sample of size <span class="math inline">\(n\)</span> is denoted by <span class="math inline">\(\bar{x}\)</span>, which reads as <code>x-bar</code>.</p></li>
+<li><p>The population and sample means can be calculated as follows:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Population mean</th>
+<th style="text-align: center;">Sample mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu = \displaystyle \frac{x_1 + x_2 + \ldots + x_N}{N} = \displaystyle     \frac{\displaystyle \sum_{i=1}^{N} x_i}{N}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\bar{x} = \displaystyle \frac{x_1 + x_2 + \ldots + x_n}{n} = \displaystyle \frac{\displaystyle \sum_{i=1}^{n} x_i}{n}\)</span></td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+<li><p>Example: consider the variable <code>mpg</code> in the <code>mtcars</code> dataset that we discussed in earlier chapters:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>mpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4
+[16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7
+[31] 15.0 21.4</code></pre>
+</div>
+</div>
+<ul>
+<li><p>The number of observations can be calculated using the <code>length()</code> function:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32</code></pre>
+</div>
+</div></li>
+<li><p>The sum of all values can be calculated using the <code>sum()</code> function:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 642.9</code></pre>
+</div>
+</div></li>
+<li><p><span class="math inline">\(\bar{x} = \displaystyle \frac{21 + 21 + 22.8 + \ldots + 21.4}{32} = \frac{642.9}{32} \approx 20.09\)</span></p></li>
+<li><p>The mean can be calculated directly using the built-in R function <code>mean()</code>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20.09062</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>If the variable contains missing values, the <code>na.rm</code> argument should be set to <code>TRUE</code> to exclude them before calculating the mean, otherwise, the result will be <code>NA</code>.</p></li>
+<li><p>For example, consider the following variable with some missing values <span class="math inline">\((1,\ 2,\ 3,\ \text{NA},\ 5)\)</span>:</p>
+<ul>
+<li>Using the <code>mean()</code> function without the <code>na.rm</code> argument will return <code>NA</code>:</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<ul>
+<li>This error can be avoided by setting the <code>na.rm</code> argument to <code>TRUE</code>:</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.75</code></pre>
+</div>
+</div></li>
+</ul>
+</div>
+</div></li>
+</ul></li>
+<li><p>The mean can be calculated if the values are given along with their frequencies as weighted mean:</p>
+<ul>
+<li>Let <span class="math inline">\(x_1, x_2, \ldots, x_k\)</span> be the values of a variable with frequencies <span class="math inline">\(f_1, f_2, \ldots, f_k\)</span>, then the weighted mean is calculated as:</li>
+</ul>
+<p><span class="math display">\[
+\bar{x} = \displaystyle \frac{f_1x_1 + f_2x_2 + \ldots + f_kx_k}{f_1 + f_2 + \ldots + f_k} = \displaystyle \frac{\displaystyle \sum_{i=1}^{k} f_ix_i}{\displaystyle \sum_{i=1}^{k} f_i}
+\]</span></p>
+<ul>
+<li><p>The <strong>weight</strong> of each observation <span class="math inline">\(\displaystyle w_i =   \frac{f_i}{\displaystyle \sum_{i=1}^{k} f_i}\)</span>, therefore, the above equation can also be written as <span class="math inline">\(\bar{x} = \displaystyle \sum_{i=1}^{k} w_ix_i\)</span></p></li>
+<li><p>Example: consider the following variable with values <span class="math inline">\((1.3,\ 2.1,\ 3.5,\ 4.1,\ 5.2)\)</span> and frequencies <span class="math inline">\((2,\ 3,\ 1,\ 4,\ 2)\)</span>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Value <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.3</span>, <span class="fl">2.1</span>, <span class="fl">3.5</span>, <span class="fl">4.1</span>, <span class="fl">5.2</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>Frequency <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  Value,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  Frequency,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Weight =</span> Frequency <span class="sc">/</span> <span class="fu">sum</span>(Frequency)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  my_data, </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">dom =</span> <span class="st">"t"</span>,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">columnDefs =</span> <span class="fu">list</span>(</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">className =</span> <span class="st">"dt-center"</span>,</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">targets =</span> <span class="st">"_all"</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">rownames =</span> <span class="cn">FALSE</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-493568ce41f2606ee860" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-493568ce41f2606ee860">{"x":{"filter":"none","vertical":false,"data":[[1.3,2.1,3.5,4.1,5.2],[2,3,1,4,2],[0.1666666666666667,0.25,0.08333333333333333,0.3333333333333333,0.1666666666666667]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Value<\/th>\n      <th>Frequency<\/th>\n      <th>Weight<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Value","targets":0},{"name":"Frequency","targets":1},{"name":"Weight","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><br></p>
+<ul>
+<li>The weighted mean is calculated as:</li>
+</ul>
+<p><span class="math display">\[
+\bar{x} = \displaystyle \frac{2 \times 1.3 + 3 \times 2.1 + 1 \times 3.5 + 4 \times 4.1 + 2 \times 5.2}{2 + 3 + 1 + 4 + 2} =
+\]</span></p>
+<p><span class="math display">\[
+\frac{2.6 + 6.3 + 3.5 + 16.4 + 10.4}{12} = \frac{39.2}{12} \approx 3.27
+\]</span></p>
+<ul>
+<li><p>It can also be calculated using the <code>weights</code> as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(my_data, <span class="fu">sum</span>(Value <span class="sc">*</span> Weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.266667</code></pre>
+</div>
+</div></li>
+<li><p>The built-in R function <code>weighted.mean()</code> can be used for direct calculation:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.mean</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> my_data<span class="sc">$</span>Value, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">w =</span> my_data<span class="sc">$</span>Frequency)  <span class="co"># w represents the weights which can be given as frequencies or weights</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.266667</code></pre>
+</div>
+</div></li>
+</ul></li>
+</ul></li>
+</ul>
+<section id="characteristics-of-the-mean" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="characteristics-of-the-mean"><span class="header-section-number">2.1.1</span> Characteristics of the mean</h4>
+<ol type="1">
+<li>The sum of deviations of the observations from the arithmetic mean is always zero:</li>
+</ol>
+<p><span class="math display">\[
+\displaystyle \sum_{i=1}^{n} (x_i - \bar{x}) = 0
+\]</span></p>
+<ol start="2" type="1">
+<li><p>The sum of the squared deviations of the observations from a certain value is the least (i.e., minimized) when this value is the mean (this is referred to as the <code>least squares principle</code>).</p></li>
+<li><p>If a constant <span class="math inline">\(c\)</span> is added to each observation, the mean is also increased by <span class="math inline">\(c\)</span>, i.e., the mean of <span class="math inline">\(x_i + c = \bar{x} + c\)</span>.</p></li>
+<li><p>If the observations are multiplied by a constant <span class="math inline">\(c\)</span>, then the mean is also multiplied by <span class="math inline">\(c\)</span>, i.e., the mean of <span class="math inline">\(cx_i = c\bar{x}\)</span>.</p></li>
+<li><p>If the observations <span class="math inline">\(x_1, x_2, \ldots x_n\)</span> are linearly transformed, where <span class="math inline">\(y_i = a + bx_i\)</span> (<span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are known constants), then it holds that <span class="math inline">\(\bar{y} = a + b\bar{x}\)</span>.</p></li>
+<li><p>The mean is sensitive to extreme values (outliers), and it may not be a good measure of central tendency in the presence of outliers.</p>
+<div id="lst-outlier" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-outlier-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;1: Impact of outliers on the mean
+</figcaption>
+<div aria-describedby="lst-outlier-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<ul>
+<li><p>Example: consider the following variable with values <span class="math inline">\((32.1,\ 34.5,\ 33.6,\ 37.2,\ 39.4)\)</span> the mean is calculated as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">32.1</span>, <span class="fl">34.5</span>, <span class="fl">33.6</span>, <span class="fl">37.2</span>, <span class="fl">39.4</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 35.36</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Lets replace the last value with an extreme value of <span class="math inline">\(250.1\)</span>, so the values would be:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="fl">250.1</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  32.1  34.5  33.6  37.2 250.1</code></pre>
+</div>
+</div></li>
+<li><p>The mean of the new values with the outlier would be:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 77.5</code></pre>
+</div>
+</div></li>
+<li><p>The presence of the outlier affected the mean that it is no longer a good measure of central tendency for this variable.</p></li>
+</ul></li>
+</ul>
+</div>
+</figure>
+</div></li>
+</ol>
+</section>
+</section>
+<section id="median" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="median"><span class="header-section-number">2.2</span> Median</h3>
+<ul>
+<li><p>The median, denoted by <span class="math inline">\(\large \tilde{x}_{0.5}\)</span>, is the value which divides the ordered observations into two equal parts (i.e., at least 50% of the values <span class="math inline">\(\ge\)</span> the median and at least 50% of the values <span class="math inline">\(\le\)</span> the median).</p></li>
+<li><p>The median is calculated as follows:</p>
+<ul>
+<li><p>If the number of observations is odd, the median is the middle value of the ordered observations.</p></li>
+<li><p>If the number of observations is even, the median is the arithmetic mean of the two middle observations.</p></li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+\tilde{x}_{0.5} = \begin{cases} x_{\frac{n+1}{2}} &amp; \text{if $n$ is odd} \\ \\ \frac{1}{2}(x_{\frac{n}{2}} + x_{\frac{n}{2}+1}) &amp; \text{if $n$ is even} \end{cases}
+\]</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Example B.3.1 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Example B.3.2 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li><p>Consider the following set of observations: <span class="math inline">\((3, 5, 7, 7, 7, 9, 11)\)</span>.</p>
+<ul>
+<li><p>There is an odd number of observations <span class="math inline">\(n = 7\)</span>, so the median is the middle value of the ordered observations, which is ranked <span class="math inline">\(\displaystyle \frac{n+1}{2} = \frac{7+1}{2}=4^{th}\)</span> and its value is <span class="math inline">\(7\)</span>.</p></li>
+<li><p>Half of the measurements <span class="math inline">\((3, 5, 7)\)</span> are below or equal to <span class="math inline">\(7\)</span>, and half of the measurements <span class="math inline">\((7, 9, 11)\)</span> are equal to or above <span class="math inline">\(7\)</span>.</p></li>
+<li><p>Therefore, the previous defintion of the <a href="#median">median</a> contains “equal to” to cover the case of having repeated, similar values.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ul>
+<li><p>Example: the variable <code>mpg</code> has <span class="math inline">\(32\)</span> observations, so the median is the arithmetic mean of the two middle observations (i.e., the mean of the ordered observations ranked <span class="math inline">\(\displaystyle \frac{32}{2} = 16^{th}\)</span> and <span class="math inline">\(\displaystyle \frac{32}{2} + 1 =17^{th}\)</span>):</p>
+<ul>
+<li><p>The ordered observations are:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>mpg_ordered <span class="ot">&lt;-</span> <span class="fu">sort</span>(mtcars<span class="sc">$</span>mpg)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>mpg_ordered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 10.4 10.4 13.3 14.3 14.7 15.0 15.2 15.2 15.5 15.8 16.4 17.3 17.8 18.1 18.7
+[16] 19.2 19.2 19.7 21.0 21.0 21.4 21.4 21.5 22.8 22.8 24.4 26.0 27.3 30.4 30.4
+[31] 32.4 33.9</code></pre>
+</div>
+</div></li>
+<li><p>The <span class="math inline">\(16^{th}\)</span> and <span class="math inline">\(17^{th}\)</span> ordered observations are:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mpg_ordered[<span class="dv">16</span><span class="sc">:</span><span class="dv">17</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.2 19.2</code></pre>
+</div>
+</div></li>
+<li><p>The median is the arithmetic mean of these two values:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mpg_ordered[<span class="dv">16</span><span class="sc">:</span><span class="dv">17</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.2</code></pre>
+</div>
+</div></li>
+<li><p>The median can also be calculated using the built-in R function <code>median()</code>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.2</code></pre>
+</div>
+</div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<section id="characteristics-of-the-median" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="characteristics-of-the-median"><span class="header-section-number">2.2.1</span> Characteristics of the median</h4>
+<ul>
+<li><p>Unlike the mean, the median is not drastically affected by extreme values (outliers).</p></li>
+<li><p>Consider the example discussed above <a href="#lst-outlier" class="quarto-xref">Listing&nbsp;1</a>:</p>
+<ul>
+<li><p>The median of the original set of observations is:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="fu">c</span>(<span class="fl">32.1</span>, <span class="fl">34.5</span>, <span class="fl">33.6</span>, <span class="fl">37.2</span>, <span class="fl">39.4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 34.5</code></pre>
+</div>
+</div></li>
+<li><p>The median of the set of observations with the outlier is:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="fu">c</span>(<span class="fl">32.1</span>, <span class="fl">34.5</span>, <span class="fl">33.6</span>, <span class="fl">37.2</span>, <span class="fl">250.1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 34.5</code></pre>
+</div>
+</div></li>
+<li><p>Becuase the median is concerned with the middle value, it is less affected by the presence of the outliers than the mean.</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="quantiles" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="quantiles"><span class="header-section-number">2.3</span> Quantiles</h3>
+<ul>
+<li><p>Quantiles are a generalization of of the concept of the median.</p></li>
+<li><p>A quantile is defined as the value that divides the ordered observations into two parts such that a certain proportion of the observations are less than or equal to the quantile.</p></li>
+<li><p>In this sense, the median is the <span class="math inline">\(50^{th}\)</span> quantile because at least <span class="math inline">\(50\%\)</span> of the observations are less than or equal to the median.</p></li>
+<li><p>Similarly, the <span class="math inline">\(20^{th}\)</span> quantile is the value that divides the ordered observations into two parts such that at least <span class="math inline">\(20\%\)</span> of the observations are less than or equal to the that quantile, while at least <span class="math inline">\(80\%\)</span> of the observations are greater than or equal to that quantile.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="General definition of quantiles">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+General definition of quantiles
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Let <span class="math inline">\(\alpha\)</span> be a number between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</p></li>
+<li><p>The <span class="math inline">\([(\alpha \times 100)\%\)</span> quantile is denoted by <span class="math inline">\(\large \tilde{x}_{\alpha}\)</span>.</p></li>
+<li><p>It is defined as the value that splits the data into two parts such that at least <span class="math inline">\(\alpha \times 100\%\)</span> of the observations are less than or equal to the quantile, while at least <span class="math inline">\((1 - \alpha) \times 100\%\)</span> of the observations are greater than or equal to the quantile.</p></li>
+</ul>
+</div>
+</div>
+<ul>
+<li><p><strong>Deciles</strong> divide the data into <span class="math inline">\(10\)</span> parts, corresponding to quantiles at <span class="math inline">\(\alpha = 0.1, 0.2, \ldots, 0.9\)</span>.</p></li>
+<li><p><strong>Quintiles</strong> divide the data into <span class="math inline">\(5\)</span> parts, corresponding to quantiles at <span class="math inline">\(\alpha = 0.2, 0.4, 0.6, 0.8\)</span>.</p></li>
+<li><p><strong>Quartiles</strong> divide the data into <span class="math inline">\(4\)</span> parts, corresponding to quantiles at <span class="math inline">\(\alpha = 0.25, 0.5, 0.75\)</span>.</p></li>
+<li><p><strong>Percentiles</strong>: if <span class="math inline">\((\alpha \times 100)\)</span> takes an integer value, the quantile is referred to as a percentile (i.e, divide the data into <span class="math inline">\(100\)</span> equal parts).</p></li>
+</ul>
+<section id="calculation-of-quantiles" class="level4" data-number="2.3.1">
+<h4 data-number="2.3.1" class="anchored" data-anchor-id="calculation-of-quantiles"><span class="header-section-number">2.3.1</span> Calculation of quantiles</h4>
+<ul>
+<li><p>The quantiles can be obtained in R using the <code>quantile()</code> function.</p></li>
+<li><p>For example, the quantiles of the variable <code>mpg</code> in the <code>mtcars</code> dataset can be calculated as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    0%    25%    50%    75%   100% 
+10.400 15.425 19.200 22.800 33.900 </code></pre>
+</div>
+</div></li>
+<li><p>By default, The function outputs the <span class="math inline">\(0^{th}\)</span>, <span class="math inline">\(25^{th}\)</span>, <span class="math inline">\(50^{th}\)</span>, <span class="math inline">\(75^{th}\)</span>, and <span class="math inline">\(100^{th}\)</span> quantiles (i.e., the minimum, first quartile, median, third quartile, and maximum).</p></li>
+<li><p>To get a specific quantile, use the <code>probs</code> argument to add a vector of the desired probabilities (i.e., <span class="math inline">\(\alpha\)</span>). For example, the following code can be used to get the <span class="math inline">\(5^{th}\)</span> and <span class="math inline">\(95^{th}\)</span> quantiles:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  mtcars<span class="sc">$</span>mpg, </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    5%    95% 
+11.995 31.300 </code></pre>
+</div>
+</div></li>
+<li><p>R provides <strong>nine</strong> algorithms to calculate the quantiles, which can be specified using the <code>type</code> argument:</p>
+<ul>
+<li><p>Types <span class="math inline">\(1-3\)</span> are used for discontinuous data, while types <span class="math inline">\(4-9\)</span> are used for continuous data.</p></li>
+<li><p>Type <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> are used for class “Date” and for ordered factors.</p></li>
+<li><p>Type <span class="math inline">\(7\)</span> is the default method for continous data.</p></li>
+<li><p>Type <span class="math inline">\(6\)</span> is used to get results similar to <code>SPSS</code>, <code>Minitab</code>, or <code>Graphpad Prism</code>.</p></li>
+<li><p>For example, the of <span class="math inline">\(25^{th}\)</span> and <span class="math inline">\(75^{th}\)</span> quantiles of the variable <code>mpg</code> in the <code>mtcars</code> dataset using <code>R</code> (type <span class="math inline">\(6\)</span> or <span class="math inline">\(7\)</span>), <code>SPSS</code>, and, <code>Graphpad Prism</code> are as follows:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">SPSS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Graphpad Prism</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ul>
+<li>Using type <span class="math inline">\(6\)</span>:</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>mpg, </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>),</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="at">type =</span> <span class="dv">6</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   25%    75% 
+15.275 22.800 </code></pre>
+</div>
+</div>
+<ul>
+<li>Using type <span class="math inline">\(7\)</span>:</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>mpg, </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>),</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="at">type =</span> <span class="dv">7</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   25%    75% 
+15.425 22.800 </code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p><img src="../../images/quantile_A.png" alt="SPSS" width="100%"></p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p><img src="../../images/quantile_B.png" alt="Graphpad Prism" width="80%"></p>
+</div>
+</div>
+</div></li>
+<li><p>Detailed discussion of the algorithms used to calculate the quantiles can be found <a href="../../posts/biostats/B004_desc_stats.html">here</a>.</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="mode" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="mode"><span class="header-section-number">2.4</span> Mode</h3>
+<ul>
+<li><p>The mode of a set of observations is the observation that occurs most frequently compared with all other values.</p></li>
+<li><p>A set of observations can have:</p>
+<ul>
+<li><p>No mode (if all observations occur with the same frequency).</p></li>
+<li><p>One mode (if one observation occurs most frequently).</p></li>
+<li><p>More than one mode (if two or more observations occur with the same highest frequency).</p></li>
+</ul></li>
+<li><p>Example: consider the variable <code>cyl</code> (number of car cylinders) in the <code>mtcars</code> dataset:</p>
+<ul>
+<li><p>R has no direct built-in function to calculate the mode, but it can be calculated from the frequency table as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create table of the frequencies of the values</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>freq_tbl <span class="ot">&lt;-</span> <span class="fu">table</span>(mtcars<span class="sc">$</span>cyl)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to adata frame</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>freq_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(freq_tbl)</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(freq_df)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"cyl"</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange the values in descending order of frequency</span></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>freq_df <span class="ot">&lt;-</span> </span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>  freq_df <span class="sc">%&gt;%</span> </span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(Freq))</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>freq_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  cyl Freq
+1   8   14
+2   4   11
+3   6    7</code></pre>
+</div>
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"The mode is"</span>, </span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  freq_df<span class="sc">$</span>cyl[<span class="fu">which.max</span>(freq_df<span class="sc">$</span>Freq)], </span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"cyliners"</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The mode is 8 cyliners"</code></pre>
+</div>
+</div></li>
+<li><p>The mode can also be calculated directly using the <code>Mode()</code> function from the <code>DescTools</code> package:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Mode</span>(mtcars<span class="sc">$</span>cyl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8
+attr(,"freq")
+[1] 14</code></pre>
+</div>
+</div>
+<ul>
+<li>The first line of the output shows the mode (<span class="math inline">\(8\)</span> cylinders) and the last line shows the frequency of the mode.</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>R has a built-in function <code>mode()</code> that returns the storage mode of an object (e.g., numeric, character, etc.) rather than the mode.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(mtcars<span class="sc">$</span>cyl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div></li>
+</ul>
+</div>
+</div>
+<ul>
+<li><p>For numerical data which contains many unique values, the mode may not be a good measure of central tendency. However, if the observations are summarized in groups (e.g., frequency table or histogram), the mode can be calculated as the class interval with the highest frequency.</p>
+<ul>
+<li><p>Example: consider the histogram of the variable <code>mpg</code> in the <code>mtcars</code> dataset:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="B003_desc_stats_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>The class interval <span class="math inline">\((15, 20]\)</span> has the highest frequency of <span class="math inline">\(12\)</span> observations, so the mode is the interval <span class="math inline">\((15, 20]\)</span> (others may also consider the midpoint of the interval, <span class="math inline">\(17.5\)</span>, as the mode).</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="geometric-mean" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="geometric-mean"><span class="header-section-number">2.5</span> Geometric mean</h3>
+<ul>
+<li><p>Let <span class="math inline">\(X\)</span> a quantitative random variable with <code>positive</code> and <code>non-zero</code> values <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, then the geometric mean <span class="math inline">\((\bar{x}_G)\)</span> is computed by multiplying all the values and then taking the <span class="math inline">\(n^{th}\)</span> root of the product:</p>
+<p><span class="math display">\[
+\bar{x}_G = \large \sqrt[n]{x_1 \times x_2 \times \ldots \times x_n} = \left( \displaystyle \prod_{i=1}^{n} x_i \right)^{\frac{1}{n}}
+\]</span></p></li>
+<li><p>It is less sensitive to extreme values in skewed distributions than the arithmetic mean.</p></li>
+<li><p>Geometric mean is used for averaging data that are <code>multiplicative</code> in nature (e.g., percentage change and rates).</p>
+<ul>
+<li><p><strong>Percentage change</strong> is calculated as the difference between the final <span class="math inline">\((x_1)\)</span> and initial <span class="math inline">\((x_0)\)</span> values divided by the initial value, then multiplied by <span class="math inline">\(100\)</span>:</p>
+<p><span class="math display">\[
+    \displaystyle \text{Percentage change} = \left( \frac{x_1 - x_0}{x_0} \right) \times 100
+\]</span></p>
+<ul>
+<li>If the sign of the percentage change is positive, it indicates an increase, while a negative sign indicates a decrease.</li>
+</ul></li>
+<li><p><strong>Rate</strong> is the ratio of two quantities that describes how one quantity changes with respect to another (e.g., speed, growth rate, and interest rate).</p></li>
+</ul></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Example B.3.3 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Example B.3.4 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false"><span style="color: #ba181b">Exercise B.3.1 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ul>
+<li><p>Consider the following set of observations: <span class="math inline">\((4, 16, 64, 256)\)</span>.</p></li>
+<li><p>The geometric mean is calculated as:</p>
+<p><span class="math display">\[
+  \sqrt[4]{4 \times 16 \times 64 \times 256} = \sqrt[4]{1048576} = 32
+\]</span></p></li>
+<li><p>The geometric mean can be calculated using the <code>Gmean()</code> function from the <code>DescTools</code> package or the <code>geometric.mean()</code> function from the <code>psych</code> package:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">16</span>, <span class="dv">64</span>, <span class="dv">256</span>)</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Gmean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32</code></pre>
+</div>
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geometric.mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32</code></pre>
+</div>
+</div></li>
+</ul>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<ul>
+<li><p>Assume a bank provides the following interest rates for a three-year plan: <span class="math inline">\(3.3\%\)</span> in the first year, <span class="math inline">\(4.5\%\)</span> in the second year, and <span class="math inline">\(5.2\%\)</span> in the third year.</p></li>
+<li><p>If a client deposits <span class="math inline">\(\textdollar{500}\)</span>, the change in the amount can be calculated as follows:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Time</th>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Amount <span class="math inline">\((\textdollar)\)</span></th>
+<th style="text-align: center;">Rate <span class="math inline">\((\%)\)</span></th>
+<th style="text-align: center;">Interest <span class="math inline">\((\textdollar)\)</span> <span class="math inline">\((\text{Rate}_t \times \text{Amount}_{t-1})\)</span></th>
+<th style="text-align: center;">Growth factor <span class="math inline">\((\text{Amount}_t/\text{Amount}_{t-1})\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(t_0\)</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\(500.0\)</span></td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(t_1\)</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span class="math inline">\(516.5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3.3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(16.5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.033\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(t_2\)</span></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span class="math inline">\(539.7\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4.5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(23.2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.045\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(t_3\)</span></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span class="math inline">\(567.8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(5.2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(28.1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.052\)</span></td>
+</tr>
+</tbody>
+</table></li>
+<li><p>The interest rate is also known as the <code>growth rate</code>.</p></li>
+<li><p>The growth rate <span class="math inline">\(= (\text{growth factor} - 1) \times 100\)</span>.</p></li>
+<li><p>The average growth factor is calculated as the geometric mean of the growth factors:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>growth_factors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.033</span>, <span class="fl">1.045</span>, <span class="fl">1.052</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Gmean</span>(growth_factors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.043304</code></pre>
+</div>
+</div></li>
+<li><p>So, the average growth rate per year <span class="math inline">\(= (1.043 - 1) \times 100 = 4.3\%\)</span>.</p></li>
+<li><p>This average growth rate can also be obtained by calculating the geometric mean of the interest (growth) rates:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>interest_rates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">3.3</span>, <span class="fl">4.5</span>, <span class="fl">5.2</span>)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Gmean</span>(interest_rates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.258369</code></pre>
+</div>
+</div></li>
+<li><p>However, this approach is not recommended because the interest rates can be negative (the rate decreases), which results in error while computing the geometric mean.</p></li>
+<li><p>The total amount of money (<span class="math inline">\(A\)</span>) can be calculated at any year using the formula: <span class="math inline">\(A_t = A_{t_0} \times (\text{average growth factor}) \large ^t\)</span>. For example, the amount at the end of the third year <span class="math inline">\(= 500 \times 1.043304^3 = \textdollar567.8\)</span>.</p></li>
+</ul>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<ul>
+<li><p>Calculate the average interest rate for the following four-year plan: <span class="math inline">\(10\%\)</span>, <span class="math inline">\(14\%\)</span>, <span class="math inline">\(15\%\)</span>, and <span class="math inline">\(-5\%\)</span>.</p>
+<p>The average rate per year is <input class="webex-solveme nospaces" size="3" data-answer="[&quot;8.2&quot;]"> <span class="math inline">\(\%\)</span> (to one decimal place)</p></li>
+</ul>
+<div class="webex-solution">
+<button>
+Click to show/hide answer
+</button>
+<ul>
+<li><p>The average interest rate can not be computed directly by calculating the geometric mean of the interest rates because the last rate is negative.</p></li>
+<li><p>Therefore, we calculate the average growth factor as the geometric mean of the growth factors.</p></li>
+<li><p>Growth factor <span class="math inline">\(= \displaystyle \frac{\text{rate}}{100} + 1\)</span></p></li>
+<li><p>So, the growth factors are <span class="math inline">\((1.1, 1.14, 1.15, 0.95)\)</span>.</p></li>
+<li><p>The average growth factor is equal to:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>growth_factors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.1</span>, <span class="fl">1.14</span>, <span class="fl">1.15</span>, <span class="fl">0.95</span>)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Gmean</span>(growth_factors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.081882</code></pre>
+</div>
+</div></li>
+<li><p>Therefore, the average interest rate per year is <span class="math inline">\(8.2\%\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<section id="geometric-mean-and-logarihmic-transformation" class="level4" data-number="2.5.1">
+<h4 data-number="2.5.1" class="anchored" data-anchor-id="geometric-mean-and-logarihmic-transformation"><span class="header-section-number">2.5.1</span> Geometric mean and logarihmic transformation</h4>
+<ul>
+<li><p>If the observations are transformed by taking the logarithm (common or natural), <span style="color: #0466c8">the antilogarithm of the arithmetic mean of the transformed values</span> is equal to <span style="color: #ba181b">the geometric mean of the original values</span>.</p>
+<ul>
+<li><p>Let <span class="math inline">\(X\)</span> be a random variable with positive, non-zero values <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, and <span class="math inline">\(Y\)</span> is the transformed variable with values <span class="math inline">\(y_1, y_2, \ldots, y_n\)</span> such that <span class="math inline">\(y_i = \log_{10}(x_i)\)</span>:</p></li>
+<li><p>The arithmetic mean of the transformed values is calculated as:</p></li>
+</ul>
+<p><span class="math display">\[
+\bar{y} = \displaystyle \frac{y_1 + y_2 + \ldots + y_n}{n} = \displaystyle \frac{\log_{10}(x_1) + \log_{10}(x_2) + \ldots + \log_{10}(x_n)}{n} =
+\]</span></p>
+<p><span class="math display">\[
+\log_{10} \left( \sqrt[n]{x_1 \times x_2 \times \ldots \times x_n} \right)
+\]</span></p>
+<ul>
+<li>The antilogarithm of the arithmetic mean of the transformed values is:</li>
+</ul>
+<p><span class="math display">\[
+10^{\bar{y}} = 10^{\log_{10} \left( \sqrt[n]{x_1 \times x_2 \times \ldots \times x_n} \right)} = \sqrt[n]{x_1 \times x_2 \times \ldots \times x_n}
+\]</span></p>
+<ul>
+<li>The last equation represents the geometric mean of the original values.</li>
+</ul></li>
+<li><p>Example: consider the following set of observations <span class="math inline">\((5,\ 9,\ 10,\ 22,\ 13, 50)\)</span>, the following table shows the original and <span class="math inline">\(log_{10}\)</span> transformed values:</p>
+<div class="grid">
+<div class="g-col-2">
+
+</div>
+<div class="g-col-8">
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">22</span>, <span class="dv">13</span>, <span class="dv">50</span>)</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">log10</span>(x), <span class="dv">5</span>)</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Original =</span> x,</span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Log10_transformed =</span> y</span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(</span>
+<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a>  my_data, </span>
+<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">dom =</span> <span class="st">"t"</span>,</span>
+<span id="cb62-14"><a href="#cb62-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">columnDefs =</span> <span class="fu">list</span>(</span>
+<span id="cb62-15"><a href="#cb62-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
+<span id="cb62-16"><a href="#cb62-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">className =</span> <span class="st">"dt-center"</span>,</span>
+<span id="cb62-17"><a href="#cb62-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">targets =</span> <span class="st">"_all"</span></span>
+<span id="cb62-18"><a href="#cb62-18" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb62-19"><a href="#cb62-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb62-20"><a href="#cb62-20" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb62-21"><a href="#cb62-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">rownames =</span> <span class="cn">FALSE</span></span>
+<span id="cb62-22"><a href="#cb62-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-59282717eb2eff9be3e8" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-59282717eb2eff9be3e8">{"x":{"filter":"none","vertical":false,"data":[[5,9,10,22,13,50],[0.69897,0.95424,1,1.34242,1.11394,1.69897]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Original<\/th>\n      <th>Log10_transformed<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Original","targets":0},{"name":"Log10_transformed","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div class="g-col-2">
+
+</div>
+</div>
+<p><br></p>
+<ul>
+<li><p>The arithmetic mean of the transformed values is:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.134757</code></pre>
+</div>
+</div></li>
+<li><p>The antilogarithm of the arithmetic mean of the transformed values is:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span><span class="fu">mean</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.63819</code></pre>
+</div>
+</div></li>
+<li><p>The geometric mean of the original values is:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Gmean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.63823</code></pre>
+</div>
+</div></li>
+<li><p>The antilogarithm of the arithmetic mean of the transformed values is equal to the geometric mean of the original values.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>When the original values are log transformed, the back-transformed mean is not the same as the original mean but it is the geometric mean of the original values.</p></li>
+<li><p>On the other hand, back-transforming the median of the log-transformed values gives the median of the original values:</p>
+<ul>
+<li><p>For the <code>mpg</code> variable from the <code>mtcars</code> dataset, the median of the log-transformed values is:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>med_log <span class="ot">&lt;-</span> <span class="fu">median</span>(</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">log</span>(mtcars<span class="sc">$</span>mpg))</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>med_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.95491</code></pre>
+</div>
+</div></li>
+<li><p>The antilogarithm of the median (back transformation) of the log-transformed values is:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(med_log) <span class="co"># exponentiation to back transform</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.2</code></pre>
+</div>
+</div></li>
+<li><p>The median of the original values is:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.2</code></pre>
+</div>
+</div></li>
+<li><p>The antilogarithm of the median of the log-transformed values is equal to the median of the original values.</p></li>
+</ul></li>
+</ul>
+</div>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="harmonic-mean" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="harmonic-mean"><span class="header-section-number">2.6</span> Harmonic mean</h3>
+<ul>
+<li><p>The harmonic mean <span class="math inline">\((\bar{x}_H)\)</span> is the reciprocal of the arithmetic mean of the reciprocals of the observations:</p>
+<ul>
+<li>Let <span class="math inline">\(X\)</span> be a random variable with values <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, then the reciprocals of the observations are <span class="math inline">\(\displaystyle \frac{1}{x_1}, \frac{1}{x_2}, \ldots, \frac{1}{x_n}\)</span>, and their arithmetic mean is calculated as:</li>
+</ul>
+<p><span class="math display">\[
+\displaystyle \frac{1}{n} \left( \displaystyle \frac{1}{x_1} + \displaystyle \frac{1}{x_2} + \ldots + \displaystyle \frac{1}{x_n} \right) = \displaystyle \frac{\displaystyle \sum_{i=1}^{n} \frac{1}{x_i}}{n}
+\]</span></p>
+<ul>
+<li>The harmonic mean is the reciprocal of the arithmetic mean of the reciprocals:</li>
+</ul>
+<p><span class="math display">\[
+\bar{x}_H = \displaystyle \frac{n}{\displaystyle \sum_{i=1}^{n} \frac{1}{x_i}}
+\]</span></p></li>
+<li><p>It is used for averaging data that are <code>ratios</code> or <code>rates</code> (e.g., speed or financial ratios).</p></li>
+<li><p>If the observations do not contribute equally towards the calculation of the mean (i.e., the observations have different weights), the harmonic mean can be weighted:</p>
+<ul>
+<li>Let <span class="math inline">\(X\)</span> be a random variable with values <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> that have coressponding weights <span class="math inline">\(w_1, w_2, \ldots, w_n\)</span>, then the harmonic mean is calculated as:</li>
+</ul>
+<p><span class="math display">\[
+\text{Weighted}\ \bar{x}_H = \displaystyle \frac{w_1 + w_2 + \ldots + w_n}{\displaystyle \frac{w_1}{x_1} + \frac{w_2}{x_2} + \ldots + \frac{w_n}{x_n}} = \displaystyle \frac{\displaystyle  \sum_{i=1}^{n} w_i}{\displaystyle \sum_{i=1}^{n} \frac{w_i}{x_i}} = \displaystyle \frac{1}{\displaystyle \sum_{i=1}^{n} \frac{w_i}{x_i}}
+\]</span></p></li>
+<li><p>Example: consider the following set of observations <span class="math inline">\((2, 4, 6, 8)\)</span>:</p>
+<ul>
+<li><p>The harmonic mean is calculated as:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>harmonic_mean <span class="ot">&lt;-</span> n <span class="sc">/</span> <span class="fu">sum</span>(<span class="dv">1</span> <span class="sc">/</span> x)</span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>harmonic_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.84</code></pre>
+</div>
+</div></li>
+<li><p>The harmonic mean can also be calculated using the <code>Hmean()</code> function from the <code>DescTools</code> package or <code>harmonic.mean()</code> function from the <code>psych</code> package:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Hmean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.84</code></pre>
+</div>
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">harmonic.mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.84</code></pre>
+</div>
+</div></li>
+</ul></li>
+<li><p>The harmonic mean is used to calculate some statistical measures such as F1 score used to assess the performance of logistic regression models. In addition, it is used during pairwise multiple comparisons.</p></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Example B.3.5 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Example B.3.6 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>A car travels <span class="math inline">\(100\ \text{km}\)</span> at a speed <span class="math inline">\(60\ \text{km/h}\)</span>, <span class="math inline">\(100\  \text{km}\)</span> at <span class="math inline">\(70\ \text{km/h}\)</span>, <span class="math inline">\(100\ \text{km}\)</span> at <span class="math inline">\(90\ \text{km/h}\)</span>, and <span class="math inline">\(100\ \text{km}\)</span> at <span class="math inline">\(100\ \text{km/h}\)</span>. Calculate the average speed of the car.</p>
+<ul>
+<li><p>The arithmetic mean of the speed <span class="math inline">\(= \displaystyle \frac{60 + 70 + 90 +100}{4} = \frac{320}{4} = 80\)</span> km/h.</p></li>
+<li><p>However, this method ignores the time taken to travel each distance.</p></li>
+<li><p>The time taken to travel each distance is given in the following table:</p></li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Speed (km/h)</th>
+<th style="text-align: center;">Distanc (km)</th>
+<th style="text-align: center;">Time (h) [Distance/Speed]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(60\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.666667\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(70\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.428571\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(90\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.111111\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>The total distance traveled is <span class="math inline">\(400\)</span> km, and the total time taken is <span class="math inline">\(5.21\ \text{h}\)</span> So, the actual average speed <span class="math inline">\(= \displaystyle \frac{400}{5.206349} \approx 76.83\ \text{km/h}\)</span>.</p></li>
+<li><p>This average can be found using the harmonic mean of the speeds:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>speeds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">90</span>, <span class="dv">100</span>)</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Hmean</span>(speeds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 76.82927</code></pre>
+</div>
+</div></li>
+<li><p>The average speed can also be calculated as the weighted arithmetic mean using weights based on the time taken to travel each distance:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>times <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span><span class="sc">/</span><span class="dv">60</span>, <span class="dv">100</span><span class="sc">/</span><span class="dv">70</span>, <span class="dv">100</span><span class="sc">/</span><span class="dv">90</span>, <span class="dv">100</span><span class="sc">/</span><span class="dv">100</span>) <span class="co"># use times as weights</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.mean</span>(speeds, <span class="at">w =</span> times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 76.82927</code></pre>
+</div>
+</div></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>To find the average of rates with different numerators but the same denominator use the arithmetic mean or weighted harmonic mean (weights are based on numerators).</p></li>
+<li><p>To find the average of rates with same numerators but different denominators use the harmonic mean or weighted arithmetic mean (weights are based on denominators).</p></li>
+<li><p>To find the average of rates with different numerators and denominators use the weighted arithmetic mean (weights are based on denominators) or weighted harmonic mean (weights are based on numerators).</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>Suppose that you invested <span class="math inline">\(\textdollar{2550}\)</span> in stock market. In the first year, you spent <span class="math inline">\(\textdollar{1000}\)</span> to purchase <span class="math inline">\(40\)</span> shares of stock <span class="math inline">\(A\)</span>. In the second year, you spent <span class="math inline">\(\textdollar{1550}\)</span> to purchase <span class="math inline">\(78\)</span> shares of the same stock. Calculate the average price per share.</p>
+<ul>
+<li><p>The rate here is the price <span class="math inline">\((\textdollar)\)</span> per share.</p></li>
+<li><p>The total amount of the shares bought <span class="math inline">\(= 40 + 78 = 118\)</span> shares, so the actual average price per share <span class="math inline">\(= \displaystyle \frac{2550}{118} \approx \textdollar{21.61}\)</span>.</p></li>
+<li><p>In the first year, the price per share <span class="math inline">\(= \displaystyle \frac{1000}{40} = \textdollar{25}\)</span>.</p></li>
+<li><p>In the second year, the price per share <span class="math inline">\(= \displaystyle \frac{1550}{78} \approx \textdollar{19.87}\)</span>.</p></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Price per share <span class="math inline">\((\textdollar/\text{share})\)</span></th>
+<th style="text-align: center;">Amount invested <span class="math inline">\((\textdollar)\)</span></th>
+<th style="text-align: center;">Number of shares</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(25.00\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1000\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(40\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(19.87\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1550\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(78\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>The arithmetic mean of the price per share <span class="math inline">\(= \displaystyle \frac{25 + 19.87}{2} = \displaystyle \frac{44.87}{2} = \textdollar{22.44}\)</span>, which is higher than the actual average price per share.</p></li>
+<li><p>Because both the numerator (amount invested) and denominator (number of shares) are different, the weighted arithmetic or weighted harmonic mean should be used to calculate the average price per share:</p>
+<ul>
+<li><p>The weighted arithmetic mean using denominator (number of shares) as weights:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>weights_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">40</span><span class="sc">/</span><span class="dv">118</span>, <span class="dv">78</span><span class="sc">/</span><span class="dv">118</span>)</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>price_1 <span class="ot">&lt;-</span> <span class="dv">1000</span><span class="sc">/</span><span class="dv">40</span></span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>price_2 <span class="ot">&lt;-</span> <span class="dv">1550</span><span class="sc">/</span><span class="dv">78</span></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.mean</span>(<span class="fu">c</span>(price_1, price_2), <span class="at">w =</span> weights_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 21.61017</code></pre>
+</div>
+</div></li>
+<li><p>The weighted harmonic mean using numerators (amount invested) as weights:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>weights_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1000</span><span class="sc">/</span><span class="dv">2550</span>, <span class="dv">1550</span><span class="sc">/</span><span class="dv">2550</span>)</span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>h_mean <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="fu">sum</span>(weights_2 <span class="sc">/</span> <span class="fu">c</span>(price_1, price_2))</span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>h_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 21.61017</code></pre>
+</div>
+</div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="trimmed-mean" class="level3" data-number="2.7">
+<h3 data-number="2.7" class="anchored" data-anchor-id="trimmed-mean"><span class="header-section-number">2.7</span> Trimmed mean</h3>
+<ul>
+<li><p>The observations are arranged based on magnitude, then a certain percentage of the observations are removed from both ends of the ordered observations.</p></li>
+<li><p>The trimmed mean <span class="math inline">\((\bar{x}_T)\)</span> is then calculated as the arithmetic mean of the remaining observations.</p></li>
+<li><p>Typically, <span class="math inline">\(5\%\)</span> to <span class="math inline">\(25\%\)</span> of the observations are trimmed from each end.</p></li>
+<li><p>The trimmed mean is less sensitive to outliers than the arithmetic mean becuase the extreme values are removed.</p></li>
+<li><p>Some robust statistical tests use the trimmed mean such as <strong>Yuen’s test</strong>, which is used to compare the trimmed means of two groups when the assumption of normality is violated.</p></li>
+<li><p>Trimmed mean can be calculated in R using the <code>mean()</code> function with the <code>trim</code> argument set to the percentage of observations to be trimmed.</p>
+<ul>
+<li><p>Example: the <span class="math inline">\(5\%\)</span> trimmed mean of the variable <code>mpg</code> in the <code>mtcars</code> dataset is calculated as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mtcars<span class="sc">$</span>mpg, <span class="at">trim =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.95333</code></pre>
+</div>
+</div>
+<ul>
+<li><p><code>DescTools</code> package has a function <code>Trim()</code> that is an excerpt from the base function <code>mean()</code> but returns the trimmed data without calculating the mean:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>mpg_ordered <span class="ot">&lt;-</span> <span class="fu">sort</span>(mtcars<span class="sc">$</span>mpg)</span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Trim</span>(mpg_ordered, <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 10.4 13.3 14.3 14.7 15.0 15.2 15.2 15.5 15.8 16.4 17.3 17.8 18.1 18.7 19.2
+[16] 19.2 19.7 21.0 21.0 21.4 21.4 21.5 22.8 22.8 24.4 26.0 27.3 30.4 30.4 32.4
+attr(,"trim")
+[1]  1 32</code></pre>
+</div>
+</div>
+<ul>
+<li><p>The output shows the cleaned data after trimming <span class="math inline">\(5\%\)</span> of the observations from each end and the location of the trimmed observations (the <span class="math inline">\(1^{\text{st}}\)</span> and <span class="math inline">\(32^{\text{nd}}\)</span> observations that were removed).</p></li>
+<li><p>The percentage of trimming is multiplied by the number of observations to get the number of observations to be trimmed from each end (i.e., <span class="math inline">\(0.05 \times 32 = 1.6\)</span> observations, which R rounds down to <span class="math inline">\(1\)</span>).</p></li>
+<li><p>Therefore, one observation has been removed from each end.</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(50\%\)</span> trimming is equivalent to the median:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mtcars<span class="sc">$</span>mpg, <span class="at">trim =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.2</code></pre>
+</div>
+</div></li>
+<li><p>Discarding the extreme values leads to loss of information that can introduce bias in the estimation of the mean. Therefore, trimming should be used cautiously. It can be safely used to discard extreme values (outliers) that might be due to errors during measurement or data collection or when the extreme values are irrelevant to the rest of the data.</p></li>
+</ul>
+</section>
+<section id="winsorized-mean" class="level3" data-number="2.8">
+<h3 data-number="2.8" class="anchored" data-anchor-id="winsorized-mean"><span class="header-section-number">2.8</span> Winsorized mean</h3>
+<ul>
+<li><p>The observations are arranged based on magnitude, then the extreme values beyond a certain percentile threshold are replaced by these threshold values.</p></li>
+<li><p>For example, <span class="math inline">\(5\%\)</span> Winsorization involves replacing the values smaller than the <span class="math inline">\(5^{th}\)</span> percentile with the <span class="math inline">\(5^{th}\)</span> percentile value and the values larger than the <span class="math inline">\(95^{th}\)</span> percentile with the <span class="math inline">\(95^{th}\)</span> percentile value.</p></li>
+<li><p>The Winsorized mean <span class="math inline">\((\bar{x}_W)\)</span> is then calculated as the arithmetic mean of the modified observations.</p></li>
+<li><p>The Winsorized mean is less sensitive to outliers than the arithmetic mean.</p></li>
+<li><p>To Winsorize data, the <code>Winsorize()</code> function from the <code>DescTools</code> package can be used:</p>
+<ul>
+<li><p>The function has <code>probs</code> argument that takes a vector of two values representing the lower and upper percentiles to be Winsorized (e.g., <code>probs = c(0.05, 0.95)</code> for <span class="math inline">\(5\%\)</span> Winsorization).</p></li>
+<li><p>In addition, there is <code>type</code> argument that specifies the algorithm to be used for calculating the perecentiles (discussed in details <a href="../../posts/biostats/B004_desc_stats.html">here</a>).</p></li>
+<li><p>Example: the variable <code>mpg</code> in the <code>mtcars</code> dataset is <span class="math inline">\(5\%\)</span> Winsorized as follows:</p>
+<ul>
+<li><p>Calculate the <span class="math inline">\(5^{th}\)</span> and <span class="math inline">\(95^{th}\)</span> percentiles of the variable <code>mpg</code>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>mpg, </span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>),</span>
+<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a><span class="at">type =</span> <span class="dv">7</span></span>
+<span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    5%    95% 
+11.995 31.300 </code></pre>
+</div>
+</div></li>
+<li><p>The <code>quantile()</code> function has been used to calculate the <span class="math inline">\(5^{th}\)</span> and <span class="math inline">\(95^{th}\)</span> percentiles of the variable <code>mpg</code>, which are <span class="math inline">\(11.995\)</span> and <span class="math inline">\(31.3\)</span>, respectively. The <code>type</code> argument is set to <span class="math inline">\(7\)</span>, which is the default algorithm for calculating the percentiles in R for continuous data.</p></li>
+<li><p>Display the original values in order:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>mpg_ordered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 10.4 10.4 13.3 14.3 14.7 15.0 15.2 15.2 15.5 15.8 16.4 17.3 17.8 18.1 18.7
+[16] 19.2 19.2 19.7 21.0 21.0 21.4 21.4 21.5 22.8 22.8 24.4 26.0 27.3 30.4 30.4
+[31] 32.4 33.9</code></pre>
+</div>
+</div></li>
+<li><p>Winsorize the variable <code>mpg</code> using the <span class="math inline">\(5^{th}\)</span> and <span class="math inline">\(95^{th}\)</span> percentiles:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>mpg_win <span class="ot">&lt;-</span> <span class="fu">Winsorize</span>(</span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> mpg_ordered, </span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, .<span class="dv">95</span>),</span>
+<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="at">type =</span> <span class="dv">7</span></span>
+<span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-7"><a href="#cb99-7" aria-hidden="true" tabindex="-1"></a>mpg_win</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 11.995 11.995 13.300 14.300 14.700 15.000 15.200 15.200 15.500 15.800
+[11] 16.400 17.300 17.800 18.100 18.700 19.200 19.200 19.700 21.000 21.000
+[21] 21.400 21.400 21.500 22.800 22.800 24.400 26.000 27.300 30.400 30.400
+[31] 31.300 31.300</code></pre>
+</div>
+</div></li>
+<li><p>The output of the <code>Winsorize()</code> function shows that the two smallest values <span class="math inline">\((10.4\ \text{and}\ 10.4)\)</span> that are smaller than the <span class="math inline">\(5^{th}\)</span> percentile <span class="math inline">\((11.995)\)</span> have been replaced by the <span class="math inline">\(5^{th}\)</span> percentile. Whereas, the two largest values <span class="math inline">\(32.4\ \text{and}\ 33.9\)</span> that are larger than the <span class="math inline">\(95^{th}\)</span> percentile <span class="math inline">\((31.3)\)</span> have been replaced by the <span class="math inline">\(95^{th}\)</span> percentile.</p></li>
+<li><p>Calculate the Winsorized mean of the variable <code>mpg</code>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mpg_win)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20.07469</code></pre>
+</div>
+</div></li>
+<li><p>The Winsorized mean can be calculated directly using the function <code>winsor.mean()</code> function from the <code>psych</code> package:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="fu">winsor.mean</span>(</span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>mpg, </span>
+<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="at">trim =</span> <span class="fl">0.05</span></span>
+<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20.07469</code></pre>
+</div>
+</div></li>
+</ul></li>
+</ul></li>
+<li><p>Unlike trimming, Winsorization preserves some of the original information in the data. The extreme values are not totally discarded but their weight (impact) is reduced.</p></li>
+</ul>
+</section>
+</section>
+<section id="references" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
+<ul>
+<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
+<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
+<li><p>Lane, D. M. et al., (2019). Introduction to Statistics. Online Edition. Retrieved September 14, 2024, from https://openstax.org/details/introduction-statistics</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">4</span> Add your comments</h2>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.amrbiostats\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="amraamahmoud/amrbiostats_website" data-repo-id="R_kgDOMvJM8A" data-category="General" data-category-id="DIC_kwDOMvJM8M4CiVDG" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../posts/biostats/B002_desc_stats.html" class="pagination-link" aria-label="Frequency distribution 2">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Frequency distribution 2</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../posts/biostats/B004_desc_stats.html" class="pagination-link" aria-label="Quantile algorithms">
+        <span class="nav-page-text">Quantile algorithms</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank">
+<p>License <iconify-icon role="img" inline="" icon="carbon:license-draft" aria-label="Icon license-draft from carbon Iconify.design set." title="Icon license-draft from carbon Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/amraamahmoud/amrbiostats_website/issues" target="_blank">
+<p>Report an issue <iconify-icon role="img" inline="" icon="mdi:git-issue" aria-label="Icon git-issue from mdi Iconify.design set." title="Icon git-issue from mdi Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/amraamahmoud/amrbiostats_website.git" target="_blank">
+<p>GitHub <iconify-icon role="img" inline="" icon="ri:github-fill" aria-label="Icon github-fill from ri Iconify.design set." title="Icon github-fill from ri Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -7,12 +7,12 @@ website:
     giscus:
       repo: amraamahmoud/amrbiostats_website
   open-graph:
-    title: AMRBiostats
+    title: "AMRBiostats"
   title: "AMRBiostats"
-  image: /images/opengraph.png
+  image: /images/opengraph_new.jpg
   site-url: https://www.amrbiostats.com
-  description: A collection of resources for biostatistics and R programming.
-  favicon: /images/favicon.png
+  description: "A reliable resource for biostatistics and R programming"
+  favicon: /images/fav.png
   search:
     location: navbar
     type: textbox
@@ -21,7 +21,7 @@ website:
   back-to-top-navigation: true
   navbar:
     search: true
-    logo: /images/favicon.png
+    logo: /images/fav.png
     pinned: true
     left:
     - text: About Author {{< iconify solar:user-id-linear size=20px >}}

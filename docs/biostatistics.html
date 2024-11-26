@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./posts/biostats/A001_intro.html" rel="next">
-<link href=".//images/favicon.png" rel="icon" type="image/png">
+<link href=".//images/fav.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-reading-time','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-reading-time','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
@@ -161,10 +161,8 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="alternate" type="application/rss+xml" title="AMRBiostats" href="biostatistics.xml" data-external="1"><meta property="og:title" content="AMRBiostats">
-<meta property="og:image" content="https://www.amrbiostats.com/images/opengraph.png">
+<meta property="og:image" content="https://www.amrbiostats.com/images/opengraph_new.jpg">
 <meta property="og:site_name" content="AMRBiostats">
-<meta property="og:image:height" content="630">
-<meta property="og:image:width" content="1200">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -175,7 +173,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/favicon.png" alt="" class="navbar-logo">
+    <img src="./images/fav.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">AMRBiostats</span>
@@ -285,6 +283,18 @@ window.Quarto = {
  <span class="menu-text">Frequency distribution 2</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/biostats/B003_desc_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measures of Central Tendency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/biostats/B004_desc_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quantile algorithms</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -343,11 +353,11 @@ window.Quarto = {
     </div>
 </div>
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1726257600000" data-listing-file-modified-sort="1728466440667" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="399">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1726257600000" data-listing-file-modified-sort="1732528063761" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="399">
 <a href="./posts/biostats/A001_intro.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./images/biostats.png" class="thumbnail-image card-img" style="height: 70%;">
+<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -365,11 +375,11 @@ Sep 14, 2024
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1726862400000" data-listing-file-modified-sort="1728466324570" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2047">
+<div class="g-col-1" data-index="1" data-listing-date-sort="1726862400000" data-listing-file-modified-sort="1732528108662" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2047">
 <a href="./posts/biostats/A002_intro.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./images/biostats.png" class="thumbnail-image card-img" style="height: 70%;">
+<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -418,22 +428,22 @@ No matching items
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1727640000000" data-listing-file-modified-sort="1728540097317" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3649">
+<div class="list grid quarto-listing-cols-4">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1727640000000" data-listing-file-modified-sort="1732596123671" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3649">
 <a href="./posts/biostats/B001_desc_stats.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./images/biostats.png" class="thumbnail-image card-img" style="height: 70%;">
+<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Frequency distribution 1
 </h5>
+<div class="card-subtitle listing-subtitle">
+Qualitative variables
+</div>
 <div class="listing-reading-time card-text text-muted">
 19 min
-</div>
-<div class="card-text listing-description">
-Qualitative variables
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -444,25 +454,69 @@ Sep 30, 2024
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1728072000000" data-listing-file-modified-sort="1728541985371" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="41" data-listing-word-count-sort="8001">
+<div class="g-col-1" data-index="1" data-listing-date-sort="1728072000000" data-listing-file-modified-sort="1732596123744" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="44" data-listing-word-count-sort="8692">
 <a href="./posts/biostats/B002_desc_stats.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./images/biostats.png" class="thumbnail-image card-img" style="height: 70%;">
+<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Frequency distribution 2
 </h5>
-<div class="listing-reading-time card-text text-muted">
-41 min
-</div>
-<div class="card-text listing-description">
+<div class="card-subtitle listing-subtitle">
 Quantitative variables
+</div>
+<div class="listing-reading-time card-text text-muted">
+44 min
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
 Oct 5, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1728331200000" data-listing-file-modified-sort="1732528108869" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="42" data-listing-word-count-sort="8288">
+<a href="./posts/biostats/B003_desc_stats.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Measures of Central Tendency
+</h5>
+<div class="listing-reading-time card-text text-muted">
+42 min
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Oct 8, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1729368000000" data-listing-file-modified-sort="1732528251596" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4627">
+<a href="./posts/biostats/B004_desc_stats.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Quantile algorithms
+</h5>
+<div class="listing-reading-time card-text text-muted">
+24 min
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Oct 20, 2024
 </div>
 </div>
 </div>
