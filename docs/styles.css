@@ -216,10 +216,10 @@ a {
     color: #0466c8;
     overflow-wrap: break-word;
 }
-}
+
 
 a:hover {
-    color: #ba181b;
+    color: #e63946 !important;
 }
 
 /* VI. Format code snippets*/
@@ -316,7 +316,6 @@ footer.footer div.nav-footer p:first-child {
     --bs-nav-tabs-link-active-bg: #f5f3f4;
     --bs-nav-tabs-link-active-color: #0466c8;
 }
-
 
 /* VIII. Callout border */
 div.callout-note.callout {
@@ -531,7 +530,6 @@ img {
 .navbar-brand.navbar-brand-logo {
     margin-bottom: -7px;
 }
-
 
 
 

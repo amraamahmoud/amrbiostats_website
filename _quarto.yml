@@ -54,7 +54,7 @@ website:
                 - auto: "posts/biostats/*intro.qmd"
             - section: "Descriptive Statistics"
               contents:
-                - auto: "posts/biostats/*desc_stats.qmd"
+                - auto: "posts/biostats/*stats.qmd"
   page-footer:
     border: true
     left:

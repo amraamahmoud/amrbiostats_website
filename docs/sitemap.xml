@@ -9,80 +9,84 @@
     <lastmod>2024-11-10T10:14:33.692Z</lastmod>
   </url>
   <url>
-    <loc>https://www.amrbiostats.com/posts/biostats/A001_intro.html</loc>
+    <loc>https://www.amrbiostats.com/posts/biostats/A02_intro.html</loc>
+    <lastmod>2024-11-25T09:48:28.662Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/biostats/B01_Freq_dist1_stats.html</loc>
+    <lastmod>2024-12-03T07:39:44.393Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/biostats/B05_boxplot_stats.html</loc>
+    <lastmod>2024-12-03T09:33:02.229Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/biostats/A01_intro.html</loc>
     <lastmod>2024-11-25T09:47:43.761Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/biostats/B002_desc_stats.html</loc>
-    <lastmod>2024-11-26T04:42:03.744Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/biostats/B004_desc_stats.html</loc>
-    <lastmod>2024-11-25T09:50:51.596Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/maths_refresher/005_summation.html</loc>
-    <lastmod>2024-11-26T04:38:32.760Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/maths_refresher/006_product.html</loc>
-    <lastmod>2024-11-26T04:38:32.858Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/maths_refresher/010_derivatives.html</loc>
-    <lastmod>2024-11-26T04:38:33.400Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/maths_refresher/001_math_operations.html</loc>
-    <lastmod>2024-11-26T04:36:34.583Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/maths_refresher/002_simplify_brackets.html</loc>
-    <lastmod>2024-11-26T04:36:34.652Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/maths_refresher/003_factorization.html</loc>
-    <lastmod>2024-11-26T04:38:32.620Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/biostatistics.html</loc>
-    <lastmod>2024-11-26T03:58:07.913Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/LICENSE.html</loc>
-    <lastmod>2024-09-09T18:46:37.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/maths_refresher/011_integrals.html</loc>
-    <lastmod>2024-11-26T04:38:33.674Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/maths_refresher/009_limits.html</loc>
-    <lastmod>2024-11-26T04:38:33.179Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/maths_refresher/008_matrices.html</loc>
-    <lastmod>2024-11-26T04:38:33.054Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.amrbiostats.com/posts/maths_refresher/007_logs_and_exp.html</loc>
-    <lastmod>2024-11-26T04:38:32.956Z</lastmod>
   </url>
   <url>
     <loc>https://www.amrbiostats.com/posts/maths_refresher/004_surd_indices.html</loc>
     <lastmod>2024-11-26T04:38:32.661Z</lastmod>
   </url>
   <url>
-    <loc>https://www.amrbiostats.com/posts/biostats/A002_intro.html</loc>
-    <lastmod>2024-11-25T09:48:28.662Z</lastmod>
+    <loc>https://www.amrbiostats.com/posts/maths_refresher/007_logs_and_exp.html</loc>
+    <lastmod>2024-11-26T04:38:32.956Z</lastmod>
   </url>
   <url>
-    <loc>https://www.amrbiostats.com/posts/biostats/B003_desc_stats.html</loc>
-    <lastmod>2024-11-25T09:48:28.869Z</lastmod>
+    <loc>https://www.amrbiostats.com/posts/maths_refresher/008_matrices.html</loc>
+    <lastmod>2024-11-26T04:38:33.054Z</lastmod>
   </url>
   <url>
-    <loc>https://www.amrbiostats.com/posts/biostats/B001_desc_stats.html</loc>
-    <lastmod>2024-11-26T04:42:03.671Z</lastmod>
+    <loc>https://www.amrbiostats.com/posts/maths_refresher/009_limits.html</loc>
+    <lastmod>2024-11-26T04:38:33.179Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/maths_refresher/011_integrals.html</loc>
+    <lastmod>2024-11-26T04:38:33.674Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/LICENSE.html</loc>
+    <lastmod>2024-09-09T18:46:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/biostatistics.html</loc>
+    <lastmod>2024-12-01T04:25:43.507Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/maths_refresher/003_factorization.html</loc>
+    <lastmod>2024-11-26T04:38:32.620Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/maths_refresher/002_simplify_brackets.html</loc>
+    <lastmod>2024-11-26T04:36:34.652Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/maths_refresher/001_math_operations.html</loc>
+    <lastmod>2024-12-03T06:38:02.846Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/maths_refresher/010_derivatives.html</loc>
+    <lastmod>2024-11-26T04:38:33.400Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/maths_refresher/006_product.html</loc>
+    <lastmod>2024-11-26T04:38:32.858Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/maths_refresher/005_summation.html</loc>
+    <lastmod>2024-11-26T04:38:32.760Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/biostats/B03_cent_tendency_stats.html</loc>
+    <lastmod>2024-12-03T07:33:51.683Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/biostats/B02_Freq_dist2_stats.html</loc>
+    <lastmod>2024-12-03T09:33:02.306Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/posts/biostats/B04_quantile_algorithms_stats.html</loc>
+    <lastmod>2024-12-01T10:02:37.855Z</lastmod>
   </url>
   <url>
     <loc>https://www.amrbiostats.com/index.html</loc>

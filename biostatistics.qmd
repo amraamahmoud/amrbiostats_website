@@ -13,7 +13,7 @@ listing:
     image-height: 70%
     fields: [title, reading-time, date, image]  
   - id: desc_stats
-    contents: "/posts/biostats/*desc_stats.qmd"
+    contents: "/posts/biostats/*stats.qmd"
     type: grid
     sort: "date"
     categories: false

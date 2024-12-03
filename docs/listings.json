@@ -18,12 +18,13 @@
   {
     "listing": "/biostatistics.html",
     "items": [
-      "/posts/biostats/A001_intro.html",
-      "/posts/biostats/A002_intro.html",
-      "/posts/biostats/B001_desc_stats.html",
-      "/posts/biostats/B002_desc_stats.html",
-      "/posts/biostats/B003_desc_stats.html",
-      "/posts/biostats/B004_desc_stats.html"
+      "/posts/biostats/A01_intro.html",
+      "/posts/biostats/A02_intro.html",
+      "/posts/biostats/B01_Freq_dist1_stats.html",
+      "/posts/biostats/B02_Freq_dist2_stats.html",
+      "/posts/biostats/B03_cent_tendency_stats.html",
+      "/posts/biostats/B04_quantile_algorithms_stats.html",
+      "/posts/biostats/B05_boxplot_stats.html"
     ]
   }
 ]
