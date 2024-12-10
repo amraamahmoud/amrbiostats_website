@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-09-21">
+<meta name="dcterms.date" content="2024-11-10">
 
-<title>Variables – AMRBiostats</title>
+<title>Demystifying sample variance formula – AMRBiostats</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../posts/biostats/B01_Freq_dist1_stats.html" rel="next">
-<link href="../../posts/biostats/A01_intro.html" rel="prev">
+<link href="../../posts/biostats/B06_dispersion_stats.html" rel="prev">
 <link href="../..//images/fav.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -71,10 +104,40 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 <link rel="stylesheet" href="../../include/webex.css">
 <meta property="og:title" content="AMRBiostats">
+<meta property="og:description" content="A reliable resource for biostatistics and R programming">
 <meta property="og:image" content="https://www.amrbiostats.com/images/biostats.jpg">
 <meta property="og:site_name" content="AMRBiostats">
 </head>
@@ -132,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/A01_intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/A02_intro.html">Variables</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B01_Freq_dist1_stats.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B07_sample_variance_stats.html">Demystifying sample variance formula</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -155,13 +218,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Introduction</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../posts/biostats/A01_intro.html" class="sidebar-item-text sidebar-link">
@@ -170,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/biostats/A02_intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/biostats/A02_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Variables</span></a>
   </div>
 </li>
@@ -178,13 +241,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Descriptive Statistics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../posts/biostats/B01_Freq_dist1_stats.html" class="sidebar-item-text sidebar-link">
@@ -215,6 +278,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Boxplot</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B06_dispersion_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measures of Variability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B07_sample_variance_stats.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Demystifying sample variance formula</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -229,28 +304,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#variables" id="toc-variables" class="nav-link active" data-scroll-target="#variables"><span class="header-section-number">1</span> Variables</a></li>
-  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"><span class="header-section-number">2</span> Random variables</a>
-  <ul>
-  <li><a href="#types-of-variables" id="toc-types-of-variables" class="nav-link" data-scroll-target="#types-of-variables"><span class="header-section-number">2.1</span> Types of variables</a>
-  <ul>
-  <li><a href="#independent-and-dependent-variables" id="toc-independent-and-dependent-variables" class="nav-link" data-scroll-target="#independent-and-dependent-variables"><span class="header-section-number">2.1.1</span> Independent and Dependent variables</a></li>
-  <li><a href="#qualitative-and-quantitative-variables" id="toc-qualitative-and-quantitative-variables" class="nav-link" data-scroll-target="#qualitative-and-quantitative-variables"><span class="header-section-number">2.1.2</span> Qualitative and Quantitative variables</a></li>
-  <li><a href="#discrete-and-continuous-variables" id="toc-discrete-and-continuous-variables" class="nav-link" data-scroll-target="#discrete-and-continuous-variables"><span class="header-section-number">2.1.3</span> Discrete and Continuous variables</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#scales-of-measurement" id="toc-scales-of-measurement" class="nav-link" data-scroll-target="#scales-of-measurement"><span class="header-section-number">3</span> Scales of measurement</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
-  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">5</span> Add your comments</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background"><span class="header-section-number">1</span> Background</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2</span> References</a></li>
+  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">3</span> Add your comments</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/A01_intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/A02_intro.html">Variables</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B01_Freq_dist1_stats.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B07_sample_variance_stats.html">Demystifying sample variance formula</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Variables</h1>
+<h1 class="title">Demystifying sample variance formula</h1>
 </div>
 
 
@@ -261,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 21, 2024</p>
+      <p class="date">November 10, 2024</p>
     </div>
   </div>
   
@@ -273,59 +338,89 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="variables" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="variables"><span class="header-section-number">1</span> Variables</h2>
+<section id="background" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="background"><span class="header-section-number">1</span> Background</h2>
 <ul>
-<li><p>A variable can be defined as a characteristic or attribute that can be measured or observed.</p></li>
-<li><p>The values of a variable change from one observation to another (this is opposed to constants that do not change).</p></li>
+<li><p>In the <a href="../../posts/biostats/B06_dispersion_stats.html">previous chapter</a>, we discussed the measures of variability.</p></li>
+<li><p>Specifically, the variance was discussed as a measure of variability that quantifies how close the observations are to the mean.</p></li>
+<li><p>Intuitively, this is achieved by calculating the average of deviations <span class="math inline">\((D\)</span>) of each observation from the mean:</p></li>
 </ul>
-</section>
-<section id="random-variables" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">2</span> Random variables</h2>
+<p><span class="math display">\[
+D = \frac{1}{n} \displaystyle \sum_{i=1}^{n} (x_i - \bar{x})
+\]</span></p>
 <ul>
-<li><p>When the values of the variable are the result of chance factors (i.e., the values are subject to randomness or uncertainty), the variable is refered to as a random variable.</p></li>
-<li><p>For example, when a coin is flipped, the outcome (head or tail) is random and can not be predicted with certainty until experiment is performed (i.e., the coin is flipped).</p></li>
+<li>However, the sample variance <span class="math inline">\((s^2)\)</span> is defined as the average of the squared differences (i.e., deviations) between each observation and the sample mean <span class="math inline">\((\bar{x})\)</span>:</li>
 </ul>
-<section id="types-of-variables" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="types-of-variables"><span class="header-section-number">2.1</span> Types of variables</h3>
-<section id="independent-and-dependent-variables" class="level4" data-number="2.1.1">
-<h4 data-number="2.1.1" class="anchored" data-anchor-id="independent-and-dependent-variables"><span class="header-section-number">2.1.1</span> Independent and Dependent variables</h4>
+<p><span class="math display">\[
+s^2 = \frac{1}{n-1} \displaystyle \sum_{i=1}^{n} (x_i - \bar{x})^2
+\]</span></p>
 <ul>
-<li><p><strong>Independent variable</strong>:</p>
+<li><p>The above formula has two distinct differences from the previous intuitive definition, namely:</p>
+<p><i class="bi bi-1-circle-fill" style="color: #0171c3; font-size: 22px;"></i> <strong>Using squared deviations instead of the deviations themselves</strong>:</p>
 <ul>
-<li><p>It is a variable that is manipulated or controlled by the researcher during an experiment.</p></li>
-<li><p>It has other names such as predictor, explanatory, or treatment variable.</p></li>
-<li><p>It may have different levels or categories.</p></li>
-</ul></li>
-<li><p><strong>Dependent variable</strong>:</p>
-<ul>
-<li><p>It is a variable that is measured or observed during an experiment in response to changes in the independent variable(s).</p></li>
-<li><p>It has other names such as outcome or response variable.</p></li>
-</ul></li>
-<li><p>Example:</p>
-<ul>
-<li><p>In a study evaluating the effect of three medications on lowering blood pressure in hypertensive patients:</p>
-<ul>
-<li><p>The medication type is the <code>independent variable</code> that has three levels (medication A, medication B, and medication C).</p></li>
-<li><p>The blood pressure is the <code>dependent variable</code>.</p></li>
-</ul></li>
-</ul></li>
+<li><p>In a <a href="../../posts/biostats/B03_cent_tendency_stats.html#sec-mean">previous chapter</a>, we described that the sum of deviations of the observations from the arithmetic mean is always zero because the negative deviations cancel out the positive deviations. This cuses the variance to be zero.</p></li>
+<li><p>Therefore, squaring the deviations overcomes this issue by making all deviations positive.</p></li>
 </ul>
-</section>
-<section id="qualitative-and-quantitative-variables" class="level4" data-number="2.1.2">
-<h4 data-number="2.1.2" class="anchored" data-anchor-id="qualitative-and-quantitative-variables"><span class="header-section-number">2.1.2</span> Qualitative and Quantitative variables</h4>
+<p><i class="bi bi-2-circle-fill" style="color: #0171c3; font-size: 22px;"></i> <strong>The denominator is</strong> <span class="math inline">\((n-1)\)</span> instead of <span class="math inline">\((n)\)</span>:</p>
 <ul>
-<li><p><strong>Qualitative (categorical) variables</strong>:</p>
+<li><p>This is known as Bessel’s correction (obtained by multiplying the uncorrected sample variance <span class="math inline">\(s^2_n = \displaystyle \frac{1}{n} \displaystyle \sum_{i=1}^{n} (x_i - \bar{x})^2\)</span> by <span class="math inline">\(\displaystyle \frac{n}{n-1}\)</span>) and is used to correct the bias in the estimation of the population variance from the sample variance.</p></li>
+<li><p>When using a sample to estimate the population variance, the population mean is unknown, in most of the cases, so the sample mean <span class="math inline">\((\bar{x})\)</span> is used to estimate the population mean <span class="math inline">\((\mu)\)</span>.</p></li>
+<li><p>Using <span class="math inline">\(\bar{x}\)</span> as an estimate of <span class="math inline">\(\mu\)</span> results in underestimation of the population variance, <strong>particularly when the sample size is small</strong>. This happens because the sum of squares of the deviations of the observations from the sample mean will always be smaller than the sum of squares of the deviations of the observations from the population mean (except when <span class="math inline">\(\bar{x} = \mu\)</span>).</p></li>
+<li><p>Therefore, using <span class="math inline">\((n-1)\)</span> in the denominator corrects this underestimation and makes the sample variance an unbiased estimator of the population variance.</p></li>
+<li><p>Let’s illustrate this concept with a simple simulation:</p>
 <ul>
-<li><p>They can not be measured in the usual sense but can be only classified into categories (i.e., they express a quality or attribute).</p></li>
-<li><p>Examples: hair color, socioeconomic status, etc.</p></li>
-</ul></li>
-<li><p><strong>Quantitative (numerical) variables</strong>:</p>
-<ul>
-<li><p>They represent measurable quantities that can be expressed in terms of numbers.</p></li>
-<li><p>Examples: age, weight, blood pressure, etc.</p></li>
-</ul></li>
-</ul>
+<li><p>Assume that we have a population of <span class="math inline">\(1000\)</span> observations:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rnorm</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>       <span class="dv">1000</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">mean =</span> <span class="dv">50</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">sd =</span> <span class="dv">10</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>   population, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>   <span class="at">main =</span> <span class="st">"Population Distribution"</span>, </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>   <span class="at">xlab =</span> <span class="st">"Values"</span>, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>   <span class="at">ylab =</span> <span class="st">"Density"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="B07_sample_variance_stats_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p>The population mean and variance are:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   <span class="st">"Population mean: "</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">round</span>(<span class="fu">mean</span>(population), <span class="dv">2</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Population mean:  50.16"</code></pre>
+</div>
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>var.population <span class="ot">&lt;-</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>((population <span class="sc">-</span> <span class="fu">mean</span>(population))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">length</span>(population)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>   <span class="st">"Population variance: "</span>, </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">round</span>(var.population, <span class="dv">2</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Population variance:  98.25"</code></pre>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -337,139 +432,120 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Qualitative variables can be assigned numbers for coding purposes, however, these numbers do not have any numerical significance.</p></li>
-<li><p>For example:</p>
-<ul>
-<li><p>The categories of the variable gender {“male” and “female”} can be coded as {0 and 1}, {1 and 2}, or {2 and 1}, etc.</p></li>
-<li><p>The selection of codes is arbitrary and does not imply any numerical order.</p></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</section>
-<section id="discrete-and-continuous-variables" class="level4" data-number="2.1.3">
-<h4 data-number="2.1.3" class="anchored" data-anchor-id="discrete-and-continuous-variables"><span class="header-section-number">2.1.3</span> Discrete and Continuous variables</h4>
-<ul>
-<li><p><strong>Discrete variables</strong>:</p>
-<ul>
-<li><p>They can take only whole numbers (i.e., integers).</p></li>
-<li><p>They can be described as having no intermediate values between two adjacent values (i.e., they have gaps or interruptions in the values that they can assume).</p></li>
-<li><p>Discrete variables can be either qualitative or quantitative (all qualitative variables are discrete by definition).</p></li>
-<li><p>Examples:</p>
-<ul>
-<li><p>Number of migraine attacks, number of children in a family, number of hospital admissions , etc.</p></li>
-<li><p>The above variables can take whole numbers such as 0, 1, 2, 3, …., but they can not be fractional numbers such as 1.34, 2.76, etc.</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Continuous variables</strong>:</p>
-<ul>
-<li><p>Unlike discrete variables, continuous variables can take any value within a given range.</p></li>
-<li><p>They do not have gaps or interruptions in the values that they can assume (i.e., between any two values, there are an infinite number of other values).</p></li>
-<li><p>Examples:</p>
-<ul>
-<li><p>Age, weight, height, blood pressure, etc.</p></li>
-<li><p>The above variables can take any value within a given range (e.g., weight can be 25.3, 30.6, 45.8 kg, etc.).</p></li>
-</ul></li>
-</ul></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p>Continuous variables are often recorded rounded to a certain number of decimal places as if they were discrete variables.</p></li>
-<li><p>The cause of this is the limitations of the measuring instruments used to collect the data (the scale in the case of weight, the thermometer in the case of temperature, etc.).</p></li>
-<li><p>Therefore, the weight of an individual can take infinite values between say 70 and 71 kg, but in practice it is recorded rounded to the nearest decimal place (e.g., 70.3, 70.6, 70.8 kg, etc.) because of the lack of precise measurement.<br>
-</p></li>
-</ul>
-</div>
-</div>
-</section>
-</section>
-</section>
-<section id="scales-of-measurement" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="scales-of-measurement"><span class="header-section-number">3</span> Scales of measurement</h2>
-<ul>
-<li><p>Measurement can be defined as the assignment of numbers to objects or events according to certain rules.</p></li>
-<li><p>Different scales of measurement arise from the fact that numbers can be assigned to objects or events under different sets of rules.</p></li>
-<li><p>Each scale of measurement has its own properties that affect the type of statistical analysis that can be performed on the data.</p></li>
-<li><p>These properties include the order of the categories, the distance between the categories, and the presence of a true zero point.</p></li>
-<li><p>According to Stevens (1946), there are four scales of measurement:</p>
-<ol type="1">
-<li><p><strong>Nominal scale</strong>:</p>
-<ul>
-<li><p>It involves naming or classifying observations into categories that are mutually exclusive (i.e., categories that do not overlap) and collectively exhaustive (i.e., every observation must fall into one of the categories).</p></li>
-<li><p>The categories have no inherent order or ranking.</p></li>
-<li><p>Examples of nominal scale variables:</p>
-<ol type="i">
-<li><p>Blood type (A, B, AB, and O).</p></li>
-<li><p>Hair color (black, brown, blonde, and red).</p></li>
-<li><p>Gender (male and female).</p></li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>A nominal variable that possesses only two categories is referred to as a dichotomous or binary variable (e.g., gender, yes/no response).</li>
+<li><p>In this particular example, the population mean and variance are known because this is a simulation and we generated the data.</p></li>
+<li><p>In practice, the population mean and variance are <strong>unknown</strong> and we use the sample mean and variance to estimate them.</p></li>
 </ul>
 </div>
 </div></li>
-</ul></li>
-<li><p><strong>Ordinal scale</strong>:</p>
-<ul>
-<li><p>Like the nominal scale, the ordinal scale involves naming or classifying observations into categories that are mutually exclusive and collectively exhaustive.</p></li>
-<li><p>However, the categories have <em>a natural order or ranking</em>.</p></li>
-<li><p>The distance or the the difference between the categories is not necessarily equal (i.e., the difference between the categories is not meaningful in a numerical sense).</p></li>
-<li><p>Examples of ordinal scale variables:</p>
-<ol type="i">
-<li><p>Educational level (elementary, high school, college, and postgraduate).</p></li>
-<li><p>Socioeconomic status (low, middle, and high).</p></li>
-<li><p>Pain severity (mild, moderate, and severe).</p></li>
-<li><p>Cancer stage (stage I, stage II, stage III, and stage IV).</p></li>
-<li><p>Likert scale (strongly disagree, disagree, neutral, agree, and strongly agree).</p></li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<li><p>Now, let’s draw a sample of <span class="math inline">\(10\)</span> observations from this population and calculate the uncorrected sample variance:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(population, <span class="dv">10</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>   <span class="st">"Sample mean: "</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">round</span>(<span class="fu">mean</span>(sample), <span class="dv">2</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Sample mean:  50.45"</code></pre>
 </div>
-<div class="callout-title-container flex-fill">
-Note
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>var.sample <span class="ot">&lt;-</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>((sample <span class="sc">-</span> <span class="fu">mean</span>(sample))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">length</span>(sample)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>   <span class="st">"Uncorrected sample variance: "</span>, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">round</span>(var.sample, <span class="dv">2</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Uncorrected sample variance:  89.63"</code></pre>
 </div>
+</div></li>
+<li><p>As you can see that the <span class="math inline">\(\bar{x} = 50.45\)</span> and is used as an unbiased estimator of the population mean <span class="math inline">\(\mu = 50.16\)</span>, however, the uncorrected sample variance <span class="math inline">\(s_n^2 = 89.63\)</span> underestimates the population variance <span class="math inline">\(\sigma^2 = 98.25\)</span>.</p></li>
+<li><p>Let’s apply Bessel’s correction to the sample variance:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>var.sample.corrected <span class="ot">&lt;-</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>((sample <span class="sc">-</span> <span class="fu">mean</span>(sample))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">length</span>(sample) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The same result can be also obtained using var(sample)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>   <span class="st">"Corrected sample variance: "</span>, </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">round</span>(var.sample.corrected, <span class="dv">2</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Corrected sample variance:  99.59"</code></pre>
 </div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p>Consider for example the variable <strong>pain severity</strong>, the difference between <strong>mild</strong> and <strong>moderate</strong> is not necessarily equal to the difference between <strong>moderate</strong> and <strong>severe</strong>.</p></li>
-<li><p>Even if we can code the categories as 1, 2, and 3, no mathematical operations can be performed on these numbers.</p></li>
-</ul>
+</div></li>
+<li><p>The corrected sample variance is <span class="math inline">\(s^2 = 99.59\)</span> is closer to the population variance than the uncorrected sample variance.</p></li>
+<li><p>On repeated sampling (i.e., taking many samples with the same size and calculating the sample variance for each sample), the average of the corrected sample variances will be closer to the population variance than the average of the uncorrected sample variances (i.e., the corrected sample variance is an unbiased estimator of the population variance):</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>sample.var.uncor <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(population, <span class="dv">10</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    sample.var.uncor[i] <span class="ot">&lt;-</span> </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sum</span>((sample <span class="sc">-</span> <span class="fu">mean</span>(sample))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">length</span>(sample))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>   <span class="st">"Mean of 1000 uncorrected sample variances: "</span>, </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>   <span class="fu">round</span>(<span class="fu">mean</span>(sample.var.uncor), <span class="dv">2</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mean of 1000 uncorrected sample variances:  88.79"</code></pre>
+</div>
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sample.var.cor <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(population, <span class="dv">10</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    sample.var.cor[i] <span class="ot">&lt;-</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sum</span>((sample <span class="sc">-</span> <span class="fu">mean</span>(sample))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">length</span>(sample) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>   <span class="st">"Mean of 1000 corrected sample variances: "</span>, </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>   <span class="fu">round</span>(<span class="fu">mean</span>(sample.var.cor), <span class="dv">2</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mean of 1000 corrected sample variances:  98.32"</code></pre>
 </div>
 </div></li>
 </ul></li>
-<li><p><strong>Interval scale</strong>:</p>
+<li><p>The division by <span class="math inline">\((n-1)\)</span> in the sample variance formula can also be viewed as a way to adjust for the loss of one <strong>degree of freedom</strong> when estimating the population variance from the sample variance:</p>
 <ul>
-<li><p>It is a quantitative scale.</p></li>
-<li><p>The measurements are ordered (ranked).</p></li>
-<li><p>The difference between measurements is meaningful (i.e., interpretable).</p></li>
-<li><p>It does not have a true zero point (i.e., the value of zero does not indicate the absence of the quantity being measured). This zero point is arbitrary.</p></li>
-<li><p>The ratio of two measurements is not meaningful because of the absence of a true zero point.</p></li>
-<li><p>Examples of interval scale variables:</p>
-<ol type="i">
-<li><p>Temperature measured in Celsius or Fahrenheit.</p></li>
-<li><p>Intelligence Quotient (IQ) scores.</p></li>
-</ol>
+<li><p>Degrees of freedom <span class="math inline">\((df)\)</span> is a mathematical concept that refers to the number of independent pieces of information that are free to vary in the presence of a set of constraints.</p></li>
+<li><p>This concept will be revisited in upcoming chapters.</p></li>
+<li><p>Let’s consider a simple example to understand this concept:</p>
+<ul>
+<li><p>Assume that we have <span class="math inline">\(5\)</span> boxes that each needs to be filled with a real number such that the sum of the numbers is <span class="math inline">\(10\)</span> (this is referred to as a <strong>constraint</strong>) and we ask <span class="math inline">\(5\)</span> persons to choose the numbers they like as illustrated in the following image: <img src="../../images/df.jpg" class="img-fluid"></p></li>
+<li><p>The first person <i class="bi bi-person-fill" style="color: #0171c3; font-size: 22px;"></i> is free to choose any real number; he chooses <span class="math inline">\(5\)</span> to fill the first box without being constrained by the sum of the numbers.</p></li>
+<li><p>The second person <i class="bi bi-person-fill" style="color: red; font-size: 22px;"></i> is also free to choose any real number; he chooses <span class="math inline">\(2\)</span> to fill the second box without being constrained by the sum of the numbers.</p></li>
+<li><p>The third person <i class="bi bi-person-fill" style="color: darkgreen; font-size: 22px;"></i> is also free to choose any real number; he chooses <span class="math inline">\(-3\)</span> to fill the third box without being constrained by the sum of the numbers.</p></li>
+<li><p>The fourth person <i class="bi bi-person-fill" style="color: orange; font-size: 22px;"></i> is also free to choose any real number; he chooses <span class="math inline">\(7\)</span> to fill the fourth box without being constrained by the sum of the numbers.</p></li>
+<li><p>On the other contrary, the fifth person <i class="bi bi-person-fill" style="color: #89caf2; font-size: 22px;"></i> is not free to choose any real number; he must choose the number <span class="math inline">\(-1\)</span> to fill the fifth box in order to satisfy the constraint that the sum of the numbers is <span class="math inline">\(10\)</span>.</p></li>
+<li><p>Therefore, there are only <span class="math inline">\(4\)</span> independent pieces of information that are free to vary (i.e., the first four persons).</p></li>
+<li><p>The fifth person is not free to choose any real number rather his choice is dependent on the choices of the first four persons due to the constraint imposed on the sum of the numbers.</p></li>
+<li><p>Therefore, we say that we lose one degree of freedom (i.e., <span class="math inline">\(df = n - 1\)</span>).</p></li>
+<li><p>This concept is also applicable to the estimation of the sample variance; which involves the estimation of <span class="math inline">\(\mu\)</span> from <span class="math inline">\(\bar{x}\)</span>. Using <span class="math inline">\(\bar{x}\)</span> in the calculation of the sample variance implies that the pieces of informatios <span class="math inline">\((x_1 - \bar{x})^2, (x_2 - \bar{x})^2, \ldots, (x_n - \bar{x})^2\)</span>, which are used for the computation of the variance, are not independent because they are constrained by the <span class="math inline">\(\bar{x}\)</span>. Simply, there are only <span class="math inline">\(n-1\)</span> independent observations that are free to vary, while the last one can be determined by from the first <span class="math inline">\(n-1\)</span> observations and <span class="math inline">\(\bar{x}\)</span>).</p></li>
+</ul></li>
+</ul></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -481,72 +557,22 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Consider the temperature measured in Celsius, the difference between 10°C and 15°C is equal to the difference between 20°C and 25°C.</p></li>
-<li><p>However, the ratio of 20°C to 10°C is not meaningful (i.e., we can not say that 20°C is twice as hot as 10°).</p></li>
-<li><p>The value of zero Celsius does not imply the absence of temperature (i.e., the absence of molecular kinetic energy).</p></li>
+<li><p>Generally, the degrees of freedom for an estimate is equal to the number of observations minus the number of population parameters estimated while calculating the estimate in question.</p></li>
+<li><p>Applying this rule to the sample variance, we estimate the population mean <span class="math inline">\(\mu\)</span> from the sample mean <span class="math inline">\(\bar{x}\)</span>, which is one parameter estimated from the sample while computing the sample variance. Therefore, the degrees of freedom for the sample variance is <span class="math inline">\(n - 1\)</span>.</p></li>
 </ul>
 </div>
 </div></li>
-</ul></li>
-<li><p><strong>Ratio scale</strong>:</p>
-<ul>
-<li><p>It has the properties of the interval scale with the addition of:</p>
-<ol type="i">
-<li><p>A true zero point.</p></li>
-<li><p>The ratio of two measurements is meaningful.</p></li>
-</ol></li>
-<li><p>Examples of ratio scale variables:</p>
-<ol type="i">
-<li><p>Age.</p></li>
-<li><p>Weight.</p></li>
-<li><p>Temperature measured in Kelvin (this scale has a true zero point).</p></li>
-</ol></li>
-</ul></li>
-</ol></li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p>Each scale has the same properties as the scales that precede it.</p></li>
-<li><p>The statistical analysis that can be performed on a lower scale variable can also be performed on a higher scale variable but the reverse is not true.</p></li>
-<li><p>The scales can be ordered according to the level of information they provide in a descending order as follows: ratio &gt; interval &gt; ordinal &gt; nominal.</p></li>
-</ul>
-</div>
-</div>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><span style="color: #ba181b">Exercise B.1.1 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>Indicate the measurement scale for each of the following variables:</p>
-<div class="webex-check webex-box">
-<p>Car speed <select class="webex-select"><option value="blank"></option><option value="">nominal</option><option value="">ordinal</option><option value="">interval</option><option value="answer">ratio</option></select></p>
-<p>Cancer diagnosis <select class="webex-select"><option value="blank"></option><option value="answer">nominal</option><option value="">ordinal</option><option value="">interval</option><option value="">ratio</option></select></p>
-<p>Pain level on a 5-point scale <select class="webex-select"><option value="blank"></option><option value="">nominal</option><option value="answer">ordinal</option><option value="">interval</option><option value="answer">ratio</option></select></p>
-<p>Serum sodium level <select class="webex-select"><option value="blank"></option><option value="">nominal</option><option value="">ordinal</option><option value="">interval</option><option value="answer">ratio</option></select></p>
-</div>
-</div>
-</div>
-</div>
 </section>
-<section id="references" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
+<section id="references" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="references"><span class="header-section-number">2</span> References</h2>
 <ul>
-<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
-<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
-<li><p>Lane, D. M. et al., (2019). Introduction to Statistics. Online Edition. Retrieved September 14, 2024, from https://openstax.org/details/introduction-statistics</p></li>
+<li>Lane, D (2023). Introductory Statistics. Retrieved September 14, 2024, from https://stats.libretexts.org/Bookshelves/Introductory_Statistics/Introductory_Statistics_(Lane)</li>
 </ul>
 <p><br></p>
 </section>
-<section id="add-your-comments" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">5</span> Add your comments</h2>
+<section id="add-your-comments" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">3</span> Add your comments</h2>
 
 
 </section>
@@ -1189,14 +1215,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-alt-theme" value="dark">
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../posts/biostats/A01_intro.html" class="pagination-link" aria-label="Basic Concepts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Basic Concepts</span>
+      <a href="../../posts/biostats/B06_dispersion_stats.html" class="pagination-link" aria-label="Measures of Variability">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Measures of Variability</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../posts/biostats/B01_Freq_dist1_stats.html" class="pagination-link" aria-label="Frequency distribution 1">
-        <span class="nav-page-text">Frequency distribution 1</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

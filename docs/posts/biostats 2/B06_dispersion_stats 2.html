@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-10-20">
+<meta name="dcterms.date" content="2024-11-06">
 
-<title>Quantile algorithms – AMRBiostats</title>
+<title>Measures of Variability – AMRBiostats</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../posts/biostats/B05_boxplot_stats.html" rel="next">
-<link href="../../posts/biostats/B03_cent_tendency_stats.html" rel="prev">
+<link href="../../posts/biostats/B07_sample_variance_stats.html" rel="next">
+<link href="../../posts/biostats/B05_boxplot_stats.html" rel="prev">
 <link href="../..//images/fav.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -138,7 +138,6 @@ window.Quarto = {
 <link rel="stylesheet" href="../../styles.css">
 <link rel="stylesheet" href="../../include/webex.css">
 <meta property="og:title" content="AMRBiostats">
-<meta property="og:description" content="A reliable resource for biostatistics and R programming">
 <meta property="og:image" content="https://www.amrbiostats.com/images/biostats.jpg">
 <meta property="og:site_name" content="AMRBiostats">
 </head>
@@ -196,7 +195,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B01_Freq_dist1_stats.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B04_quantile_algorithms_stats.html">Quantile algorithms</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B01_Freq_dist1_stats.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B06_dispersion_stats.html">Measures of Variability</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -269,7 +268,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/biostats/B04_quantile_algorithms_stats.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/biostats/B04_quantile_algorithms_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quantile algorithms</span></a>
   </div>
 </li>
@@ -277,6 +276,18 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../posts/biostats/B05_boxplot_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Boxplot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B06_dispersion_stats.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Measures of Variability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B07_sample_variance_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demystifying sample variance formula</span></a>
   </div>
 </li>
       </ul>
@@ -293,18 +304,35 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#steps-to-calculate-quantiles-in-r" id="toc-steps-to-calculate-quantiles-in-r" class="nav-link active" data-scroll-target="#steps-to-calculate-quantiles-in-r"><span class="header-section-number">1</span> Steps to calculate quantiles in R</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2</span> References</a></li>
-  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">3</span> Add your comments</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background"><span class="header-section-number">1</span> Background</a></li>
+  <li><a href="#measures-of-variability" id="toc-measures-of-variability" class="nav-link" data-scroll-target="#measures-of-variability"><span class="header-section-number">2</span> Measures of variability</a>
+  <ul>
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range"><span class="header-section-number">2.1</span> Range</a></li>
+  <li><a href="#interquartile-range-iqr" id="toc-interquartile-range-iqr" class="nav-link" data-scroll-target="#interquartile-range-iqr"><span class="header-section-number">2.2</span> Interquartile Range (IQR)</a></li>
+  <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance"><span class="header-section-number">2.3</span> Variance</a>
+  <ul>
+  <li><a href="#population-variance" id="toc-population-variance" class="nav-link" data-scroll-target="#population-variance"><span class="header-section-number">2.3.1</span> Population variance</a></li>
+  <li><a href="#sample-variance" id="toc-sample-variance" class="nav-link" data-scroll-target="#sample-variance"><span class="header-section-number">2.3.2</span> Sample variance</a></li>
+  </ul></li>
+  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation"><span class="header-section-number">2.4</span> Standard Deviation</a>
+  <ul>
+  <li><a href="#population-standard-deviation" id="toc-population-standard-deviation" class="nav-link" data-scroll-target="#population-standard-deviation"><span class="header-section-number">2.4.1</span> Population standard deviation</a></li>
+  <li><a href="#sample-standard-deviation" id="toc-sample-standard-deviation" class="nav-link" data-scroll-target="#sample-standard-deviation"><span class="header-section-number">2.4.2</span> Sample standard deviation</a></li>
+  </ul></li>
+  <li><a href="#coefficient-of-variation" id="toc-coefficient-of-variation" class="nav-link" data-scroll-target="#coefficient-of-variation"><span class="header-section-number">2.5</span> Coefficient of Variation</a></li>
+  <li><a href="#median-absolute-deviation-mad" id="toc-median-absolute-deviation-mad" class="nav-link" data-scroll-target="#median-absolute-deviation-mad"><span class="header-section-number">2.6</span> Median Absolute Deviation (MAD)</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
+  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">4</span> Add your comments</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B01_Freq_dist1_stats.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B04_quantile_algorithms_stats.html">Quantile algorithms</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B01_Freq_dist1_stats.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/B06_dispersion_stats.html">Measures of Variability</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Quantile algorithms</h1>
+<h1 class="title">Measures of Variability</h1>
 </div>
 
 
@@ -315,7 +343,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 20, 2024</p>
+      <p class="date">November 6, 2024</p>
     </div>
   </div>
   
@@ -327,396 +355,339 @@ window.Quarto = {
 </header>
 
 
-<section id="steps-to-calculate-quantiles-in-r" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="steps-to-calculate-quantiles-in-r"><span class="header-section-number">1</span> Steps to calculate quantiles in R</h2>
+<section id="background" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="background"><span class="header-section-number">1</span> Background</h2>
 <ul>
-<li><p>The help of the <code>quantile()</code> function in R describes the different algorithms used to calculate quantiles. However, I find the details very technical and not easy to understand for casual readers.</p></li>
-<li><p>Therefore, I tried to simplify the algorithms as discussed below.</p></li>
-<li><p>R provides <strong>nine</strong> algorithms to calculate the quantiles, which can be specified using the <code>type</code> argument:</p>
+<li><p>Variability describes how the observations are dispersed around the center of the data.</p></li>
+<li><p>The terms <code>variability</code> and <code>dispersion</code> are used interchangeably.</p></li>
+<li><p>Two distributions can have the same mean but different variability (as depicted in the figure below).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="B06_dispersion_stats_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <ul>
-<li><p>Types <span class="math inline">\(1-3\)</span> are used for discontinuous data, while types <span class="math inline">\(4-9\)</span> are used for continuous data.</p></li>
-<li><p>Type <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> are used for class “Date” and for ordered factors.</p></li>
-<li><p>Type <span class="math inline">\(7\)</span> is the default method for continuous data in R.</p></li>
-<li><p>Type <span class="math inline">\(6\)</span> is used to get results similar to <code>SPSS</code>, <code>Minitab</code>, or <code>Graphpad Prism</code>.</p></li>
+<li>Despite having the same mean represented by the red vertical line, the blue distribution has a higher variability than the green distribution (i.e., the observations are more dispersed around the mean).</li>
 </ul></li>
-<li><p>Let <span class="math inline">\(n\)</span> be the number of observations in the dataset.</p></li>
-<li><p>Let <span class="math inline">\(p\)</span> a number between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, where <span class="math inline">\((p \times 100)\%\)</span> is the quantile to be calculated, denoted by <span class="math inline">\(Q_p\)</span>.</p></li>
-<li><p>The first step is to calculate the product <span class="math inline">\(np\)</span>.</p></li>
-<li><p>Next, calculate the <span class="math inline">\(j^{th}\)</span> rank and <span class="math inline">\(Q_p\)</span> as follows:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 5%">
-<col style="width: 30%">
-<col style="width: 30%">
-<col style="width: 32%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Algorithm</th>
-<th style="text-align: center;"><span style="color: #0466c8;"><span class="math inline">\(j\)</span></span></th>
-<th style="text-align: center;"><span style="color: darkgreen;">Condition</span></th>
-<th style="text-align: center;"><span style="color: #ba181b;">Quantile <span class="math inline">\((Q_p)\)</span></span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
-<td style="text-align: center;"><span style="color: #0466c8;"><span class="math inline">\(\lfloor np \rfloor\)</span></span></td>
-<td style="text-align: center;"><p><span class="math inline">\(np = j\)</span></p>
-<p><span class="math inline">\(np \ne j\)</span></p></td>
-<td style="text-align: center;"><p><span style="color: #ba181b;"><span class="math inline">\(x_j\)</span></span></p>
-<p><span style="color: #ba181b;"><span class="math inline">\(x_{j+1}\)</span></span></p></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
-<td style="text-align: center;"><span style="color: #0466c8;"><span class="math inline">\(\lfloor np \rfloor\)</span></span></td>
-<td style="text-align: center;"><p><span class="math inline">\(np = j\)</span></p>
-<p><span class="math inline">\(np \ne j\)</span></p></td>
-<td style="text-align: center;"><p><span style="color: #ba181b;"><span class="math inline">\(\frac{1}{2}(x_j + x_{j+1})\)</span></span></p>
-<p><span style="color: #ba181b;"><span class="math inline">\(x_{j+1}\)</span></span></p></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
-<td style="text-align: center;"><span style="color: #0466c8;"><span class="math inline">\(\lfloor np - \large \frac{1}{2}\rfloor\)</span></span></td>
-<td style="text-align: center;"><p><span class="math inline">\(np = j + \frac{1}{2}\)</span> and <span class="math inline">\(j\)</span> even</p>
-<p><span class="math inline">\(np \ne j+ \frac{1}{2}\)</span></p></td>
-<td style="text-align: center;"><p><span class="math inline">\(x_j\)</span></p>
-<p><span class="math inline">\(x_{j+1}\)</span></p></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
-<td style="text-align: center;"><span style="color: #0466c8;"><span class="math inline">\(\lfloor np \rfloor\)</span></span></td>
-<td style="text-align: center;"><hr></td>
-<td style="text-align: center;"><span style="color: #ba181b;"><span class="math inline">\(x_j + (x_{j+1} - x_j)(np-j)\)</span></span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(5\)</span></td>
-<td style="text-align: center;"><span style="color: #0466c8;"><span class="math inline">\(\lfloor np + \large \frac{1}{2}\rfloor\)</span></span></td>
-<td style="text-align: center;"><hr></td>
-<td style="text-align: center;"><span style="color: #ba181b;"><span class="math inline">\(x_j + (x_{j+1} - x_j)(np-j + \frac{1}{2})\)</span></span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
-<td style="text-align: center;"><span style="color: #0466c8;"><span class="math inline">\(\lfloor np + p \rfloor\)</span></span></td>
-<td style="text-align: center;"><hr></td>
-<td style="text-align: center;"><span style="color: #ba181b;"><span class="math inline">\(x_j + (x_{j+1} - x_j)(np-j +p)\)</span></span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(7\)</span></td>
-<td style="text-align: center;"><span style="color: #0466c8;"><span class="math inline">\(\lfloor np -p +1 \rfloor\)</span></span></td>
-<td style="text-align: center;"><hr></td>
-<td style="text-align: center;"><span style="color: #ba181b;"><span class="math inline">\(x_j + (x_{j+1} - x_j)(np -j - p + 1)\)</span></span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(8\)</span></td>
-<td style="text-align: center;"><span style="color: #0466c8;"><span class="math inline">\(\lfloor np + \large \frac{(p+1)}{3} \rfloor\)</span></span></td>
-<td style="text-align: center;"><hr></td>
-<td style="text-align: center;"><span style="color: #ba181b;"><span class="math inline">\(x_j + (x_{j+1} - x_j)(np - j + \frac{(p+1)}{3})\)</span></span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(9\)</span></td>
-<td style="text-align: center;"><span style="color: #0466c8;"><span class="math inline">\(\lfloor np + \large \frac{(2p+3)}{8} \rfloor\)</span></span></td>
-<td style="text-align: center;"><hr></td>
-<td style="text-align: center;"><span style="color: #ba181b;"><span class="math inline">\(x_j + (x_{j+1} - x_j)(np - j + \frac{(2p+3)}{8})\)</span></span></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p>The symbol <span class="math inline">\(\lfloor x \rfloor\)</span> reads as the floor of <span class="math inline">\(x\)</span>. This function returns the largest <strong>integer</strong> not greater than <span class="math inline">\(x\)</span> (i.e., <strong>rounds down</strong> <span class="math inline">\(x\)</span> to the nearest integer). For example, <span class="math inline">\(\lfloor 3.9 \rfloor = 3\)</span>.</p></li>
-<li><p><span class="math inline">\(x_j\)</span> and <span class="math inline">\(x_{j+1}\)</span> are the <span class="math inline">\(j^{th}\)</span> and <span class="math inline">\((j+1)^{th}\)</span> order statistics, respectively (i.e., the observations having the rank <span class="math inline">\(j\)</span> and <span class="math inline">\(j+1\)</span> in the ordered array of the observations).</p></li>
-</ul></li>
-<li><p>Let’s illustrate the above algorithms with some examples.</p></li>
-<li><p><span style="color: #ba181b;">Example <span class="math inline">\(1\)</span> (ordered factor):</span> consider the following set of observations pertaining to the pain severity (<span class="math inline">\(1\)</span>: mild, <span class="math inline">\(2\)</span>: moderate, <span class="math inline">\(3\)</span>: severe) of <span class="math inline">\(10\)</span> patients: <span class="math inline">\(1, 1, 1, 2, 2, 3, 3, 3, 3, 3\)</span>. The <span class="math inline">\(50^{th}\ (Q_{0.5})\)</span> and <span class="math inline">\(75^{th}\ (Q_{0.75})\)</span> quantiles can be calculated using algorithms <span class="math inline">\(1-3\)</span> as follows:</p></li>
+<li><p>Therefore, it is important to report a measure of variability along with the measure of central tendency to provide a complete description of the data.</p></li>
 </ul>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Algorithm 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Algorithm 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Algorithm 3</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+</section>
+<section id="measures-of-variability" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="measures-of-variability"><span class="header-section-number">2</span> Measures of variability</h2>
 <ul>
-<li><p><span class="math inline">\(\small 50^{th}\)</span> Quantile:</p>
+<li>In the following sections, we will discuss the most commonly used measures of variability.</li>
+</ul>
+<section id="range" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="range"><span class="header-section-number">2.1</span> Range</h3>
 <ul>
-<li><p><span class="math inline">\(\small p = 0.5\)</span>, <span class="math inline">\(\small np = 10 \times 0.5 = 5\)</span>, and <span class="math inline">\(\small j =  \lfloor np \rfloor = \lfloor 5 \rfloor = 5\)</span></p></li>
-<li><p>Since <span class="math inline">\(\small np = j\)</span>, then <span class="math inline">\(\small Q_{0.5} = x_j = x_5\)</span> (the observation having the rank <span class="math inline">\(\small 5\)</span> in the ordered array), which has the value <span class="math inline">\(\small 2\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\small 75^{th}\)</span> Quantile:</p>
+<li>The range <span class="math inline">\((R)\)</span> is defined as the difference between the maximum and minimum value of the data.</li>
+</ul>
+<p><span class="math display">\[
+R = x_{\text{max}} - x_{\text{min}}
+\]</span></p>
 <ul>
-<li><p><span class="math inline">\(\small p = 0.75\)</span>, <span class="math inline">\(\small np = 10 \times 0.75 = 7.5\)</span>, and <span class="math inline">\(\small j =  \lfloor np \rfloor = \lfloor 7.5 \rfloor = 7\)</span></p></li>
-<li><p>Since <span class="math inline">\(\small np \ne j\)</span>, then <span class="math inline">\(\small Q_{0.75} = x_{j+1} = x_8\)</span> (the observation having the rank <span class="math inline">\(\small 8\)</span> in the ordered array), which has the value <span class="math inline">\(\small 3\)</span></p></li>
-</ul></li>
-<li><p>Check the result using the <code>quantile()</code> function in R:</p>
+<li><p>The range considers only two observations, so its use is limited.</p></li>
+<li><p>It is sensitive to extreme values.</p></li>
+<li><p>Because infinite number of distributions can have different maximum and minimum values but the same range, it can be helpful to report the range as the <span class="math inline">\([x_{\text{min}},\ x_{\text{max}}]\)</span>. This approach conveys more information about the data.</p></li>
+<li><p>Example: the range of the variable <code>mpg</code> in the <code>mtcars</code> dataset is calculated in R using the <code>range()</code> function:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">quantile</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> x, </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.75</span>), </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> <span class="at">type =</span> <span class="dv">1</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>50% 75% 
-  2   3 </code></pre>
+<pre><code>[1] 10.4 33.9</code></pre>
+</div>
+</div>
+<ul>
+<li>The output is a vector of two values representing the minimum and maximum values, respectively.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interquartile-range-iqr" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="interquartile-range-iqr"><span class="header-section-number">2.2</span> Interquartile Range (IQR)</h3>
+<ul>
+<li>It is defined as the difference between the third quartile <span class="math inline">\((Q_3)\)</span> and the first quartile <span class="math inline">\((Q_1)\)</span>;</li>
+</ul>
+<p><span class="math display">\[
+IQR = Q_3 - Q_1
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(IQR\)</span> reflects the variability among the middle <span class="math inline">\(50\%\)</span> of the observations:</p>
+<ul>
+<li><p>If <span class="math inline">\(IQR\)</span> is large, it inidicates a large amount of variability.</p></li>
+<li><p>If <span class="math inline">\(IQR\)</span> is small, it indicates a small amount of variability.</p></li>
+</ul></li>
+<li><p>The IQR is calculated in R using the <code>IQR()</code> function as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.375</code></pre>
 </div>
 </div></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>The <code>summary()</code> function in R can be used to get the minimum, <span class="math inline">\(Q_1\)</span>, median, <span class="math inline">\(Q_3\)</span>, and maximum values of a variable. In addition, it provides the counts of missing values, if any.</p></li>
+<li><p>For example, the summary of the variable <code>mpg</code> in the <code>mtcars</code> dataset is obtained as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  10.40   15.43   19.20   20.09   22.80   33.90 </code></pre>
+</div>
+</div></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="variance" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="variance"><span class="header-section-number">2.3</span> Variance</h3>
+<ul>
+<li>The variance measures the variability relative to the scatter of the observations about their mean.</li>
+</ul>
+<section id="population-variance" class="level4" data-number="2.3.1">
+<h4 data-number="2.3.1" class="anchored" data-anchor-id="population-variance"><span class="header-section-number">2.3.1</span> Population variance</h4>
+<ul>
+<li>Finite population variance <span class="math inline">\(\sigma^2\)</span> is defined as the mean of the squared differences (i.e., deviations) between each observation and the population mean <span class="math inline">\((\mu)\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\sigma^2 =\displaystyle \frac{1}{N} \displaystyle \sum_{i=1}^{N} (x_i - \mu)^2 = \displaystyle \frac{1}{N} \Big (\displaystyle \sum_{i=1}^{N} x_i^2 - \frac {\displaystyle \big (\sum_{i=1}^{N} x_i \big)^2}{N} \Big)
+\]</span></p>
+</section>
+<section id="sample-variance" class="level4" data-number="2.3.2">
+<h4 data-number="2.3.2" class="anchored" data-anchor-id="sample-variance"><span class="header-section-number">2.3.2</span> Sample variance</h4>
+<ul>
+<li>Sample variance <span class="math inline">\((s^2)\)</span> is defined as the mean of the squared differences (i.e., deviations) between each observation and the sample mean <span class="math inline">\((\bar{x})\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+s^2 =\displaystyle \frac{1}{n-1} \displaystyle \sum_{i=1}^{n} (x_i - \bar{x})^2 = \displaystyle \frac{1}{n-1} \Big (\displaystyle \sum_{i=1}^{n} x_i^2 - \frac {\displaystyle \big (\sum_{i=1}^{n} x_i \big)^2}{n} \Big)
+\]</span></p>
+<ul>
+<li><p>More detailed discussion on the sample variance formula is provided <a href="../../posts/biostats/B07_sample_variance_stats.html">here</a>.</p></li>
+<li><p>The sample variance is calculated in R using the <code>var()</code> function as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 36.3241</code></pre>
+</div>
+</div></li>
+<li><p>The above value is the same if we calculate the variance manually using the above formula:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(mtcars<span class="sc">$</span>mpg)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mean_mpg <span class="ot">&lt;-</span> <span class="fu">mean</span>(mtcars<span class="sc">$</span>mpg)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((mtcars<span class="sc">$</span>mpg <span class="sc">-</span> mean_mpg)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 36.3241</code></pre>
+</div>
+</div></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color:#0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>The expression <span class="math inline">\(\displaystyle \sum_{i=1}^{N} (x_i - \mu)^2\)</span> or <span class="math inline">\(\displaystyle \sum_{i=1}^{n}(x_i - \bar{x})^2\)</span> is referred to as sum of squares <span class="math inline">\(SS\)</span>.</p></li>
+<li><p>The unit of the variance is the square of the units of the observations making interpretation difficult.</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="standard-deviation" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="standard-deviation"><span class="header-section-number">2.4</span> Standard Deviation</h3>
+<ul>
+<li>The standard deviation <span class="math inline">\((s)\)</span> is the square root of the variance.</li>
+</ul>
+<section id="population-standard-deviation" class="level4" data-number="2.4.1">
+<h4 data-number="2.4.1" class="anchored" data-anchor-id="population-standard-deviation"><span class="header-section-number">2.4.1</span> Population standard deviation</h4>
+<p><span class="math display">\[
+\sigma = \sqrt{\sigma^2} = \sqrt{\displaystyle \frac{1}{N} \displaystyle \sum_{i=1}^{N} (x_i - \mu)^2}   
+\]</span></p>
+</section>
+<section id="sample-standard-deviation" class="level4" data-number="2.4.2">
+<h4 data-number="2.4.2" class="anchored" data-anchor-id="sample-standard-deviation"><span class="header-section-number">2.4.2</span> Sample standard deviation</h4>
+<p><span class="math display">\[
+s = \sqrt{s^2} =  \sqrt{\displaystyle \frac{1}{n-1} \displaystyle \sum_{i=1}^{n} (x_i - \bar{x})^2}   
+\]</span></p>
+<ul>
+<li><p>The sample standard deviation is calculated in R using the <code>sd()</code> function as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.026948</code></pre>
+</div>
+</div></li>
+<li><p>The above value is the same if we take the square root of the sample variance:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(mtcars<span class="sc">$</span>mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.026948</code></pre>
+</div>
+</div></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color:#0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>The standard deviation is more interpretable than the variance because it has the original unit of the observations.</p></li>
+<li><p>Therefore, it is preferred as a measure of variability.</p></li>
+<li><p>Similar to the variance, the standard deviation measures how much the observations are scattered around the mean (i.e., the average difference of the observations from the mean), therefore:</p>
+<ul>
+<li><p>A low value of the standard deviation implies that the observations are more concentrated around the mean (i.e., low variability).</p></li>
+<li><p>A high value of the standard deviation implies that the observations are more scattered around the mean (i.e., high variability).</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="coefficient-of-variation" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="coefficient-of-variation"><span class="header-section-number">2.5</span> Coefficient of Variation</h3>
+<ul>
+<li><p>Assume that we want to compare the variability of two or more variables.</p></li>
+<li><p>Although the standard deviation is an appropriate measure of variability, it is not suitable for making this comparison directly because the variables might have different units causing the means to differ substantially. This also applies even if the variables are measured in the same units but have different means (differences in the standard deviation might be due to differences in the means not due to differences in the variability).</p></li>
+<li><p>Therefore, a relative measure of variability is needed that is independent of the unit of measurement or the mean.</p></li>
+<li><p>The coefficient of variation <span class="math inline">\((CV)\)</span> is defined as the ratio of the standard deviation to the mean expressed as a percentage:</p></li>
+</ul>
+<p><span class="math display">\[
+CV = \displaystyle \frac{s}{\bar{x}} \times (100) \%
+\]</span></p>
+<ul>
+<li>It is unitless and is independent of the mean.</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Example B.6.1 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><span style="color: #ba181b">Exercise B.6.1 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li><p>The mean and standard deviation of the glucose and cholesterol levels of 10 subjects are given below:</p>
+<ul>
+<li><p>Glucose: <span class="math inline">\(\bar{x}_{\text{glucose}} = 120\)</span> mg/dL, <span class="math inline">\(s_{\text{glucose}} = 15\)</span> mg/dL</p></li>
+<li><p>Cholesterol: <span class="math inline">\(\bar{x}_{\text{cholesterol}} = 200\)</span> mg/dL, <span class="math inline">\(s_{\text{cholesterol}} = 20\)</span> mg/dL</p></li>
+</ul></li>
+<li><p>The coefficient of variation for glucose and cholesterol levels can be calculated as follows:</p>
+<ul>
+<li><p><span class="math inline">\(CV_{\text{glucose}} = \displaystyle \frac{15}{120} \times 100\% = 12.5\%\)</span></p></li>
+<li><p><span class="math inline">\(CV_{\text{cholesterol}} = \displaystyle \frac{20}{200} \times 100\% = 10\%\)</span></p></li>
+</ul></li>
+<li><p>Based on the results, we can conclude that the cholesterol levels are less variable than the glucose levels (even though the standard deviation of cholesterol levels is higher than that of glucose levels).</p></li>
+<li><p>Using the standard deviation to compare the variability would have led to the opposite conclusion.</p></li>
 </ul>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <ul>
-<li><p><span class="math inline">\(\small 50^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.5\)</span>, <span class="math inline">\(\small np = 10 \times 0.5 = 5\)</span>, and <span class="math inline">\(\small j =  \lfloor np \rfloor = \lfloor 5 \rfloor = 5\)</span></p></li>
-<li><p>Since <span class="math inline">\(\small np = j\)</span>, then <span class="math inline">\(\small Q_{0.5} = \frac{1}{2}(x_j + x_{j+1}) =\)</span> <span class="math inline">\(\small \frac{1}{2}(x_5 + x_6) = \frac{1}{2}(2 + 3) = 2.5\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\small 75^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.75\)</span>, <span class="math inline">\(\small np = 10 \times 0.75 = 7.5\)</span>, <span class="math inline">\(\small j =  \lfloor np \rfloor = \lfloor 7.5 \rfloor = 7\)</span></p></li>
-<li><p>Since <span class="math inline">\(\small np \ne \lfloor np \rfloor\)</span>, then <span class="math inline">\(\small Q_{0.75} =  x_{j+1} = x_8 = 3\)</span></p></li>
-</ul></li>
-<li><p>Check the result using the <code>quantile()</code> function in R:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  x, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.75</span>), </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="dv">2</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>50% 75% 
-2.5 3.0 </code></pre>
-</div>
-</div></li>
-</ul>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<ul>
-<li><p><span class="math inline">\(\small 50^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.5\)</span>, <span class="math inline">\(\small np = 10 \times 0.5 = 5\)</span>, and <span class="math inline">\(\small j =  \lfloor np - 0.5 \rfloor = \lfloor 5 - 0.5 \rfloor = 4\)</span></p></li>
-<li><p>Since <span class="math inline">\(\small np \ne j + 0.5\)</span>, then <span class="math inline">\(\small Q_{0.5} = x_{j+1} = x_5 = 2\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\small 75^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.75\)</span>, <span class="math inline">\(\small np = 10 \times 0.75 = 7.5\)</span>, and <span class="math inline">\(\small j =  \lfloor np - 0.5 \rfloor = \lfloor 7.5 - 0.5 \rfloor = 7\)</span></p></li>
-<li><p>Since <span class="math inline">\(\small np = j + 0.5\)</span> but <span class="math inline">\(j\)</span> is not even, then <span class="math inline">\(\small Q_{0.75} = x_{j+1} = x_8 = 3\)</span></p></li>
-</ul></li>
-<li><p>Check the result using the <code>quantile()</code> function in R:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  x, </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.75</span>), </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="dv">3</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>50% 75% 
-  2   3 </code></pre>
-</div>
+<li><p>Load the <code>PimaIndiansDiabetes</code> dataset.</p>
+<p>Which of the following variables has the highest variability??</p>
+<div id="radio_RTZEGRRJEP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RTZEGRRJEP" value=""> <span>glucose</span></label><label><input type="radio" autocomplete="off" name="radio_RTZEGRRJEP" value="answer"> <span>pressure</span></label><label><input type="radio" autocomplete="off" name="radio_RTZEGRRJEP" value=""> <span>mass</span></label>
 </div></li>
 </ul>
 </div>
 </div>
 </div>
+</section>
+<section id="median-absolute-deviation-mad" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="median-absolute-deviation-mad"><span class="header-section-number">2.6</span> Median Absolute Deviation (MAD)</h3>
 <ul>
-<li><span style="color: #ba181b;">Example <span class="math inline">\(2\)</span> (continuous data):</span> consider the following ordered set of observations: <span class="math inline">\((10.2,\ 10.4,\ 11.6,\ 12.3,\ 13.2,\ 14.7,\ 15.4,\ 16.1)\)</span>. The <span class="math inline">\(25^{th}\ (Q_{0.25})\)</span> and <span class="math inline">\(75^{th}\ (Q_{0.75})\)</span> quantiles can be calculated using algorithms <span class="math inline">\(4-9\)</span> as follows:</li>
+<li><p>The standard deviation is based on the mean, so it is also sensitive to outliers.</p></li>
+<li><p>Median Absolute Deviation (MAD) is a more robust measure of variability than the standard deviation.</p></li>
+<li><p>It is calculated based on the median of the observations and is defined as the median of the absolute deviations of the observations from the median:</p></li>
 </ul>
+<p><span class="math display">\[
+\text{MAD} = \text{median}(|x_i - \text{median}(x)|)
+\]</span></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Algorithm 4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Algorithm 5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Algorithm 6</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Algorithm 7</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">Algorithm 8</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" role="tab" aria-controls="tabset-2-6" aria-selected="false">Algorithm 9</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Example B.6.2 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <ul>
-<li><p><span class="math inline">\(\small 25^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.25\)</span>, <span class="math inline">\(\small np = 8 \times 0.25 = 2\)</span>, and <span class="math inline">\(\small j =  \lfloor np \rfloor = \lfloor 2 \rfloor = 2\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.25} = x_j + (x_{j+1} - x_j)(np - j) = x_2 + (x_3 - x_2)(2 - 2) = 10.4\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\small 75^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.75\)</span>, <span class="math inline">\(\small np = 8 \times 0.75 = 6\)</span>, and <span class="math inline">\(\small j =  \lfloor np \rfloor = \lfloor 6 \rfloor = 6\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.75} = x_j + (x_{j+1} - x_j)(np - j) = x_6 + (x_7 - x_6)(6 - 6) = 14.7\)</span></p></li>
-</ul></li>
-<li><p>Check the result using the <code>quantile()</code> function in R:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">10.4</span>, <span class="fl">11.6</span>, <span class="fl">12.3</span>, <span class="fl">13.2</span>, <span class="fl">14.7</span>, <span class="fl">15.4</span>, <span class="fl">16.1</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  y, </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>), </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="dv">4</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code> 25%  75% 
-10.4 14.7 </code></pre>
-</div>
-</div></li>
+<li><p>Calculate <span class="math inline">\(MAD\)</span> for the following observations: <span class="math inline">\(2, 5, 6, 8, 15\)</span>.</p></li>
+<li><p>The median of the observations is <span class="math inline">\(6\)</span>.</p></li>
+<li><p>The absolute deviations from the median are <span class="math inline">\(|2-6| = 4\)</span>, <span class="math inline">\(|5-6| = 1\)</span>, <span class="math inline">\(|6-6| = 0\)</span>, <span class="math inline">\(|8-6| = 2\)</span>, and <span class="math inline">\(|15-6| = 9\)</span>.</p></li>
+<li><p>Arrange the absolute deviations in ascending order: <span class="math inline">\(0, 1, 2, 4, 9\)</span>.</p></li>
+<li><p>The median of the absolute deviations <span class="math inline">\(\text{MAD} = 2\)</span>.</p></li>
 </ul>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<ul>
-<li><p><span class="math inline">\(\small 25^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.25\)</span>, <span class="math inline">\(\small np = 8 \times 0.25 = 2\)</span>, and <span class="math inline">\(\small j =  \lfloor np + 0.5 \rfloor = \lfloor 2.5 \rfloor = 2\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.25} = x_j + (x_{j+1} - x_j)(np - j + 0.5) = x_2 + (x_3 - x_2)(2 - 2 + 0.5) =\)</span></p>
-<p><span class="math inline">\(\small  10.4 + (11.6 - 10.4) \times 0.5 = 11\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\small 75^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.75\)</span>, <span class="math inline">\(\small np = 8 \times 0.75 = 6\)</span>, and <span class="math inline">\(\small j =  \lfloor np + 0.5 \rfloor = \lfloor 6.5 \rfloor = 6\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.75} = x_j + (x_{j+1} - x_j)(np - j + 0.5) = x_6 + (x_7 - x_6)(6 - 6 + 0.5) =\)</span> <span class="math inline">\(\small 14.7 + (15.4 - 14.7) \times 0.5 = 15.05\)</span></p></li>
-</ul></li>
-<li><p>Check the result using the <code>quantile()</code> function in R:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  y, </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>), </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="dv">5</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>  25%   75% 
-11.00 15.05 </code></pre>
 </div>
-</div></li>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" style="color:#0466c8;" title="MAD of normal distribution">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+MAD of normal distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>If the distribution of a variable is normal (i.e., Gaussian), the following relationships hold:</p>
+<ul>
+<li><p><span class="math inline">\(\sigma \approx 1.4826 \times \text{MAD}\)</span></p></li>
+<li><p><span class="math inline">\(\text{IQR} \approx 2 \times \text{MAD}\)</span></p></li>
+</ul></li>
 </ul>
-</div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<ul>
-<li><p><span class="math inline">\(\small 25^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.25\)</span>, <span class="math inline">\(\small np = 8 \times 0.25 = 2\)</span>, and <span class="math inline">\(\small j =  \lfloor np + p \rfloor = \lfloor 2 + 0.25 \rfloor = 2\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.25} = x_j + (x_{j+1} - x_j)(np - j + p) = x_2 + (x_3 - x_2)(2 - 2 + 0.25) =\)</span></p>
-<p><span class="math inline">\(\small  10.4 + (11.6 - 10.4) \times 0.25 = 10.7\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\small 75^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.75\)</span>, <span class="math inline">\(\small np = 8 \times 0.75 = 6\)</span>, and <span class="math inline">\(\small j =  \lfloor np + p \rfloor = \lfloor 6 + 0.75 \rfloor = 6\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.75} = x_j + (x_{j+1} - x_j)(np - j + 0.75) = x_6 + (x_7 - x_6)(6 - 6 + 0.75) =\)</span> <span class="math inline">\(\small 14.7 + (15.4 - 14.7) \times 0.75 = 15.225\)</span></p></li>
-</ul></li>
-<li><p>Check the result using the <code>quantile()</code> function in R:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  y, </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>), </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="dv">6</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>   25%    75% 
-10.700 15.225 </code></pre>
-</div>
-</div></li>
-</ul>
-</div>
-<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
-<ul>
-<li><p><span class="math inline">\(\small 25^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.25\)</span>, <span class="math inline">\(\small np = 8 \times 0.25 = 2\)</span>, and <span class="math inline">\(\small j =  \lfloor np - p + 1 \rfloor = \lfloor 2 - 0.25 + 1 \rfloor = 2\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.25} = x_j + (x_{j+1} - x_j)(np - j - p + 1) = x_2 + (x_3 - x_2)(2 - 2 - 0.25 + 1) =\)</span></p>
-<p><span class="math inline">\(\small  10.4 + (11.6 - 10.4) \times 0.75 = 11.3\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\small 75^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.75\)</span>, <span class="math inline">\(\small np = 8 \times 0.75 = 6\)</span>, and <span class="math inline">\(\small j =  \lfloor np - p + 1 \rfloor = \lfloor 6 - 0.75 + 1 \rfloor = 6\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.75} = x_j + (x_{j+1} - x_j)(np - j - 0.75 + 1) = x_6 + (x_7 - x_6)(6 - 6 - 0.75 + 1) =\)</span> <span class="math inline">\(\small 14.7 + (15.4 - 14.7) \times 0.25 = 14.875\)</span></p></li>
-</ul></li>
-<li><p>Check the result using the <code>quantile()</code> function in R:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  y, </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>), </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="dv">7</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>   25%    75% 
-11.300 14.875 </code></pre>
-</div>
-</div></li>
-</ul>
-</div>
-<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
-<ul>
-<li><p><span class="math inline">\(\small 25^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.25\)</span>, <span class="math inline">\(\small np = 8 \times 0.25 = 2\)</span>, and <span class="math inline">\(\small j =  \lfloor np + \frac{p + 1}{3} \rfloor = \lfloor 2 + \frac{0.25 + 1}{3} \rfloor = 2\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.25} = x_j + (x_{j+1} - x_j)(np - j + \frac{p + 1}{3}) = x_2 + (x_3 - x_2)(2 - 2 + \frac{0.25 + 1}{3}) =\)</span></p>
-<p><span class="math inline">\(\small  10.4 + (11.6 - 10.4) \times 0.41667 = 10.9\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\small 75^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.75\)</span>, <span class="math inline">\(\small np = 8 \times 0.75 = 6\)</span>, and <span class="math inline">\(\small j =  \lfloor np + \frac{p + 1}{3} \rfloor = \lfloor 6 + \frac{0.75 + 1}{3} \rfloor = 6\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.75} = x_j + (x_{j+1} - x_j)(np - j + \frac{p + 1}{3}) = x_6 + (x_7 - x_6)(6 - 6 + \frac{0.75 + 1}{3}) =\)</span> <span class="math inline">\(\small 14.7 + (15.4 - 14.7) \times 0.58333 = 15.10833\)</span></p></li>
-</ul></li>
-<li><p>Check the result using the <code>quantile()</code> function in R:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  y, </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>), </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="dv">8</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>     25%      75% 
-10.90000 15.10833 </code></pre>
-</div>
-</div></li>
-</ul>
-</div>
-<div id="tabset-2-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-6-tab">
-<ul>
-<li><p><span class="math inline">\(\small 25^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.25\)</span>, <span class="math inline">\(\small np = 8 \times 0.25 = 2\)</span>, and <span class="math inline">\(\small j =  \lfloor np + \frac{2p + 3}{8} \rfloor = \lfloor 2 + \frac{2 \times 0.25 + 3}{8} \rfloor = 2\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.25} = x_j + (x_{j+1} - x_j)(np - j + \frac{2p + 3}{8}) = x_2 + (x_3 - x_2)(2 - 2 + \frac{2 \times 0.25 + 3}{8}) =\)</span></p>
-<p><span class="math inline">\(\small  10.4 + (11.6 - 10.4) \times 0.4375 = 10.925\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(\small 75^{th}\)</span> Quantile:</p>
-<ul>
-<li><p><span class="math inline">\(\small p = 0.75\)</span>, <span class="math inline">\(\small np = 8 \times 0.75 = 6\)</span>, and <span class="math inline">\(\small j =  \lfloor np + \frac{2p + 3}{8} \rfloor = \lfloor 6 + \frac{2 \times0.75 + 3}{8} \rfloor = 6\)</span></p></li>
-<li><p><span class="math inline">\(\small Q_{0.75} = x_j + (x_{j+1} - x_j)(np - j + \frac{2p + 3}{8}) = x_6 + (x_7 - x_6)(6 - 6 + \frac{2 \times 0.75 + 3}{8}) =\)</span> <span class="math inline">\(\small 14.7 + (15.4 - 14.7) \times 0.5625 = 15.09375\)</span></p></li>
-</ul></li>
-<li><p>Check the result using the <code>quantile()</code> function in R:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  y, </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>), </span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="dv">9</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>     25%      75% 
-10.92500 15.09375 </code></pre>
-</div>
-</div></li>
-</ul>
-</div>
 </div>
 </div>
 </section>
-<section id="references" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="references"><span class="header-section-number">2</span> References</h2>
-<p><strong>quantile</strong>: Sample Quantiles. Retrieved October 20, 2024, from <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/quantile" class="uri">https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/quantile</a></p>
+</section>
+<section id="references" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
+<ul>
+<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
+<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
+<li><p>Hoffman, J. (2019). Basic Biostatistics for Medical and Biomedical Practitioners, Second Edition. Academic Press</p></li>
+<li><p>Lane, D. M. et al., (2019). Introduction to Statistics. Online Edition. Retrieved September 14, 2024, from https://openstax.org/details/introduction-statistics</p></li>
+</ul>
 <p><br></p>
 </section>
-<section id="add-your-comments" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">3</span> Add your comments</h2>
+<section id="add-your-comments" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">4</span> Add your comments</h2>
 
 
 </section>
@@ -1359,13 +1330,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-alt-theme" value="dark">
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../posts/biostats/B03_cent_tendency_stats.html" class="pagination-link" aria-label="Measures of Central Tendency">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Measures of Central Tendency</span>
+      <a href="../../posts/biostats/B05_boxplot_stats.html" class="pagination-link" aria-label="Boxplot">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Boxplot</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../posts/biostats/B05_boxplot_stats.html" class="pagination-link" aria-label="Boxplot">
-        <span class="nav-page-text">Boxplot</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../posts/biostats/B07_sample_variance_stats.html" class="pagination-link" aria-label="Demystifying sample variance formula">
+        <span class="nav-page-text">Demystifying sample variance formula</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
