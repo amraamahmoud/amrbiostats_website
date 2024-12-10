@@ -1,0 +1,551 @@
+@import url('https://fonts.googleapis.com/css2?family=Freeman&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+/* css styles */
+
+/* I. Format Body text font */
+body {
+    font-family: 'Gothic A1';
+    /*font-weight: 400*/;
+    color: black;
+}
+
+/* II. Format Navigation bar items */
+/* 1. Change background color of Navigation bar  */
+.navbar {
+    background: linear-gradient(to left, #0466c8, #004e92); 
+}
+
+
+/* 2. Format color, size, font of Navigation bar links */
+.navbar a {
+    color:  white !important;
+    font-size: 16px;
+}
+
+/* 
+3. Format Navigation items when the bar is collapsed 
+.navbar-collapse.show .navbar-nav .nav-item {
+  text-align: center;
+  overflow: hidden;
+}
+*/
+
+/* 4. Format navigation bar link on hovering and activation*/
+.navbar-nav .nav-link, .navbar-brand {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.navbar-nav .nav-link:hover, .navbar-brand:hover {
+  color: #9cc9fc !important;
+  transform: translateY(-3px);
+}
+
+.nav-link.active {
+  color: #9cc9fc;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #0466c8;
+}
+
+
+
+/* 5. Format navigation bar dropdown menu*/
+.navbar .dropdown-item {
+    font-size: 16px;
+    color: #0466c8 !important;
+}
+
+.navbar .dropdown-item:hover, .navbar .dropdown-item:focus {
+    color: white !important;
+    background: linear-gradient(to right, #0466c8, #004e92);
+}
+
+.navbar-nav .dropdown-menu {
+    font-size: .9rem;
+    margin-top: 3px;
+    background-color: white;
+    overflow: visible !important;
+    width: auto;
+}
+
+.dropdown-menu[data-bs-popper] {
+    top: 100%;
+    left: 0;
+    margin-top:var(--bs-dropdown-spacer)
+}
+
+/* 6. Format search text */
+/* 6A. Change searchbox text color */
+.aa-Autocomplete .aa-Form .aa-InputWrapper .aa-Input, .aa-DetachedFormContainer .aa-Form .aa-InputWrapper .aa-Input {
+  color: #0466c8;
+}
+
+/* 6B. Change background and color of searchboxes */
+.aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item.search-result-more, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-section, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-text, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-title-container, .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-text-container, #quarto-search-results li.aa-Item[aria-selected=false] .search-item.search-result-more, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-section, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-text, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-title-container, #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-text-container {
+  color: #0466c8 !important;
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item.search-result-more, .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-section, .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-text, .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-title-container, .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-text-container, #quarto-search-results li.aa-Item[aria-selected=true] .search-item.search-result-more, #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-section, #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-text, #quarto-search-results  li.aa-Item[aria-selected=true] .search-item .search-result-title-container, #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-text-container {
+  color: white !important;
+  background: linear-gradient(to left, #0466c8, #004e92) !important;
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item, #quarto-search-results li.aa-Item[aria-selected=true] .search-item {
+  background: linear-gradient(to left, #0466c8, #004e92) !important;
+}
+
+.aa-DetachedOverlay .aa-Item[aria-selected=false] .search-item p, #quarto-search-results .aa-Item[aria-selected=false] .search-item p {
+  color: #0466c8;
+}
+
+.aa-DetachedOverlay .aa-Item[aria-selected=true] .search-item p, #quarto-search-results .aa-Item[aria-selected=true] .search-item p {
+  color: white;
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected="true"] .search-item mark.search-match, .aa-DetachedOverlay li.aa-Item[aria-selected="true"] .search-item .search-match.mark, #quarto-search-results li.aa-Item[aria-selected="true"] .search-item mark.search-match, #quarto-search-results li.aa-Item[aria-selected="true"] .search-item .search-match.mark {
+    color: #fff;
+    background-color: #9cc9fc;
+}
+
+.aa-DetachedOverlay li.aa-Item[aria-selected="false"] .search-item mark.search-match, .aa-DetachedOverlay li.aa-Item[aria-selected="false"] .search-item .search-match.mark, #quarto-search-results li.aa-Item[aria-selected="false"] .search-item mark.search-match, #quarto-search-results li.aa-Item[aria-selected="false"] .search-item .search-match.mark {
+    color: #fff;
+    background-color: #9cc9fc;
+}
+
+
+/* III. Format Home page */
+/* 1. Format Left column padding */
+@media (min-width: 991px) {
+    div.quarto-about-trestles .about-entity {
+    padding-right: 1em;
+    padding-top: 7em;
+    }
+}
+
+@media (max-width: 991px) {
+    div.quarto-about-trestles .about-entity {
+     padding-right: 1em;
+    }
+}
+
+/* 2. Format image in home page*/
+div.quarto-about-trestles .about-entity .about-image {
+    display: block;
+    /* border-radius: 15px; */
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+@media (min-width: 991px) {
+    div.quarto-about-trestles .about-entity .about-image {
+        width: 100% !important;
+         margin-left: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    div.quarto-about-trestles .about-entity .about-image {
+        width: 75% !important;
+    }
+}
+
+/* 3. Format title of home page*/
+.quarto-title-block.default .quarto-title .title {
+    color: #0466c8;
+    font-family: "Gothic A1";
+}
+
+@media (min-width: 991px) {
+    .quarto-title-block.default .quarto-title .title {
+    margin-bottom: 30px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .quarto-title-block.default .quarto-title .title {
+    margin-bottom: 0px;
+    }
+}
+
+/* 4. Format social link icons home page */
+div.quarto-about-trestles .about-entity .about-link {
+  background-color: transparent !important; 
+  color: transparent !important;
+  border: 0px;
+  border-color: transparent !important;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+div.quarto-about-trestles .about-entity .about-link:hover {
+  background-color: transparent !important; 
+  color: transparent !important;
+  border-color: transparent !important;
+  transform: translateY(-5px);
+}
+
+/* Add this for screens smaller than 992px */
+@media (max-width: 991px) {
+    div.quarto-about-trestles .about-entity .about-links {
+        flex-direction: row; /* Ensures the icons stay in one row */
+        column-gap: .5em; /* Adjusts the space between icons */
+        row-gap: 10px; /* Adjusts the space between rows, though wrapping won't be common */
+        flex-wrap: nowrap; /* Prevents the icons from wrapping to the next line */
+        justify-content: center; /* Centers the icons on the screen */
+    }
+}
+
+
+/* IV. Format headers */
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+  color:#0466c8;
+}
+
+
+/* V. Format links */
+a {
+    color: #0466c8;
+    overflow-wrap: break-word;
+}
+
+
+a:hover {
+    color: #e63946 !important;
+}
+
+/* VI. Format code snippets*/
+code {
+  color: #0466c8;
+}
+
+code span.sc {
+  color: #0466c8;
+  font-style: inherit;
+}
+
+code span.dv {
+    color: #0466c8;
+    font-style: inherit;
+}
+
+
+pre {
+    background-color: rgba(233,236,239,.65);
+    border: 1px solid rgba(233,236,239,.65);
+    border-radius: .25rem;
+    padding: initial;
+    border: initial;
+}
+
+.code-copy-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    margin-top: 5px;
+    margin-right: 5px;
+    background-color: rgba(0,0,0,0) !important;
+    z-index: 1;
+}
+
+/* VII. Format page footer*/
+/* A. Format page left footer text color */
+footer.footer div.nav-footer p:first-child {
+}
+
+/* B. Format page footer links */
+.nav-footer-left .footer-items .nav-link {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.nav-footer-right .footer-items .nav-link {
+    color: #0466c8;
+}
+
+.nav-footer a {
+    color: #0466c8;
+}
+
+.nav-footer .footer-items .nav-link:hover {
+    transform: scale(1.1);
+}
+
+
+/* VII. Formate Posts title*/
+.quarto-grid-item div.post-contents, .quarto-grid-item .card-attribution {
+    color: white;
+    font-family: "Gothic A1" !important;
+    font-weight: 300 !important;
+}
+
+.quarto-grid-item .card-title {
+    font-family: "Gothic A1";
+}
+
+.quarto-grid-item.card-left {
+    border: 1.5px solid #004e92;
+    background: linear-gradient(to bottom, #0466c8, #004e92);
+    border-radius: 5px;
+    color: white;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+}
+
+.quarto-grid-item.card-left:hover {
+    transform: scale(1.05); 
+}
+
+
+/* VII. Tabset*/
+.nav {
+    --bs-nav-link-color: #0466c8;
+}
+
+
+.nav-tabs {
+    --bs-nav-tabs-link-active-bg: #f5f3f4;
+    --bs-nav-tabs-link-active-color: #0466c8;
+}
+
+/* VIII. Callout border */
+div.callout-note.callout {
+    border-left-color: #0466c8;
+}
+
+div.callout-warning.callout {
+    border-left-color: #ba181b;
+}
+
+
+
+
+.MJX-TEX {
+    font-family: MJXZERO, MJXTEX;
+    font-size: 18px;
+}
+
+
+
+
+/* VIII. Format Webex */
+/*
+.webex-solution button, .webex-check-button {
+    background-color: #0466c8 !important;
+    border-color: transparent !important;
+    color: white;
+}
+
+.webex-solution.open {
+    height: auto;
+    border: 2px solid #0466c8;
+    border-radius: 5px;
+}
+
+.webex-select, input.webex-solveme,
+.unchecked .webex-radiogroup label.webex-incorrect,
+.unchecked .webex-radiogroup label.webex-correct{
+    text-align: center;
+}
+.webex-incorrect,
+input.webex-solveme.webex-incorrect,
+.webex-radiogroup label.webex-incorrect {
+    text-align: center;
+}
+.webex-correct,
+input.webex-solveme.webex-correct,
+.webex-radiogroup label.webex-correct {
+    text-align: center;
+}
+*/
+
+/* IX Format mermaid*/
+:root {
+  --mermaid-label-fg-color: white !important;
+  --mermaid-edge-color: #0466c8 !important;
+  --mermaid-node-fg-color: #0466c8 !important;
+  --mermaid-node-bg-color: #0466c8 !important;
+}
+
+.quarto-title-block.default .description {
+    color: #0466c8;
+}
+
+.quarto-title-block.default .quarto-title .title {
+    margin-bottom: 3px !important;
+}
+
+/* X. Format toc */
+.sidebar nav[role="doc-toc"] > ul a {
+    font-size: 13px;
+    font-family: inherit;
+}
+
+.sidebar nav[role="doc-toc"] ul > li > a.active, .sidebar nav[role="doc-toc"] ul > li > ul > li > a.active, .sidebar nav[role="doc-toc"] ul > li > a:hover, .sidebar nav[role="doc-toc"] ul > li > ul > li > a:hover {
+    border-left: 1px solid #0466c8;
+    color: #0466c8 !important;
+}
+
+.sidebar-navigation a:hover {
+  transform: scale(1.05);
+}
+
+
+.text-muted {
+    --bs-text-opacity: 1;
+    color: white !important;
+}
+
+
+pre > code.sourceCode > span {
+        word-break: break-word !important;
+        white-space: pre-wrap !important;
+}
+
+pre > code {
+        word-break: break-word !important;
+        white-space: pre-wrap !important;
+}
+
+
+
+.table {
+    border-top: 1px solid #cbd0d4;
+    border-bottom: 1px solid #cbd0d4;
+    vertical-align: middle;
+}
+
+.table > thead {
+    background: #f2f2f2;
+    vertical-align: middle;
+}
+
+
+.navbar-logo {
+    margin-bottom: 10px;
+}
+
+
+div.sidebar-item-container .active, div.sidebar-item-container .show > .nav-link, div.sidebar-item-container .sidebar-link > code {
+    color: white;
+    background: linear-gradient(to left, #0466c8, #004e92);
+    border-radius: 3px;
+    padding-left: 3px;
+    height: 22px;
+    padding-top: 3px;
+}
+
+
+
+
+div.quarto-post a {
+    color: red !important;
+    font-weight: 300;
+    font-family: Roboto;
+    text-align: center;
+}
+
+.quarto-post.image-right {
+    border: 3.5px solid #047abf;
+    background: linear-gradient(to left, #0466c8, #004e92);
+    border-radius: 15px;
+    color: white;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+}
+
+div.quarto-post {
+    border-bottom: 3.5px solid #047abf !important;
+}
+
+.quarto-post.image-right:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* Add border to image in Jolla Author */
+div.quarto-about-jolla img.round {
+    border: 1px solid #033c73;
+    margin-bottom: 0.5em;
+}
+
+/* Adjust begining of photo in jolla about author */
+div.quarto-about-jolla {
+  margin-top: auto;
+  margin-block: auto;
+}
+
+
+
+
+/*Justify video iframe center*/
+iframe {
+    margin: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    width: 100% !important;
+}
+
+/*Justify image center*/
+img {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+
+
+
+
+:root {
+  --mermaid-label-fg-color: #033c73;
+  --mermaid-edge-color: #033c73;
+  --mermaid-node-fg-color: #033c73;
+  --mermaid-node-bg-color: #a2d6f9;
+}
+
+
+/*Adjust card sizes*/
+
+.quarto-grid-item div.post-contents {
+    padding-top: 5px;
+}
+
+.quarto-grid-item .card-attribution.end {
+    padding-top: 3px;
+}
+
+
+/* Adjust logo image */
+.navbar-brand.navbar-brand-logo {
+    margin-bottom: -7px;
+}
+
+
+
+
+/*
+.webex-incorrect span::before, .webex-incorrect + .webex-icon::after {
+    content: "\274e";
+}
+*/
+
+
+/*
+div.quarto-about-trestles .about-entity .about-links{
+  justify-content: center;
+}
+*\
+
+
+
