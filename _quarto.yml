@@ -9,7 +9,7 @@ website:
   open-graph:
     title: "AMRBiostats"
   title: "AMRBiostats"
-  image: /images/opengraph_new.jpg
+  image: /images/opengraph1.jpg
   site-url: https://www.amrbiostats.com
   description: "A reliable resource for biostatistics and R programming"
   favicon: /images/fav.png
