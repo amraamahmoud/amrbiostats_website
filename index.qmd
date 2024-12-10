@@ -2,7 +2,7 @@
 about: 
   template: trestles
   image-shape: rectangle
-  image: "/images/logo1.jpg"
+  image: "/images/logo2.jpg"
   links:
     - text: "![](/images/github.svg)"
       href: https://github.com/amraamahmoud/AMRBiostats.git
