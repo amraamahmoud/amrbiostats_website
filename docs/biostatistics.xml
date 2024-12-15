@@ -270,7 +270,7 @@ Kurtosis is not a measure of peakedness!
 <li><p>Kurtosis <img src="https://latex.codecogs.com/png.latex?b_2">:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0Ab_1%20=%20%5Cdisplaystyle%20%5Cfrac%7Bm_4%7D%7Bs%5E4%7D%20-3%20=%20(g_2%20+3)(1%20-%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn%7D)%5E2%20-%203%0A"></p>
 <ul>
-<li><p><img src="https://latex.codecogs.com/png.latex?s"> is the sample standard deviation <img src="https://latex.codecogs.com/png.latex?%5Cbig%20%5Bs%20=%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn-1%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E2%20%5Cbig%20%5D">.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?s"> is the sample standard deviation <img src="https://latex.codecogs.com/png.latex?%5Cbig%20%5Bs%20=%20%5Csqrt%7B%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn-1%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E2%7D%20%5Cbig%20%5D">.</p></li>
 <li><p>This formula is used by <code>Minitab</code>.</p></li>
 </ul></li>
 </ol></li>
