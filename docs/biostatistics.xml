@@ -234,6 +234,21 @@ font-style: inherit;">3</span>)</span>
 <li><p>It is a measure of tail heaviness (tailedness) of a distribution.</p></li>
 <li><p>It is described as the standardized fourth moment <img src="https://latex.codecogs.com/png.latex?(m_4)"> of the distribution about the mean.</p></li>
 </ul>
+<div class="callout callout-style-default callout-warning callout-titled" title="Kurtosis is not a measure of peakedness!">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kurtosis is not a measure of peakedness!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>There is a misconception that kurtosis measures the peakedness, but actually its interpretation is in terms of tail extremity <a href="https://doi.org/10.1080/00031305.2014.917055">Westfall 2014)</a>.</li>
+</ul>
+</div>
+</div>
 <section id="formula-1" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="formula-1"><span class="header-section-number">3.1</span> Formula</h3>
 <ul>
@@ -387,6 +402,7 @@ font-style: inherit;">3</span>)</span>
 <li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
 <li><p>Hoffman, J. (2019). Basic Biostatistics for Medical and Biomedical Practitioners, Second Edition. Academic Press</p></li>
 <li><p>Lane, D. M. et al., (2019). Introduction to Statistics. Online Edition. Retrieved September 14, 2024, from https://openstax.org/details/introduction-statistics</p></li>
+<li><p>Westfall, Peter H. 2014. “Kurtosis as Peakedness, 19052014.R.I.P.” The American Statistician 68 (3): 191–95. <a href="https://doi.org/10.1080/00031305.2014.917055." class="uri">https://doi.org/10.1080/00031305.2014.917055.</a></p></li>
 </ul>
 <p><br></p>
 </section>
