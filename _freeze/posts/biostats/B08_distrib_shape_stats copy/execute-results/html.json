@@ -1,0 +1,15 @@
+{
+  "hash": "e0735d74ff54d6f62d309af73551da02",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Describing the shape of distribution\"\nimage: \"/images/biostats.jpg\"\ndate: \"2024-11-15\"\nformat: \n  html: \n    fig-align: center\n    page-layout: article\n    toc: true\n    toc-depth: 5\n    toc-expand: true\n    lightbox: false\nfilters: \n  - shinylive\n\ncrossref: \n  custom: \n    - kind: float\n      reference-prefix: \"Example M.10.\"\n      key: tabset\n      space-before-numbering: false\neditor_options: \n  chunk_output_type: console\n---\n\n::: {.cell}\n\n:::\n\n\n\n```{shinylive-python}\n#| standalone: true\n\nfrom shiny import *\n\napp_ui = ui.page_fluid(\n    ui.input_slider(\"n\", \"N\", 0, 100, 40),\n    ui.output_text_verbatim(\"txt\"),\n)\n\ndef server(input, output, session):\n    @output\n    @render.text\n    def txt():\n        return f\"The value of n*2 is {input.n() * 2}\"\n\napp = App(app_ui, server)\n\n```",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

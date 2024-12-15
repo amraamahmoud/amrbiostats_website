@@ -14,8 +14,393 @@
 <title>AMRBiostats</title>
 <link>https://www.amrbiostats.com/biostatistics.html</link>
 </image>
-<generator>quarto-1.5.57</generator>
-<lastBuildDate>Sat, 09 Nov 2024 20:00:00 GMT</lastBuildDate>
+<generator>quarto-1.7.3</generator>
+<lastBuildDate>Thu, 14 Nov 2024 20:00:00 GMT</lastBuildDate>
+<item>
+  <title>Describing the shape of distribution</title>
+  <link>https://www.amrbiostats.com/posts/biostats/B08_distrib_shape_stats.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="background" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="background"><span class="header-section-number">1</span> Background</h2>
+<ul>
+<li>The shape of a distribution can be described in terms of the direction and degree of asymmetry, measured by <strong>skewness</strong>, and the heaviness of the tails, measured by <strong>kurtosis</strong>.</li>
+</ul>
+</section>
+<section id="skewness" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="skewness"><span class="header-section-number">2</span> Skewness</h2>
+<ul>
+<li><p>It is a measure of the direction and degree of asymmetry of a distribution.</p></li>
+<li><p>It is described as the standardized third moment <img src="https://latex.codecogs.com/png.latex?(m_3)"> of the distribution about the mean (the concept of moments will be discussed in upcoming articles).</p></li>
+</ul>
+<section id="formula" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="formula"><span class="header-section-number">2.1</span> Formula</h3>
+<ul>
+<li><p>There are three formulas to calculate skewness (we will use <strong>sample moments</strong>):</p>
+<ol type="1">
+<li><p><strong>Raw formula</strong> <img src="https://latex.codecogs.com/png.latex?g_1">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ag_1%20=%20%5Cdisplaystyle%20%5Cfrac%7Bm_3%7D%7Bm_2%5E%7B3/2%7D%7D%0A"></p>
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?m_3"> is the third moment about the mean:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Am_3%20=%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E3%0A"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?m_2"> is the second moment about the mean:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Am_2%20=%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E2%0A"></p></li>
+<li><p>It is not biased-corrected for small samples.</p></li>
+<li><p>This formula is used by <code>Excel</code>(<code>SKEW.P</code> function).</p></li>
+</ul></li>
+<li><p><strong>Fisher’s</strong> <img src="https://latex.codecogs.com/png.latex?G_1">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AG_1%20=%20g_1%20%5Cdisplaystyle%20%5Cfrac%7B%5Csqrt%20%7Bn(n-1)%7D%7D%7Bn-2%7D%0A"></p>
+<ul>
+<li><p>This measure of skewness is bias-corrected for small samples.</p></li>
+<li><p>As <img src="https://latex.codecogs.com/png.latex?n"> increases, the correction factor becomes closer to <img src="https://latex.codecogs.com/png.latex?1">.</p></li>
+<li><p>This formula is used by <code>SAS</code>, <code>SPSS</code>, <code>NCSS</code>, <code>Excel</code> (<code>SKEW</code> function), and <code>Graphpad Prism</code>.</p></li>
+</ul></li>
+<li><p>Skewness <img src="https://latex.codecogs.com/png.latex?b_1">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ab_1%20=%20%5Cdisplaystyle%20%5Cfrac%7Bm_3%7D%7Bs%5E3%7D%20=%20g_1%20%5Cbig%20(%5Cdisplaystyle%20%5Cfrac%7Bn-1%7D%7Bn%7D%20%5Cbig)%5E%7B3/2%7D%0A"></p>
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?s"> is the sample standard deviation <img src="https://latex.codecogs.com/png.latex?%5Cbig%20%5Bs%20=%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn-1%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E2%20%5Cbig%20%5D">.</p></li>
+<li><p>This formula is used by <code>Minitab</code>.</p></li>
+<li><p>This measure uses a slight adjustment by including the factor <img src="https://latex.codecogs.com/png.latex?(%5Cdisplaystyle%20%5Cfrac%7Bn-1%7D%7Bn%7D)%5E%7B3/2%7D">.</p></li>
+</ul></li>
+</ol></li>
+<li><p>The standard error of skewness is given by:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0ASE_%7Bskewness%7D%20=%20%5Csqrt%20%5Cfrac%7B6n(n-1)%7D%7B(n-2)(n+1)(n+3)%7D%0A"></p></li>
+</ul>
+</section>
+<section id="interpretation" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">2.2</span> Interpretation</h3>
+<ul>
+<li><p>A skewness value of zero indicates a symmetrical distribution (mean and median are equal or approximately equal).</p></li>
+<li><p>A positive value indicates a long right tail (right-skewed distribution, the mean is greater than the median).</p></li>
+<li><p>A negative value indicates a long left tail (left-skewed distribution, the mean is less than the median).</p></li>
+<li><p>Further interpretation will be discussed in detail under assessing the normality of data.</p></li>
+<li><p>The following figure shows different distributions and their skewness values:</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/B08_distrib_shape_stats_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="calculation-in-r" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="calculation-in-r"><span class="header-section-number">2.3</span> Calculation in R</h3>
+<ul>
+<li><p>Different functions in R can be used to calculate the skewness:</p>
+<ul>
+<li><p><code>skewness()</code> function from the <code>moments</code> package (uses formula 1).</p></li>
+<li><p><code>Skewness()</code> function from the <code>sasLM</code> package (uses formula 2).</p></li>
+<li><p><code>skew()</code> function from the <code>psych</code> package or <code>skewness()</code> function from the <code>e1071</code> package can calculate skewness using the three formulas by setting the <code>type</code> argument to either <img src="https://latex.codecogs.com/png.latex?1">, <img src="https://latex.codecogs.com/png.latex?2">, or <img src="https://latex.codecogs.com/png.latex?3">.</p></li>
+</ul></li>
+<li><p>The skewness standard error can be calculated using the <code>SkewnessSE()</code> function from the <code>sasLM</code> package.</p></li>
+<li><p>For example, the skewness of the <code>insulin</code> variable from the <code>PimaIndiansDiabetes</code> dataset can be calculated as follows:</p>
+<ul>
+<li><p>First, let’s plot the density of the <code>insulin</code> variable:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># load the library and dataset</span></span>
+<span id="cb1-2">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(mlbench)</span>
+<span id="cb1-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data</span>(PimaIndiansDiabetes)</span>
+<span id="cb1-4"></span>
+<span id="cb1-5">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># plot density of the insulin variable</span></span>
+<span id="cb1-6">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(</span>
+<span id="cb1-7">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">density</span>(PimaIndiansDiabetes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>insulin, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">adjust =</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>),</span>
+<span id="cb1-8">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Density plot of insulin"</span>,</span>
+<span id="cb1-9">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lwd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,</span>
+<span id="cb1-10">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#0466c8"</span>,</span>
+<span id="cb1-11">    )</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/B08_distrib_shape_stats_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># calculate skewness and its standard error</span></span>
+<span id="cb2-2">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(psych)</span>
+<span id="cb2-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(sasLM)</span>
+<span id="cb2-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(</span>
+<span id="cb2-5"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Skewness ="</span>, </span>
+<span id="cb2-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">skew</span>(PimaIndiansDiabetes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>insulin, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb2-7">    )</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Skewness = 2.272"</code></pre>
+</div>
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(</span>
+<span id="cb4-2"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Skewness SE ="</span>, </span>
+<span id="cb4-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">SkewnessSE</span>(PimaIndiansDiabetes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>insulin), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb4-4">    )</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Skewness SE = 0.088"</code></pre>
+</div>
+</div></li>
+</ul></li>
+<li><p>These results are similar to the results obtained by <code>SPSS</code> or <code>Graphpad Prism</code>:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">SPSS</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Graphpad Prism</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<p><img src="https://www.amrbiostats.com/images/skew_s.png" alt="SPSS" width="100%"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<p><img src="https://www.amrbiostats.com/images/skew_g.png" alt="Graphpad Prism" width="100%"></p>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="kurtosis" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="kurtosis"><span class="header-section-number">3</span> Kurtosis</h2>
+<ul>
+<li><p>It is a measure of tail heaviness (tailedness) of a distribution.</p></li>
+<li><p>It is described as the standardized fourth moment <img src="https://latex.codecogs.com/png.latex?(m_4)"> of the distribution about the mean.</p></li>
+</ul>
+<section id="formula-1" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="formula-1"><span class="header-section-number">3.1</span> Formula</h3>
+<ul>
+<li><p>There are three formulas to calculate excess kurtosis (we will use <strong>sample moments</strong>):</p>
+<ol type="1">
+<li><p><strong>Raw formula</strong> <img src="https://latex.codecogs.com/png.latex?g_2">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ag_2%20=%20%5Cdisplaystyle%20%5Cfrac%7Bm_4%7D%7Bm_2%5E2%7D%20-%203%0A"></p>
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?m_4"> is the fourth moment about the mean:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Am_4%20=%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E4%0A"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?m_2"> is the second moment about the mean:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Am_2%20=%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E2%0A"></p></li>
+</ul></li>
+<li><p><strong>Fisher’s</strong> <img src="https://latex.codecogs.com/png.latex?G_2">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AG_2%20=%20%5Cdisplaystyle%20%5Cfrac%7B(n%20+%201)g_2%20+%206%7D%7B(n%20-%202)(n%20-%203)%7D%0A"></p>
+<ul>
+<li>This formula is used by <code>SAS</code>, <code>SPSS</code>, <code>NCSS</code>, <code>Excel</code> (<code>KURT</code> function), and <code>Graphpad Prism</code>.</li>
+</ul></li>
+<li><p>Kurtosis <img src="https://latex.codecogs.com/png.latex?b_2">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ab_1%20=%20%5Cdisplaystyle%20%5Cfrac%7Bm_4%7D%7Bs%5E4%7D%20=%20(g_2%20+3)(1%20-%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn%7D)%5E2%20-%203%0A"></p>
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?s"> is the sample standard deviation <img src="https://latex.codecogs.com/png.latex?%5Cbig%20%5Bs%20=%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn-1%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E2%20%5Cbig%20%5D">.</p></li>
+<li><p>This formula is used by <code>Minitab</code>.</p></li>
+</ul></li>
+</ol></li>
+<li><p>The standard error of kurtosis is given by:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0ASE_%7Bkurtosis%7D%20=%20%5Csqrt%20%5Cfrac%7B24n(n-1)%5E2%7D%7B(n-3)(n-2)(n+3)(n+5)%7D%0A"></p></li>
+</ul>
+</section>
+<section id="interpretation-1" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="interpretation-1"><span class="header-section-number">3.2</span> Interpretation</h3>
+<ul>
+<li><p>Normal distribution is usually used as a reference, which has a kurtosis of <img src="https://latex.codecogs.com/png.latex?3"> and is referred to as <code>mesokurtic</code>.</p></li>
+<li><p>Unimodal distributions with kurtosis <img src="https://latex.codecogs.com/png.latex?%5Cgt%203"> possess heavier or thicker tails (i.e., more extreme values in the tails) relative to the normal distribution and are referred to as <code>leptokurtic</code>.</p></li>
+<li><p>Unimodal distributions with kurtosis <img src="https://latex.codecogs.com/png.latex?%5Clt%203"> possess lighter or thinner tails relative to the normal distribution and are referred to as <code>platykurtic</code>.</p></li>
+<li><p>The following figure shows different distributions and their kurtosis values:</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/B08_distrib_shape_stats_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>As depicted in the above figure, the mesokuotic distribution is a normal distribution that has a kurtosis of <img src="https://latex.codecogs.com/png.latex?0"> because software packages express it as <strong>excess kurtosis</strong> <img src="https://latex.codecogs.com/png.latex?(Kurtosis%20-%203)">.</p></li>
+<li><p>In this context, the leptokurtic distribution has a kurtosis <img src="https://latex.codecogs.com/png.latex?%5Cgt%200">, while the platykurtic distribution has a kurtosis <img src="https://latex.codecogs.com/png.latex?%5Clt%200">.</p></li>
+</ul>
+</section>
+<section id="calculation-in-r-1" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="calculation-in-r-1"><span class="header-section-number">3.3</span> Calculation in R</h3>
+<ul>
+<li><p>Different functions in R can be used to calculate the kurtosis:</p>
+<ul>
+<li><p><code>kurtosis()</code> function from the <code>moments</code> package (uses formula 1 but as raw kurtosis, i.e., <img src="https://latex.codecogs.com/png.latex?m_4/m%5E2">).</p></li>
+<li><p><code>Kurtosis()</code> function from the <code>sasLM</code> package (uses formula 2).</p></li>
+<li><p><code>kurtosi()</code> function from the <code>psych</code> package or <code>kurtosis()</code> function from the <code>e1071</code> package can calculate skewness using the three formulas by setting the <code>type</code> argument to either <img src="https://latex.codecogs.com/png.latex?1">, <img src="https://latex.codecogs.com/png.latex?2">, or <img src="https://latex.codecogs.com/png.latex?3">.</p></li>
+</ul></li>
+<li><p>The skewness standard error can be calculated using the <code>KurtosisSE()</code> function from the <code>sasLM</code> package.</p></li>
+<li><p>For example, the skewness of the <code>insulin</code> variable from the <code>PimaIndiansDiabetes</code> dataset can be calculated as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># load the library and dataset</span></span>
+<span id="cb6-2">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(mlbench)</span>
+<span id="cb6-3">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data</span>(PimaIndiansDiabetes)</span>
+<span id="cb6-4"></span>
+<span id="cb6-5">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># calculate kurtosis and its standard error</span></span>
+<span id="cb6-6">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(psych)</span>
+<span id="cb6-7">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(sasLM)</span>
+<span id="cb6-8">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(</span>
+<span id="cb6-9">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Kurtosis ="</span>, </span>
+<span id="cb6-10">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kurtosi</span>(PimaIndiansDiabetes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>insulin, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb6-11">        )</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Kurtosis = 7.214"</code></pre>
+</div>
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(</span>
+<span id="cb8-2">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Kurtosis SE ="</span>, </span>
+<span id="cb8-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">KurtosisSE</span>(PimaIndiansDiabetes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>insulin), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb8-4">        )</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Kurtosis SE = 0.176"</code></pre>
+</div>
+</div></li>
+<li><p>These results are similar to the results obtained by <code>SPSS</code> or <code>Graphpad Prism</code>:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true">SPSS</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" aria-controls="tabset-2-2" aria-selected="false">Graphpad Prism</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
+<p><img src="https://www.amrbiostats.com/images/kurt_s.png" alt="SPSS" width="100%"></p>
+</div>
+<div id="tabset-2-2" class="tab-pane" aria-labelledby="tabset-2-2-tab">
+<p><img src="https://www.amrbiostats.com/images/kurt_g.png" alt="Graphpad Prism" width="100%"></p>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="references" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
+<ul>
+<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
+<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
+<li><p>Hoffman, J. (2019). Basic Biostatistics for Medical and Biomedical Practitioners, Second Edition. Academic Press</p></li>
+<li><p>Lane, D. M. et al., (2019). Introduction to Statistics. Online Edition. Retrieved September 14, 2024, from https://openstax.org/details/introduction-statistics</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">5</span> Add your comments</h2>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://www.amrbiostats.com/posts/biostats/B08_distrib_shape_stats.html</guid>
+  <pubDate>Thu, 14 Nov 2024 20:00:00 GMT</pubDate>
+  <media:content url="https://www.amrbiostats.com/images/biostats.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Demystifying sample variance formula</title>
   <link>https://www.amrbiostats.com/posts/biostats/B07_sample_variance_stats.html</link>
@@ -42,7 +427,30 @@
 <ul>
 <li><p>In a <a href="../../posts/biostats/B03_cent_tendency_stats.html#sec-mean">previous chapter</a>, we described that the sum of deviations of the observations from the arithmetic mean is always zero because the negative deviations cancel out the positive deviations. This cuses the variance to be zero.</p></li>
 <li><p>Therefore, squaring the deviations overcomes this issue by making all deviations positive.</p></li>
+</ul></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Cancelling out of positive and negative deviations can also be achieved by taking the absolute value of the deviations resulting in a measure called the mean absolute deviation from the mean.</p></li>
+<li><p>However, squaring the deviations is preferred for many reasons, for instance:</p>
+<ul>
+<li><p>The squared function is differentiable everywhere, while the absolute value function is not differentiable at zero. Differentiability is important for many statistical and optimization algorithms.</p></li>
+<li><p>The squared deviations give more weight to larger deviations.</p></li>
+<li><p>The squaring used in the variance is closely linked to the normal distribution function (that also involves a squared deviation term), which is a cornerstone in most statistical methods.</p></li>
+<li><p>The squared deviations of observations of any given value is minimized when the mean of the observations is used as the reference point, while the mean absolute deviation is minimized when the median is used as the reference point.</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
 <p><i class="bi bi-2-circle-fill" style="color: #0171c3; font-size: 22px;"></i> <strong>The denominator is</strong> <img src="https://latex.codecogs.com/png.latex?(n-1)"> instead of <img src="https://latex.codecogs.com/png.latex?(n)">:</p>
 <ul>
 <li><p>This is known as Bessel’s correction (obtained by multiplying the uncorrected sample variance <img src="https://latex.codecogs.com/png.latex?s%5E2_n%20=%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn%7D%20%5Cdisplaystyle%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E2"> by <img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cfrac%7Bn%7D%7Bn-1%7D">) and is used to correct the bias in the estimation of the population variance from the sample variance.</p></li>
@@ -344,7 +752,7 @@ font-style: inherit;">10</span>)</span>
 <span id="cb12-7">    sample.var.uncor[i] <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> </span>
-<span id="cb12-8">        <span class="fu" style="color: #4758AB;
+<span id="cb12-8"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sum</span>((sample <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -408,7 +816,7 @@ font-style: inherit;">10</span>)</span>
 <span id="cb14-5">    sample.var.cor[i] <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> </span>
-<span id="cb14-6">        <span class="fu" style="color: #4758AB;
+<span id="cb14-6"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sum</span>((sample <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -483,8 +891,7 @@ Note
 <li><p>Applying this rule to the sample variance, we estimate the population mean <img src="https://latex.codecogs.com/png.latex?%5Cmu"> from the sample mean <img src="https://latex.codecogs.com/png.latex?%5Cbar%7Bx%7D">, which is one parameter estimated from the sample while computing the sample variance. Therefore, the degrees of freedom for the sample variance is <img src="https://latex.codecogs.com/png.latex?n%20-%201">.</p></li>
 </ul>
 </div>
-</div></li>
-</ul>
+</div>
 </section>
 <section id="references" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="references"><span class="header-section-number">2</span> References</h2>
@@ -869,6 +1276,35 @@ MAD of normal distribution
 </ul>
 </div>
 </div>
+<ul>
+<li><p>MAD can be calculated in R using the <code>mad()</code> function as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mad</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>))</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.9652</code></pre>
+</div>
+</div>
+<ul>
+<li>The result <img src="https://latex.codecogs.com/png.latex?(2.9652)"> is different from our manual calculation <img src="https://latex.codecogs.com/png.latex?(2)"> because the <code>mad()</code> function in R scales the <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BMAD%7D"> by a constant factor of <img src="https://latex.codecogs.com/png.latex?1.4826"> for a normal distribution <img src="https://latex.codecogs.com/png.latex?(2%20%5Ctimes%201.4826%20=%202.9652)">.</li>
+</ul></li>
+</ul>
 </section>
 </section>
 <section id="references" class="level2" data-number="3">
@@ -3615,8 +4051,8 @@ font-style: inherit;">FALSE</span></span>
 <span id="cb13-24">)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-862cb3cba9af71ac5adc" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-862cb3cba9af71ac5adc">{"x":{"filter":"none","vertical":false,"data":[[1.3,2.1,3.5,4.1,5.2],[2,3,1,4,2],[0.1666666666666667,0.25,0.08333333333333333,0.3333333333333333,0.1666666666666667]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Value<\/th>\n      <th>Frequency<\/th>\n      <th>Weight<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Value","targets":0},{"name":"Frequency","targets":1},{"name":"Weight","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-ebcc9764f8035ee2e6e6" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ebcc9764f8035ee2e6e6">{"x":{"filter":"none","vertical":false,"data":[[1.3,2.1,3.5,4.1,5.2],[2,3,1,4,2],[0.1666666666666667,0.25,0.08333333333333333,0.3333333333333333,0.1666666666666667]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Value<\/th>\n      <th>Frequency<\/th>\n      <th>Weight<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Value","targets":0},{"name":"Frequency","targets":1},{"name":"Weight","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p><br></p>
@@ -4193,8 +4629,14 @@ font-style: inherit;">"cyliners"</span></span>
 <summary>Click to show/hide code</summary>
 <div class="sourceCode cell-code" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(DescTools)</span>
-<span id="cb48-2"><span class="fu" style="color: #4758AB;
+font-style: inherit;">library</span>(DescTools)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'DescTools' was built under R version 4.4.1</code></pre>
+</div>
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Mode</span>(mtcars<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -4225,7 +4667,7 @@ Caution
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mode</span>(mtcars<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -4286,13 +4728,13 @@ font-style: inherit;">$</span>cyl)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(DescTools)</span>
-<span id="cb52-2"><span class="fu" style="color: #4758AB;
+<span id="cb54-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(psych)</span>
-<span id="cb52-3">x <span class="ot" style="color: #003B4F;
+<span id="cb54-3">x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4305,7 +4747,7 @@ background-color: null;
 font-style: inherit;">64</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">256</span>)</span>
-<span id="cb52-4"><span class="fu" style="color: #4758AB;
+<span id="cb54-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Gmean</span>(x)</span></code></pre></div>
 </details>
@@ -4314,7 +4756,7 @@ font-style: inherit;">Gmean</span>(x)</span></code></pre></div>
 </div>
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geometric.mean</span>(x)</span></code></pre></div>
 </details>
@@ -4388,7 +4830,7 @@ font-style: inherit;">geometric.mean</span>(x)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1">growth_factors <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">growth_factors <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4399,7 +4841,7 @@ background-color: null;
 font-style: inherit;">1.045</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1.052</span>)</span>
-<span id="cb56-2"><span class="fu" style="color: #4758AB;
+<span id="cb58-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Gmean</span>(growth_factors)</span></code></pre></div>
 </details>
@@ -4412,7 +4854,7 @@ font-style: inherit;">Gmean</span>(growth_factors)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">interest_rates <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1">interest_rates <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4423,7 +4865,7 @@ background-color: null;
 font-style: inherit;">4.5</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">5.2</span>)</span>
-<span id="cb58-2"><span class="fu" style="color: #4758AB;
+<span id="cb60-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Gmean</span>(interest_rates)</span></code></pre></div>
 </details>
@@ -4453,7 +4895,7 @@ Click to show/hide answer
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1">growth_factors <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb62" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1">growth_factors <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4466,7 +4908,7 @@ background-color: null;
 font-style: inherit;">1.15</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.95</span>)</span>
-<span id="cb60-2"><span class="fu" style="color: #4758AB;
+<span id="cb62-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Gmean</span>(growth_factors)</span></code></pre></div>
 </details>
@@ -4506,10 +4948,10 @@ font-style: inherit;">Gmean</span>(growth_factors)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb62" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb64" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(DT)</span>
-<span id="cb62-2">x <span class="ot" style="color: #003B4F;
+<span id="cb64-2">x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4526,7 +4968,7 @@ background-color: null;
 font-style: inherit;">13</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">50</span>)</span>
-<span id="cb62-3">y <span class="ot" style="color: #003B4F;
+<span id="cb64-3">y <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4535,65 +4977,65 @@ background-color: null;
 font-style: inherit;">log10</span>(x), <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">5</span>)</span>
-<span id="cb62-4"></span>
-<span id="cb62-5">my_data <span class="ot" style="color: #003B4F;
+<span id="cb64-4"></span>
+<span id="cb64-5">my_data <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">data.frame</span>(</span>
-<span id="cb62-6">  <span class="at" style="color: #657422;
+<span id="cb64-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Original =</span> x,</span>
-<span id="cb62-7">  <span class="at" style="color: #657422;
+<span id="cb64-7">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Log10_transformed =</span> y</span>
-<span id="cb62-8">)</span>
-<span id="cb62-9"></span>
-<span id="cb62-10"><span class="fu" style="color: #4758AB;
+<span id="cb64-8">)</span>
+<span id="cb64-9"></span>
+<span id="cb64-10"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">datatable</span>(</span>
-<span id="cb62-11">  my_data, </span>
-<span id="cb62-12">  <span class="at" style="color: #657422;
+<span id="cb64-11">  my_data, </span>
+<span id="cb64-12">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">options =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">list</span>(</span>
-<span id="cb62-13">    <span class="at" style="color: #657422;
+<span id="cb64-13">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">dom =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"t"</span>,</span>
-<span id="cb62-14">    <span class="at" style="color: #657422;
+<span id="cb64-14">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">columnDefs =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">list</span>(</span>
-<span id="cb62-15">      <span class="fu" style="color: #4758AB;
+<span id="cb64-15">      <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">list</span>(</span>
-<span id="cb62-16">      <span class="at" style="color: #657422;
+<span id="cb64-16">      <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">className =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"dt-center"</span>,</span>
-<span id="cb62-17">      <span class="at" style="color: #657422;
+<span id="cb64-17">      <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">targets =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"_all"</span></span>
-<span id="cb62-18">      )</span>
-<span id="cb62-19">    )</span>
-<span id="cb62-20">  ),</span>
-<span id="cb62-21">  <span class="at" style="color: #657422;
+<span id="cb64-18">      )</span>
+<span id="cb64-19">    )</span>
+<span id="cb64-20">  ),</span>
+<span id="cb64-21">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">rownames =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">FALSE</span></span>
-<span id="cb62-22">)</span></code></pre></div>
+<span id="cb64-22">)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-6a55ca75e401f0ff1d6c" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-6a55ca75e401f0ff1d6c">{"x":{"filter":"none","vertical":false,"data":[[5,9,10,22,13,50],[0.69897,0.95424,1,1.34242,1.11394,1.69897]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Original<\/th>\n      <th>Log10_transformed<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Original","targets":0},{"name":"Log10_transformed","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-4214a8320c8399a4bcbf" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4214a8320c8399a4bcbf">{"x":{"filter":"none","vertical":false,"data":[[5,9,10,22,13,50],[0.69897,0.95424,1,1.34242,1.11394,1.69897]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Original<\/th>\n      <th>Log10_transformed<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Original","targets":0},{"name":"Log10_transformed","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -4607,7 +5049,7 @@ font-style: inherit;">FALSE</span></span>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(y)</span></code></pre></div>
 </details>
@@ -4619,7 +5061,7 @@ font-style: inherit;">mean</span>(y)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><span class="dv" style="color: #AD0000;
+<div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -4635,7 +5077,7 @@ font-style: inherit;">mean</span>(y)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Gmean</span>(x)</span></code></pre></div>
 </details>
@@ -4663,17 +5105,17 @@ Note
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1">med_log <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1">med_log <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">median</span>(</span>
-<span id="cb69-2">  <span class="fu" style="color: #4758AB;
+<span id="cb71-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">log</span>(mtcars<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>mpg))</span>
-<span id="cb69-3">med_log</span></code></pre></div>
+<span id="cb71-3">med_log</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.95491</code></pre>
@@ -4683,7 +5125,7 @@ font-style: inherit;">$</span>mpg))</span>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb73" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">exp</span>(med_log) <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -4697,7 +5139,7 @@ font-style: inherit;"># exponentiation to back transform</span></span></code></p
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb73" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb75" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">median</span>(mtcars<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -4739,7 +5181,7 @@ font-style: inherit;">$</span>mpg)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb75" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1">x <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb77" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1">x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4752,12 +5194,12 @@ background-color: null;
 font-style: inherit;">6</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">8</span>)</span>
-<span id="cb75-2">n <span class="ot" style="color: #003B4F;
+<span id="cb77-2">n <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">length</span>(x)</span>
-<span id="cb75-3">harmonic_mean <span class="ot" style="color: #003B4F;
+<span id="cb77-3">harmonic_mean <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> n <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -4768,7 +5210,7 @@ background-color: null;
 font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">/</span> x)</span>
-<span id="cb75-4">harmonic_mean</span></code></pre></div>
+<span id="cb77-4">harmonic_mean</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.84</code></pre>
@@ -4778,10 +5220,10 @@ font-style: inherit;">/</span> x)</span>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb77" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb79" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(DescTools)</span>
-<span id="cb77-2"><span class="fu" style="color: #4758AB;
+<span id="cb79-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Hmean</span>(x)</span></code></pre></div>
 </details>
@@ -4790,10 +5232,10 @@ font-style: inherit;">Hmean</span>(x)</span></code></pre></div>
 </div>
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb79" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb81" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(psych)</span>
-<span id="cb79-2"><span class="fu" style="color: #4758AB;
+<span id="cb81-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">harmonic.mean</span>(x)</span></code></pre></div>
 </details>
@@ -4851,7 +5293,7 @@ font-style: inherit;">harmonic.mean</span>(x)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb81" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1">speeds <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb83" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1">speeds <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4864,7 +5306,7 @@ background-color: null;
 font-style: inherit;">90</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">100</span>)</span>
-<span id="cb81-2"><span class="fu" style="color: #4758AB;
+<span id="cb83-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Hmean</span>(speeds)</span></code></pre></div>
 </details>
@@ -4876,7 +5318,7 @@ font-style: inherit;">Hmean</span>(speeds)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb83" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1">times <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb85" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1">times <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4907,7 +5349,7 @@ background-color: null;
 font-style: inherit;">100</span>) <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># use times as weights</span></span>
-<span id="cb83-2"><span class="fu" style="color: #4758AB;
+<span id="cb85-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">weighted.mean</span>(speeds, <span class="at" style="color: #657422;
 background-color: null;
@@ -4982,7 +5424,7 @@ Note
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb85" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1">weights_1 <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb87" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1">weights_1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4999,7 +5441,7 @@ background-color: null;
 font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">118</span>)</span>
-<span id="cb85-2">price_1 <span class="ot" style="color: #003B4F;
+<span id="cb87-2">price_1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -5008,7 +5450,7 @@ background-color: null;
 font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">40</span></span>
-<span id="cb85-3">price_2 <span class="ot" style="color: #003B4F;
+<span id="cb87-3">price_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -5017,7 +5459,7 @@ background-color: null;
 font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">78</span></span>
-<span id="cb85-4"><span class="fu" style="color: #4758AB;
+<span id="cb87-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">weighted.mean</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5033,7 +5475,7 @@ font-style: inherit;">w =</span> weights_1)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb87" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1">weights_2 <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb89" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1">weights_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5050,7 +5492,7 @@ background-color: null;
 font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2550</span>)</span>
-<span id="cb87-2">h_mean <span class="ot" style="color: #003B4F;
+<span id="cb89-2">h_mean <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -5063,7 +5505,7 @@ background-color: null;
 font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(price_1, price_2))</span>
-<span id="cb87-3">h_mean</span></code></pre></div>
+<span id="cb89-3">h_mean</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 21.61017</code></pre>
@@ -5089,7 +5531,7 @@ font-style: inherit;">c</span>(price_1, price_2))</span>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb89" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb91" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(mtcars<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -5108,17 +5550,17 @@ font-style: inherit;">0.05</span>)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb91" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb93" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(DescTools)</span>
-<span id="cb91-2">mpg_ordered <span class="ot" style="color: #003B4F;
+<span id="cb93-2">mpg_ordered <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sort</span>(mtcars<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>mpg)</span>
-<span id="cb91-3"><span class="fu" style="color: #4758AB;
+<span id="cb93-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Trim</span>(mpg_ordered, <span class="fl" style="color: #AD0000;
 background-color: null;
@@ -5142,7 +5584,7 @@ attr(,"trim")
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb93" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb95" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(mtcars<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -5176,13 +5618,13 @@ font-style: inherit;">0.5</span>)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb95" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb97" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">quantile</span>(</span>
-<span id="cb95-2">mtcars<span class="sc" style="color: #5E5E5E;
+<span id="cb97-2">mtcars<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>mpg, </span>
-<span id="cb95-3"><span class="at" style="color: #657422;
+<span id="cb97-3"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">probs =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5191,12 +5633,12 @@ background-color: null;
 font-style: inherit;">0.05</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.95</span>),</span>
-<span id="cb95-4"><span class="at" style="color: #657422;
+<span id="cb97-4"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">type =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">7</span></span>
-<span id="cb95-5">)</span></code></pre></div>
+<span id="cb97-5">)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>    5%    95% 
@@ -5208,7 +5650,7 @@ font-style: inherit;">7</span></span>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb97" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1">mpg_ordered</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb99" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1">mpg_ordered</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 10.4 10.4 13.3 14.3 14.7 15.0 15.2 15.2 15.5 15.8 16.4 17.3 17.8 18.1 18.7
@@ -5220,24 +5662,24 @@ font-style: inherit;">7</span></span>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb99" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb101" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(DescTools)</span>
-<span id="cb99-2">mpg_win <span class="ot" style="color: #003B4F;
+<span id="cb101-2">mpg_win <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Winsorize</span>(</span>
-<span id="cb99-3">  <span class="at" style="color: #657422;
+<span id="cb101-3">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> mpg_ordered, </span>
-<span id="cb99-4">  <span class="at" style="color: #657422;
+<span id="cb101-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">val =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">quantile</span>(</span>
-<span id="cb99-5">      mpg_ordered,</span>
-<span id="cb99-6">      <span class="at" style="color: #657422;
+<span id="cb101-5">      mpg_ordered,</span>
+<span id="cb101-6">      <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">probs =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5246,10 +5688,10 @@ background-color: null;
 font-style: inherit;">0.05</span>, .<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">95</span>)</span>
-<span id="cb99-7">  )</span>
-<span id="cb99-8">)</span>
-<span id="cb99-9"></span>
-<span id="cb99-10">mpg_win</span></code></pre></div>
+<span id="cb101-7">  )</span>
+<span id="cb101-8">)</span>
+<span id="cb101-9"></span>
+<span id="cb101-10">mpg_win</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 11.995 11.995 13.300 14.300 14.700 15.000 15.200 15.200 15.500 15.800
@@ -5263,7 +5705,7 @@ font-style: inherit;">95</span>)</span>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb101" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb103" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(mpg_win)</span></code></pre></div>
 </details>
@@ -5275,22 +5717,22 @@ font-style: inherit;">mean</span>(mpg_win)</span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide code</summary>
-<div class="sourceCode cell-code" id="cb103" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb105" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(psych)</span>
-<span id="cb103-2"></span>
-<span id="cb103-3"><span class="fu" style="color: #4758AB;
+<span id="cb105-2"></span>
+<span id="cb105-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">winsor.mean</span>(</span>
-<span id="cb103-4">mtcars<span class="sc" style="color: #5E5E5E;
+<span id="cb105-4">mtcars<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>mpg, </span>
-<span id="cb103-5"><span class="at" style="color: #657422;
+<span id="cb105-5"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">trim =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.05</span></span>
-<span id="cb103-6">)</span></code></pre></div>
+<span id="cb105-6">)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 20.07469</code></pre>
@@ -5760,8 +6202,8 @@ Table&nbsp;1: Frequency distribution of the mpg variable
 </figcaption>
 <div aria-describedby="tbl-mpg-freq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-c541a05425ea5431bc41" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-c541a05425ea5431bc41">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","Total"],["6","12","8","2","4","32"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-bb54db0d860dbfb85ee2" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-bb54db0d860dbfb85ee2">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","Total"],["6","12","8","2","4","32"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </figure>
@@ -6118,8 +6560,8 @@ Table&nbsp;2: Cumulative frequency distribution of the mpg variable
 </figcaption>
 <div aria-describedby="tbl-mpg-cum-freq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-2995db2bfe6ba0165987" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-2995db2bfe6ba0165987">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","Total"],["6","12","8","2","4","32"],["6","18","26","28","32",null],["0.1875","0.375","0.25","0.0625","0.125","1"],["0.1875","0.5625","0.8125","0.875","1",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Cumulative Frequency<\/th>\n      <th>Relative Frequency<\/th>\n      <th>Cumulative Relative Frequency<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 5, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 5, 3, \",\", \".\", null);\n  }"},{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"cum_freq_1","targets":2},{"name":"rel_freq_1","targets":3},{"name":"cum_rel_freq_1","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':value == 1 ? \"skyblue\" : null});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':value == 1 ? \"skyblue\" : null});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-ad6f29f51743f226c795" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ad6f29f51743f226c795">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","Total"],["6","12","8","2","4","32"],["6","18","26","28","32",null],["0.1875","0.375","0.25","0.0625","0.125","1"],["0.1875","0.5625","0.8125","0.875","1",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Cumulative Frequency<\/th>\n      <th>Relative Frequency<\/th>\n      <th>Cumulative Relative Frequency<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 5, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 5, 3, \",\", \".\", null);\n  }"},{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"cum_freq_1","targets":2},{"name":"rel_freq_1","targets":3},{"name":"cum_rel_freq_1","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':value == 1 ? \"skyblue\" : null});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':value == 1 ? \"skyblue\" : null});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 </figure>
@@ -6209,8 +6651,8 @@ font-style: inherit;">"_all"</span></span>
 <span id="cb21-22">   )</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-a2dfd40b11dc94380740" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-a2dfd40b11dc94380740">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","&lt;NA&gt;","Total"],[6,12,8,2,4,0,32],[18.75,37.5,25,6.25,12.5,null,100],[18.75,56.25,81.25,87.5,100,null,100],[18.75,37.5,25,6.25,12.5,0,100],[18.75,56.25,81.25,87.5,100,100,100]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Freq<\/th>\n      <th>% Valid<\/th>\n      <th>% Valid Cum.<\/th>\n      <th>% Total<\/th>\n      <th>% Total Cum.<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Freq","targets":1},{"name":"% Valid","targets":2},{"name":"% Valid Cum.","targets":3},{"name":"% Total","targets":4},{"name":"% Total Cum.","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-df4fcd1e2953bdba211e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-df4fcd1e2953bdba211e">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","&lt;NA&gt;","Total"],[6,12,8,2,4,0,32],[18.75,37.5,25,6.25,12.5,null,100],[18.75,56.25,81.25,87.5,100,null,100],[18.75,37.5,25,6.25,12.5,0,100],[18.75,56.25,81.25,87.5,100,100,100]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Freq<\/th>\n      <th>% Valid<\/th>\n      <th>% Valid Cum.<\/th>\n      <th>% Total<\/th>\n      <th>% Total Cum.<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Freq","targets":1},{"name":"% Valid","targets":2},{"name":"% Valid Cum.","targets":3},{"name":"% Total","targets":4},{"name":"% Total Cum.","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div></li>
 </ul>
@@ -7060,8 +7502,8 @@ font-style: inherit;">FALSE</span></span>
 <span id="cb30-49">)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-1a1c5665a2402cb37b0d" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-1a1c5665a2402cb37b0d">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]"],[6,12,8,2,4],[12.5,17.5,22.5,27.5,32.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Midpoints<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"midpoints","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-7524aedf358985874082" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7524aedf358985874082">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]"],[6,12,8,2,4],[12.5,17.5,22.5,27.5,32.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Midpoints<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"midpoints","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div></li>
 <li><div style="margin-top: 1rem; margin-bottom: 1rem">
@@ -7179,8 +7621,8 @@ font-style: inherit;">FALSE</span></span>
 <span id="cb31-27">      )</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-ca435de47825ee50faa4" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-ca435de47825ee50faa4">{"x":{"filter":"none","vertical":false,"data":[["[5, 10)","[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","(35, 40]"],["0","6","12","8","2","4","0"],[7.5,12.5,17.5,22.5,27.5,32.5,37.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Midpoints<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"midpoints","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-d4685a902af1958cb26d" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d4685a902af1958cb26d">{"x":{"filter":"none","vertical":false,"data":[["[5, 10)","[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","(35, 40]"],["0","6","12","8","2","4","0"],[7.5,12.5,17.5,22.5,27.5,32.5,37.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Midpoints<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"midpoints","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div></li>
 <li><div style="margin-top: 1rem; margin-bottom: 1rem">
@@ -8918,23 +9360,23 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
 <span id="cb15-9">)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="xoqhfpgdfj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xoqhfpgdfj table {
+<div id="tdtmgyduld" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tdtmgyduld table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xoqhfpgdfj thead, #xoqhfpgdfj tbody, #xoqhfpgdfj tfoot, #xoqhfpgdfj tr, #xoqhfpgdfj td, #xoqhfpgdfj th {
+#tdtmgyduld thead, #tdtmgyduld tbody, #tdtmgyduld tfoot, #tdtmgyduld tr, #tdtmgyduld td, #tdtmgyduld th {
   border-style: none;
 }
 
-#xoqhfpgdfj p {
+#tdtmgyduld p {
   margin: 0;
   padding: 0;
 }
 
-#xoqhfpgdfj .gt_table {
+#tdtmgyduld .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -8960,12 +9402,12 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-left-color: #D3D3D3;
 }
 
-#xoqhfpgdfj .gt_caption {
+#tdtmgyduld .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xoqhfpgdfj .gt_title {
+#tdtmgyduld .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -8977,7 +9419,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-width: 0;
 }
 
-#xoqhfpgdfj .gt_subtitle {
+#tdtmgyduld .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -8989,7 +9431,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-top-width: 0;
 }
 
-#xoqhfpgdfj .gt_heading {
+#tdtmgyduld .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -9001,13 +9443,13 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#xoqhfpgdfj .gt_bottom_border {
+#tdtmgyduld .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xoqhfpgdfj .gt_col_headings {
+#tdtmgyduld .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -9022,7 +9464,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#xoqhfpgdfj .gt_col_heading {
+#tdtmgyduld .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -9042,7 +9484,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   overflow-x: hidden;
 }
 
-#xoqhfpgdfj .gt_column_spanner_outer {
+#tdtmgyduld .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -9054,15 +9496,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 4px;
 }
 
-#xoqhfpgdfj .gt_column_spanner_outer:first-child {
+#tdtmgyduld .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xoqhfpgdfj .gt_column_spanner_outer:last-child {
+#tdtmgyduld .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xoqhfpgdfj .gt_column_spanner {
+#tdtmgyduld .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -9074,11 +9516,11 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   width: 100%;
 }
 
-#xoqhfpgdfj .gt_spanner_row {
+#tdtmgyduld .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xoqhfpgdfj .gt_group_heading {
+#tdtmgyduld .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -9104,7 +9546,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   text-align: left;
 }
 
-#xoqhfpgdfj .gt_empty_group_heading {
+#tdtmgyduld .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -9119,15 +9561,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   vertical-align: middle;
 }
 
-#xoqhfpgdfj .gt_from_md > :first-child {
+#tdtmgyduld .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xoqhfpgdfj .gt_from_md > :last-child {
+#tdtmgyduld .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xoqhfpgdfj .gt_row {
+#tdtmgyduld .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -9146,7 +9588,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   overflow-x: hidden;
 }
 
-#xoqhfpgdfj .gt_stub {
+#tdtmgyduld .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -9159,7 +9601,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#xoqhfpgdfj .gt_stub_row_group {
+#tdtmgyduld .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -9173,15 +9615,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   vertical-align: top;
 }
 
-#xoqhfpgdfj .gt_row_group_first td {
+#tdtmgyduld .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xoqhfpgdfj .gt_row_group_first th {
+#tdtmgyduld .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xoqhfpgdfj .gt_summary_row {
+#tdtmgyduld .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -9191,16 +9633,16 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#xoqhfpgdfj .gt_first_summary_row {
+#tdtmgyduld .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xoqhfpgdfj .gt_first_summary_row.thick {
+#tdtmgyduld .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xoqhfpgdfj .gt_last_summary_row {
+#tdtmgyduld .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -9210,7 +9652,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#xoqhfpgdfj .gt_grand_summary_row {
+#tdtmgyduld .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -9220,7 +9662,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#xoqhfpgdfj .gt_first_grand_summary_row {
+#tdtmgyduld .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -9230,7 +9672,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-top-color: #D3D3D3;
 }
 
-#xoqhfpgdfj .gt_last_grand_summary_row_top {
+#tdtmgyduld .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -9240,11 +9682,11 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#xoqhfpgdfj .gt_striped {
+#tdtmgyduld .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xoqhfpgdfj .gt_table_body {
+#tdtmgyduld .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -9253,7 +9695,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#xoqhfpgdfj .gt_footnotes {
+#tdtmgyduld .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -9267,7 +9709,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#xoqhfpgdfj .gt_footnote {
+#tdtmgyduld .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -9276,7 +9718,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#xoqhfpgdfj .gt_sourcenotes {
+#tdtmgyduld .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -9290,7 +9732,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#xoqhfpgdfj .gt_sourcenote {
+#tdtmgyduld .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -9298,72 +9740,72 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#xoqhfpgdfj .gt_left {
+#tdtmgyduld .gt_left {
   text-align: left;
 }
 
-#xoqhfpgdfj .gt_center {
+#tdtmgyduld .gt_center {
   text-align: center;
 }
 
-#xoqhfpgdfj .gt_right {
+#tdtmgyduld .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xoqhfpgdfj .gt_font_normal {
+#tdtmgyduld .gt_font_normal {
   font-weight: normal;
 }
 
-#xoqhfpgdfj .gt_font_bold {
+#tdtmgyduld .gt_font_bold {
   font-weight: bold;
 }
 
-#xoqhfpgdfj .gt_font_italic {
+#tdtmgyduld .gt_font_italic {
   font-style: italic;
 }
 
-#xoqhfpgdfj .gt_super {
+#tdtmgyduld .gt_super {
   font-size: 65%;
 }
 
-#xoqhfpgdfj .gt_footnote_marks {
+#tdtmgyduld .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xoqhfpgdfj .gt_asterisk {
+#tdtmgyduld .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xoqhfpgdfj .gt_indent_1 {
+#tdtmgyduld .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xoqhfpgdfj .gt_indent_2 {
+#tdtmgyduld .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xoqhfpgdfj .gt_indent_3 {
+#tdtmgyduld .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xoqhfpgdfj .gt_indent_4 {
+#tdtmgyduld .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xoqhfpgdfj .gt_indent_5 {
+#tdtmgyduld .gt_indent_5 {
   text-indent: 25px;
 }
 
-#xoqhfpgdfj .katex-display {
+#tdtmgyduld .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#xoqhfpgdfj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tdtmgyduld div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -9374,12 +9816,9 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
 <col style="width: 50%">
 </colgroup>
 <thead>
-<tr class="header gt_col_headings">
-<th id="<div data-qmd-base64=&quot;KipDaGFyYWN0ZXJpc3RpYyoq&quot;><div class='gt_from_md'><p><strong>Characteristic</strong></p>
-</div></div>" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><p><strong>Characteristic</strong></p></th>
-<th id="<div data-qmd-base64=&quot;KipOID0gMzIqKg==&quot;><div class='gt_from_md'><p><strong>N = 32</strong></p>
-</div></div><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;line-height: 0;&quot;><sup>1</sup></span>" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><p><strong>N = 32</strong></p>
-<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height: 0;"><sup>1</sup></span></th>
+<tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N = 32</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
@@ -9397,9 +9836,8 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
 <td class="gt_row gt_center" headers="stat_0">14 (43.8%)</td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
-<tr class="even">
-<td colspan="2" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height: 0;"><sup>1</sup></span>
-<p>n (%)</p></td>
+<tr class="odd">
+<td colspan="2" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> n (%)</td>
 </tr>
 </tfoot>
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.7.3">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../posts/biostats/B08_distrib_shape_stats.html" rel="next">
 <link href="../../posts/biostats/B06_dispersion_stats.html" rel="prev">
 <link href="../..//images/fav.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -71,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-81b5c3e63835cfde897ecd3d35a35a41.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8bf7a1f964409d044b0be1f1d2e39a92.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -290,6 +291,12 @@ window.Quarto = {
  <span class="menu-text">Demystifying sample variance formula</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B08_distrib_shape_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Describing the shape of distribution</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -360,7 +367,30 @@ s^2 = \frac{1}{n-1} \displaystyle \sum_{i=1}^{n} (x_i - \bar{x})^2
 <ul>
 <li><p>In a <a href="../../posts/biostats/B03_cent_tendency_stats.html#sec-mean">previous chapter</a>, we described that the sum of deviations of the observations from the arithmetic mean is always zero because the negative deviations cancel out the positive deviations. This cuses the variance to be zero.</p></li>
 <li><p>Therefore, squaring the deviations overcomes this issue by making all deviations positive.</p></li>
+</ul></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Cancelling out of positive and negative deviations can also be achieved by taking the absolute value of the deviations resulting in a measure called the mean absolute deviation from the mean.</p></li>
+<li><p>However, squaring the deviations is preferred for many reasons, for instance:</p>
+<ul>
+<li><p>The squared function is differentiable everywhere, while the absolute value function is not differentiable at zero. Differentiability is important for many statistical and optimization algorithms.</p></li>
+<li><p>The squared deviations give more weight to larger deviations.</p></li>
+<li><p>The squaring used in the variance is closely linked to the normal distribution function (that also involves a squared deviation term), which is a cornerstone in most statistical methods.</p></li>
+<li><p>The squared deviations of observations of any given value is minimized when the mean of the observations is used as the reference point, while the mean absolute deviation is minimized when the median is used as the reference point.</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
 <p><i class="bi bi-2-circle-fill" style="color: #0171c3; font-size: 22px;"></i> <strong>The denominator is</strong> <span class="math inline">\((n-1)\)</span> instead of <span class="math inline">\((n)\)</span>:</p>
 <ul>
 <li><p>This is known as Bessel’s correction (obtained by multiplying the uncorrected sample variance <span class="math inline">\(s^2_n = \displaystyle \frac{1}{n} \displaystyle \sum_{i=1}^{n} (x_i - \bar{x})^2\)</span> by <span class="math inline">\(\displaystyle \frac{n}{n-1}\)</span>) and is used to correct the bias in the estimation of the population variance from the sample variance.</p></li>
@@ -496,7 +526,7 @@ Note
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(population, <span class="dv">10</span>)</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    sample.var.uncor[i] <span class="ot">&lt;-</span> </span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sum</span>((sample <span class="sc">-</span> <span class="fu">mean</span>(sample))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">length</span>(sample))</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((sample <span class="sc">-</span> <span class="fu">mean</span>(sample))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">length</span>(sample))</span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(</span>
@@ -514,7 +544,7 @@ Note
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(population, <span class="dv">10</span>)</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    sample.var.cor[i] <span class="ot">&lt;-</span> </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sum</span>((sample <span class="sc">-</span> <span class="fu">mean</span>(sample))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">length</span>(sample) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((sample <span class="sc">-</span> <span class="fu">mean</span>(sample))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">length</span>(sample) <span class="sc">-</span> <span class="dv">1</span>)</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(</span>
@@ -561,8 +591,7 @@ Note
 <li><p>Applying this rule to the sample variance, we estimate the population mean <span class="math inline">\(\mu\)</span> from the sample mean <span class="math inline">\(\bar{x}\)</span>, which is one parameter estimated from the sample while computing the sample variance. Therefore, the degrees of freedom for the sample variance is <span class="math inline">\(n - 1\)</span>.</p></li>
 </ul>
 </div>
-</div></li>
-</ul>
+</div>
 </section>
 <section id="references" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="references"><span class="header-section-number">2</span> References</h2>
@@ -866,8 +895,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -983,7 +1010,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1220,6 +1246,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../posts/biostats/B08_distrib_shape_stats.html" class="pagination-link" aria-label="Describing the shape of distribution">
+        <span class="nav-page-text">Describing the shape of distribution</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
