@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-08-14">
-<meta name="description" content="Review basic laws of surds and indices">
+<meta name="dcterms.date" content="2024-09-21">
 
-<title>Surds and Indices – AMRBiostats</title>
+<title>Variables – AMRBiostats</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../posts/maths_refresher/005_summation.html" rel="next">
-<link href="../../posts/maths_refresher/003_factorization.html" rel="prev">
+<link href="../../posts/biostats/B01_Freq_dist1_stats.html" rel="next">
+<link href="../../posts/biostats/A01_intro.html" rel="prev">
 <link href="../..//images/fav.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -105,11 +104,8 @@ window.Quarto = {
 <link rel="stylesheet" href="../../styles.css">
 <link rel="stylesheet" href="../../include/webex.css">
 <meta property="og:title" content="AMRBiostats">
-<meta property="og:description" content="Review basic laws of surds and indices">
-<meta property="og:image" content="https://www.amrbiostats.com/images/surds.png">
+<meta property="og:image" content="https://www.amrbiostats.com/images/biostats.jpg">
 <meta property="og:site_name" content="AMRBiostats">
-<meta property="og:image:height" content="222">
-<meta property="og:image:width" content="800">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -147,11 +143,11 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../maths_refresher.html" aria-current="page"> 
+    <a class="nav-link" href="../../maths_refresher.html"> 
 <span class="menu-text">Maths Refresher <iconify-icon role="img" inline="" icon="hugeicons:calculate" style="font-size: 24px;" aria-label="Icon calculate from hugeicons Iconify.design set." title="Icon calculate from hugeicons Iconify.design set."></iconify-icon></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../biostatistics.html"> 
+    <a class="nav-link active" href="../../biostatistics.html" aria-current="page"> 
 <span class="menu-text">Biostatistics <iconify-icon role="img" inline="" icon="uis:graph-bar" style="font-size: 20px;" aria-label="Icon graph-bar from uis Iconify.design set." title="Icon graph-bar from uis Iconify.design set."></iconify-icon></span></a>
   </li>  
 </ul>
@@ -165,7 +161,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../maths_refresher.html">Maths Refresher</a></li><li class="breadcrumb-item"><a href="../../posts/maths_refresher/004_surd_indices.html">Surds and Indices</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/A01_intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/A02_intro.html">Variables</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -179,79 +175,95 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../maths_refresher.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Maths Refresher</span></a>
+            <a href="../../biostatistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Biostatistics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/maths_refresher/001_math_operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mathematical Operations</span></a>
+  <a href="../../posts/biostats/A01_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/maths_refresher/002_simplify_brackets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Simplification</span></a>
+  <a href="../../posts/biostats/A02_intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Descriptive Statistics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B01_Freq_dist1_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequency distribution 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/maths_refresher/003_factorization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Factorization</span></a>
+  <a href="../../posts/biostats/B02_Freq_dist2_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequency distribution 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/maths_refresher/004_surd_indices.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Surds and Indices</span></a>
+  <a href="../../posts/biostats/B03_cent_tendency_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measures of Central Tendency</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/maths_refresher/005_summation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Summation Notation</span></a>
+  <a href="../../posts/biostats/B04_quantile_algorithms_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quantile algorithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/maths_refresher/006_product.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Product Notation</span></a>
+  <a href="../../posts/biostats/B05_boxplot_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Boxplot</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/maths_refresher/007_logs_and_exp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exponential and Logarithmic Functions</span></a>
+  <a href="../../posts/biostats/B06_dispersion_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measures of Variability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/maths_refresher/008_matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Matrices</span></a>
+  <a href="../../posts/biostats/B07_sample_variance_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demystifying sample variance formula</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/maths_refresher/009_limits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limits</span></a>
+  <a href="../../posts/biostats/B08_distrib_shape_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Describing the shape of distribution</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/maths_refresher/010_derivatives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Differentiation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/maths_refresher/011_integrals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Integration</span></a>
-  </div>
-</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -264,32 +276,30 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#surds" id="toc-surds" class="nav-link active" data-scroll-target="#surds"><span class="header-section-number">1</span> Surds</a>
+  <li><a href="#variables" id="toc-variables" class="nav-link active" data-scroll-target="#variables"><span class="header-section-number">1</span> Variables</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"><span class="header-section-number">2</span> Random variables</a>
   <ul>
-  <li><a href="#laws-of-surds" id="toc-laws-of-surds" class="nav-link" data-scroll-target="#laws-of-surds"><span class="header-section-number">1.1</span> Laws of surds</a></li>
-  </ul></li>
-  <li><a href="#indices" id="toc-indices" class="nav-link" data-scroll-target="#indices"><span class="header-section-number">2</span> Indices</a>
+  <li><a href="#types-of-variables" id="toc-types-of-variables" class="nav-link" data-scroll-target="#types-of-variables"><span class="header-section-number">2.1</span> Types of variables</a>
   <ul>
-  <li><a href="#laws-of-indices" id="toc-laws-of-indices" class="nav-link" data-scroll-target="#laws-of-indices"><span class="header-section-number">2.1</span> Laws of indices</a></li>
+  <li><a href="#independent-and-dependent-variables" id="toc-independent-and-dependent-variables" class="nav-link" data-scroll-target="#independent-and-dependent-variables"><span class="header-section-number">2.1.1</span> Independent and Dependent variables</a></li>
+  <li><a href="#qualitative-and-quantitative-variables" id="toc-qualitative-and-quantitative-variables" class="nav-link" data-scroll-target="#qualitative-and-quantitative-variables"><span class="header-section-number">2.1.2</span> Qualitative and Quantitative variables</a></li>
+  <li><a href="#discrete-and-continuous-variables" id="toc-discrete-and-continuous-variables" class="nav-link" data-scroll-target="#discrete-and-continuous-variables"><span class="header-section-number">2.1.3</span> Discrete and Continuous variables</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
-  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">4</span> Add your comments</a></li>
+  </ul></li>
+  <li><a href="#scales-of-measurement" id="toc-scales-of-measurement" class="nav-link" data-scroll-target="#scales-of-measurement"><span class="header-section-number">3</span> Scales of measurement</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
+  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">5</span> Add your comments</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../maths_refresher.html">Maths Refresher</a></li><li class="breadcrumb-item"><a href="../../posts/maths_refresher/004_surd_indices.html">Surds and Indices</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/A01_intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/A02_intro.html">Variables</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Surds and Indices</h1>
+<h1 class="title">Variables</h1>
 </div>
 
-<div>
-  <div class="description">
-    Review basic laws of surds and indices
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -298,7 +308,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 14, 2024</p>
+      <p class="date">September 21, 2024</p>
     </div>
   </div>
   
@@ -310,121 +320,280 @@ window.Quarto = {
 </header>
 
 
-<p><br></p>
-<section id="surds" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="surds"><span class="header-section-number">1</span> Surds</h2>
+<section id="variables" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="variables"><span class="header-section-number">1</span> Variables</h2>
 <ul>
-<li><p>A surd is an <a href="../../posts/maths_refresher/002_simplify_brackets.html#nte-real">irrational number</a> expressed in terms of roots (square, cube, etc.) that cannot be simplified.</p></li>
-<li><p>Examples: <span class="math inline">\(\sqrt{2},\ \sqrt{3},\ \sqrt[3]{6}\)</span>.</p></li>
-<li><p><span class="math inline">\(\sqrt{9}\)</span> is not a surd because it can be further simplified to <span class="math inline">\(3\)</span>, which is a rational number.</p></li>
-<li><p>Types:</p>
+<li><p>A variable can be defined as a characteristic or attribute that can be measured or observed.</p></li>
+<li><p>The values of a variable change from one observation to another (this is opposed to constants that do not change).</p></li>
+</ul>
+</section>
+<section id="random-variables" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">2</span> Random variables</h2>
 <ul>
-<li><p>Pure: have a single irrational number, e.g., <span class="math inline">\(\sqrt{2},\ \sqrt{3},\ \sqrt[3]{6}\)</span>.</p></li>
-<li><p>Mixed: have rational and irrational numbers, e.g., <span class="math inline">\(3\sqrt{2}\)</span>.</p></li>
+<li><p>When the values of the variable are the result of chance factors (i.e., the values are subject to randomness or uncertainty), the variable is refered to as a random variable.</p></li>
+<li><p>For example, when a coin is flipped, the outcome (head or tail) is random and can not be predicted with certainty until experiment is performed (i.e., the coin is flipped).</p></li>
+</ul>
+<section id="types-of-variables" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="types-of-variables"><span class="header-section-number">2.1</span> Types of variables</h3>
+<section id="independent-and-dependent-variables" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="independent-and-dependent-variables"><span class="header-section-number">2.1.1</span> Independent and Dependent variables</h4>
+<ul>
+<li><p><strong>Independent variable</strong>:</p>
+<ul>
+<li><p>It is a variable that is manipulated or controlled by the researcher during an experiment.</p></li>
+<li><p>It has other names such as predictor, explanatory, or treatment variable.</p></li>
+<li><p>It may have different levels or categories.</p></li>
+</ul></li>
+<li><p><strong>Dependent variable</strong>:</p>
+<ul>
+<li><p>It is a variable that is measured or observed during an experiment in response to changes in the independent variable(s).</p></li>
+<li><p>It has other names such as outcome or response variable.</p></li>
+</ul></li>
+<li><p>Example:</p>
+<ul>
+<li><p>In a study evaluating the effect of three medications on lowering blood pressure in hypertensive patients:</p>
+<ul>
+<li><p>The medication type is the <code>independent variable</code> that has three levels (medication A, medication B, and medication C).</p></li>
+<li><p>The blood pressure is the <code>dependent variable</code>.</p></li>
+</ul></li>
 </ul></li>
 </ul>
-<section id="laws-of-surds" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="laws-of-surds"><span class="header-section-number">1.1</span> Laws of surds</h3>
+</section>
+<section id="qualitative-and-quantitative-variables" class="level4" data-number="2.1.2">
+<h4 data-number="2.1.2" class="anchored" data-anchor-id="qualitative-and-quantitative-variables"><span class="header-section-number">2.1.2</span> Qualitative and Quantitative variables</h4>
+<ul>
+<li><p><strong>Qualitative (categorical) variables</strong>:</p>
+<ul>
+<li><p>They can not be measured in the usual sense but can be only classified into categories (i.e., they express a quality or attribute).</p></li>
+<li><p>Examples: hair color, socioeconomic status, etc.</p></li>
+</ul></li>
+<li><p><strong>Quantitative (numerical) variables</strong>:</p>
+<ul>
+<li><p>They represent measurable quantities that can be expressed in terms of numbers.</p></li>
+<li><p>Examples: age, weight, blood pressure, etc.</p></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Qualitative variables can be assigned numbers for coding purposes, however, these numbers do not have any numerical significance.</p></li>
+<li><p>For example:</p>
+<ul>
+<li><p>The categories of the variable gender {“male” and “female”} can be coded as {0 and 1}, {1 and 2}, or {2 and 1}, etc.</p></li>
+<li><p>The selection of codes is arbitrary and does not imply any numerical order.</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="discrete-and-continuous-variables" class="level4" data-number="2.1.3">
+<h4 data-number="2.1.3" class="anchored" data-anchor-id="discrete-and-continuous-variables"><span class="header-section-number">2.1.3</span> Discrete and Continuous variables</h4>
+<ul>
+<li><p><strong>Discrete variables</strong>:</p>
+<ul>
+<li><p>They can take only whole numbers (i.e., integers).</p></li>
+<li><p>They can be described as having no intermediate values between two adjacent values (i.e., they have gaps or interruptions in the values that they can assume).</p></li>
+<li><p>Discrete variables can be either qualitative or quantitative (all qualitative variables are discrete by definition).</p></li>
+<li><p>Examples:</p>
+<ul>
+<li><p>Number of migraine attacks, number of children in a family, number of hospital admissions , etc.</p></li>
+<li><p>The above variables can take whole numbers such as <span class="math inline">\(0, 1, 2, 3, \cdots\)</span>, but they can not be fractional numbers such as <span class="math inline">\(1.34, 2.76\)</span>, etc.</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Continuous variables</strong>:</p>
+<ul>
+<li><p>Unlike discrete variables, continuous variables can take any value within a given range.</p></li>
+<li><p>They do not have gaps or interruptions in the values that they can assume (i.e., between any two values, there are an infinite number of other values).</p></li>
+<li><p>Examples:</p>
+<ul>
+<li><p>Age, weight, height, blood pressure, etc.</p></li>
+<li><p>The above variables can take any value within a given range (e.g., weight can be <span class="math inline">\(25.3, 30.6, 45.8\)</span> kg, etc.).</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Continuous variables are often recorded rounded to a certain number of decimal places as if they were discrete variables.</p></li>
+<li><p>The cause of this is the limitations of the measuring instruments used to collect the data (the scale in the case of weight, the thermometer in the case of temperature, etc.).</p></li>
+<li><p>Therefore, the weight of an individual can take infinite values between say <span class="math inline">\(70\)</span> and <span class="math inline">\(71\)</span> kg, but in practice it is recorded rounded to the nearest decimal place (e.g., <span class="math inline">\(70.3, 70.6, 70.8\)</span> kg, etc.) because of the lack of precise measurement.<br>
+</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="scales-of-measurement" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="scales-of-measurement"><span class="header-section-number">3</span> Scales of measurement</h2>
+<ul>
+<li><p>Measurement can be defined as the assignment of numbers to objects or events according to certain rules.</p></li>
+<li><p>Different scales of measurement arise from the fact that numbers can be assigned to objects or events under different sets of rules.</p></li>
+<li><p>Each scale of measurement has its own properties that affect the type of statistical analysis that can be performed on the data.</p></li>
+<li><p>These properties include the order of the categories, the distance between the categories, and the presence of a true zero point.</p></li>
+<li><p>According to Stevens (1946), there are four scales of measurement:</p>
 <ol type="1">
-<li><p><span class="math inline">\(\sqrt{ab} = \sqrt{a} \times \sqrt{b}\)</span></p></li>
-<li><p><span class="math inline">\(\sqrt{a} \times \sqrt{a} = a\)</span></p></li>
-<li><p><span class="math inline">\(\displaystyle \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}\)</span></p></li>
-<li><p><span class="math inline">\(\sqrt{a} \pm \sqrt{b} \ne \sqrt{a\pm b}\)</span></p></li>
-<li><p><span class="math inline">\(\displaystyle \sqrt[n]{a} = a^{\frac{1}{n}}\)</span></p></li>
+<li><p><strong>Nominal scale</strong>:</p>
+<ul>
+<li><p>It involves naming or classifying observations into categories that are mutually exclusive (i.e., categories that do not overlap) and collectively exhaustive (i.e., every observation must fall into one of the categories).</p></li>
+<li><p>The categories have no inherent order or ranking.</p></li>
+<li><p>Examples of nominal scale variables:</p>
+<ol type="i">
+<li><p>Blood type (A, B, AB, and O).</p></li>
+<li><p>Hair color (black, brown, blonde, and red).</p></li>
+<li><p>Gender (male and female).</p></li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A nominal variable that possesses only two categories is referred to as a dichotomous or binary variable (e.g., gender, yes/no response).</li>
+</ul>
+</div>
+</div></li>
+</ul></li>
+<li><p><strong>Ordinal scale</strong>:</p>
+<ul>
+<li><p>Like the nominal scale, the ordinal scale involves naming or classifying observations into categories that are mutually exclusive and collectively exhaustive.</p></li>
+<li><p>However, the categories have <em>a natural order or ranking</em>.</p></li>
+<li><p>The distance or the the difference between the categories is not necessarily equal (i.e., the difference between the categories is not meaningful in a numerical sense).</p></li>
+<li><p>Examples of ordinal scale variables:</p>
+<ol type="i">
+<li><p>Educational level (elementary, high school, college, and postgraduate).</p></li>
+<li><p>Socioeconomic status (low, middle, and high).</p></li>
+<li><p>Pain severity (mild, moderate, and severe).</p></li>
+<li><p>Cancer stage (stage I, stage II, stage III, and stage IV).</p></li>
+<li><p>Likert scale (strongly disagree, disagree, neutral, agree, and strongly agree).</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Consider for example the variable <strong>pain severity</strong>, the difference between <strong>mild</strong> and <strong>moderate</strong> is not necessarily equal to the difference between <strong>moderate</strong> and <strong>severe</strong>.</p></li>
+<li><p>Even if we can code the categories as 1, 2, and 3, no mathematical operations can be performed on these numbers and we still can not say that the difference between 1 and 2 is equal to the difference between 2 and 3.</p></li>
+</ul>
+</div>
+</div></li>
+</ul></li>
+<li><p><strong>Interval scale</strong>:</p>
+<ul>
+<li><p>It is a quantitative and numerical scale.</p></li>
+<li><p>The measurements are ordered (ranked).</p></li>
+<li><p>The difference between measurements is meaningful (i.e., interpretable).</p></li>
+<li><p>It does not have a true zero point (i.e., the value of zero does not indicate the absence of the quantity being measured). This zero point is arbitrary.</p></li>
+<li><p>The ratio of two measurements is not meaningful because of the absence of a true zero point.</p></li>
+<li><p>Examples of interval scale variables:</p>
+<ol type="i">
+<li><p>Temperature measured in Celsius or Fahrenheit.</p></li>
+<li><p>Intelligence Quotient (IQ) scores.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Consider the temperature measured in Celsius, the difference between 10°C and 15°C is equal to the difference between 20°C and 25°C.</p></li>
+<li><p>However, the ratio of 20°C to 10°C is not meaningful (i.e., we can not say that 20°C is twice as hot as 10°).</p></li>
+<li><p>The value of zero Celsius does not imply the absence of temperature (i.e., the absence of molecular kinetic energy).</p></li>
+</ul>
+</div>
+</div></li>
+</ul></li>
+<li><p><strong>Ratio scale</strong>:</p>
+<ul>
+<li><p>It has the properties of the interval scale with the addition of:</p>
+<ol type="i">
+<li><p>A true zero point.</p></li>
+<li><p>The ratio of two measurements is meaningful.</p></li>
+</ol></li>
+<li><p>Examples of ratio scale variables:</p>
+<ol type="i">
+<li><p>Age.</p></li>
+<li><p>Weight.</p></li>
+<li><p>Temperature measured in Kelvin (this scale has a true zero point).</p></li>
+</ol></li>
+</ul></li>
+</ol></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Each scale has the same properties as the scales that precede it.</p></li>
+<li><p>The statistical analysis that can be performed on a lower scale variable can also be performed on a higher scale variable but the reverse is not true.</p></li>
+<li><p>The scales can be ordered according to the level of information they provide in a descending order as follows: ratio &gt; interval &gt; ordinal &gt; nominal.</p></li>
+</ul>
+</div>
+</div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Example M.4.1 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Example M.4.2 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><span style="color: #ba181b">Exercise M.4.1 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><span style="color: #ba181b">Exercise B.1.1 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>Simplify&nbsp;<span class="math inline">\(\sqrt{28}\)</span></p>
-<p><span class="math display">\[
-\sqrt{28}=
-\]</span></p>
-<p><span class="math display">\[\sqrt{4\times 7} = \]</span></p>
-<p><span class="math display">\[
-\sqrt{4} \times \sqrt{7} =
-\]</span></p>
-<p><span class="math display">\[
-2\sqrt{7}
-\]</span></p>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>Simplify&nbsp;<span class="math inline">\(\displaystyle \sqrt{\frac{52}{9}}\)</span></p>
-<p><span class="math display">\[
-\sqrt{\frac{52}{9}} =
-\]</span></p>
-<p><span class="math display">\[
-\frac{\sqrt{52}}{\sqrt{9}} =
-\]</span></p>
-<p><span class="math display">\[
-\frac{\sqrt{4 \times 13}}{3} =
-\]</span></p>
-<p><span class="math display">\[
-\frac{\sqrt{4} \times \sqrt{13}}{3} =
-\]</span></p>
-<p><span class="math display">\[
-\frac{2}{3}\sqrt{13}
-\]</span></p>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>For each of the following roots, indicate whether it is surd or not:</p>
+<p>Indicate the measurement scale for each of the following variables:</p>
 <div class="webex-check webex-box">
-<p><span class="math inline">\(\sqrt{25}\)</span> <select class="webex-select"><option value="blank"></option><option value="">surd</option><option value="answer">not a surd</option></select></p>
-<p><span class="math inline">\(\sqrt{35}\)</span> <select class="webex-select"><option value="blank"></option><option value="answer">surd</option><option value="">not a surd</option></select></p>
-<p><span class="math inline">\(\sqrt{67}\)</span> <select class="webex-select"><option value="blank"></option><option value="answer">surd</option><option value="">not a surd</option></select></p>
-<p><span class="math inline">\(\sqrt{144}\)</span> <select class="webex-select"><option value="blank"></option><option value="">surd</option><option value="answer">not a surd</option></select></p>
+<p>Car speed <select class="webex-select"><option value="blank"></option><option value="">nominal</option><option value="">ordinal</option><option value="">interval</option><option value="answer">ratio</option></select></p>
+<p>Cancer diagnosis <select class="webex-select"><option value="blank"></option><option value="answer">nominal</option><option value="">ordinal</option><option value="">interval</option><option value="">ratio</option></select></p>
+<p>Pain level on a 5-point scale <select class="webex-select"><option value="blank"></option><option value="">nominal</option><option value="answer">ordinal</option><option value="">interval</option><option value="answer">ratio</option></select></p>
+<p>Serum sodium level <select class="webex-select"><option value="blank"></option><option value="">nominal</option><option value="">ordinal</option><option value="">interval</option><option value="answer">ratio</option></select></p>
 </div>
 </div>
 </div>
 </div>
 </section>
-</section>
-<section id="indices" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="indices"><span class="header-section-number">2</span> Indices</h2>
+<section id="references" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
 <ul>
-<li><p>An index (exponent) is the power to which a number (base) is raised.</p></li>
-<li><p>It indicates how many times the base is multiplied by itself.</p></li>
-<li><p>For example <span class="math inline">\(4^2\)</span>, <span class="math inline">\(4\)</span> is the base and <span class="math inline">\(2\)</span> is the index (it is read as “four squared” or “four raised to the power two”).</p></li>
-</ul>
-<section id="laws-of-indices" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="laws-of-indices"><span class="header-section-number">2.1</span> Laws of indices</h3>
-<ol type="1">
-<li><p><span class="math inline">\(a^m \times a^n = a^{m+n}\)</span></p></li>
-<li><p><span class="math inline">\(\displaystyle \frac{a^m}{a^n} = a^{m-n}\)</span></p></li>
-<li><p><span class="math inline">\(\displaystyle a^{-m} =\frac{1}{a^m}\)</span></p></li>
-<li><p><span class="math inline">\((a^m)^n = a^{mn}\)</span></p></li>
-<li><p><span class="math inline">\(\left( a^mb^n \right)^k = a^{mk} \times b^{nk}\)</span></p></li>
-<li><p><span class="math inline">\(a^1=a\)</span></p></li>
-<li><p><span class="math inline">\(a^0=1\)</span></p></li>
-</ol>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Example M.4.3 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><span style="color: #ba181b">Exercise M.4.2 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>Simplify <span class="math inline">\(\displaystyle \frac{x^6}{x^2}\)</span></p>
-<p><span class="math display">\[
-\frac{x^6}{x^2} = x^{6-2} = x^4
-\]</span></p>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p>Simplify&nbsp;<span class="math inline">\(y^3(y^{-2}-y^{-3})\)</span></p>
-<p>The answer is <input class="webex-solveme nospaces" size="3" data-answer="[&quot;y-1&quot;]"></p>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="references" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
-<ul>
-<li><p>Basic Algebra. Help Engineers Learn Mathematics (HELM) workbooks. Loughborough University. Retrieved August 14, 2024, from <a href="https://www.lboro.ac.uk/media/media/schoolanddepartments/mlsc/downloads/Basic%20Algebra.pdf" class="uri">https://www.lboro.ac.uk/media/media/schoolanddepartments/mlsc/downloads/Basic%20Algebra.pdf</a></p></li>
-<li><p>Surds. Cuemath. Retrieved August 14, 2024, from <a href="https://www.cuemath.com/numbers/surds/" class="uri">https://www.cuemath.com/numbers/surds/</a></p></li>
-<li><p>Index Laws Revision. Maths Learning Centre. University of Adelaide. Retrieved August 14, 2024, from <a href="https://www.adelaide.edu.au/mathslearning/ua/media/24/index-laws-revision.pdf" class="uri">https://www.adelaide.edu.au/mathslearning/ua/media/24/index-laws-revision.pdf</a></p></li>
+<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
+<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
+<li><p>Lane, D. M. et al., (2019). Introduction to Statistics. Online Edition. Retrieved September 14, 2024, from https://openstax.org/details/introduction-statistics</p></li>
 </ul>
 <p><br></p>
 </section>
-<section id="add-your-comments" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">4</span> Add your comments</h2>
+<section id="add-your-comments" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">5</span> Add your comments</h2>
 
 
 </section>
@@ -1064,13 +1233,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-alt-theme" value="dark">
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../posts/maths_refresher/003_factorization.html" class="pagination-link" aria-label="Factorization">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Factorization</span>
+      <a href="../../posts/biostats/A01_intro.html" class="pagination-link" aria-label="Basic Concepts">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Basic Concepts</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../posts/maths_refresher/005_summation.html" class="pagination-link" aria-label="Summation Notation">
-        <span class="nav-page-text">Summation Notation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../posts/biostats/B01_Freq_dist1_stats.html" class="pagination-link" aria-label="Frequency distribution 1">
+        <span class="nav-page-text">Frequency distribution 1</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

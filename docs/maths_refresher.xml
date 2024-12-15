@@ -17,7 +17,7 @@
 <generator>quarto-1.7.3</generator>
 <lastBuildDate>Wed, 04 Sep 2024 20:00:00 GMT</lastBuildDate>
 <item>
-  <title>11 Integration</title>
+  <title>Integration</title>
   <link>https://www.amrbiostats.com/posts/maths_refresher/011_integrals.html</link>
   <description><![CDATA[ 
 
@@ -68,10 +68,6 @@
 <div class="g-col-8">
 <table class="caption-top table">
 <caption>Table of integrals of basic functions</caption>
-<colgroup>
-<col style="width: 40%">
-<col style="width: 59%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Function <img src="https://latex.codecogs.com/png.latex?f(x)"></th>
@@ -332,7 +328,7 @@ Note
 <section id="references" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
 <ul>
-<li><p>Integration.. Help Engineers Learn Mathematics (HELM) workbooks. Loughborough University. Retrieved September 05, 2024, from <a href="https://www.lboro.ac.uk/media/media/schoolanddepartments/mlsc/downloads/HELM%20Workbook%2013%20Integration.pdf" class="uri">https://www.lboro.ac.uk/media/media/schoolanddepartments/mlsc/downloads/HELM%20Workbook%2013%20Integration.pdf</a></p></li>
+<li><p>Integration. Help Engineers Learn Mathematics (HELM) workbooks. Loughborough University. Retrieved September 05, 2024, from <a href="https://www.lboro.ac.uk/media/media/schoolanddepartments/mlsc/downloads/HELM%20Workbook%2013%20Integration.pdf" class="uri">https://www.lboro.ac.uk/media/media/schoolanddepartments/mlsc/downloads/HELM%20Workbook%2013%20Integration.pdf</a></p></li>
 <li><p>Integration. In Calculus: Volume 1 (OpenStax). Retrieved September 05, 2024, from <a href="https://openstax.org/books/calculus-volume-1/pages/5-introduction" class="uri">https://openstax.org/books/calculus-volume-1/pages/5-introduction</a></p></li>
 </ul>
 <p><br></p>
@@ -349,7 +345,7 @@ Note
   <media:content url="https://www.amrbiostats.com/images/integral.png" medium="image" type="image/png" height="41" width="144"/>
 </item>
 <item>
-  <title>10 Differentiation</title>
+  <title>Differentiation</title>
   <link>https://www.amrbiostats.com/posts/maths_refresher/010_derivatives.html</link>
   <description><![CDATA[ 
 
@@ -733,7 +729,7 @@ Note
   <media:content url="https://www.amrbiostats.com/images/derivative.png" medium="image" type="image/png" height="41" width="144"/>
 </item>
 <item>
-  <title>9 Limits</title>
+  <title>Limits</title>
   <link>https://www.amrbiostats.com/posts/maths_refresher/009_limits.html</link>
   <description><![CDATA[ 
 
@@ -992,7 +988,7 @@ Hint
   <media:content url="https://www.amrbiostats.com/images/limits.png" medium="image" type="image/png" height="41" width="144"/>
 </item>
 <item>
-  <title>8 Matrices</title>
+  <title>Matrices</title>
   <link>https://www.amrbiostats.com/posts/maths_refresher/008_matrices.html</link>
   <description><![CDATA[ 
 
@@ -1887,7 +1883,7 @@ font-style: inherit;">6</span>))</span></code></pre></div>
   <media:content url="https://www.amrbiostats.com/images/matrix.png" medium="image" type="image/png" height="41" width="144"/>
 </item>
 <item>
-  <title>7 Exponential and Logarithmic Functions</title>
+  <title>Exponential and Logarithmic Functions</title>
   <link>https://www.amrbiostats.com/posts/maths_refresher/007_logs_and_exp.html</link>
   <description><![CDATA[ 
 
@@ -2064,7 +2060,7 @@ Hint
   <media:content url="https://www.amrbiostats.com/images/logarithm.png" medium="image" type="image/png" height="41" width="144"/>
 </item>
 <item>
-  <title>6 Product Notation</title>
+  <title>Product Notation</title>
   <link>https://www.amrbiostats.com/posts/maths_refresher/006_product.html</link>
   <description><![CDATA[ 
 
@@ -2247,7 +2243,7 @@ font-style: inherit;">4</span>)</span></code></pre></div>
   <media:content url="https://www.amrbiostats.com/images/product.png" medium="image" type="image/png" height="41" width="144"/>
 </item>
 <item>
-  <title>5 Summation Notation</title>
+  <title>Summation Notation</title>
   <link>https://www.amrbiostats.com/posts/maths_refresher/005_summation.html</link>
   <description><![CDATA[ 
 
@@ -2517,7 +2513,7 @@ Click to show/hide answer
   <media:content url="https://www.amrbiostats.com/images/summation.png" medium="image" type="image/png" height="41" width="144"/>
 </item>
 <item>
-  <title>4 Surds and Indices</title>
+  <title>Surds and Indices</title>
   <link>https://www.amrbiostats.com/posts/maths_refresher/004_surd_indices.html</link>
   <description><![CDATA[ 
 
@@ -2631,7 +2627,7 @@ Click to show/hide answer
   <media:content url="https://www.amrbiostats.com/images/surds.png" medium="image" type="image/png" height="40" width="144"/>
 </item>
 <item>
-  <title>3 Factorization</title>
+  <title>Factorization</title>
   <link>https://www.amrbiostats.com/posts/maths_refresher/003_factorization.html</link>
   <description><![CDATA[ 
 
@@ -2814,7 +2810,7 @@ Note
   <media:content url="https://www.amrbiostats.com/images/factorization.png" medium="image" type="image/png" height="40" width="144"/>
 </item>
 <item>
-  <title>2 Simplification</title>
+  <title>Simplification</title>
   <link>https://www.amrbiostats.com/posts/maths_refresher/002_simplify_brackets.html</link>
   <description><![CDATA[ 
 
