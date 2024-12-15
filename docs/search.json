@@ -1329,7 +1329,7 @@
     "href": "posts/biostats/B08_distrib_shape_stats.html#references",
     "title": "Describing the shape of distribution",
     "section": "4 References",
-    "text": "4 References\n\nDaniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley\nHeumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer\nHoffman, J. (2019). Basic Biostatistics for Medical and Biomedical Practitioners, Second Edition. Academic Press\nLane, D. M. et al., (2019). Introduction to Statistics. Online Edition. Retrieved September 14, 2024, from https://openstax.org/details/introduction-statistics\nWestfall, Peter H. 2014. Kurtosis as Peakedness. The American Statistician 68 (3): 191–95. https://doi.org/10.1080/00031305.2014.917055",
+    "text": "4 References\n\nDaniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley\nHeumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer\nHoffman, J. (2019). Basic Biostatistics for Medical and Biomedical Practitioners, Second Edition. Academic Press\nLane, D. M. et al., (2019). Introduction to Statistics. Online Edition. Retrieved September 14, 2024, from https://openstax.org/details/introduction-statistics\nWestfall, Peter H. 2014. Kurtosis as Peakedness, 1905–2014. R.I.P. The American Statistician 68 (3): 191–95. https://doi.org/10.1080/00031305.2014.917055",
     "crumbs": [
       "Biostatistics {{< iconify uis:graph-bar size=20px >}}",
       "Biostatistics",
