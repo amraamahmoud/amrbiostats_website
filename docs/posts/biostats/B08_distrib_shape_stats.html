@@ -402,7 +402,7 @@ G_1 = g_1 \displaystyle \frac{\sqrt {n(n-1)}}{n-2}
 b_1 = \displaystyle \frac{m_3}{s^3} = g_1 \big (\displaystyle \frac{n-1}{n} \big)^{3/2}
 \]</span></p>
 <ul>
-<li><p><span class="math inline">\(s\)</span> is the sample standard deviation <span class="math inline">\(\big [s = \displaystyle \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \big ]\)</span>.</p></li>
+<li><p><span class="math inline">\(s\)</span> is the sample standard deviation <span class="math inline">\(\big [s = \sqrt{\displaystyle \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \big]\)</span>.</p></li>
 <li><p>This formula is used by <code>Minitab</code>.</p></li>
 <li><p>This measure uses a slight adjustment by including the factor <span class="math inline">\((\displaystyle \frac{n-1}{n})^{3/2}\)</span>.</p></li>
 </ul></li>
@@ -556,7 +556,7 @@ G_2 = \displaystyle \frac{(n + 1)g_2 + 6}{(n - 2)(n - 3)}
 </ul></li>
 <li><p>Kurtosis <span class="math inline">\(b_2\)</span>:</p>
 <p><span class="math display">\[
-b_1 = \displaystyle \frac{m_4}{s^4} = (g_2 +3)(1 - \displaystyle \frac{1}{n})^2 - 3
+b_1 = \displaystyle \frac{m_4}{s^4} -3 = (g_2 +3)(1 - \displaystyle \frac{1}{n})^2 - 3
 \]</span></p>
 <ul>
 <li><p><span class="math inline">\(s\)</span> is the sample standard deviation <span class="math inline">\(\big [s = \displaystyle \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \big ]\)</span>.</p></li>
@@ -596,7 +596,7 @@ SE_{kurtosis} = \sqrt \frac{24n(n-1)^2}{(n-3)(n-2)(n+3)(n+5)}
 <ul>
 <li><p>Different functions in R can be used to calculate the kurtosis:</p>
 <ul>
-<li><p><code>kurtosis()</code> function from the <code>moments</code> package (uses formula 1 but as raw kurtosis, i.e., <span class="math inline">\(m_4/m^2\)</span>).</p></li>
+<li><p><code>kurtosis()</code> function from the <code>moments</code> package (uses formula 1 but as raw kurtosis, i.e., <span class="math inline">\(m_4/m_2^2\)</span>).</p></li>
 <li><p><code>Kurtosis()</code> function from the <code>sasLM</code> package (uses formula 2).</p></li>
 <li><p><code>kurtosi()</code> function from the <code>psych</code> package or <code>kurtosis()</code> function from the <code>e1071</code> package can calculate skewness using the three formulas by setting the <code>type</code> argument to either <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, or <span class="math inline">\(3\)</span>.</p></li>
 </ul></li>

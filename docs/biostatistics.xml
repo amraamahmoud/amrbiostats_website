@@ -61,7 +61,7 @@
 <li><p>Skewness <img src="https://latex.codecogs.com/png.latex?b_1">:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0Ab_1%20=%20%5Cdisplaystyle%20%5Cfrac%7Bm_3%7D%7Bs%5E3%7D%20=%20g_1%20%5Cbig%20(%5Cdisplaystyle%20%5Cfrac%7Bn-1%7D%7Bn%7D%20%5Cbig)%5E%7B3/2%7D%0A"></p>
 <ul>
-<li><p><img src="https://latex.codecogs.com/png.latex?s"> is the sample standard deviation <img src="https://latex.codecogs.com/png.latex?%5Cbig%20%5Bs%20=%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn-1%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E2%20%5Cbig%20%5D">.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?s"> is the sample standard deviation <img src="https://latex.codecogs.com/png.latex?%5Cbig%20%5Bs%20=%20%5Csqrt%7B%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn-1%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E2%7D%20%5Cbig%5D">.</p></li>
 <li><p>This formula is used by <code>Minitab</code>.</p></li>
 <li><p>This measure uses a slight adjustment by including the factor <img src="https://latex.codecogs.com/png.latex?(%5Cdisplaystyle%20%5Cfrac%7Bn-1%7D%7Bn%7D)%5E%7B3/2%7D">.</p></li>
 </ul></li>
@@ -268,7 +268,7 @@ Kurtosis is not a measure of peakedness!
 <li>This formula is used by <code>SAS</code>, <code>SPSS</code>, <code>NCSS</code>, <code>Excel</code> (<code>KURT</code> function), and <code>Graphpad Prism</code>.</li>
 </ul></li>
 <li><p>Kurtosis <img src="https://latex.codecogs.com/png.latex?b_2">:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0Ab_1%20=%20%5Cdisplaystyle%20%5Cfrac%7Bm_4%7D%7Bs%5E4%7D%20=%20(g_2%20+3)(1%20-%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn%7D)%5E2%20-%203%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ab_1%20=%20%5Cdisplaystyle%20%5Cfrac%7Bm_4%7D%7Bs%5E4%7D%20-3%20=%20(g_2%20+3)(1%20-%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn%7D)%5E2%20-%203%0A"></p>
 <ul>
 <li><p><img src="https://latex.codecogs.com/png.latex?s"> is the sample standard deviation <img src="https://latex.codecogs.com/png.latex?%5Cbig%20%5Bs%20=%20%5Cdisplaystyle%20%5Cfrac%7B1%7D%7Bn-1%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20(x_i%20-%20%5Cbar%7Bx%7D)%5E2%20%5Cbig%20%5D">.</p></li>
 <li><p>This formula is used by <code>Minitab</code>.</p></li>
@@ -305,7 +305,7 @@ Kurtosis is not a measure of peakedness!
 <ul>
 <li><p>Different functions in R can be used to calculate the kurtosis:</p>
 <ul>
-<li><p><code>kurtosis()</code> function from the <code>moments</code> package (uses formula 1 but as raw kurtosis, i.e., <img src="https://latex.codecogs.com/png.latex?m_4/m%5E2">).</p></li>
+<li><p><code>kurtosis()</code> function from the <code>moments</code> package (uses formula 1 but as raw kurtosis, i.e., <img src="https://latex.codecogs.com/png.latex?m_4/m_2%5E2">).</p></li>
 <li><p><code>Kurtosis()</code> function from the <code>sasLM</code> package (uses formula 2).</p></li>
 <li><p><code>kurtosi()</code> function from the <code>psych</code> package or <code>kurtosis()</code> function from the <code>e1071</code> package can calculate skewness using the three formulas by setting the <code>type</code> argument to either <img src="https://latex.codecogs.com/png.latex?1">, <img src="https://latex.codecogs.com/png.latex?2">, or <img src="https://latex.codecogs.com/png.latex?3">.</p></li>
 </ul></li>
