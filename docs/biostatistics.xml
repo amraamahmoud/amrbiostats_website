@@ -418,6 +418,119 @@ font-style: inherit;">3</span>)</span>
   <media:content url="https://www.amrbiostats.com/images/biostats.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
+  <title>How to choose the right summary measures</title>
+  <link>https://www.amrbiostats.com/posts/biostats/B09_selection_measures_stats.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="which-descriptive-statistics-to-use" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="which-descriptive-statistics-to-use"><span class="header-section-number">1</span> Which descriptive statistics to use?</h2>
+<ul>
+<li>The choice of descriptive statistics depends on the type of data and the distribution of the data.</li>
+</ul>
+<section id="categorical-data" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="categorical-data"><span class="header-section-number">1.1</span> Categorical data</h3>
+<ul>
+<li>Categorical data is summarized using frequencies and percentages.</li>
+</ul>
+</section>
+<section id="continuous-data" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="continuous-data"><span class="header-section-number">1.2</span> Continuous data</h3>
+<ul>
+<li>Continuous data is summarized using measures of central tendency and measures of dispersion.</li>
+</ul>
+<section id="symmetric-or-roughly-symmetric-distributions" class="level4" data-number="1.2.1">
+<h4 data-number="1.2.1" class="anchored" data-anchor-id="symmetric-or-roughly-symmetric-distributions"><span class="header-section-number">1.2.1</span> Symmetric or roughly symmetric distributions</h4>
+<ul>
+<li><p>The mean and median are equal or approximately equal.</p></li>
+<li><p>The mean and standard deviation are commonly used to summarize such data because they also help estimate the population parameters.</p></li>
+<li><p>For example, the following figure shows a symmetric distribution with almost equal mean <img src="https://latex.codecogs.com/png.latex?(49.80)"> and median <img src="https://latex.codecogs.com/png.latex?(50.08)"> values.</p></li>
+<li><p>For symmetric or nearly symmetric data, the mean and standard deviation are appropriate measures to summarize this data.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/B09_selection_measures_stats_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p>It is a common practice to report the mean and standard deviation as <img src="https://latex.codecogs.com/png.latex?%5Cbar%7Bx%7D%20%5Cpm%20s">, however, it is preferred to report them as <img src="https://latex.codecogs.com/png.latex?%5Cbar%7Bx%7D%5C%20(s)"> because the standard deviation cannot have a negative value.</p></li>
+</ul>
+</section>
+<section id="skewed-distributions" class="level4" data-number="1.2.2">
+<h4 data-number="1.2.2" class="anchored" data-anchor-id="skewed-distributions"><span class="header-section-number">1.2.2</span> Skewed distributions</h4>
+<ul>
+<li><p>The mean and standard deviation are inappropriate because they are affected by extreme values and become misleading.</p></li>
+<li><p>For example, the following figure shows a skewed distribution with different mean <img src="https://latex.codecogs.com/png.latex?(1.61)"> and median <img src="https://latex.codecogs.com/png.latex?(1.31)"> values. When the distribution is right skewed, the mean is greater than the median due to the effect of the extreme values on the mean.</p></li>
+<li><p>For skewed distribution, the median and interquartile range are generally more appropriate measures because they are less affected by extreme values.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/B09_selection_measures_stats_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Reporting the median for skewed data might not fully describe the data because there are extreme values and the median is based on a single value.</p></li>
+<li><p>Some authors suggest reporting different measures such as the mean and median with either the trimean or trimmed mean. It is also prudent to report the range along with the interquartile range to provide a better understanding of the data.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="other-special-cases" class="level4" data-number="1.2.3">
+<h4 data-number="1.2.3" class="anchored" data-anchor-id="other-special-cases"><span class="header-section-number">1.2.3</span> Other special cases</h4>
+<section id="bimodal-distributions" class="level5" data-number="1.2.3.1">
+<h5 data-number="1.2.3.1" class="anchored" data-anchor-id="bimodal-distributions"><span class="header-section-number">1.2.3.1</span> Bimodal distributions</h5>
+<ul>
+<li><p>Such distributions have two distinct centers (i.e, peaks or modes).</p></li>
+<li><p>This type of data comprises two distinct groups that may be analyzed separately if appropriate.</p></li>
+<li><p>The presence of two groups might be attributed to different factors, such as gender, age, or treatment differences.</p></li>
+<li><p>Both the mean and median become less informative in this case because both measures describe the location at the gap between the two groups (i.e., where there are relatively few observations). On the other hand, they do not describe the two centers (peaks) where most values fall.</p></li>
+<li><p>For example, consider the following bimodal distribution:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/B09_selection_measures_stats_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>As depicted in the above histogram and density plot, there are two distinct peaks that might represent two different groups.</p></li>
+<li><p>The mean <img src="https://latex.codecogs.com/png.latex?(74.57)"> (<i class="bi bi-circle-fill" style="color: red;"></i>) and median <img src="https://latex.codecogs.com/png.latex?(73.58)"> (<i class="bi bi-diamond" style="color: blue;"></i>) values are not representative of any of the two groups.</p></li>
+<li><p>Therefore, it is more informative to report the mean <img src="https://latex.codecogs.com/png.latex?(59.60)"> (<i class="bi bi-circle-fill" style="color: orange;"></i>) and standard deviation <img src="https://latex.codecogs.com/png.latex?(5.68)"> for Group <img src="https://latex.codecogs.com/png.latex?A"> and the mean <img src="https://latex.codecogs.com/png.latex?(89.54)"> (<i class="bi bi-circle-fill" style="color: #7209b7;"></i>) and standard deviation <img src="https://latex.codecogs.com/png.latex?(5.68)"> for Group B separately, given the distribution within each group is approximately symmetric.</p></li>
+</ul></li>
+</ul>
+
+
+</section>
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://www.amrbiostats.com/posts/biostats/B09_selection_measures_stats.html</guid>
+  <pubDate>Thu, 14 Nov 2024 20:00:00 GMT</pubDate>
+  <media:content url="https://www.amrbiostats.com/images/biostats.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
   <title>Demystifying sample variance formula</title>
   <link>https://www.amrbiostats.com/posts/biostats/B07_sample_variance_stats.html</link>
   <description><![CDATA[ 
@@ -473,6 +586,23 @@ Note
 <li><p>When using a sample to estimate the population variance, the population mean is unknown, in most of the cases, so the sample mean <img src="https://latex.codecogs.com/png.latex?(%5Cbar%7Bx%7D)"> is used to estimate the population mean <img src="https://latex.codecogs.com/png.latex?(%5Cmu)">.</p></li>
 <li><p>Using <img src="https://latex.codecogs.com/png.latex?%5Cbar%7Bx%7D"> as an estimate of <img src="https://latex.codecogs.com/png.latex?%5Cmu"> results in underestimation of the population variance, <strong>particularly when the sample size is small</strong>. This happens because the sum of squares of the deviations of the observations from the sample mean will always be smaller than the sum of squares of the deviations of the observations from the population mean (except when <img src="https://latex.codecogs.com/png.latex?%5Cbar%7Bx%7D%20=%20%5Cmu">).</p></li>
 <li><p>Therefore, using <img src="https://latex.codecogs.com/png.latex?(n-1)"> in the denominator corrects this underestimation and makes the sample variance an unbiased estimator of the population variance.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>When we use a sample statistic to estimate the population parameter, the statistic is considered a <code>biased estimator</code> if, over repeated sampling (in the long run), the expected value (average of the estimates) does not equal the true population parameter.</li>
+</ul>
+</div>
+</div>
+<ul>
 <li><p>Let’s illustrate this concept with a simple simulation:</p>
 <ul>
 <li><p>Assume that we have a population of <img src="https://latex.codecogs.com/png.latex?1000"> observations:</p>
@@ -1202,6 +1332,11 @@ Note
 <ul>
 <li><p>A low value of the standard deviation implies that the observations are more concentrated around the mean (i.e., low variability).</p></li>
 <li><p>A high value of the standard deviation implies that the observations are more scattered around the mean (i.e., high variability).</p></li>
+</ul></li>
+<li><p>If the distribution is normal:</p>
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?IQR%20%5Capprox%201.349%20%5Ctimes%20s">.</p></li>
+<li><p>Dividing, <img src="https://latex.codecogs.com/png.latex?IQR"> by <img src="https://latex.codecogs.com/png.latex?1.349"> can be used to approximate the standard deviation <img src="https://latex.codecogs.com/png.latex?(s)">; this ratio is referred to as <code>pseudostandard deviation</code>.</p></li>
 </ul></li>
 </ul>
 </div>

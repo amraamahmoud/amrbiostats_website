@@ -297,6 +297,12 @@ window.Quarto = {
  <span class="menu-text">Describing the shape of distribution</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B09_selection_measures_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to choose the right summary measures</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -397,6 +403,23 @@ Note
 <li><p>When using a sample to estimate the population variance, the population mean is unknown, in most of the cases, so the sample mean <span class="math inline">\((\bar{x})\)</span> is used to estimate the population mean <span class="math inline">\((\mu)\)</span>.</p></li>
 <li><p>Using <span class="math inline">\(\bar{x}\)</span> as an estimate of <span class="math inline">\(\mu\)</span> results in underestimation of the population variance, <strong>particularly when the sample size is small</strong>. This happens because the sum of squares of the deviations of the observations from the sample mean will always be smaller than the sum of squares of the deviations of the observations from the population mean (except when <span class="math inline">\(\bar{x} = \mu\)</span>).</p></li>
 <li><p>Therefore, using <span class="math inline">\((n-1)\)</span> in the denominator corrects this underestimation and makes the sample variance an unbiased estimator of the population variance.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>When we use a sample statistic to estimate the population parameter, the statistic is considered a <code>biased estimator</code> if, over repeated sampling (in the long run), the expected value (average of the estimates) does not equal the true population parameter.</li>
+</ul>
+</div>
+</div>
+<ul>
 <li><p>Let’s illustrate this concept with a simple simulation:</p>
 <ul>
 <li><p>Assume that we have a population of <span class="math inline">\(1000\)</span> observations:</p>
