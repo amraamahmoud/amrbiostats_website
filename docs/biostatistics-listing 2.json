@@ -1,0 +1,21 @@
+{
+  "listing": "/biostatistics.html",
+  "items": [
+    "/posts/biostats/A01_intro.html",
+    "/posts/biostats/A02_intro.html",
+    "/posts/biostats/B01_Freq_dist1_stats.html",
+    "/posts/biostats/B02_Freq_dist2_stats.html",
+    "/posts/biostats/B03_cent_tendency_stats.html",
+    "/posts/biostats/B04_quantile_algorithms_stats.html",
+    "/posts/biostats/B05_boxplot_stats.html",
+    "/posts/biostats/B06_dispersion_stats.html",
+    "/posts/biostats/B07_sample_variance_stats.html",
+    "/posts/biostats/B08_distrib_shape_stats.html",
+    "/posts/biostats/B09_selection_measures_stats.html",
+    "/posts/biostats/C01_intro_prob_th.html",
+    "/posts/biostats/C02_def_prob_th.html",
+    "/posts/biostats/C03_counting1_prob_th.html",
+    "/posts/biostats/C04_counting2_prob_th.html",
+    "/posts/biostats/C05_counting3_prob_th.html"
+  ]
+}
