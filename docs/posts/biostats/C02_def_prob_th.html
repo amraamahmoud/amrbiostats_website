@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-12-10">
 
-<title>Biostatistics – AMRBiostats</title>
+<title>Probability Definition - Axioms – AMRBiostats</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./posts/biostats/A01_intro.html" rel="next">
-<link href=".//images/fav.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-81b5c3e63835cfde897ecd3d35a35a41.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8bf7a1f964409d044b0be1f1d2e39a92.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../posts/biostats/C03_counting1_prob_th.html" rel="next">
+<link href="../../posts/biostats/C01_intro_prob_th.html" rel="prev">
+<link href="../..//images/fav.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-81b5c3e63835cfde897ecd3d35a35a41.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8bf7a1f964409d044b0be1f1d2e39a92.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,91 +69,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-introduction .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-reading-time','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-introduction'] = new List('listing-introduction', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-desc_stats .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-subtitle','listing-reading-time','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-desc_stats'] = new List('listing-desc_stats', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-probability .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-subtitle','listing-reading-time','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-probability'] = new List('listing-probability', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -186,9 +101,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="include/webex.css">
-<link rel="alternate" type="application/rss+xml" title="AMRBiostats" href="biostatistics.xml" data-external="1"><meta property="og:title" content="AMRBiostats">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../include/webex.css">
+<meta property="og:title" content="AMRBiostats">
 <meta property="og:image" content="https://www.amrbiostats.com/images/biostats.jpg">
 <meta property="og:site_name" content="AMRBiostats">
 </head>
@@ -200,10 +115,10 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/fav.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/fav.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">AMRBiostats</span>
     </a>
   </div>
@@ -214,7 +129,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./author.html"> 
+    <a class="nav-link" href="../../author.html"> 
 <span class="menu-text">About Author <iconify-icon role="img" inline="" icon="solar:user-id-linear" style="font-size: 20px;" aria-label="Icon user-id-linear from solar Iconify.design set." title="Icon user-id-linear from solar Iconify.design set."></iconify-icon></span></a>
   </li>  
   <li class="nav-item">
@@ -228,11 +143,11 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./maths_refresher.html"> 
+    <a class="nav-link" href="../../maths_refresher.html"> 
 <span class="menu-text">Maths Refresher <iconify-icon role="img" inline="" icon="hugeicons:calculate" style="font-size: 24px;" aria-label="Icon calculate from hugeicons Iconify.design set." title="Icon calculate from hugeicons Iconify.design set."></iconify-icon></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./biostatistics.html" aria-current="page"> 
+    <a class="nav-link active" href="../../biostatistics.html" aria-current="page"> 
 <span class="menu-text">Biostatistics <iconify-icon role="img" inline="" icon="uis:graph-bar" style="font-size: 20px;" aria-label="Icon graph-bar from uis Iconify.design set." title="Icon graph-bar from uis Iconify.design set."></iconify-icon></span></a>
   </li>  
 </ul>
@@ -246,21 +161,21 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./biostatistics.html">Biostatistics</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C01_intro_prob_th.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C02_def_prob_th.html">Probability Definition - Axioms</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./biostatistics.html" class="sidebar-item-text sidebar-link active">
+            <a href="../../biostatistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Biostatistics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -278,13 +193,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/A01_intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/A01_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Basic Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/A02_intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/A02_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Variables</span></a>
   </div>
 </li>
@@ -301,55 +216,55 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/B01_Freq_dist1_stats.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/B01_Freq_dist1_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Frequency distribution 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/B02_Freq_dist2_stats.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/B02_Freq_dist2_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Frequency distribution 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/B03_cent_tendency_stats.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/B03_cent_tendency_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Measures of Central Tendency</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/B04_quantile_algorithms_stats.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/B04_quantile_algorithms_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quantile algorithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/B05_boxplot_stats.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/B05_boxplot_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Boxplot</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/B06_dispersion_stats.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/B06_dispersion_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Measures of Variability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/B07_sample_variance_stats.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/B07_sample_variance_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Demystifying sample variance formula</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/B08_distrib_shape_stats.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/B08_distrib_shape_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Describing the shape of distribution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/B09_selection_measures_stats.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/B09_selection_measures_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to choose the right summary measures</span></a>
   </div>
 </li>
@@ -357,40 +272,40 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Probability Theory</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/C01_intro_prob_th.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/C01_intro_prob_th.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Basic Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/C02_def_prob_th.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/C02_def_prob_th.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Probability Definition - Axioms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/C03_counting1_prob_th.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/C03_counting1_prob_th.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Combinatorics 1 - Permutations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/C04_counting2_prob_th.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/C04_counting2_prob_th.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Combinatorics 2 - Combinations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/biostats/C05_counting3_prob_th.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/biostats/C05_counting3_prob_th.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probability Examples</span></a>
   </div>
 </li>
@@ -403,20 +318,42 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#methods-of-assigning-probability" id="toc-methods-of-assigning-probability" class="nav-link active" data-scroll-target="#methods-of-assigning-probability"><span class="header-section-number">1</span> Methods of assigning probability</a></li>
+  <li><a href="#formal-definition-and-axioms-of-probability" id="toc-formal-definition-and-axioms-of-probability" class="nav-link" data-scroll-target="#formal-definition-and-axioms-of-probability"><span class="header-section-number">2</span> Formal definition and axioms of probability</a>
+  <ul>
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span class="header-section-number">2.1</span> Definition</a></li>
+  <li><a href="#axioms" id="toc-axioms" class="nav-link" data-scroll-target="#axioms"><span class="header-section-number">2.2</span> Axioms</a></li>
+  <li><a href="#other-probability-rules" id="toc-other-probability-rules" class="nav-link" data-scroll-target="#other-probability-rules"><span class="header-section-number">2.3</span> Other probability rules</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
+  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">4</span> Add your comments</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C01_intro_prob_th.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C02_def_prob_th.html">Probability Definition - Axioms</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Biostatistics</h1>
+<h1 class="title">Probability Definition - Axioms</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 10, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -426,460 +363,293 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<div id="listing-introduction" class="quarto-listing quarto-listing-container-grid">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-introduction-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-introduction'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<section id="methods-of-assigning-probability" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="methods-of-assigning-probability"><span class="header-section-number">1</span> Methods of assigning probability</h2>
+<ul>
+<li><p>Probability ranges between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> and describes how likely an event is to occur.</p></li>
+<li><p>Probability can be assigned to events by different ways:</p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="emojione-monotone:letter-a" style="font-size: 20px;" aria-label="Icon letter-a from emojione-monotone Iconify.design set." title="Icon letter-a from emojione-monotone Iconify.design set."></iconify-icon></span> <strong>Subjective probability</strong>:</p>
+<ul>
+<li><p>This measures how an individual feels or is confident that an event will occur.</p></li>
+<li><p>This is based on personal judgment and experience, not on repeated trials.</p></li>
+<li><p>It is simple but less reliable.</p></li>
+<li><p>For example, a person may feel that the probability of rain today is <span class="math inline">\(30\%\)</span>.</p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="emojione-monotone:letter-b" style="font-size: 20px;" aria-label="Icon letter-b from emojione-monotone Iconify.design set." title="Icon letter-b from emojione-monotone Iconify.design set."></iconify-icon></span> <strong>Relative frequency approach</strong>:</p>
+<ul>
+<li><p>This is an objective way that depends on repeating an experiment many times and counting the number of times an event occurs.</p></li>
+<li><p>The probability of an event <span class="math inline">\(A = \displaystyle \frac{m}{n}\)</span>, where <span class="math inline">\(m\)</span> is the number of times event <span class="math inline">\(A\)</span> occurs and <span class="math inline">\(n\)</span> is the total number of trials.</p></li>
+<li><p>As the number of the trials <span class="math inline">\(n\)</span> increases and tends to infinity, keeping the experimental conditions constant, the probability of the event <span class="math inline">\(A\)</span> converges to a limiting value interpreted as the probability of event <span class="math inline">\(A\)</span>:</p></li>
+</ul>
+<p><span class="math display">\[
+\text{Probability of}\ A = \lim_{n \to \infty} \frac{m}{n}
+\]</span></p>
+<ul>
+<li><p>In this context, the relative frequency approach is an approximation or an estimate of the probability of the event.</p></li>
+<li><p>This approach is referred to as a posteriori concept of probability because it is based on empirical data or experimentation (i.e., calculated after the experiment is conducted.)</p></li>
+<li><p>For example, if we toss a fair coin <span class="math inline">\(1000\)</span> times and get <span class="math inline">\(480\)</span> heads, then the probability of getting a head is <span class="math inline">\(\large \frac{480}{1000} = 0.48\)</span>. When the number of trials increases and <span class="math inline">\(n\)</span> tends to infinity, the probability of getting a head will converge to <span class="math inline">\(0.5\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1726257600000" data-listing-file-modified-sort="1733288947264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="399">
-<a href="./posts/biostats/A01_intro.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Basic Concepts
-</h5>
-<div class="listing-reading-time card-text text-muted">
-2 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 14, 2024
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A fair coin means that the probability of getting a head is equal to the probability of getting a tail <span class="math inline">\(= 0.5\)</span>.</li>
+</ul>
+</div>
+</div></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="emojione-monotone:letter-c" style="font-size: 20px;" aria-label="Icon letter-c from emojione-monotone Iconify.design set." title="Icon letter-c from emojione-monotone Iconify.design set."></iconify-icon></span> <strong>Classical approach</strong>:</p>
+<ul>
+<li><p>This is based on abstract reasoning and is used when all outcomes are <strong>equally likely</strong>.</p></li>
+<li><p>If an experiment has mutually exclusive and equally likely <span class="math inline">\(N\)</span> outcomes or simple events, then the probability of an event <span class="math inline">\(A\)</span> is given by:</p></li>
+</ul>
+<p><span class="math display">\[
+\text{Probability of}\ A = \frac{N(A)}{N(S)} =\frac{\text{Number of elements in}\ A}{\text{Total number elements in the sample space}}
+\]</span></p>
+<ul>
+<li><p>This approach is referred to as a priori concept of probability because it is based on theoretical reasoning and not on empirical data or experimentation (i.e., there is no need to conduct an experiment to determine the probability of an event).</p></li>
+<li><p>For example, refer to <a href="../../posts/biostats/C01_intro_prob_th.html#tabset-C11">Example C.1.1</a> in the previous section about rolling a single die:</p>
+<ul>
+<li><p>All the six numbers are equally likely to occur, and the probability of getting any number is <span class="math inline">\(\displaystyle \frac{1}{6}\)</span>.</p></li>
+<li><p>The probability of getting an even number is equal to the number of elements in the event <span class="math inline">\(B = \{2, 4, 6\}\)</span> divided by the total number of elements in the sample space <span class="math inline">\(S = \{1, 2, 3, 4, 5, 6\}\)</span>:</p></li>
+</ul>
+<p><span class="math display">\[
+\text{Probability of}\ B = \frac{N(B)}{N(S)} = \frac{3}{6} = 0.5
+\]</span></p>
+<ul>
+<li>The probability of getting a number divisible by <span class="math inline">\(3\)</span> is equal to the number of elements in the event <span class="math inline">\(D = \{3, 6\}\)</span> divided by the total number of elements in the sample space:</li>
+</ul>
+<p><span class="math display">\[
+\text{Probability of}\ D = \frac{N(D)}{N(S)} = \frac{2}{6} = \frac{1}{3}
+\]</span></p>
+<ul>
+<li><p>The probability of <span class="math inline">\(B \cap D = \{6\}\)</span> is equal to <span class="math inline">\(\displaystyle \frac{1}{6}\)</span>.</p></li>
+<li><p>As you notice, we do not need to roll the die to determine the probability of these events, rather we can determine them theoretically.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="formal-definition-and-axioms-of-probability" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="formal-definition-and-axioms-of-probability"><span class="header-section-number">2</span> Formal definition and axioms of probability</h2>
+<section id="definition" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">2.1</span> Definition</h3>
+<ul>
+<li><p>The probability is a set function <span class="math inline">\(P\)</span> that assigns a number to each event in the sample space.</p></li>
+<li><p>The probability of an event <span class="math inline">\(A\)</span> is denoted by <span class="math inline">\(P(A)\)</span>.</p></li>
+</ul>
+</section>
+<section id="axioms" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="axioms"><span class="header-section-number">2.2</span> Axioms</h3>
+<ul>
+<li><p>Axioms refer to the basic or elementary rules of probability from which all other rules can be derived.</p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>Axiom 1</strong>:</p>
+<ul>
+<li>For an experiment with mutually exclusive outcomes, the probability of an event <span class="math inline">\(A\)</span> is a non-negative number (i.e., the probability is greater than or equal to <span class="math inline">\(0\)</span> and less than or equal to <span class="math inline">\(1\)</span>):</li>
+</ul>
+<p><span class="math display">\[
+0 \le P(A) \le 1
+\]</span></p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>Axiom 2</strong>:</p>
+<ul>
+<li>The sum of probabilities of all the mutually exclusive outcomes of an experiment is equal to <span class="math inline">\(1\)</span>, i.e., the probability of the sample space <span class="math inline">\(S\)</span> is equal to <span class="math inline">\(1\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+P(A_1) + P(A_2) + P(A_3) + \ldots + P(A_n) = P(S) = 1
+\]</span></p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>Axiom 3</strong>:</p>
+<ul>
+<li>For any two mutually exclusive events <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span>, the probability of the union of these events is equal to the sum of the probabilities of the individual events:</li>
+</ul>
+<p><span class="math display">\[
+P(A_1 \cup A_2) = P(A_1) + P(A_2)
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
-</a>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>When the events are not mutually exclusive (i.e., they can occur simultaneously), then the probability of their union will be <span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span>, this is discussed in detail below.</p></li>
+<li><p>The third axiom can be extended to more than two events: <span class="math inline">\(P(A_1 \cup A_2 \cup A_3 \cup \ldots \cup A_n) = P(A_1) + P(A_2) + P(A_3) + \ldots + P(A_n)\)</span></p></li>
+</ul>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1726862400000" data-listing-file-modified-sort="1733821558881" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2071">
-<a href="./posts/biostats/A02_intro.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Variables
-</h5>
-<div class="listing-reading-time card-text text-muted">
-11 min
+</div></li>
+</ul>
+</section>
+<section id="other-probability-rules" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="other-probability-rules"><span class="header-section-number">2.3</span> Other probability rules</h3>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> <span class="math inline">\(P(A) = 1 - P(A')\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="Proof">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 21, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
+<div class="callout-title-container flex-fill">
+Proof
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="math inline">\(P(A \cup A') = P(A) + P(A') = P(S) = 1\)</span>, then <span class="math inline">\(P(A) = 1 - P(A')\)</span>.</li>
+</ul>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> <span class="math inline">\(P(\emptyset) = 0\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="Proof">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="math inline">\(P(\emptyset) = P(S') = 1 - P(S) = 1 - 1 = 0\)</span>.</li>
+</ul>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> If <span class="math inline">\(A \subseteq B\)</span>, then <span class="math inline">\(P(A) \leq P(B)\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="Proof">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>As shown in the Venn diagram below, <span class="math inline">\(B\)</span> is the bigger circle, <span class="math inline">\(A\)</span> is the smaller green circle, and <span class="math inline">\(A'\)</span> is the blue area, therefore, <span class="math inline">\(B = A \cup (B \cap A')\)</span>.</p></li>
+<li><p>Then, <span class="math inline">\(P(B) = P(A) + P(B \cap A') \ge P(A)\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="C02_def_prob_th_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are two non-mutually exclusive events, then:</p>
+<p><span class="math display">\[
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="Explanation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explanation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Because the union of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> contains the elements in <span class="math inline">\(A\)</span> <strong>or</strong> <span class="math inline">\(B\)</span> <strong>or</strong> both, we count the elements in <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> and subtract the elements in both groups (i.e., <span class="math inline">\(A \cap B\)</span>) to avoid double counting.</li>
+</ul>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Example C.2.1 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><span style="color: #ba181b">Exercise C.2.1 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>A pharmaceutical company is conducting clinical trials for two new drugs. The company’s research director believes that the probability of the first drug receiving regulatory approval is <span class="math inline">\(0.3\)</span>, the probability of the second drug receiving regulatory approval is <span class="math inline">\(0.7\)</span>, and the probability of both drugs receiving regulatory approval is <span class="math inline">\(0.2\)</span>.</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> What is the probability that the company receives approval for at least one drug?</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> What is the probability that the company receives approval for the first drug but not the second drug?</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> What is the probability that the company receives approval for neither drug?</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> What is the probability that the company receives approval for exactly one drug?</p>
+<p><strong>Answer</strong></p>
+<ul>
+<li>Let <span class="math inline">\(A\)</span> be the event that the first drug is approved and <span class="math inline">\(B\)</span> be the event that the second drug is approved:</li>
+</ul>
+<p><span class="math display">\[
+P(A) = 0.3, \quad P(B) = 0.7, \quad P(A \cap B) = 0.2
+\]</span></p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> The probability that the company receives approval for at least one drug means either the first drug is approved or the second drug is approved or both are approved (i.e., <span class="math inline">\(A \cup B\)</span>):</p>
+<p><span class="math display">\[
+P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.3 + 0.7 - 0.2 = 0.8
+\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="C02_def_prob_th_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> The probability that the company receives approval for the first drug but not the second drug means the first drug is approved and the second drug is not approved (<span class="math inline">\(A \setminus B\)</span>):</p>
+<p><span class="math display">\[
+P(A \setminus B) = P(A \cap B') = P(A) - P(A \cap B) = 0.3 - 0.2 = 0.1
+\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="C02_def_prob_th_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> The probability that the company receives approval for neither drug means neither the first drug nor the second drug is approved [i.e., <span class="math inline">\((A \cup B)'\)</span>]:</p>
+<p><span class="math display">\[
+P[(A \cup B)'] = 1 - P(A \cup B) = 1 - 0.8 = 0.2
+\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="C02_def_prob_th_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> The probability that the company receives approval for exactly one drug means either the first drug is approved and the second drug is not approved or the first drug is not approved and the second drug is approved (i.e., <span class="math inline">\(A \setminus B\)</span> or <span class="math inline">\(B \setminus A\)</span>):</p>
+<p><span class="math display">\[
+P[(A \setminus B) \cup (B \setminus A)] = [P(A) - P(A \cap B)] + [P(B) - P(A \cap B)] =
+\]</span></p>
+<p><span class="math display">\[
+P(A) + P(B) - 2P(A \cap B) = P(A \cup B) - P(A \cap B) = 0.8 - 0.2 = 0.6
+\]</span></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ul>
+<li>In a survey of a population, the proportion of people who use smartphones is <span class="math inline">\(0.65\)</span>, the proportion of people who use laptops is <span class="math inline">\(0.50\)</span>, and the proportion of people who use both is <span class="math inline">\(0.30\)</span>. What proportion of the population uses neither smartphones nor laptops?</li>
+</ul>
+<p>The answer is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.15&quot;]"></p>
+</div>
 </div>
 </div>
 </section>
-<section id="descriptive-statistics" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="descriptive-statistics"><span class="header-section-number">2</span> Descriptive Statistics</h2>
-<div id="listing-desc_stats" class="quarto-listing quarto-listing-container-grid">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-desc_stats-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-desc_stats'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1727640000000" data-listing-file-modified-sort="1733211584393" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3648">
-<a href="./posts/biostats/B01_Freq_dist1_stats.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Frequency distribution 1
-</h5>
-<div class="card-subtitle listing-subtitle">
-Qualitative variables
-</div>
-<div class="listing-reading-time card-text text-muted">
-19 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 30, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1728072000000" data-listing-file-modified-sort="1733846352000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="57" data-listing-word-count-sort="11220">
-<a href="./posts/biostats/B02_Freq_dist2_stats.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Frequency distribution 2
-</h5>
-<div class="card-subtitle listing-subtitle">
-Quantitative variables
-</div>
-<div class="listing-reading-time card-text text-muted">
-57 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Oct 5, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1728331200000" data-listing-file-modified-sort="1734251353037" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="43" data-listing-word-count-sort="8449">
-<a href="./posts/biostats/B03_cent_tendency_stats.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Measures of Central Tendency
-</h5>
-<div class="listing-reading-time card-text text-muted">
-43 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1729368000000" data-listing-file-modified-sort="1733821993362" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="23" data-listing-word-count-sort="4595">
-<a href="./posts/biostats/B04_quantile_algorithms_stats.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Quantile algorithms
-</h5>
-<div class="listing-reading-time card-text text-muted">
-23 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Oct 20, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1730404800000" data-listing-file-modified-sort="1733387045448" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4128">
-<a href="./posts/biostats/B05_boxplot_stats.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Boxplot
-</h5>
-<div class="listing-reading-time card-text text-muted">
-21 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Nov 1, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-listing-date-sort="1730836800000" data-listing-file-modified-sort="1734422150248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1880">
-<a href="./posts/biostats/B06_dispersion_stats.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Measures of Variability
-</h5>
-<div class="listing-reading-time card-text text-muted">
-10 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Nov 6, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-listing-date-sort="1731182400000" data-listing-file-modified-sort="1734932779901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2383">
-<a href="./posts/biostats/B07_sample_variance_stats.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Demystifying sample variance formula
-</h5>
-<div class="listing-reading-time card-text text-muted">
-12 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Nov 10, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="7" data-listing-date-sort="1731614400000" data-listing-file-modified-sort="1737201454000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2724">
-<a href="./posts/biostats/B08_distrib_shape_stats.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Describing the shape of distribution
-</h5>
-<div class="listing-reading-time card-text text-muted">
-14 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Nov 15, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="8" data-listing-date-sort="1731614400000" data-listing-file-modified-sort="1735015871157" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3468">
-<a href="./posts/biostats/B09_selection_measures_stats.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-How to choose the right summary measures
-</h5>
-<div class="listing-reading-time card-text text-muted">
-18 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Nov 15, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
 </section>
-<section id="probability-theory" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="probability-theory"><span class="header-section-number">3</span> Probability Theory</h2>
-<div id="listing-probability" class="quarto-listing quarto-listing-container-grid">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-probability-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-probability'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1733083200000" data-listing-file-modified-sort="1737623663396" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688">
-<a href="./posts/biostats/C01_intro_prob_th.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Basic Concepts
-</h5>
-<div class="listing-reading-time card-text text-muted">
-9 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Dec 2, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1733774400000" data-listing-file-modified-sort="1737624489650" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2585">
-<a href="./posts/biostats/C02_def_prob_th.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Probability Definition - Axioms
-</h5>
-<div class="listing-reading-time card-text text-muted">
-13 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Dec 10, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1734206400000" data-listing-file-modified-sort="1737626406436" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3076">
-<a href="./posts/biostats/C03_counting1_prob_th.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Combinatorics 1 - Permutations
-</h5>
-<div class="listing-reading-time card-text text-muted">
-16 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Dec 15, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1734379200000" data-listing-file-modified-sort="1737643804429" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2347">
-<a href="./posts/biostats/C04_counting2_prob_th.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Combinatorics 2 - Combinations
-</h5>
-<div class="listing-reading-time card-text text-muted">
-12 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Dec 17, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1734638400000" data-listing-file-modified-sort="1737644867014" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1268">
-<a href="./posts/biostats/C05_counting3_prob_th.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Probability Examples
-</h5>
-<div class="listing-reading-time card-text text-muted">
-7 min
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Dec 20, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-
+<section id="references" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
+<ul>
+<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
+<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
+<li><p>Penn State University. STAT 414: Introduction to Probability Theory. Online Statistics Education. Retrieved December 02, 2024, from <a href="https://online.stat.psu.edu/stat414" class="uri">https://online.stat.psu.edu/stat414</a></p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">4</span> Add your comments</h2>
 
 
 </section>
@@ -1513,12 +1283,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-page-right">
+<script src="https://giscus.app/client.js" data-repo="amraamahmoud/amrbiostats_website" data-repo-id="R_kgDOMvJM8A" data-category="General" data-category-id="DIC_kwDOMvJM8M4CiVDG" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../posts/biostats/C01_intro_prob_th.html" class="pagination-link" aria-label="Basic Concepts">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Basic Concepts</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./posts/biostats/A01_intro.html" class="pagination-link" aria-label="Basic Concepts">
-        <span class="nav-page-text">Basic Concepts</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../posts/biostats/C03_counting1_prob_th.html" class="pagination-link" aria-label="Combinatorics 1 - Permutations">
+        <span class="nav-page-text">Combinatorics 1 - Permutations</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1557,5 +1334,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

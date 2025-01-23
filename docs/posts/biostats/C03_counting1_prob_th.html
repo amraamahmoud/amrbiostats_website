@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.3">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-12-15">
+
+<title>Combinatorics 1 - Permutations – AMRBiostats</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../posts/biostats/C04_counting2_prob_th.html" rel="next">
+<link href="../../posts/biostats/C02_def_prob_th.html" rel="prev">
+<link href="../..//images/fav.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-81b5c3e63835cfde897ecd3d35a35a41.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8bf7a1f964409d044b0be1f1d2e39a92.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 1,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../include/webex.css">
+<meta property="og:title" content="AMRBiostats">
+<meta property="og:description" content="A reliable resource for biostatistics and R programming">
+<meta property="og:image" content="https://www.amrbiostats.com/images/biostats.jpg">
+<meta property="og:site_name" content="AMRBiostats">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/fav.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">AMRBiostats</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../author.html"> 
+<span class="menu-text">About Author <iconify-icon role="img" inline="" icon="solar:user-id-linear" style="font-size: 20px;" aria-label="Icon user-id-linear from solar Iconify.design set." title="Icon user-id-linear from solar Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/amraamahmoud/amrbiostats_website.git" target="_blank"> 
+<span class="menu-text">GitHub <iconify-icon role="img" inline="" icon="octicon:mark-github-16" style="font-size: 20px;" aria-label="Icon mark-github-16 from octicon Iconify.design set." title="Icon mark-github-16 from octicon Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:consultation@amrbiostats.com"> 
+<span class="menu-text">Contact <iconify-icon role="img" inline="" icon="mdi:email-arrow-right" style="font-size: 23px;" aria-label="Icon email-arrow-right from mdi Iconify.design set." title="Icon email-arrow-right from mdi Iconify.design set."></iconify-icon></span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../maths_refresher.html"> 
+<span class="menu-text">Maths Refresher <iconify-icon role="img" inline="" icon="hugeicons:calculate" style="font-size: 24px;" aria-label="Icon calculate from hugeicons Iconify.design set." title="Icon calculate from hugeicons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../biostatistics.html" aria-current="page"> 
+<span class="menu-text">Biostatistics <iconify-icon role="img" inline="" icon="uis:graph-bar" style="font-size: 20px;" aria-label="Icon graph-bar from uis Iconify.design set." title="Icon graph-bar from uis Iconify.design set."></iconify-icon></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C01_intro_prob_th.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C03_counting1_prob_th.html">Combinatorics 1 - Permutations</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../biostatistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Biostatistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/A01_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic Concepts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/A02_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Descriptive Statistics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B01_Freq_dist1_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequency distribution 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B02_Freq_dist2_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequency distribution 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B03_cent_tendency_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measures of Central Tendency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B04_quantile_algorithms_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quantile algorithms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B05_boxplot_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Boxplot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B06_dispersion_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measures of Variability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B07_sample_variance_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demystifying sample variance formula</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B08_distrib_shape_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Describing the shape of distribution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B09_selection_measures_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to choose the right summary measures</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Probability Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/C01_intro_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic Concepts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/C02_def_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Definition - Axioms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/C03_counting1_prob_th.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Combinatorics 1 - Permutations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/C04_counting2_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Combinatorics 2 - Combinations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/C05_counting3_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Examples</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background"><span class="header-section-number">1</span> Background</a></li>
+  <li><a href="#motv_ex" id="toc-motv_ex" class="nav-link" data-scroll-target="#motv_ex"><span class="header-section-number">2</span> Motivational example</a></li>
+  <li><a href="#multiplication-principle" id="toc-multiplication-principle" class="nav-link" data-scroll-target="#multiplication-principle"><span class="header-section-number">3</span> Multiplication principle</a></li>
+  <li><a href="#permutations" id="toc-permutations" class="nav-link" data-scroll-target="#permutations"><span class="header-section-number">4</span> Permutations</a>
+  <ul>
+  <li><a href="#permutations-of-distinguishable-objects" id="toc-permutations-of-distinguishable-objects" class="nav-link" data-scroll-target="#permutations-of-distinguishable-objects"><span class="header-section-number">4.1</span> Permutations of distinguishable objects</a>
+  <ul>
+  <li><a href="#without-replacement" id="toc-without-replacement" class="nav-link" data-scroll-target="#without-replacement"><span class="header-section-number">4.1.1</span> Without replacement</a>
+  <ul class="collapse">
+  <li><a href="#formula" id="toc-formula" class="nav-link" data-scroll-target="#formula"><span class="header-section-number">4.1.1.1</span> Formula</a></li>
+  <li><a href="#calculation-in-r" id="toc-calculation-in-r" class="nav-link" data-scroll-target="#calculation-in-r"><span class="header-section-number">4.1.1.2</span> Calculation in R</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#permutations-with-replacement" id="toc-permutations-with-replacement" class="nav-link" data-scroll-target="#permutations-with-replacement"><span class="header-section-number">4.2</span> Permutations with replacement</a>
+  <ul>
+  <li><a href="#formula-1" id="toc-formula-1" class="nav-link" data-scroll-target="#formula-1"><span class="header-section-number">4.2.1</span> Formula</a></li>
+  </ul></li>
+  <li><a href="#perm_indist" id="toc-perm_indist" class="nav-link" data-scroll-target="#perm_indist"><span class="header-section-number">4.3</span> Permutations of indistinguishable objects</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a></li>
+  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">6</span> Add your comments</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C01_intro_prob_th.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C03_counting1_prob_th.html">Combinatorics 1 - Permutations</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Combinatorics 1 - Permutations</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 15, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="background" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="background"><span class="header-section-number">1</span> Background</h2>
+<ul>
+<li><p>In the previous section, we discussed the classical approach to assign probabilities to events, where counting the number of favorable outcomes and the total number of outcomes is crucial.</p></li>
+<li><p>When the number of outcomes is small, counting is straightforward, however, when the number of outcomes is large, counting can be challenging and tedious.</p></li>
+<li><p>Therefore, we use combinatorics to provide a systematic way for counting.</p></li>
+<li><p><strong>Combinatorics</strong> is the branch of mathematics that deals with counting, arranging, and combining objects within finite sets.</p></li>
+</ul>
+</section>
+<section id="motv_ex" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="motv_ex"><span class="header-section-number">2</span> Motivational example</h2>
+<ul>
+<li><p>Suppose that we have a set of <span class="math inline">\(4\)</span> colored balls in a box: <span class="math inline">\(2\)</span> red <span data-fg="white" data-bg="red" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: red;">red</span> balls <span class="math inline">\((R_1, R_2)\)</span>, <span class="math inline">\(1\)</span> <span data-fg="white" data-bg="#0171c3" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #0171c3;">blue</span> ball <span class="math inline">\((B)\)</span>, and <span class="math inline">\(1\)</span> <span data-fg="white" data-bg="green" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: green;">green</span> ball <span class="math inline">\((G)\)</span>.</p></li>
+<li><p>If we want to draw two balls from the box, then in how many different ways can we do this?</p></li>
+<li><p>After drawing the first ball and before drawing the second ball, an important question to ask is whether we should put the first ball back in the box or not:</p>
+<ul>
+<li><p>If we decide to put it back, then it is said that we draw <strong>with replacement</strong> (the ball which is drawn once is available for the next draw).</p></li>
+<li><p>If we decide not to put it back, then it is said that we draw <strong>without replacement</strong> (if a ball is drawn once, it is not available for the next draw).</p></li>
+</ul></li>
+<li><p>If we draw <strong>without replacement</strong>, then there are <span class="math inline">\(12\)</span> ways to draw <span class="math inline">\(2\)</span> balls as follows:</p>
+<div class="grid">
+<div class="g-col-1">
+
+</div>
+<div class="g-col-2">
+<p><span class="math inline">\(1.\ R_1, R_2\)</span></p>
+<p><span class="math inline">\(2.\ R_1, B\)</span></p>
+<p><span class="math inline">\(3.\ R_1, G\)</span></p>
+<p><span class="math inline">\(4.\ R_2, R_1\)</span></p>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<p><span class="math inline">\(5.\ R_2, B\)</span></p>
+<p><span class="math inline">\(6.\ R_2, G\)</span></p>
+<p><span class="math inline">\(7.\ B, R_1\)</span></p>
+<p><span class="math inline">\(8.\ B, R_2\)</span></p>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<p><span class="math inline">\(9.\ B, G\)</span></p>
+<p><span class="math inline">\(10.\ G, R_1\)</span></p>
+<p><span class="math inline">\(11.\ G, R_2\)</span></p>
+<p><span class="math inline">\(12.\ G, B\)</span></p>
+</div>
+</div></li>
+<li><p>A second question to ask is whether the <strong>order</strong> of the balls matters or not:</p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>If the order matters</strong>:</p>
+<ul>
+<li><p>The combination of <span class="math inline">\((G, B)\)</span>, for example, is different from the combination of <span class="math inline">\((B, G)\)</span>.</p></li>
+<li><p>Considering the order, there are <span class="math inline">\(12\)</span> ways to draw two balls without replacement as shown above.</p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>If the order does not matter</strong>:</p>
+<ul>
+<li><p>The combination of <span class="math inline">\((G, B)\)</span> is the same as the combination of <span class="math inline">\((B, G)\)</span> as both result in a draw of <span class="math inline">\(1\)</span> <span data-fg="white" data-bg="green" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: green;">green</span> and <span class="math inline">\(1\)</span> <span data-fg="white" data-bg="#0171c3" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #0171c3;">blue</span> ball.</p></li>
+<li><p>Without considering the order, there are only <span class="math inline">\(6\)</span> ways to draw two balls without replacement as shown below (distinct combinations are highlighted and listed in the left column, while the duplicates are struck through and listed in the right column):</p>
+<div class="grid">
+<div class="g-col-2">
+
+</div>
+<div class="g-col-3">
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><span class="math inline">\(1.\ R_1, R_2\)</span></span></p>
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><span class="math inline">\(2.\ R_1, B\)</span></span></p>
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><span class="math inline">\(3.\ R_1, G\)</span></span></p>
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><span class="math inline">\(4.\ R_2, B\)</span></span></p>
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><span class="math inline">\(5.\ R_2, G\)</span></span></p>
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><span class="math inline">\(6.\ B, G\)</span></span></p>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-3">
+<p><span class="math inline">\(7.\ \cancel{R_2, R_1}\)</span></p>
+<p><span class="math inline">\(8.\ \cancel{B, R_1}\)</span></p>
+<p><span class="math inline">\(9.\ \cancel{G, R_1}\)</span></p>
+<p><span class="math inline">\(10.\ \cancel{B, R_2}\)</span></p>
+<p><span class="math inline">\(11.\ \cancel{G, R_2}\)</span></p>
+<p><span class="math inline">\(12. \cancel{G, B}\)</span></p>
+</div>
+</div></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> If the order does not matter and similar items are <strong>indistinguishable</strong>:</p>
+<ul>
+<li><p>This means the two red balls are <strong>indistinguishable</strong> making making the distinction between <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> irrelevant.</p></li>
+<li><p>In this case, there are <span class="math inline">\(4\)</span> ways to draw the two balls as shown below:</p>
+<div class="grid">
+<div class="g-col-3">
+<p><span class="math inline">\(1.\ R, R\)</span></p>
+</div>
+<div class="g-col-3">
+<p><span class="math inline">\(2.\ R, B\)</span></p>
+</div>
+<div class="g-col-3">
+<p><span class="math inline">\(3.\ R, G\)</span></p>
+</div>
+<div class="g-col-3">
+<p><span class="math inline">\(4.\ B, G\)</span></p>
+</div>
+</div></li>
+</ul></li>
+<li><p>Therefore, replacement, order, and distinguishability are important factors to be considered when counting the number of ways to arrange objects from a set.</p></li>
+</ul>
+</section>
+<section id="multiplication-principle" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="multiplication-principle"><span class="header-section-number">3</span> Multiplication principle</h2>
+<ul>
+<li><p>Assume that we are performing different random experiments, and each experiment has <span class="math inline">\(n_1, n_2, \ldots, n_k\)</span> possible outcomes, respectively.</p></li>
+<li><p>The multiplication principle states that the total number of outcomes for the combined experiments is the product of the number of outcomes for each individual experiment:</p></li>
+</ul>
+<p><span class="math display">\[
+\text{Total number of outcomes} = n_1 \times n_2 \times \ldots \times n_k
+\]</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Example C.3.1 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li><p>A company requires its employees to create a password for their computer accounts. The password must follow these rules:</p>
+<ul>
+<li><p>It must be exactly <span class="math inline">\(8\)</span> characters long.</p></li>
+<li><p>The first character must be a special character (from a set of <span class="math inline">\(7\)</span> allowed special characters).</p></li>
+<li><p>The second character must be a digit (from <span class="math inline">\(0\)</span> to <span class="math inline">\(9\)</span>).</p></li>
+<li><p>The remaining <span class="math inline">\(6\)</span> characters can be any combination of letters (case-sensitive).</p></li>
+</ul></li>
+</ul>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> How many possible passwords can be created following these rules?</p>
+<ul>
+<li><p><strong>Answer</strong>:</p>
+<ul>
+<li><p>The first character can be selected in <span class="math inline">\(7\)</span> ways.</p></li>
+<li><p>The second character can be selected in <span class="math inline">\(10\)</span> ways.</p></li>
+<li><p>The remaining <span class="math inline">\(6\)</span> characters can be selected in <span class="math inline">\(52\)</span> ways each (because the character is case-sensitive, and there are <span class="math inline">\(26\)</span> uppercase and <span class="math inline">\(26\)</span> lowercase letters in the English alphabet).</p></li>
+<li><p>Therefore, the total number of possible passwords is:</p></li>
+</ul>
+<p><span class="math display">\[
+7 \times 10 \times 52 \times 52 \times 52 \times 52 \times 52 \times 52 =
+\]</span></p>
+<p><span class="math display">\[
+7 \times 10 \times 52^6 = 1,383,942,676,480
+\]</span></p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="permutations" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="permutations"><span class="header-section-number">4</span> Permutations</h2>
+<ul>
+<li><p>A permutation is an arrangement of objects in a <strong>specific order (i.e., order matters)</strong>.</p></li>
+<li><p>For a set of <span class="math inline">\(n\)</span> objects, each <strong>unique arrangement</strong> of <span class="math inline">\(r\)</span> objects is called a permutation, where <span class="math inline">\(r \leq n\)</span>.</p></li>
+</ul>
+<section id="permutations-of-distinguishable-objects" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="permutations-of-distinguishable-objects"><span class="header-section-number">4.1</span> Permutations of distinguishable objects</h3>
+<section id="without-replacement" class="level4" data-number="4.1.1">
+<h4 data-number="4.1.1" class="anchored" data-anchor-id="without-replacement"><span class="header-section-number">4.1.1</span> Without replacement</h4>
+<ul>
+<li><p>Suppose we have a set of three <strong>distinguishable</strong> balls, <span class="math inline">\(1\)</span> <span data-fg="white" data-bg="red" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: red;">red</span>, <span class="math inline">\(1\)</span> <span data-fg="white" data-bg="#0171c3" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #0171c3;">blue</span>, and <span class="math inline">\(1\)</span> <span data-fg="white" data-bg="green" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: green;">green</span>.</p></li>
+<li><p>We are interested in finding the number of unique permutations (i.e., ordered arrangements) of the three balls without replacement.</p>
+<p><img src="../../images/perm_no_repl1.jpg" class="img-fluid" width="481"></p></li>
+<li><p>As shown in the figure, there are <span class="math inline">\(6\)</span> unique ways to arrange the three balls.</p></li>
+<li><p>For the first ball, there are <span class="math inline">\(3\)</span> available choices.</p></li>
+<li><p>For the second ball, there are <span class="math inline">\(2\)</span> choices left (the ball drawn in the first run is not available for the second slot).</p></li>
+<li><p>For the third ball, there is only <span class="math inline">\(1\)</span> choice left (the <span class="math inline">\(2\)</span> balls drawn in the first and second runs are not available for the third slot).</p></li>
+<li><p>Using the multiplication principle, the total number of unique permutations is calculated by multiplying the number of choices for each slot: <span class="math inline">\(3 \times 2 \times 1 = 6\)</span>.</p></li>
+</ul>
+<section id="formula" class="level5" data-number="4.1.1.1">
+<h5 data-number="4.1.1.1" class="anchored" data-anchor-id="formula"><span class="header-section-number">4.1.1.1</span> Formula</h5>
+<ul>
+<li><p>The above rule can be generalized as follows:</p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="emojione-monotone:letter-a" style="font-size: 20px;" aria-label="Icon letter-a from emojione-monotone Iconify.design set." title="Icon letter-a from emojione-monotone Iconify.design set."></iconify-icon></span> When arranging <span class="math inline">\(n\)</span> objects without replacement:</p>
+<ul>
+<li><p>The number of unique permutations of <span class="math inline">\(n\)</span> distinguishable objects is given as:</p>
+<p><span class="math display">\[
+n \times (n-1) \times (n-2) \times \ldots \times 3 \times 2 \times 1 = n!
+\]</span></p></li>
+<li><p>The term <span class="math inline">\(n!\)</span> is read as <span class="math inline">\(n\)</span> factorial and is defined as the product of all positive integers from <span class="math inline">\(1\)</span> up to <span class="math inline">\(n\)</span>.</p></li>
+<li><p>This can be written in mathematical notation as:</p></li>
+</ul>
+<p><span class="math display">\[
+_nP_n=n\times (n-1)\times (n-2) \times \ldots \times 1=n!
+\]</span></p>
+<ul>
+<li><span class="math inline">\(_nP_n\)</span> is read as permutation of <span class="math inline">\(n\)</span> objects taken <span class="math inline">\(n\)</span> at a time, where the first <span class="math inline">\(n\)</span> is the total number of objects and the second <span class="math inline">\(n\)</span> is the number of objects to be arranged.</li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="emojione-monotone:letter-b" style="font-size: 20px;" aria-label="Icon letter-b from emojione-monotone Iconify.design set." title="Icon letter-b from emojione-monotone Iconify.design set."></iconify-icon></span> When arranging <span class="math inline">\(r\)</span> objects selected from <span class="math inline">\(n\)</span> objects without replacement, where <span class="math inline">\(r &lt; n\)</span>:</p>
+<ul>
+<li><p>The number of unique permutations of <span class="math inline">\(r\)</span> distinguishable objects is given as:</p>
+<p><span class="math display">\[
+n \times (n-1) \times (n-2) \times \ldots \times [n-(r-1)]
+\]</span></p></li>
+<li><p>There are <span class="math inline">\(n\)</span> choices for the first selection, <span class="math inline">\((n-1)\)</span> choices for the second selection, and so forth until the last selection that always has <span class="math inline">\([n-(r-1)]\)</span> choices left.</p></li>
+<li><p>This can be written in mathematical notation as:</p></li>
+</ul>
+<p><span class="math display">\[
+_nP_r=n\times (n-1)\times (n-2) \times \ldots \times [n-(r-1)] = \frac{n!}{(n-r)!}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="Proof">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(n\times (n-1)\times (n-2) \times \ldots \times [n-(r-1)] =\)</span></p>
+<p><span class="math inline">\(n\times (n-1)\times (n-2) \times \ldots \times (n-r+1) \xRightarrow{\text{multiply by}}\)</span></p>
+<p><span class="math inline">\(\frac{(n-r) \times (n-r-1) \times \ldots \times 2 \times 1}{(n-r) \times (n-r-1) \times \ldots \times 2 \times 1} \xRightarrow{\text{this becomes}}\)</span></p>
+<p><span class="math inline">\(\frac{n\times (n-1)\times (n-2) \times \ldots \times (n-r+1) \times (n-r) \times (n-r-1) \times \ldots \times 2 \times 1}{(n-r) \times (n-r-1) \times \ldots \times 2 \times 1}\xRightarrow{\text{reduces to}}\displaystyle \frac{n!}{(n-r)!}\)</span></p>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(_nP_r\)</span> is read as permutation of <span class="math inline">\(n\)</span> objects taken <span class="math inline">\(r\)</span> at a time, where the first <span class="math inline">\(n\)</span> is the total number of objects and <span class="math inline">\(r\)</span> is the number of objects to be arranged.</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>When <span class="math inline">\(r = n\)</span>, the formula <span class="math inline">\(\displaystyle \frac{n!}{(n-r)!}\)</span> reduces to <span class="math inline">\(n!\)</span>.</p></li>
+<li><p><span class="math inline">\(0! = 1\)</span> by definition or convention.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="calculation-in-r" class="level5" data-number="4.1.1.2">
+<h5 data-number="4.1.1.2" class="anchored" data-anchor-id="calculation-in-r"><span class="header-section-number">4.1.1.2</span> Calculation in R</h5>
+<ul>
+<li><p>The factorial of a number can be calculated in <code>R</code> using the <code>factorial()</code> function.</p></li>
+<li><p><span class="math inline">\(4!\)</span>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 24</code></pre>
+</div>
+</div></li>
+<li><p><span class="math inline">\(5!\)</span>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120</code></pre>
+</div>
+</div></li>
+<li><p><span class="math inline">\(0!\)</span>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Example C.3.2 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p><span style="color: #e63946"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> In how many unique ways can we arrange the letters from <strong>A</strong> to <strong>F</strong> without replacement?</p>
+<p><span style="color: #e63946"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> In how many unique ways can we select <span class="math inline">\(4\)</span> letters from <strong>A</strong> to <strong>F</strong> without replacement?</p>
+<p><strong>Answer</strong>:</p>
+<p>There are a total of <span class="math inline">\(6\)</span> <strong>distinguishable</strong> letters.</p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> The unique permutations of <span class="math inline">\(6\)</span> letters taken <span class="math inline">\(6\)</span> at a time is <span class="math inline">\(_6P_6 = 6! = 720\)</span></p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> The unique permutations of <span class="math inline">\(6\)</span> letters taken <span class="math inline">\(4\)</span> at a time is <span class="math inline">\(_6P_4 = \displaystyle \frac{6!}{(6-4)!} = 360\)</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="permutations-with-replacement" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="permutations-with-replacement"><span class="header-section-number">4.2</span> Permutations with replacement</h3>
+<ul>
+<li><p>Consider the example of the three balls (<span class="math inline">\(1\)</span> <span data-fg="white" data-bg="red" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: red;">red</span>, <span class="math inline">\(1\)</span> <span data-fg="white" data-bg="blue" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: blue;">red</span>, and <span class="math inline">\(1\)</span> <span data-fg="white" data-bg="green" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: green;">red</span>) that we discussed above.</p></li>
+<li><p>Now, we want to arrange the three balls but with <strong>replacement</strong>.</p></li>
+<li><p>This means that after each draw, the ball is put back in the box and is available for the next draw.</p></li>
+<li><p>For the first slot, there are <span class="math inline">\(3\)</span> choices.</p></li>
+<li><p>For the second slot, there are <span class="math inline">\(3\)</span> choices because the first ball is put back in the box and is available for the next draw.</p></li>
+<li><p>For the third slot, there are <span class="math inline">\(3\)</span> choices as well.</p></li>
+<li><p>So, the total number of unique permutations with replacement is <span class="math inline">\(3 \times 3 \times 3 = 27\)</span>.</p></li>
+</ul>
+<section id="formula-1" class="level4" data-number="4.2.1">
+<h4 data-number="4.2.1" class="anchored" data-anchor-id="formula-1"><span class="header-section-number">4.2.1</span> Formula</h4>
+<ul>
+<li><p>This can be generalized as follows:</p>
+<ul>
+<li><p>The number of unique permutations of <span class="math inline">\(n\)</span> <strong>distinguishable</strong> objects <strong>with replacement</strong> is given as:</p>
+<p><span class="math display">\[
+n^r
+\]</span></p></li>
+<li><p><span class="math inline">\(n\)</span> is the total number of objects and <span class="math inline">\(r\)</span> is the number of objects to be arranged and <span class="math inline">\(r \leq n\)</span>.</p></li>
+</ul></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Example C.3.3 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p><span style="color: #e63946"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> In how many unique ways can you arrange the letters from <strong>A</strong> to <strong>F</strong> with replacement?</p>
+<p><span style="color: #e63946"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> In how many unique ways can you select <span class="math inline">\(4\)</span> letters from <strong>A</strong> to <strong>F</strong> with replacement?</p>
+<p><strong>Answer</strong></p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> We can use the formula <span class="math inline">\(n^r\)</span>, where <span class="math inline">\(n=6\)</span> and <span class="math inline">\(r=6\)</span>. So, the number of permutations with replacement is <span class="math inline">\(6^6 = 46,656\)</span></p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> We can use the formula <span class="math inline">\(n^r\)</span>, where <span class="math inline">\(n=6\)</span> and <span class="math inline">\(r=4\)</span>. So, the number of permutations with replacement is <span class="math inline">\(6^4 = 1,296\)</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="perm_indist" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="perm_indist"><span class="header-section-number">4.3</span> Permutations of indistinguishable objects</h3>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="emojione-monotone:letter-a" style="font-size: 20px;" aria-label="Icon letter-a from emojione-monotone Iconify.design set." title="Icon letter-a from emojione-monotone Iconify.design set."></iconify-icon></span> <strong>Single group of indistinguishable objects</strong>:</p>
+<ul>
+<li><p>Suppose we have a set of <span class="math inline">\(3\)</span> <strong>indistinguishable</strong> <span data-fg="white" data-bg="red" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: red;">red</span> balls.</p></li>
+<li><p>We are interested in finding the number of ways to arrange the <span class="math inline">\(3\)</span> balls.</p>
+<p><img src="../../images/perm_no_repl2.jpg" class="img-fluid" width="481"></p></li>
+<li><p>As shown in the figure, there is only <span class="math inline">\(1\)</span> way to arrange the three balls because they are indistinguishable and can be swapped without changing the arrangement (i.e., swapping positions does not create any new unique arrangement).</p></li>
+<li><p>There is only <span class="math inline">\(1\)</span> way to arrange the three indistinguishable balls regardless the draw is with or without replacement.</p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="emojione-monotone:letter-b" style="font-size: 20px;" aria-label="Icon letter-b from emojione-monotone Iconify.design set." title="Icon letter-b from emojione-monotone Iconify.design set."></iconify-icon></span> <strong>Multiple distinguishable groups with indistinguishable objects</strong>:</p>
+<ul>
+<li><p>There are some scenarios, where we have multiple distinguishable groups but the objects within each group are indistinguishable.</p></li>
+<li><p>For example, we may be interested in finding the number of ordered arrangements (permutations) that can be formed from the letters in the word <strong>STATISTICS</strong>?</p></li>
+<li><p>The word <span style="color: #0171c3;"><strong>STATISTICS</strong></span> has <span class="math inline">\(10\)</span> letters, where the letter <u><strong>S</strong></u> appears <span class="math inline">\(3\)</span> times, the letter <u><strong>T</strong></u> appears <span class="math inline">\(3\)</span> times, the letter <u><strong>I</strong></u> appears <span class="math inline">\(2\)</span> times, the letter <u><strong>A</strong></u> appears <span class="math inline">\(1\)</span> time, and the letter <u><strong>C</strong></u> appears <span class="math inline">\(1\)</span> time (i.e., there are <span class="math inline">\(5\)</span> distinct letter groups but the letters within each group are indistinguishable).</p></li>
+<li><p>If all letters were distinct, the number of permutations without replacement would be <span class="math inline">\(10!\)</span>.</p></li>
+<li><p>However, since some letters are repeated, we need to adjust the number of permutations because swapping the positions of the repeated letters does not create new unique arrangements. For instance, when the <span class="math inline">\(3\)</span> <u><strong>S</strong>’s</u> fill positions <span class="math inline">\(4\)</span>, <span class="math inline">\(7\)</span>, and <span class="math inline">\(9\)</span> in a permutation, it does not matter which <u><strong>S</strong></u> is in which position.</p></li>
+<li><p>This adjustment can be done by dividing the total number of permutations if all letters were distinct by the number of ways the indistinguishable letters can be swapped.</p></li>
+<li><p>For the <span class="math inline">\(3\)</span> <u><strong>S</strong>’s</u>, there are <span class="math inline">\(3!\)</span> ways to swap them without changing the arrangement, for the letter <u><strong>I</strong></u>, there are <span class="math inline">\(2!\)</span> ways to swap them, and so forth.</p></li>
+<li><p>Therefore, the number of unique permutations that can be formed from the letters in the word <span style="color: #0171c3;"><strong>STATISTICS</strong></span> is:</p>
+<p><span class="math display">\[
+\frac{10!}{3! \times 3! \times 2! \times 1! \times 1!} = 50,400
+\]</span></p></li>
+<li><p><strong>Formula</strong>:</p>
+<ul>
+<li><p>To generalize the above rule, assume we have <span class="math inline">\(k\)</span> distinct groups of objects, where the groups contain <span class="math inline">\(n_1, n_2, \ldots, n_k\)</span> indistinguishable objects and the total number of objects <span class="math inline">\(n = n_1 + n_2 + \ldots + n_k\)</span>.</p></li>
+<li><p>The number of unique permutations is given as:</p>
+<p><span class="math display">\[
+\frac{n!}{n_1! \times n_2! \times \ldots \times n_k!}
+\]</span></p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>This formula can also be derived using <strong>combinations</strong> that will be discussed in the next section.</li>
+</ul>
+</div>
+</div></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true"><span style="color: #ba181b">Exercise C.3.1 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>How many permutations can be formed from the letters in the word <strong>BANANA</strong>?</p>
+<p>The answer is <input class="webex-solveme nospaces" size="2" data-answer="[&quot;60&quot;]"> permutations.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
+<ul>
+<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
+<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
+<li><p>Penn State University. STAT 414: Introduction to Probability Theory. Online Statistics Education. Retrieved December 02, 2024, from <a href="https://online.stat.psu.edu/stat414" class="uri">https://online.stat.psu.edu/stat414</a></p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">6</span> Add your comments</h2>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.amrbiostats\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="amraamahmoud/amrbiostats_website" data-repo-id="R_kgDOMvJM8A" data-category="General" data-category-id="DIC_kwDOMvJM8M4CiVDG" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../posts/biostats/C02_def_prob_th.html" class="pagination-link" aria-label="Probability Definition - Axioms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Probability Definition - Axioms</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../posts/biostats/C04_counting2_prob_th.html" class="pagination-link" aria-label="Combinatorics 2 - Combinations">
+        <span class="nav-page-text">Combinatorics 2 - Combinations</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank">
+<p>License <iconify-icon role="img" inline="" icon="carbon:license-draft" aria-label="Icon license-draft from carbon Iconify.design set." title="Icon license-draft from carbon Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/amraamahmoud/amrbiostats_website/issues" target="_blank">
+<p>Report an issue <iconify-icon role="img" inline="" icon="mdi:git-issue" aria-label="Icon git-issue from mdi Iconify.design set." title="Icon git-issue from mdi Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/amraamahmoud/amrbiostats_website.git" target="_blank">
+<p>GitHub <iconify-icon role="img" inline="" icon="ri:github-fill" aria-label="Icon github-fill from ri Iconify.design set." title="Icon github-fill from ri Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
