@@ -55,6 +55,9 @@ website:
             - section: "Descriptive Statistics"
               contents:
                 - auto: "posts/biostats/*stats.qmd"
+            - section: "Probability Theory"
+              contents:
+                - auto: "posts/biostats/*prob_th.qmd"
   page-footer:
     border: true
     left:

@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.3">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-12-20">
+
+<title>Probability Examples – AMRBiostats</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../posts/biostats/C04_counting2_prob_th.html" rel="prev">
+<link href="../..//images/fav.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-81b5c3e63835cfde897ecd3d35a35a41.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8bf7a1f964409d044b0be1f1d2e39a92.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 1,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../include/webex.css">
+<meta property="og:title" content="AMRBiostats">
+<meta property="og:image" content="https://www.amrbiostats.com/images/biostats.jpg">
+<meta property="og:site_name" content="AMRBiostats">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/fav.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">AMRBiostats</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../author.html"> 
+<span class="menu-text">About Author <iconify-icon role="img" inline="" icon="solar:user-id-linear" style="font-size: 20px;" aria-label="Icon user-id-linear from solar Iconify.design set." title="Icon user-id-linear from solar Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/amraamahmoud/amrbiostats_website.git" target="_blank"> 
+<span class="menu-text">GitHub <iconify-icon role="img" inline="" icon="octicon:mark-github-16" style="font-size: 20px;" aria-label="Icon mark-github-16 from octicon Iconify.design set." title="Icon mark-github-16 from octicon Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:consultation@amrbiostats.com"> 
+<span class="menu-text">Contact <iconify-icon role="img" inline="" icon="mdi:email-arrow-right" style="font-size: 23px;" aria-label="Icon email-arrow-right from mdi Iconify.design set." title="Icon email-arrow-right from mdi Iconify.design set."></iconify-icon></span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../maths_refresher.html"> 
+<span class="menu-text">Maths Refresher <iconify-icon role="img" inline="" icon="hugeicons:calculate" style="font-size: 24px;" aria-label="Icon calculate from hugeicons Iconify.design set." title="Icon calculate from hugeicons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../biostatistics.html" aria-current="page"> 
+<span class="menu-text">Biostatistics <iconify-icon role="img" inline="" icon="uis:graph-bar" style="font-size: 20px;" aria-label="Icon graph-bar from uis Iconify.design set." title="Icon graph-bar from uis Iconify.design set."></iconify-icon></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C01_intro_prob_th.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C05_counting3_prob_th.html">Probability Examples</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../biostatistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Biostatistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/A01_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic Concepts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/A02_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Descriptive Statistics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B01_Freq_dist1_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequency distribution 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B02_Freq_dist2_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequency distribution 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B03_cent_tendency_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measures of Central Tendency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B04_quantile_algorithms_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quantile algorithms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B05_boxplot_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Boxplot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B06_dispersion_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measures of Variability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B07_sample_variance_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demystifying sample variance formula</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B08_distrib_shape_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Describing the shape of distribution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/B09_selection_measures_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to choose the right summary measures</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Probability Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/C01_intro_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic Concepts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/C02_def_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Definition - Axioms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/C03_counting1_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Combinatorics 1 - Permutations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/C04_counting2_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Combinatorics 2 - Combinations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/biostats/C05_counting3_prob_th.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Probability Examples</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#examples-of-probability-and-counting-problems" id="toc-examples-of-probability-and-counting-problems" class="nav-link active" data-scroll-target="#examples-of-probability-and-counting-problems"><span class="header-section-number">1</span> Examples of probability and counting problems</a>
+  <ul>
+  <li><a href="#add-your-comments" id="toc-add-your-comments" class="nav-link" data-scroll-target="#add-your-comments"><span class="header-section-number">1.1</span> Add your comments</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../biostatistics.html">Biostatistics</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C01_intro_prob_th.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../../posts/biostats/C05_counting3_prob_th.html">Probability Examples</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Probability Examples</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 20, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="examples-of-probability-and-counting-problems" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Examples of probability and counting problems</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Example C.5.1 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Example C.5.2 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Example C.5.3 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false"><span style="color: #ba181b">Exercise C.5.1 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Example C.5.4 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false">Example C.5.5 <iconify-icon role="img" inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false"><span style="color: #ba181b">Exercise C.5.2 <iconify-icon role="img" inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>A fruit packaging company is preparing “Mixed Fruit Boxes” for customers. Each box contains <span class="math inline">\(15\)</span> pieces of fruit, which can be selected from <span class="math inline">\(5\)</span> different types of fruit: apples, bananas, oranges, mangoes, and kiwis. The packers can include any combination of these fruits in each box.</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> How many possible combinations are there for the fruit boxes?</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> What is the probability that the customer receives a box that contains at least one fruit from each type?</p>
+<p><strong>Answers</strong></p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> In the first question, we want to fill <span class="math inline">\(15\)</span> slots in the box with fruits from <span class="math inline">\(5\)</span> different types:</p>
+<ul>
+<li><p>Fruits can be repeated and the order does not matter, so we are dealing with a <strong>combination with replacement problem</strong>:</p></li>
+<li><p>Let the number of fruit types be <span class="math inline">\(n = 5\)</span> and the number of fruits to be packed is <span class="math inline">\(m = 15\)</span>.</p></li>
+<li><p>The number of possible combinations is given as:</p>
+<p><span class="math display">\[
+\binom{n + m - 1}{m} = \binom{5 + 15 - 1}{15} = \binom{19}{15} = 3,876
+\]</span></p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> In the second question, we want to find in how many ways the boxes contain at least one fruit from each type:</p>
+<ul>
+<li><p>To ensure that each type of fruit is included in the box, we need to assign one fruit from each type to a slot in the box.</p></li>
+<li><p>This means that we use <span class="math inline">\(5\)</span> slots leaving <span class="math inline">\(10\)</span> slots to be filled with any fruit combination.</p></li>
+<li><p>This is also a <strong>combination with replacement problem</strong> but now <span class="math inline">\(n = 5\)</span> and <span class="math inline">\(m = 10\)</span>:</p></li>
+<li><p>This is is given as:</p>
+<p><span class="math display">\[
+\binom{5+10-1}{10} = \dbinom{14}{10} = 1,001
+\]</span></p></li>
+<li><p>So, the probability that a random box contains at least one fruit from each type is:</p>
+<p><span class="math display">\[
+\frac{1001}{3876} = 0.258
+\]</span></p></li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>The Olympic Games final of the <span class="math inline">\(100\)</span> m sprint consists of <span class="math inline">\(8\)</span> runners. How many combinations for the top <span class="math inline">\(3\)</span> finishers exist when:</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> Order matters ?</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> Order does not matter?</p>
+<p><strong>Answers</strong></p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> Order matters:</p>
+<ul>
+<li><p>We want to find the number of arrangements for the top <span class="math inline">\(3\)</span> finishers from <span class="math inline">\(8\)</span> runners.</p></li>
+<li><p>This is a <strong>permutation problem</strong> where order matters but without replacement because a runner cannot finish in more than one position.</p></li>
+<li><p>The number of permutations is given as:</p>
+<p><span class="math display">\[
+_8P_3 = \frac{8!}{(8-3)!} = \frac{8!}{5!} = 336
+\]</span></p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> Order does not matter:</p>
+<ul>
+<li><p>When order does not matter, we are dealing with a <strong>combination problem</strong> and again without replacement.</p></li>
+<li><p>The number of combinations is given as:</p>
+<p><span class="math display">\[
+_8C_3 = \frac{8!}{3! \cdot\ (8-3)!} = \frac{8!}{3!\cdot\ 5!} = 56
+\]</span></p></li>
+</ul>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Given three pairwise disjoint and exhaustive events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span>. <span class="math display">\[
+P(A) = 0.1, \quad P(B) = 0.3
+\]</span> <strong>Calculate</strong>:</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> <span class="math inline">\(P(B')\)</span></p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> <span class="math inline">\(P(C)\)</span></p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> <span class="math inline">\(P(A \cup B)\)</span></p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> <span class="math inline">\(P(A \cap B)\)</span></p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:5-circle-fill" style="font-size: 20px;" aria-label="Icon 5-circle-fill from bi Iconify.design set." title="Icon 5-circle-fill from bi Iconify.design set."></iconify-icon></span> <span class="math inline">\(P(C \setminus C)\)</span></p>
+<p><strong>Answers</strong>:</p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> <span class="math inline">\(P(B') = 1 - P(B) = 1- 0.3 = 0.7\)</span></p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> The events are exhaustive and pairwise disjoint, so:</p>
+<ul>
+<li><p><span class="math inline">\(P(A \cup B \cup C) = P(A) + P(B) + P(C) = 1\)</span></p></li>
+<li><p><span class="math inline">\(P(C) = 1 - P(A) - P(B) = 1 - 0.1 - 0.3 = 0.6\)</span></p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> The events are disjoint, so</p>
+<ul>
+<li><span class="math inline">\(P(A \cup B) = P(A) + P(B) = 0.1 + 0.3 = 0.4\)</span></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> The events are disjoint, so:</p>
+<ul>
+<li><span class="math inline">\(P(A \cap B) = 0\)</span></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:5-circle-fill" style="font-size: 20px;" aria-label="Icon 5-circle-fill from bi Iconify.design set." title="Icon 5-circle-fill from bi Iconify.design set."></iconify-icon></span> <span class="math inline">\(P(C \setminus C) = 0\)</span></p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>A restaurant surveyed its customers for complaints about food quality and service quality. The restaurant found that: <span class="math inline">\(30\%\)</span> of customers complain about food quality, <span class="math inline">\(19\%\)</span> of customers complain about service quality, and <span class="math inline">\(12\%\)</span> of customers complain about both food and service.</p>
+<p>If a customer is randomly selected, what is the probability that this customer:</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> Complains about at least one category?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.37&quot;]"></li>
+</ul>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> Complains only about food quality, not service?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.18&quot;]"></li>
+</ul>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> Does not complain about either category?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.63&quot;]"></li>
+</ul>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> Complains about only one category?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.25&quot;]"></li>
+</ul>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<p>You have a set of <span class="math inline">\(4\)</span> red, <span class="math inline">\(5\)</span> orange, and <span class="math inline">\(2\)</span> blue balls.</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> How many different arrangements of the balls can be made?</p>
+<p><strong>Answers</strong>:</p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> There are <span class="math inline">\(3\)</span> distinct groups of balls but the balls within each group are identical.</p>
+<ul>
+<li><p>To find the distinct arrangements, we are dealing with a <strong>permutation</strong> of multiple distinguishable groups with indistinguishable objects.</p></li>
+<li><p>The number of arrangements is given as:</p>
+<p><span class="math display">\[
+\frac{11!}{4! \cdot\ 5! \cdot\ 2!} = 6,930
+\]</span></p></li>
+</ul>
+</div>
+<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
+<p>A school has <span class="math inline">\(7\)</span> teachers, each is preassigned <span class="math inline">\(2\)</span> classrooms by the principal. The teachers are asked to select <span class="math inline">\(2\)</span> classrooms for the upcoming school year. What is the probability that a specific teacher:</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> Selects both of their preassigned classrooms?</p>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> Selects none of their preassigned classrooms?</p>
+<p><strong>Answer</strong></p>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> Each teacher can choose <span class="math inline">\(2\)</span> classrooms from <span class="math inline">\(14\)</span> available classrooms:</p>
+<ul>
+<li><p>This is a <strong>combination without replacement</strong> problem, where the order does not matter.</p></li>
+<li><p>The total number of ways to select <span class="math inline">\(2\)</span> classrooms from <span class="math inline">\(14\)</span> is:</p>
+<p><span class="math display">\[
+_{14}C_2 = \binom{14}{2} = \frac{14!}{2! \cdot\ 12!} = 91
+\]</span></p></li>
+<li><p>There is only <span class="math inline">\(1\)</span> way to select both preassigned classrooms, so its probability is:</p>
+<p><span class="math display">\[
+\frac{1}{91} = 0.011
+\]</span></p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> When a teacher selects none of the preassigned classrooms, this means selecting <span class="math inline">\(2\)</span> classrooms from the remaining <span class="math inline">\(12\)</span> non-preassigned classrooms:</p>
+<ul>
+<li><p>The number of ways to select <span class="math inline">\(2\)</span> classrooms from <span class="math inline">\(12\)</span> is:</p>
+<p><span class="math display">\[
+_{12}C_2 = \binom{12}{2} = \frac{12!}{2! \cdot\ 10!} = 66
+\]</span></p></li>
+<li><p>So, the probability that a teacher selects none of the preassigned classrooms is:</p>
+<p><span class="math display">\[
+\frac{66}{91} = 0.725
+\]</span></p></li>
+</ul>
+</div>
+<div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> How many ways are there to arrange <span class="math inline">\(6\)</span> different antibiotic packages on a shelf?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="3" data-answer="[&quot;720&quot;]"></li>
+</ul>
+<p><span style="color: #ba181b"><iconify-icon role="img" inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> In how many ways can <span class="math inline">\(3\)</span> antibiotic packages be chosen from <span class="math inline">\(6\)</span> packages?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="2" data-answer="[&quot;20&quot;]"></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+<section id="add-your-comments" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">1.1</span> Add your comments</h2>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.amrbiostats\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="amraamahmoud/amrbiostats_website" data-repo-id="R_kgDOMvJM8A" data-category="General" data-category-id="DIC_kwDOMvJM8M4CiVDG" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../posts/biostats/C04_counting2_prob_th.html" class="pagination-link" aria-label="Combinatorics 2 - Combinations">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Combinatorics 2 - Combinations</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank">
+<p>License <iconify-icon role="img" inline="" icon="carbon:license-draft" aria-label="Icon license-draft from carbon Iconify.design set." title="Icon license-draft from carbon Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/amraamahmoud/amrbiostats_website/issues" target="_blank">
+<p>Report an issue <iconify-icon role="img" inline="" icon="mdi:git-issue" aria-label="Icon git-issue from mdi Iconify.design set." title="Icon git-issue from mdi Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/amraamahmoud/amrbiostats_website.git" target="_blank">
+<p>GitHub <iconify-icon role="img" inline="" icon="ri:github-fill" aria-label="Icon github-fill from ri Iconify.design set." title="Icon github-fill from ri Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

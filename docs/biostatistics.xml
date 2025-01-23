@@ -15,7 +15,1445 @@
 <link>https://www.amrbiostats.com/biostatistics.html</link>
 </image>
 <generator>quarto-1.7.3</generator>
-<lastBuildDate>Thu, 14 Nov 2024 20:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 19 Dec 2024 20:00:00 GMT</lastBuildDate>
+<item>
+  <title>Probability Examples</title>
+  <link>https://www.amrbiostats.com/posts/biostats/C05_counting3_prob_th.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="examples-of-probability-and-counting-problems" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Examples of probability and counting problems</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Example C.5.1 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Example C.5.2 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false">Example C.5.3 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" aria-controls="tabset-1-4" aria-selected="false"><span style="color: #ba181b">Exercise C.5.1 <iconify-icon inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li><li class="nav-item"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" aria-controls="tabset-1-5" aria-selected="false">Example C.5.4 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" aria-controls="tabset-1-6" aria-selected="false">Example C.5.5 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" aria-controls="tabset-1-7" aria-selected="false"><span style="color: #ba181b">Exercise C.5.2 <iconify-icon inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<p>A fruit packaging company is preparing “Mixed Fruit Boxes” for customers. Each box contains <img src="https://latex.codecogs.com/png.latex?15"> pieces of fruit, which can be selected from <img src="https://latex.codecogs.com/png.latex?5"> different types of fruit: apples, bananas, oranges, mangoes, and kiwis. The packers can include any combination of these fruits in each box.</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> How many possible combinations are there for the fruit boxes?</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> What is the probability that the customer receives a box that contains at least one fruit from each type?</p>
+<p><strong>Answers</strong></p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> In the first question, we want to fill <img src="https://latex.codecogs.com/png.latex?15"> slots in the box with fruits from <img src="https://latex.codecogs.com/png.latex?5"> different types:</p>
+<ul>
+<li><p>Fruits can be repeated and the order does not matter, so we are dealing with a <strong>combination with replacement problem</strong>:</p></li>
+<li><p>Let the number of fruit types be <img src="https://latex.codecogs.com/png.latex?n%20=%205"> and the number of fruits to be packed is <img src="https://latex.codecogs.com/png.latex?m%20=%2015">.</p></li>
+<li><p>The number of possible combinations is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbinom%7Bn%20+%20m%20-%201%7D%7Bm%7D%20=%20%5Cbinom%7B5%20+%2015%20-%201%7D%7B15%7D%20=%20%5Cbinom%7B19%7D%7B15%7D%20=%203,876%0A"></p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> In the second question, we want to find in how many ways the boxes contain at least one fruit from each type:</p>
+<ul>
+<li><p>To ensure that each type of fruit is included in the box, we need to assign one fruit from each type to a slot in the box.</p></li>
+<li><p>This means that we use <img src="https://latex.codecogs.com/png.latex?5"> slots leaving <img src="https://latex.codecogs.com/png.latex?10"> slots to be filled with any fruit combination.</p></li>
+<li><p>This is also a <strong>combination with replacement problem</strong> but now <img src="https://latex.codecogs.com/png.latex?n%20=%205"> and <img src="https://latex.codecogs.com/png.latex?m%20=%2010">:</p></li>
+<li><p>This is is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbinom%7B5+10-1%7D%7B10%7D%20=%20%5Cdbinom%7B14%7D%7B10%7D%20=%201,001%0A"></p></li>
+<li><p>So, the probability that a random box contains at least one fruit from each type is:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B1001%7D%7B3876%7D%20=%200.258%0A"></p></li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<p>The Olympic Games final of the <img src="https://latex.codecogs.com/png.latex?100"> m sprint consists of <img src="https://latex.codecogs.com/png.latex?8"> runners. How many combinations for the top <img src="https://latex.codecogs.com/png.latex?3"> finishers exist when:</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> Order matters ?</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> Order does not matter?</p>
+<p><strong>Answers</strong></p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> Order matters:</p>
+<ul>
+<li><p>We want to find the number of arrangements for the top <img src="https://latex.codecogs.com/png.latex?3"> finishers from <img src="https://latex.codecogs.com/png.latex?8"> runners.</p></li>
+<li><p>This is a <strong>permutation problem</strong> where order matters but without replacement because a runner cannot finish in more than one position.</p></li>
+<li><p>The number of permutations is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A_8P_3%20=%20%5Cfrac%7B8!%7D%7B(8-3)!%7D%20=%20%5Cfrac%7B8!%7D%7B5!%7D%20=%20336%0A"></p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> Order does not matter:</p>
+<ul>
+<li><p>When order does not matter, we are dealing with a <strong>combination problem</strong> and again without replacement.</p></li>
+<li><p>The number of combinations is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A_8C_3%20=%20%5Cfrac%7B8!%7D%7B3!%20%5Ccdot%5C%20(8-3)!%7D%20=%20%5Cfrac%7B8!%7D%7B3!%5Ccdot%5C%205!%7D%20=%2056%0A"></p></li>
+</ul>
+</div>
+<div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
+<p>Given three pairwise disjoint and exhaustive events <img src="https://latex.codecogs.com/png.latex?A">, <img src="https://latex.codecogs.com/png.latex?B">, and <img src="https://latex.codecogs.com/png.latex?C">. <img src="https://latex.codecogs.com/png.latex?%0AP(A)%20=%200.1,%20%5Cquad%20P(B)%20=%200.3%0A"> <strong>Calculate</strong>:</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> <img src="https://latex.codecogs.com/png.latex?P(B')"></p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> <img src="https://latex.codecogs.com/png.latex?P(C)"></p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> <img src="https://latex.codecogs.com/png.latex?P(A%20%5Ccup%20B)"></p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> <img src="https://latex.codecogs.com/png.latex?P(A%20%5Ccap%20B)"></p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:5-circle-fill" style="font-size: 20px;" aria-label="Icon 5-circle-fill from bi Iconify.design set." title="Icon 5-circle-fill from bi Iconify.design set."></iconify-icon></span> <img src="https://latex.codecogs.com/png.latex?P(C%20%5Csetminus%20C)"></p>
+<p><strong>Answers</strong>:</p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> <img src="https://latex.codecogs.com/png.latex?P(B')%20=%201%20-%20P(B)%20=%201-%200.3%20=%200.7"></p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> The events are exhaustive and pairwise disjoint, so:</p>
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?P(A%20%5Ccup%20B%20%5Ccup%20C)%20=%20P(A)%20+%20P(B)%20+%20P(C)%20=%201"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?P(C)%20=%201%20-%20P(A)%20-%20P(B)%20=%201%20-%200.1%20-%200.3%20=%200.6"></p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> The events are disjoint, so</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?P(A%20%5Ccup%20B)%20=%20P(A)%20+%20P(B)%20=%200.1%20+%200.3%20=%200.4"></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> The events are disjoint, so:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?P(A%20%5Ccap%20B)%20=%200"></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:5-circle-fill" style="font-size: 20px;" aria-label="Icon 5-circle-fill from bi Iconify.design set." title="Icon 5-circle-fill from bi Iconify.design set."></iconify-icon></span> <img src="https://latex.codecogs.com/png.latex?P(C%20%5Csetminus%20C)%20=%200"></p>
+</div>
+<div id="tabset-1-4" class="tab-pane" aria-labelledby="tabset-1-4-tab">
+<p>A restaurant surveyed its customers for complaints about food quality and service quality. The restaurant found that: <img src="https://latex.codecogs.com/png.latex?30%5C%25"> of customers complain about food quality, <img src="https://latex.codecogs.com/png.latex?19%5C%25"> of customers complain about service quality, and <img src="https://latex.codecogs.com/png.latex?12%5C%25"> of customers complain about both food and service.</p>
+<p>If a customer is randomly selected, what is the probability that this customer:</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> Complains about at least one category?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.37&quot;]"></li>
+</ul>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> Complains only about food quality, not service?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.18&quot;]"></li>
+</ul>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> Does not complain about either category?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.63&quot;]"></li>
+</ul>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> Complains about only one category?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.25&quot;]"></li>
+</ul>
+</div>
+<div id="tabset-1-5" class="tab-pane" aria-labelledby="tabset-1-5-tab">
+<p>You have a set of <img src="https://latex.codecogs.com/png.latex?4"> red, <img src="https://latex.codecogs.com/png.latex?5"> orange, and <img src="https://latex.codecogs.com/png.latex?2"> blue balls.</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> How many different arrangements of the balls can be made?</p>
+<p><strong>Answers</strong>:</p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> There are <img src="https://latex.codecogs.com/png.latex?3"> distinct groups of balls but the balls within each group are identical.</p>
+<ul>
+<li><p>To find the distinct arrangements, we are dealing with a <strong>permutation</strong> of multiple distinguishable groups with indistinguishable objects.</p></li>
+<li><p>The number of arrangements is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B11!%7D%7B4!%20%5Ccdot%5C%205!%20%5Ccdot%5C%202!%7D%20=%206,930%0A"></p></li>
+</ul>
+</div>
+<div id="tabset-1-6" class="tab-pane" aria-labelledby="tabset-1-6-tab">
+<p>A school has <img src="https://latex.codecogs.com/png.latex?7"> teachers, each is preassigned <img src="https://latex.codecogs.com/png.latex?2"> classrooms by the principal. The teachers are asked to select <img src="https://latex.codecogs.com/png.latex?2"> classrooms for the upcoming school year. What is the probability that a specific teacher:</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> Selects both of their preassigned classrooms?</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> Selects none of their preassigned classrooms?</p>
+<p><strong>Answer</strong></p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> Each teacher can choose <img src="https://latex.codecogs.com/png.latex?2"> classrooms from <img src="https://latex.codecogs.com/png.latex?14"> available classrooms:</p>
+<ul>
+<li><p>This is a <strong>combination without replacement</strong> problem, where the order does not matter.</p></li>
+<li><p>The total number of ways to select <img src="https://latex.codecogs.com/png.latex?2"> classrooms from <img src="https://latex.codecogs.com/png.latex?14"> is:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A_%7B14%7DC_2%20=%20%5Cbinom%7B14%7D%7B2%7D%20=%20%5Cfrac%7B14!%7D%7B2!%20%5Ccdot%5C%2012!%7D%20=%2091%0A"></p></li>
+<li><p>There is only <img src="https://latex.codecogs.com/png.latex?1"> way to select both preassigned classrooms, so its probability is:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B1%7D%7B91%7D%20=%200.011%0A"></p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> When a teacher selects none of the preassigned classrooms, this means selecting <img src="https://latex.codecogs.com/png.latex?2"> classrooms from the remaining <img src="https://latex.codecogs.com/png.latex?12"> non-preassigned classrooms:</p>
+<ul>
+<li><p>The number of ways to select <img src="https://latex.codecogs.com/png.latex?2"> classrooms from <img src="https://latex.codecogs.com/png.latex?12"> is:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A_%7B12%7DC_2%20=%20%5Cbinom%7B12%7D%7B2%7D%20=%20%5Cfrac%7B12!%7D%7B2!%20%5Ccdot%5C%2010!%7D%20=%2066%0A"></p></li>
+<li><p>So, the probability that a teacher selects none of the preassigned classrooms is:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B66%7D%7B91%7D%20=%200.725%0A"></p></li>
+</ul>
+</div>
+<div id="tabset-1-7" class="tab-pane" aria-labelledby="tabset-1-7-tab">
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> How many ways are there to arrange <img src="https://latex.codecogs.com/png.latex?6"> different antibiotic packages on a shelf?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="3" data-answer="[&quot;720&quot;]"></li>
+</ul>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> In how many ways can <img src="https://latex.codecogs.com/png.latex?3"> antibiotic packages be chosen from <img src="https://latex.codecogs.com/png.latex?6"> packages?</p>
+<ul>
+<li>The answer is <input class="webex-solveme nospaces" size="2" data-answer="[&quot;20&quot;]"></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+<section id="add-your-comments" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">1.1</span> Add your comments</h2>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://www.amrbiostats.com/posts/biostats/C05_counting3_prob_th.html</guid>
+  <pubDate>Thu, 19 Dec 2024 20:00:00 GMT</pubDate>
+  <media:content url="https://www.amrbiostats.com/images/biostats.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Combinatorics 2 - Combinations</title>
+  <link>https://www.amrbiostats.com/posts/biostats/C04_counting2_prob_th.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="combinations" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="combinations"><span class="header-section-number">1</span> Combinations</h2>
+<ul>
+<li>A combination is a selection of objects from a larger set of objects where the <strong>order of selection does not matter (i.e., unordered selection)</strong>.</li>
+</ul>
+<section id="combinations-without-replacement" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="combinations-without-replacement"><span class="header-section-number">1.1</span> Combinations without replacement</h3>
+<ul>
+<li><p>In the previous section, we discussed <a href="../../posts/biostats/C03_counting1_prob_th.html#motv_ex">the motivational example</a> of a set of <img src="https://latex.codecogs.com/png.latex?4"> colored balls in a box: <img src="https://latex.codecogs.com/png.latex?2"> <span data-fg="white" data-bg="red" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: red;">red</span> balls <img src="https://latex.codecogs.com/png.latex?(R_1,%20R_2)">, <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="#0171c3" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #0171c3;">blue</span> ball <img src="https://latex.codecogs.com/png.latex?(B)">, and <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="green" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: green;">green</span> ball <img src="https://latex.codecogs.com/png.latex?(G)">.</p></li>
+<li><p>We were interested in drawing two balls from the box without replacement.</p></li>
+<li><p><strong>If order matters</strong>, there are <img src="https://latex.codecogs.com/png.latex?_4P_2%20=%20%5Cdisplaystyle%20%5Cfrac%7B4!%7D%7B(4-2)!%7D%20=12"> unique permutations of two balls.</p></li>
+<li><p><strong>If order does not matter</strong>, we counted <img src="https://latex.codecogs.com/png.latex?6"> unique combinations of two balls (the remaining <img src="https://latex.codecogs.com/png.latex?6"> combinations are duplicates because the order of selection does not matter). This number is obtained by dividing the number of ordered permutations <img src="https://latex.codecogs.com/png.latex?(12)"> by the number of ways the two balls can be arranged <img src="https://latex.codecogs.com/png.latex?(2)"> to give the number of unordered combinations.</p></li>
+</ul>
+<section id="formula" class="level4" data-number="1.1.1">
+<h4 data-number="1.1.1" class="anchored" data-anchor-id="formula"><span class="header-section-number">1.1.1</span> Formula</h4>
+<ul>
+<li><p>To generalize the above rule, the number of ordered permutation of <img src="https://latex.codecogs.com/png.latex?n"> objects taken <img src="https://latex.codecogs.com/png.latex?r"> at a time is given by <img src="https://latex.codecogs.com/png.latex?_nP_r%20=%20%5Cdisplaystyle%20%5Cfrac%7Bn!%7D%7B(n-r)!%7D">.</p></li>
+<li><p>There are <img src="https://latex.codecogs.com/png.latex?r!"> ways to arrange <img src="https://latex.codecogs.com/png.latex?r"> objects, so the number of unordered <img src="https://latex.codecogs.com/png.latex?r"> objects to be selected (without replacement) from the <img src="https://latex.codecogs.com/png.latex?n"> objects is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A_nC_r%20=%20%5Cdbinom%7Bn%7D%7Br%7D%20=%20%5Cdisplaystyle%20%5Cfrac%7B_nP_r%7D%7Br!%7D%20=%20%5Cdisplaystyle%20%5Cfrac%7Bn!%7D%7Br!(n-r)!%7D%0A"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?_nC_r"> is read as “<img src="https://latex.codecogs.com/png.latex?n"> choose <img src="https://latex.codecogs.com/png.latex?r">”.</p></li>
+<li><p>The expression <img src="https://latex.codecogs.com/png.latex?%5Cdbinom%7Bn%7D%7Br%7D"> is referred to as the binomial coefficient, where <img src="https://latex.codecogs.com/png.latex?n%20%5Cgeq%20r%20%5Cge%200"> (it is discussed in detail <a href="../../posts/biostats/C04_counting2_prob_th.html#binomcoeff">below</a>).</p></li>
+</ul>
+</section>
+<section id="calculation-in-r" class="level4" data-number="1.1.2">
+<h4 data-number="1.1.2" class="anchored" data-anchor-id="calculation-in-r"><span class="header-section-number">1.1.2</span> Calculation in R</h4>
+<ul>
+<li><p>The number of combinations of unordered <img src="https://latex.codecogs.com/png.latex?r"> objects to be selected (without replacement) from <img src="https://latex.codecogs.com/png.latex?n"> objects can be calculated in <code>R</code> using the <code>choose()</code> function with arguments <code>n</code> and <code>k</code>, where <code>n</code> is the total number of objects and <code>k</code> is the number of objects to be selected.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?_4C_2">.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">choose</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">k =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Example C.4.1 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false"><span style="color: #ba181b">Exercise C.4.1 <iconify-icon inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li>How many different subsets of <img src="https://latex.codecogs.com/png.latex?8"> books that can be selected from a total of <img src="https://latex.codecogs.com/png.latex?15"> books?</li>
+</ul>
+<p><strong>Answer</strong></p>
+<ul>
+<li><p>The selection of the <img src="https://latex.codecogs.com/png.latex?8"> books is an example of a combination without replacement (the order of the selected books does not matter and once a book is selected, it cannot be selected again).</p></li>
+<li><p>The number of combinations is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A_%7B15%7DC_8%20=%20%5Cdbinom%7B15%7D%7B8%7D%20=%20%5Cdisplaystyle%20%5Cfrac%7B15!%7D%7B8!(15-8)!%7D%20=%206,435%0A"></p></li>
+<li><p>This can be calculated in <code>R</code> as follows:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">choose</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">k =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6435</code></pre>
+</div>
+</div></li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<ul>
+<li><p>A school is holding an election to form a student council. The council will consist of <img src="https://latex.codecogs.com/png.latex?6"> members, and there are <img src="https://latex.codecogs.com/png.latex?15"> students applying for the positions. The student can hold only one position on the, <span style="color: #ba181b;">how many different combinations for the student council exist?</span></p></li>
+<li><p>The answer is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;5005&quot;]"> combinations.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="Permutation of indistinguishable objects within distinct groups">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Permutation of indistinguishable objects within distinct groups
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>In the previous section, we discussed the <a href="../../posts/biostats/C03_counting1_prob_th.html#perm_indist">permutation of indistinguishable objects within distinct groups</a> and explained the intuition behind the formula: <img src="https://latex.codecogs.com/png.latex?%0A%20%20%20%20%5Cfrac%7Bn!%7D%7Bn_1!%20%5Ctimes%20n_2!%20%5Ctimes%20%5Cldots%20%5Ctimes%20n_k!%7D%0A%20%20%20%20"></p></li>
+<li><p>Another way to think about the formula is to make use of the concept of combinations.</p></li>
+<li><p>Assume we are interested to find how many unique permutations that can be formed from the letters in the word <strong>BANANA</strong>.</p></li>
+<li><p>There is a total of <img src="https://latex.codecogs.com/png.latex?6"> letters, where the letter <strong>A</strong> appears <img src="https://latex.codecogs.com/png.latex?3"> times, letter <strong>N</strong> appears <img src="https://latex.codecogs.com/png.latex?2"> times, and letter <strong>B</strong> appears <img src="https://latex.codecogs.com/png.latex?1"> time.</p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>Step 1</strong>:</p>
+<ul>
+<li>Assume we start with the <img src="https://latex.codecogs.com/png.latex?3"> <strong>A’s</strong> to fill the available letter slots, where the order of them does not matter. The number of ways to choose <img src="https://latex.codecogs.com/png.latex?3"> slots from <img src="https://latex.codecogs.com/png.latex?6"> slots is <img src="https://latex.codecogs.com/png.latex?_6C_3%20=%20%5Cdbinom%7B6%7D%7B3%7D"> and another <img src="https://latex.codecogs.com/png.latex?3"> slots are still available.</li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>Step 2</strong>:</p>
+<ul>
+<li>Next, we use the <img src="https://latex.codecogs.com/png.latex?2"> <strong>N’s</strong> to fill the <img src="https://latex.codecogs.com/png.latex?3"> remaining slots, then the number of ways to choose <img src="https://latex.codecogs.com/png.latex?2"> slots from <img src="https://latex.codecogs.com/png.latex?3"> slots is <img src="https://latex.codecogs.com/png.latex?_3C_2%20=%20%5Cdbinom%7B3%7D%7B2%7D">.</li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>Step 3</strong>:</p>
+<ul>
+<li>The remaining slot is filled with the letter <strong>B</strong>, then the number of ways to choose <img src="https://latex.codecogs.com/png.latex?1"> slot from <img src="https://latex.codecogs.com/png.latex?1"> slot is <img src="https://latex.codecogs.com/png.latex?_1C_1%20=%20%5Cdbinom%7B1%7D%7B1%7D">.</li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>Step 4</strong>:</p>
+<ul>
+<li><p>Using the multiplication principle to find the total number of unique permutations: <img src="https://latex.codecogs.com/png.latex?%0A%5Cdbinom%7B6%7D%7B3%7D%20%5Ctimes%20%5Cdbinom%7B3%7D%7B2%7D%20%5Ctimes%20%5Cdbinom%7B1%7D%7B1%7D%20=%20%5Cfrac%7B6!%7D%7B3!%20%5Ccdot%5C%20%5Ccancel%7B3!%7D%7D%20%5Ctimes%20%5Cfrac%7B%5Ccancel%7B3!%7D%7D%7B2!%20%5Ccdot%5C%20%5Ccancel%7B1!%7D%7D%20%5Ctimes%20%5Cfrac%7B%5Ccancel%7B1!%7D%7D%7B1!%20%5Ccdot%5C%200!%7D%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B6!%7D%7B3!%20%5Ccdot%202!%20%5Ccdot%201!%7D%0A"></p></li>
+</ul></li>
+<li><p>The above formula is identical to that derived earlier.</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="combinations-with-replacement" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="combinations-with-replacement"><span class="header-section-number">1.2</span> Combinations with replacement</h3>
+<ul>
+<li><p>Suppose we are interested in counting the number of combinations with replacement of <img src="https://latex.codecogs.com/png.latex?5"> letters that can be formed from the letters <img src="https://latex.codecogs.com/png.latex?%5C%7BA,%20B,%20C%5C%7D">.</p></li>
+<li><p>The letters can be selected once, more than once, or not at all to form the <img src="https://latex.codecogs.com/png.latex?5">-letter combinations but the order of letters does not matter.</p></li>
+<li><p>Let’s list all the possible combinations allowing for replacement:</p>
+<div class="grid">
+<div class="g-col-4">
+<p><img src="https://latex.codecogs.com/png.latex?1.%5C%20%20AAAAA"></p>
+<p><img src="https://latex.codecogs.com/png.latex?2.%5C%20%20%20%20AAAAB"></p>
+<p><img src="https://latex.codecogs.com/png.latex?3.%5C%20%20%20%20AAAAC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?4.%5C%20%20%20%20AAABB"></p>
+<p><img src="https://latex.codecogs.com/png.latex?5.%5C%20%20%20%20AAABC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?6.%5C%20%20%20%20AAACC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?7.%5C%20%20%20%20AABBB"></p>
+</div>
+<div class="g-col-4">
+<p><img src="https://latex.codecogs.com/png.latex?8.%5C%20%20%20%20AABBC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?9.%5C%20%20%20%20AABCC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?10.%5C%20%20%20AACCC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?11.%5C%20%20%20ABBBB"></p>
+<p><img src="https://latex.codecogs.com/png.latex?12.%5C%20%20%20ABBBC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?13.%5C%20%20%20ABBCC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?14.%5C%20%20%20ABCCC"></p>
+</div>
+<div class="g-col-4">
+<p><img src="https://latex.codecogs.com/png.latex?15.%5C%20%20%20ACCCC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?16.%5C%20%20%20BBBBB"></p>
+<p><img src="https://latex.codecogs.com/png.latex?17.%5C%20BBBBC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?18.%5C%20%20%20BBBCC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?19.%5C%20%20%20BBCCC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?20.%5C%20BCCCC"></p>
+<p><img src="https://latex.codecogs.com/png.latex?21.%5C%20%20%20CCCCC"></p>
+</div>
+</div></li>
+<li><p>There are <img src="https://latex.codecogs.com/png.latex?21"> possible combinations of <img src="https://latex.codecogs.com/png.latex?5"> letters that can be formed from the letters <img src="https://latex.codecogs.com/png.latex?%5C%7BA,%20B,%20C%5C%7D"> with replacement and without regard to the order.</p></li>
+</ul>
+<section id="formula-1" class="level4" data-number="1.2.1">
+<h4 data-number="1.2.1" class="anchored" data-anchor-id="formula-1"><span class="header-section-number">1.2.1</span> Formula</h4>
+<ul>
+<li><p>To derive a general rule, we will make use of a concept referred to as <strong>stars and bars</strong>.</p></li>
+<li><p>We will consider each letter as a star (<img src="https://latex.codecogs.com/png.latex?%5Cbigstar">) that can be selected once, more than once, or not at all to form the <img src="https://latex.codecogs.com/png.latex?5">-letter combinations. Therefore, we have <img src="https://latex.codecogs.com/png.latex?5"> stars.</p></li>
+<li><p>We will use bars <img src="https://latex.codecogs.com/png.latex?(%7C)"> to separate the stars into three groups corresponding to the three letters <img src="https://latex.codecogs.com/png.latex?%5C%7BA,%20B,%20C%5C%7D">. Therefore, we have <img src="https://latex.codecogs.com/png.latex?2"> bars.</p></li>
+<li><p>For example, the following table shows some of the possible <img src="https://latex.codecogs.com/png.latex?5">-letter combinations and their corresponding stars and bars representation:</p></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Combination</th>
+<th style="text-align: center;">Representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?AAABC"></td>
+<td style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?%5Cbigstar%5Cbigstar%5Cbigstar%20%5Cbig%7C%5Cbigstar%20%5Cbig%7C%5Cbigstar"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?ABBCC"></td>
+<td style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?%5Cbigstar%20%5Cbig%7C%5Cbigstar%5Cbigstar%20%5Cbig%7C%5Cbigstar%5Cbigstar"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?ACCCC"></td>
+<td style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?%5Cbigstar%20%5Cbig%7C%20%5Cquad%20%5Cbig%7C%20%5Cbigstar%5Cbigstar%5Cbigstar%5Cbigstar"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?BBCCC"></td>
+<td style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?%5Cquad%20%5Cbig%7C%20%5Cbigstar%5Cbigstar%20%5Cbig%7C%20%5Cbigstar%5Cbigstar%5Cbigstar"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?CCCCC"></td>
+<td style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?%5Cquad%20%5Cbig%7C%20%5Cquad%20%5Cbig%7C%20%5Cbigstar%5Cbigstar%5Cbigstar%5Cbigstar%5Cbigstar"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>For example:</p>
+<ul>
+<li><p>The combination <img src="https://latex.codecogs.com/png.latex?AAABC"> is represented by <img src="https://latex.codecogs.com/png.latex?3"> stars in the first group, <img src="https://latex.codecogs.com/png.latex?1"> star in the second group, and <img src="https://latex.codecogs.com/png.latex?1"> star in the third group.</p></li>
+<li><p>When a letter is skipped such as in the combination <img src="https://latex.codecogs.com/png.latex?ACCCC">, no star is placed in the corresponding group, so this combination is represented by <img src="https://latex.codecogs.com/png.latex?1"> star in the first group, no stars in the second group, and <img src="https://latex.codecogs.com/png.latex?4"> stars in the third group.</p></li>
+</ul></li>
+<li><p>The common factor between the representations is that the total number of stars is <img src="https://latex.codecogs.com/png.latex?5"> and the total number of bars is <img src="https://latex.codecogs.com/png.latex?2"> resulting in a total of <img src="https://latex.codecogs.com/png.latex?7"> objects.</p></li>
+<li><p>The problem is now reduced to counting the number of ways to choose <img src="https://latex.codecogs.com/png.latex?5"> objects (stars) from a total of <img src="https://latex.codecogs.com/png.latex?7"> objects.</p></li>
+<li><p>If we denote the number of objects to be selected (i.e., stars) as <img src="https://latex.codecogs.com/png.latex?m"> and the number of categories (i.e., letters) as <img src="https://latex.codecogs.com/png.latex?n">, you notice that the total number of objects (i.e., stars and bars) is <img src="https://latex.codecogs.com/png.latex?(n+m-1)">.</p></li>
+<li><p>The number of combinations with replacement is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A_%7Bn+m-1%7DC_m%20=%20%5Cdbinom%7Bn+m-1%7D%7Bm%7D%20=%20%5Cdisplaystyle%20%5Cfrac%7B(n+m-1)!%7D%7Bm!(n-1)!%7D%0A"></p></li>
+<li><p>Alternatively, we can count the number of ways to choose <img src="https://latex.codecogs.com/png.latex?2"> bars from a total of <img src="https://latex.codecogs.com/png.latex?7"> objects, so the number of combinations with replacement can also be calculated as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A_%7Bn+m-1%7DC_%7Bn-1%7D%20=%20%5Cdbinom%7Bn+m-1%7D%7Bn-1%7D%20=%20%5Cdisplaystyle%20%5Cfrac%7B(n+m-1)!%7D%7Bm!(n-1)!%7D%0A"></p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?%5Cdbinom%7Bn+m-1%7D%7Bm%7D%20=%20%5Cdbinom%7Bn+m-1%7D%7Bn-1%7D%20=%20%5Cdisplaystyle%20%5Cfrac%7B(n+m-1)!%7D%7Bm!(n-1)!%7D"></p></li>
+<li><p>This equivalence is due to the symmetry of the binomial coefficient.</p></li>
+<li><p>Other properties of the binomial coefficient are discussed <a href="../../posts/biostats/C04_counting2_prob_th.html#binomcoeffprop">below</a>.</p></li>
+</ul>
+</div>
+</div>
+<ul>
+<li><p>In the example above, <img src="https://latex.codecogs.com/png.latex?m%20=%205"> and <img src="https://latex.codecogs.com/png.latex?n%20=%203">, so the number of combinations with replacement is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cdbinom%7B3+5-1%7D%7B5%7D%20=%20%5Cdbinom%7B3+5-1%7D%7B3-1%7D%20=%20%5Cdisplaystyle%20%5Cfrac%7B(3+5-1)!%7D%7B5!(3-1)!%7D%20=%20%5Cdisplaystyle%20%5Cfrac%7B7!%7D%7B5!%20%5Ccdot%202!%7D%20=%2021.%0A"></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="binomcoeff" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="binomcoeff"><span class="header-section-number">2</span> Binomial Coefficient</h2>
+<ul>
+<li><p>The expression <img src="https://latex.codecogs.com/png.latex?%5Cdbinom%7Bn%7D%7Br%7D"> is referred to as the binomial coefficient because it arises in the expansion of binomial expressions.</p></li>
+<li><p>Let’s try to expand the expression <img src="https://latex.codecogs.com/png.latex?(x+y)%5E3">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A(x+y)%5E3%20=%20%5Cstackrel%7B1%7D%7B%5Cboxed%7B(x+y)%7D%7D%20%5Ccdot%20%5Cstackrel%7B2%7D%7B%5Cboxed%7B(x+y)%7D%7D%20%5Ccdot%20%5Cstackrel%7B3%7D%7B%5Cboxed%7B(x+y)%7D%7D%5C%20=%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ax%5E3%20+%203x%5E2y%20+%203xy%5E2%20+%20y%5E3%0A"></p></li>
+<li><p>To expand the expression, we multiply one term from each of the three boxes, for instance, <img src="https://latex.codecogs.com/png.latex?(x)%20%5Ccdot%20(x)%20%5Ccdot%20(y)"> to get <img src="https://latex.codecogs.com/png.latex?x%5E2y">, <img src="https://latex.codecogs.com/png.latex?(x)%20%5Ccdot%20(y)%20%5Ccdot%20(y)"> to get <img src="https://latex.codecogs.com/png.latex?xy%5E2">, and so forth.</p></li>
+<li><p>As you notice, there are <img src="https://latex.codecogs.com/png.latex?3"> slots to fill with <img src="https://latex.codecogs.com/png.latex?x"> or <img src="https://latex.codecogs.com/png.latex?y"> during each multiplication.</p></li>
+<li><p>When we choose <img src="https://latex.codecogs.com/png.latex?3%5C%20x's"> to multiply, there are no slots left for <img src="https://latex.codecogs.com/png.latex?y's"> and we get <img src="https://latex.codecogs.com/png.latex?x%5E3">. There is only <img src="https://latex.codecogs.com/png.latex?1"> way to choose the <img src="https://latex.codecogs.com/png.latex?3%5C%20x's"> or <img src="https://latex.codecogs.com/png.latex?0%5C%20y's"> from the boxes <img src="https://latex.codecogs.com/png.latex?%5B(x)%20%5Ccdot%20(x)%20%5Ccdot%20(x)%5D">.</p></li>
+<li><p>When we choose <img src="https://latex.codecogs.com/png.latex?2%5C%20x's">, there is only <img src="https://latex.codecogs.com/png.latex?1"> slot left for <img src="https://latex.codecogs.com/png.latex?y's">. We get <img src="https://latex.codecogs.com/png.latex?x%5E2y"> but there are <img src="https://latex.codecogs.com/png.latex?3"> ways to choose the <img src="https://latex.codecogs.com/png.latex?2%5C%20x's"> or <img src="https://latex.codecogs.com/png.latex?1%5C%20y"> from the boxes <img src="https://latex.codecogs.com/png.latex?%5CBig%5B%20%5CBig(%20(x)%20%5Ccdot%20(x)%20%5Ccdot%20(y)%20%5CBig),%20%5CBig(%20(x)%20%5Ccdot%20(y)%20%5Ccdot%20(x)%20%5CBig),%20%5CBig(%20(y)%20%5Ccdot%20(x)%20%5Ccdot%20(x)%20%5CBig)%20%5CBig%5D">resulting in <img src="https://latex.codecogs.com/png.latex?3x%5E2y">.</p></li>
+<li><p>When we choose <img src="https://latex.codecogs.com/png.latex?1%5C%20x">, there are <img src="https://latex.codecogs.com/png.latex?2"> slots left for <img src="https://latex.codecogs.com/png.latex?y's">. We get <img src="https://latex.codecogs.com/png.latex?xy%5E2"> but there are <img src="https://latex.codecogs.com/png.latex?3"> ways to choose the <img src="https://latex.codecogs.com/png.latex?1%5C%20x"> or <img src="https://latex.codecogs.com/png.latex?2%5C%20y's"> from the boxes <img src="https://latex.codecogs.com/png.latex?%5CBig%5B%20%5CBig(%20(x)%20%5Ccdot%20(y)%20%5Ccdot%20(y)%20%5CBig),%20%5CBig(%20(y)%20%5Ccdot%20(x)%20%5Ccdot%20(y)%20%5CBig),%20%5CBig(%20(y)%20%5Ccdot%20(y)%20%5Ccdot%20(x)%20%5CBig)%20%5CBig%5D"> resulting in <img src="https://latex.codecogs.com/png.latex?3xy%5E2">.</p></li>
+<li><p>When we do not choose any <img src="https://latex.codecogs.com/png.latex?x">, there are <img src="https://latex.codecogs.com/png.latex?3"> slots left for <img src="https://latex.codecogs.com/png.latex?y's"> and we get <img src="https://latex.codecogs.com/png.latex?y%5E3">. There is only <img src="https://latex.codecogs.com/png.latex?1"> way to choose the <img src="https://latex.codecogs.com/png.latex?0%5C%20x's"> or <img src="https://latex.codecogs.com/png.latex?3%5C%20y's"> from the boxes <img src="https://latex.codecogs.com/png.latex?%5B(y)%20%5Ccdot%20(y)%20%5Ccdot%20(y)%5D">.</p></li>
+<li><p>To generalize, consider the expansion of the binomial expression <img src="https://latex.codecogs.com/png.latex?(x+y)%5En">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A(x+y)%5En%20=%20%5Cstackrel%7B1%7D%7B%5Cboxed%7B(x+y)%7D%7D%20%5Ccdot%20%5Cstackrel%7B2%7D%7B%5Cboxed%7B(x+y)%7D%7D%20%5Cldots%20%5Cstackrel%7Bn%7D%7B%5Cboxed%7B(x+y)%7D%7D%5C%0A"></p>
+<ul>
+<li><p>There are <img src="https://latex.codecogs.com/png.latex?n"> slots to fill with <img src="https://latex.codecogs.com/png.latex?x"> or <img src="https://latex.codecogs.com/png.latex?y">.</p></li>
+<li><p>Let <img src="https://latex.codecogs.com/png.latex?r"> be the slots be filled with <img src="https://latex.codecogs.com/png.latex?y's">, where <img src="https://latex.codecogs.com/png.latex?r"> can take values from <img src="https://latex.codecogs.com/png.latex?0"> to <img src="https://latex.codecogs.com/png.latex?n">.</p></li>
+<li><p>Then, the slots filled with <img src="https://latex.codecogs.com/png.latex?x's"> will be <img src="https://latex.codecogs.com/png.latex?n-r">.</p></li>
+<li><p>The number of ways to choose <img src="https://latex.codecogs.com/png.latex?r"> slots of <img src="https://latex.codecogs.com/png.latex?y's"> or <img src="https://latex.codecogs.com/png.latex?(n-r)"> slots of <img src="https://latex.codecogs.com/png.latex?x's"> from the boxes is given as <img src="https://latex.codecogs.com/png.latex?%5Cdbinom%7Bn%7D%7Br%7D">.</p></li>
+<li><p>So, for each <img src="https://latex.codecogs.com/png.latex?r"> from <img src="https://latex.codecogs.com/png.latex?0"> to <img src="https://latex.codecogs.com/png.latex?n">, the resulting term in the expansion is <img src="https://latex.codecogs.com/png.latex?%5Cdbinom%7Bn%7D%7Br%7Dx%5E%7B(n-r)%7D%20y%5Er">:</p></li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0A(x+y)%5En%20=%20%5Cdbinom%7Bn%7D%7B0%7Dx%5E%7B(n-0)%7D%20y%5E0%20+%20%5Cdbinom%7Bn%7D%7B1%7Dx%5E%7B(n-1)%7D%20y%5E1%20+%20%5Cldots%20+%20%5Cdbinom%7Bn%7D%7Bn%7Dx%5E%7B(n-n)%7D%20y%5En%20=%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cboxed%7B%5Cdisplaystyle%20%5Csum_%7Br=0%7D%5En%20%5Cdbinom%7Bn%7D%7Br%7Dx%5E%7B(n-r)%7D%20y%5Er%7D%0A"></p></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true">Example C.4.2 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
+<ul>
+<li><span style="color: #ba181b;">Expand the expression <img src="https://latex.codecogs.com/png.latex?(x+y)%5E4">.</span></li>
+</ul>
+<p><strong>Answer</strong></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A(x+y)%5E4%20=%20%5Cdisplaystyle%20%5Csum_%7Br=0%7D%5E4%20%5Cdbinom%7B4%7D%7Br%7Dx%5E%7B(4-r)%7D%20y%5Er%20=%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cdbinom%7B4%7D%7B0%7Dx%5E%7B(4-0)%7D%20y%5E0%20+%20%5Cdbinom%7B4%7D%7B1%7Dx%5E%7B(4-1)%7D%20y%5E1%20+%20%5Cdbinom%7B4%7D%7B2%7Dx%5E%7B(4-2)%7D%20y%5E2%20+%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cdbinom%7B4%7D%7B3%7Dx%5E%7B(4-3)%7D%20y%5E3%20+%20%5Cdbinom%7B4%7D%7B4%7Dx%5E%7B(4-4)%7D%20y%5E4%20=%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ax%5E4+%204x%5E3%20y%20+%206x%5E2%20y%5E2%20+%204x%20y%5E3%20+%20y%5E4%0A"></p>
+</div>
+</div>
+</div>
+<section id="binomcoeffprop" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="binomcoeffprop"><span class="header-section-number">2.1</span> Properties of the binomial coefficient</h3>
+<ul>
+<li><p>The binomial coefficient has the following properties:</p>
+<ol type="1">
+<li><p><img src="https://latex.codecogs.com/png.latex?%5Cdbinom%7Bn%7D%7Br%7D%20=%20%5Cdbinom%7Bn%7D%7Bn-r%7D"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?%5Cdbinom%7Bn%7D%7B0%7D%20=%20%5Cdbinom%7Bn%7D%7Bn%7D%20=%201"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?%5Cdbinom%7Bn%7D%7B1%7D%20=%20%5Cdbinom%7Bn%7D%7Bn-1%7D%20=%20n"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?%5Cdbinom%7Bn%7D%7Br%7D%20=%20%5Cdbinom%7Bn-1%7D%7Br-1%7D%20+%20%5Cdbinom%7Bn-1%7D%7Br%7D"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?%5Cdbinom%7Bn%7D%7Br%7D%20=%20%5Cdisplaystyle%20%5Cprod_%7Bi=1%7D%5Er%20%5Cfrac%7Bn+1-i%7D%7Bi%7D"></p></li>
+</ol></li>
+</ul>
+</section>
+</section>
+<section id="references" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
+<ul>
+<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
+<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
+<li><p>Penn State University. STAT 414: Introduction to Probability Theory. Online Statistics Education. Retrieved December 02, 2024, from <a href="https://online.stat.psu.edu/stat414" class="uri">https://online.stat.psu.edu/stat414</a></p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">4</span> Add your comments</h2>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://www.amrbiostats.com/posts/biostats/C04_counting2_prob_th.html</guid>
+  <pubDate>Mon, 16 Dec 2024 20:00:00 GMT</pubDate>
+  <media:content url="https://www.amrbiostats.com/images/biostats.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Combinatorics 1 - Permutations</title>
+  <link>https://www.amrbiostats.com/posts/biostats/C03_counting1_prob_th.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="background" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="background"><span class="header-section-number">1</span> Background</h2>
+<ul>
+<li><p>In the previous section, we discussed the classical approach to assign probabilities to events, where counting the number of favorable outcomes and the total number of outcomes is crucial.</p></li>
+<li><p>When the number of outcomes is small, counting is straightforward, however, when the number of outcomes is large, counting can be challenging and tedious.</p></li>
+<li><p>Therefore, we use combinatorics to provide a systematic way for counting.</p></li>
+<li><p><strong>Combinatorics</strong> is the branch of mathematics that deals with counting, arranging, and combining objects within finite sets.</p></li>
+</ul>
+</section>
+<section id="motv_ex" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="motv_ex"><span class="header-section-number">2</span> Motivational example</h2>
+<ul>
+<li><p>Suppose that we have a set of <img src="https://latex.codecogs.com/png.latex?4"> colored balls in a box: <img src="https://latex.codecogs.com/png.latex?2"> red <span data-fg="white" data-bg="red" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: red;">red</span> balls <img src="https://latex.codecogs.com/png.latex?(R_1,%20R_2)">, <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="#0171c3" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #0171c3;">blue</span> ball <img src="https://latex.codecogs.com/png.latex?(B)">, and <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="green" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: green;">green</span> ball <img src="https://latex.codecogs.com/png.latex?(G)">.</p></li>
+<li><p>If we want to draw two balls from the box, then in how many different ways can we do this?</p></li>
+<li><p>After drawing the first ball and before drawing the second ball, an important question to ask is whether we should put the first ball back in the box or not:</p>
+<ul>
+<li><p>If we decide to put it back, then it is said that we draw <strong>with replacement</strong> (the ball which is drawn once is available for the next draw).</p></li>
+<li><p>If we decide not to put it back, then it is said that we draw <strong>without replacement</strong> (if a ball is drawn once, it is not available for the next draw).</p></li>
+</ul></li>
+<li><p>If we draw <strong>without replacement</strong>, then there are <img src="https://latex.codecogs.com/png.latex?12"> ways to draw <img src="https://latex.codecogs.com/png.latex?2"> balls as follows:</p>
+<div class="grid">
+<div class="g-col-1">
+
+</div>
+<div class="g-col-2">
+<p><img src="https://latex.codecogs.com/png.latex?1.%5C%20R_1,%20R_2"></p>
+<p><img src="https://latex.codecogs.com/png.latex?2.%5C%20R_1,%20B"></p>
+<p><img src="https://latex.codecogs.com/png.latex?3.%5C%20R_1,%20G"></p>
+<p><img src="https://latex.codecogs.com/png.latex?4.%5C%20R_2,%20R_1"></p>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<p><img src="https://latex.codecogs.com/png.latex?5.%5C%20R_2,%20B"></p>
+<p><img src="https://latex.codecogs.com/png.latex?6.%5C%20R_2,%20G"></p>
+<p><img src="https://latex.codecogs.com/png.latex?7.%5C%20B,%20R_1"></p>
+<p><img src="https://latex.codecogs.com/png.latex?8.%5C%20B,%20R_2"></p>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-2">
+<p><img src="https://latex.codecogs.com/png.latex?9.%5C%20B,%20G"></p>
+<p><img src="https://latex.codecogs.com/png.latex?10.%5C%20G,%20R_1"></p>
+<p><img src="https://latex.codecogs.com/png.latex?11.%5C%20G,%20R_2"></p>
+<p><img src="https://latex.codecogs.com/png.latex?12.%5C%20G,%20B"></p>
+</div>
+</div></li>
+<li><p>A second question to ask is whether the <strong>order</strong> of the balls matters or not:</p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>If the order matters</strong>:</p>
+<ul>
+<li><p>The combination of <img src="https://latex.codecogs.com/png.latex?(G,%20B)">, for example, is different from the combination of <img src="https://latex.codecogs.com/png.latex?(B,%20G)">.</p></li>
+<li><p>Considering the order, there are <img src="https://latex.codecogs.com/png.latex?12"> ways to draw two balls without replacement as shown above.</p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>If the order does not matter</strong>:</p>
+<ul>
+<li><p>The combination of <img src="https://latex.codecogs.com/png.latex?(G,%20B)"> is the same as the combination of <img src="https://latex.codecogs.com/png.latex?(B,%20G)"> as both result in a draw of <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="green" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: green;">green</span> and <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="#0171c3" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #0171c3;">blue</span> ball.</p></li>
+<li><p>Without considering the order, there are only <img src="https://latex.codecogs.com/png.latex?6"> ways to draw two balls without replacement as shown below (distinct combinations are highlighted and listed in the left column, while the duplicates are struck through and listed in the right column):</p>
+<div class="grid">
+<div class="g-col-2">
+
+</div>
+<div class="g-col-3">
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><img src="https://latex.codecogs.com/png.latex?1.%5C%20R_1,%20R_2"></span></p>
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><img src="https://latex.codecogs.com/png.latex?2.%5C%20R_1,%20B"></span></p>
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><img src="https://latex.codecogs.com/png.latex?3.%5C%20R_1,%20G"></span></p>
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><img src="https://latex.codecogs.com/png.latex?4.%5C%20R_2,%20B"></span></p>
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><img src="https://latex.codecogs.com/png.latex?5.%5C%20R_2,%20G"></span></p>
+<p><span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #bde0fe;"><img src="https://latex.codecogs.com/png.latex?6.%5C%20B,%20G"></span></p>
+</div>
+<div class="g-col-2">
+
+</div>
+<div class="g-col-3">
+<p><img src="https://latex.codecogs.com/png.latex?7.%5C%20%5Ccancel%7BR_2,%20R_1%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?8.%5C%20%5Ccancel%7BB,%20R_1%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?9.%5C%20%5Ccancel%7BG,%20R_1%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?10.%5C%20%5Ccancel%7BB,%20R_2%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?11.%5C%20%5Ccancel%7BG,%20R_2%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?12.%20%5Ccancel%7BG,%20B%7D"></p>
+</div>
+</div></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> If the order does not matter and similar items are <strong>indistinguishable</strong>:</p>
+<ul>
+<li><p>This means the two red balls are <strong>indistinguishable</strong> making making the distinction between <img src="https://latex.codecogs.com/png.latex?R_1"> and <img src="https://latex.codecogs.com/png.latex?R_2"> irrelevant.</p></li>
+<li><p>In this case, there are <img src="https://latex.codecogs.com/png.latex?4"> ways to draw the two balls as shown below:</p>
+<div class="grid">
+<div class="g-col-3">
+<p><img src="https://latex.codecogs.com/png.latex?1.%5C%20R,%20R"></p>
+</div>
+<div class="g-col-3">
+<p><img src="https://latex.codecogs.com/png.latex?2.%5C%20R,%20B"></p>
+</div>
+<div class="g-col-3">
+<p><img src="https://latex.codecogs.com/png.latex?3.%5C%20R,%20G"></p>
+</div>
+<div class="g-col-3">
+<p><img src="https://latex.codecogs.com/png.latex?4.%5C%20B,%20G"></p>
+</div>
+</div></li>
+</ul></li>
+<li><p>Therefore, replacement, order, and distinguishability are important factors to be considered when counting the number of ways to arrange objects from a set.</p></li>
+</ul>
+</section>
+<section id="multiplication-principle" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="multiplication-principle"><span class="header-section-number">3</span> Multiplication principle</h2>
+<ul>
+<li><p>Assume that we are performing different random experiments, and each experiment has <img src="https://latex.codecogs.com/png.latex?n_1,%20n_2,%20%5Cldots,%20n_k"> possible outcomes, respectively.</p></li>
+<li><p>The multiplication principle states that the total number of outcomes for the combined experiments is the product of the number of outcomes for each individual experiment:</p></li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BTotal%20number%20of%20outcomes%7D%20=%20n_1%20%5Ctimes%20n_2%20%5Ctimes%20%5Cldots%20%5Ctimes%20n_k%0A"></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Example C.3.1 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li><p>A company requires its employees to create a password for their computer accounts. The password must follow these rules:</p>
+<ul>
+<li><p>It must be exactly <img src="https://latex.codecogs.com/png.latex?8"> characters long.</p></li>
+<li><p>The first character must be a special character (from a set of <img src="https://latex.codecogs.com/png.latex?7"> allowed special characters).</p></li>
+<li><p>The second character must be a digit (from <img src="https://latex.codecogs.com/png.latex?0"> to <img src="https://latex.codecogs.com/png.latex?9">).</p></li>
+<li><p>The remaining <img src="https://latex.codecogs.com/png.latex?6"> characters can be any combination of letters (case-sensitive).</p></li>
+</ul></li>
+</ul>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> How many possible passwords can be created following these rules?</p>
+<ul>
+<li><p><strong>Answer</strong>:</p>
+<ul>
+<li><p>The first character can be selected in <img src="https://latex.codecogs.com/png.latex?7"> ways.</p></li>
+<li><p>The second character can be selected in <img src="https://latex.codecogs.com/png.latex?10"> ways.</p></li>
+<li><p>The remaining <img src="https://latex.codecogs.com/png.latex?6"> characters can be selected in <img src="https://latex.codecogs.com/png.latex?52"> ways each (because the character is case-sensitive, and there are <img src="https://latex.codecogs.com/png.latex?26"> uppercase and <img src="https://latex.codecogs.com/png.latex?26"> lowercase letters in the English alphabet).</p></li>
+<li><p>Therefore, the total number of possible passwords is:</p></li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0A7%20%5Ctimes%2010%20%5Ctimes%2052%20%5Ctimes%2052%20%5Ctimes%2052%20%5Ctimes%2052%20%5Ctimes%2052%20%5Ctimes%2052%20=%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A7%20%5Ctimes%2010%20%5Ctimes%2052%5E6%20=%201,383,942,676,480%0A"></p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="permutations" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="permutations"><span class="header-section-number">4</span> Permutations</h2>
+<ul>
+<li><p>A permutation is an arrangement of objects in a <strong>specific order (i.e., order matters)</strong>.</p></li>
+<li><p>For a set of <img src="https://latex.codecogs.com/png.latex?n"> objects, each <strong>unique arrangement</strong> of <img src="https://latex.codecogs.com/png.latex?r"> objects is called a permutation, where <img src="https://latex.codecogs.com/png.latex?r%20%5Cleq%20n">.</p></li>
+</ul>
+<section id="permutations-of-distinguishable-objects" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="permutations-of-distinguishable-objects"><span class="header-section-number">4.1</span> Permutations of distinguishable objects</h3>
+<section id="without-replacement" class="level4" data-number="4.1.1">
+<h4 data-number="4.1.1" class="anchored" data-anchor-id="without-replacement"><span class="header-section-number">4.1.1</span> Without replacement</h4>
+<ul>
+<li><p>Suppose we have a set of three <strong>distinguishable</strong> balls, <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="red" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: red;">red</span>, <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="#0171c3" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #0171c3;">blue</span>, and <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="green" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: green;">green</span>.</p></li>
+<li><p>We are interested in finding the number of unique permutations (i.e., ordered arrangements) of the three balls without replacement.</p>
+<p><img src="https://www.amrbiostats.com/images/perm_no_repl1.jpg" class="img-fluid" width="481"></p></li>
+<li><p>As shown in the figure, there are <img src="https://latex.codecogs.com/png.latex?6"> unique ways to arrange the three balls.</p></li>
+<li><p>For the first ball, there are <img src="https://latex.codecogs.com/png.latex?3"> available choices.</p></li>
+<li><p>For the second ball, there are <img src="https://latex.codecogs.com/png.latex?2"> choices left (the ball drawn in the first run is not available for the second slot).</p></li>
+<li><p>For the third ball, there is only <img src="https://latex.codecogs.com/png.latex?1"> choice left (the <img src="https://latex.codecogs.com/png.latex?2"> balls drawn in the first and second runs are not available for the third slot).</p></li>
+<li><p>Using the multiplication principle, the total number of unique permutations is calculated by multiplying the number of choices for each slot: <img src="https://latex.codecogs.com/png.latex?3%20%5Ctimes%202%20%5Ctimes%201%20=%206">.</p></li>
+</ul>
+<section id="formula" class="level5" data-number="4.1.1.1">
+<h5 data-number="4.1.1.1" class="anchored" data-anchor-id="formula"><span class="header-section-number">4.1.1.1</span> Formula</h5>
+<ul>
+<li><p>The above rule can be generalized as follows:</p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="emojione-monotone:letter-a" style="font-size: 20px;" aria-label="Icon letter-a from emojione-monotone Iconify.design set." title="Icon letter-a from emojione-monotone Iconify.design set."></iconify-icon></span> When arranging <img src="https://latex.codecogs.com/png.latex?n"> objects without replacement:</p>
+<ul>
+<li><p>The number of unique permutations of <img src="https://latex.codecogs.com/png.latex?n"> distinguishable objects is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0An%20%5Ctimes%20(n-1)%20%5Ctimes%20(n-2)%20%5Ctimes%20%5Cldots%20%5Ctimes%203%20%5Ctimes%202%20%5Ctimes%201%20=%20n!%0A"></p></li>
+<li><p>The term <img src="https://latex.codecogs.com/png.latex?n!"> is read as <img src="https://latex.codecogs.com/png.latex?n"> factorial and is defined as the product of all positive integers from <img src="https://latex.codecogs.com/png.latex?1"> up to <img src="https://latex.codecogs.com/png.latex?n">.</p></li>
+<li><p>This can be written in mathematical notation as:</p></li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0A_nP_n=n%5Ctimes%20(n-1)%5Ctimes%20(n-2)%20%5Ctimes%20%5Cldots%20%5Ctimes%201=n!%0A"></p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?_nP_n"> is read as permutation of <img src="https://latex.codecogs.com/png.latex?n"> objects taken <img src="https://latex.codecogs.com/png.latex?n"> at a time, where the first <img src="https://latex.codecogs.com/png.latex?n"> is the total number of objects and the second <img src="https://latex.codecogs.com/png.latex?n"> is the number of objects to be arranged.</li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="emojione-monotone:letter-b" style="font-size: 20px;" aria-label="Icon letter-b from emojione-monotone Iconify.design set." title="Icon letter-b from emojione-monotone Iconify.design set."></iconify-icon></span> When arranging <img src="https://latex.codecogs.com/png.latex?r"> objects selected from <img src="https://latex.codecogs.com/png.latex?n"> objects without replacement, where <img src="https://latex.codecogs.com/png.latex?r%20%3C%20n">:</p>
+<ul>
+<li><p>The number of unique permutations of <img src="https://latex.codecogs.com/png.latex?r"> distinguishable objects is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0An%20%5Ctimes%20(n-1)%20%5Ctimes%20(n-2)%20%5Ctimes%20%5Cldots%20%5Ctimes%20%5Bn-(r-1)%5D%0A"></p></li>
+<li><p>There are <img src="https://latex.codecogs.com/png.latex?n"> choices for the first selection, <img src="https://latex.codecogs.com/png.latex?(n-1)"> choices for the second selection, and so forth until the last selection that always has <img src="https://latex.codecogs.com/png.latex?%5Bn-(r-1)%5D"> choices left.</p></li>
+<li><p>This can be written in mathematical notation as:</p></li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0A_nP_r=n%5Ctimes%20(n-1)%5Ctimes%20(n-2)%20%5Ctimes%20%5Cldots%20%5Ctimes%20%5Bn-(r-1)%5D%20=%20%5Cfrac%7Bn!%7D%7B(n-r)!%7D%0A"></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="Proof">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="https://latex.codecogs.com/png.latex?n%5Ctimes%20(n-1)%5Ctimes%20(n-2)%20%5Ctimes%20%5Cldots%20%5Ctimes%20%5Bn-(r-1)%5D%20="></p>
+<p><img src="https://latex.codecogs.com/png.latex?n%5Ctimes%20(n-1)%5Ctimes%20(n-2)%20%5Ctimes%20%5Cldots%20%5Ctimes%20(n-r+1)%20%5CxRightarrow%7B%5Ctext%7Bmultiply%20by%7D%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B(n-r)%20%5Ctimes%20(n-r-1)%20%5Ctimes%20%5Cldots%20%5Ctimes%202%20%5Ctimes%201%7D%7B(n-r)%20%5Ctimes%20(n-r-1)%20%5Ctimes%20%5Cldots%20%5Ctimes%202%20%5Ctimes%201%7D%20%5CxRightarrow%7B%5Ctext%7Bthis%20becomes%7D%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bn%5Ctimes%20(n-1)%5Ctimes%20(n-2)%20%5Ctimes%20%5Cldots%20%5Ctimes%20(n-r+1)%20%5Ctimes%20(n-r)%20%5Ctimes%20(n-r-1)%20%5Ctimes%20%5Cldots%20%5Ctimes%202%20%5Ctimes%201%7D%7B(n-r)%20%5Ctimes%20(n-r-1)%20%5Ctimes%20%5Cldots%20%5Ctimes%202%20%5Ctimes%201%7D%5CxRightarrow%7B%5Ctext%7Breduces%20to%7D%7D%5Cdisplaystyle%20%5Cfrac%7Bn!%7D%7B(n-r)!%7D"></p>
+</div>
+</div>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?_nP_r"> is read as permutation of <img src="https://latex.codecogs.com/png.latex?n"> objects taken <img src="https://latex.codecogs.com/png.latex?r"> at a time, where the first <img src="https://latex.codecogs.com/png.latex?n"> is the total number of objects and <img src="https://latex.codecogs.com/png.latex?r"> is the number of objects to be arranged.</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>When <img src="https://latex.codecogs.com/png.latex?r%20=%20n">, the formula <img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cfrac%7Bn!%7D%7B(n-r)!%7D"> reduces to <img src="https://latex.codecogs.com/png.latex?n!">.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?0!%20=%201"> by definition or convention.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="calculation-in-r" class="level5" data-number="4.1.1.2">
+<h5 data-number="4.1.1.2" class="anchored" data-anchor-id="calculation-in-r"><span class="header-section-number">4.1.1.2</span> Calculation in R</h5>
+<ul>
+<li><p>The factorial of a number can be calculated in <code>R</code> using the <code>factorial()</code> function.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?4!">:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factorial</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 24</code></pre>
+</div>
+</div></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?5!">:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factorial</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120</code></pre>
+</div>
+</div></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?0!">:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factorial</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true">Example C.3.2 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
+<p><span style="color: #e63946"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> In how many unique ways can we arrange the letters from <strong>A</strong> to <strong>F</strong> without replacement?</p>
+<p><span style="color: #e63946"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> In how many unique ways can we select <img src="https://latex.codecogs.com/png.latex?4"> letters from <strong>A</strong> to <strong>F</strong> without replacement?</p>
+<p><strong>Answer</strong>:</p>
+<p>There are a total of <img src="https://latex.codecogs.com/png.latex?6"> <strong>distinguishable</strong> letters.</p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> The unique permutations of <img src="https://latex.codecogs.com/png.latex?6"> letters taken <img src="https://latex.codecogs.com/png.latex?6"> at a time is <img src="https://latex.codecogs.com/png.latex?_6P_6%20=%206!%20=%20720"></p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> The unique permutations of <img src="https://latex.codecogs.com/png.latex?6"> letters taken <img src="https://latex.codecogs.com/png.latex?4"> at a time is <img src="https://latex.codecogs.com/png.latex?_6P_4%20=%20%5Cdisplaystyle%20%5Cfrac%7B6!%7D%7B(6-4)!%7D%20=%20360"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="permutations-with-replacement" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="permutations-with-replacement"><span class="header-section-number">4.2</span> Permutations with replacement</h3>
+<ul>
+<li><p>Consider the example of the three balls (<img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="red" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: red;">red</span>, <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="blue" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: blue;">red</span>, and <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="green" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: green;">red</span>) that we discussed above.</p></li>
+<li><p>Now, we want to arrange the three balls but with <strong>replacement</strong>.</p></li>
+<li><p>This means that after each draw, the ball is put back in the box and is available for the next draw.</p></li>
+<li><p>For the first slot, there are <img src="https://latex.codecogs.com/png.latex?3"> choices.</p></li>
+<li><p>For the second slot, there are <img src="https://latex.codecogs.com/png.latex?3"> choices because the first ball is put back in the box and is available for the next draw.</p></li>
+<li><p>For the third slot, there are <img src="https://latex.codecogs.com/png.latex?3"> choices as well.</p></li>
+<li><p>So, the total number of unique permutations with replacement is <img src="https://latex.codecogs.com/png.latex?3%20%5Ctimes%203%20%5Ctimes%203%20=%2027">.</p></li>
+</ul>
+<section id="formula-1" class="level4" data-number="4.2.1">
+<h4 data-number="4.2.1" class="anchored" data-anchor-id="formula-1"><span class="header-section-number">4.2.1</span> Formula</h4>
+<ul>
+<li><p>This can be generalized as follows:</p>
+<ul>
+<li><p>The number of unique permutations of <img src="https://latex.codecogs.com/png.latex?n"> <strong>distinguishable</strong> objects <strong>with replacement</strong> is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0An%5Er%0A"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?n"> is the total number of objects and <img src="https://latex.codecogs.com/png.latex?r"> is the number of objects to be arranged and <img src="https://latex.codecogs.com/png.latex?r%20%5Cleq%20n">.</p></li>
+</ul></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" aria-controls="tabset-3-1" aria-selected="true">Example C.3.3 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" aria-labelledby="tabset-3-1-tab">
+<p><span style="color: #e63946"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> In how many unique ways can you arrange the letters from <strong>A</strong> to <strong>F</strong> with replacement?</p>
+<p><span style="color: #e63946"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> In how many unique ways can you select <img src="https://latex.codecogs.com/png.latex?4"> letters from <strong>A</strong> to <strong>F</strong> with replacement?</p>
+<p><strong>Answer</strong></p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> We can use the formula <img src="https://latex.codecogs.com/png.latex?n%5Er">, where <img src="https://latex.codecogs.com/png.latex?n=6"> and <img src="https://latex.codecogs.com/png.latex?r=6">. So, the number of permutations with replacement is <img src="https://latex.codecogs.com/png.latex?6%5E6%20=%2046,656"></p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> We can use the formula <img src="https://latex.codecogs.com/png.latex?n%5Er">, where <img src="https://latex.codecogs.com/png.latex?n=6"> and <img src="https://latex.codecogs.com/png.latex?r=4">. So, the number of permutations with replacement is <img src="https://latex.codecogs.com/png.latex?6%5E4%20=%201,296"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="perm_indist" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="perm_indist"><span class="header-section-number">4.3</span> Permutations of indistinguishable objects</h3>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="emojione-monotone:letter-a" style="font-size: 20px;" aria-label="Icon letter-a from emojione-monotone Iconify.design set." title="Icon letter-a from emojione-monotone Iconify.design set."></iconify-icon></span> <strong>Single group of indistinguishable objects</strong>:</p>
+<ul>
+<li><p>Suppose we have a set of <img src="https://latex.codecogs.com/png.latex?3"> <strong>indistinguishable</strong> <span data-fg="white" data-bg="red" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: red;">red</span> balls.</p></li>
+<li><p>We are interested in finding the number of ways to arrange the <img src="https://latex.codecogs.com/png.latex?3"> balls.</p>
+<p><img src="https://www.amrbiostats.com/images/perm_no_repl2.jpg" class="img-fluid" width="481"></p></li>
+<li><p>As shown in the figure, there is only <img src="https://latex.codecogs.com/png.latex?1"> way to arrange the three balls because they are indistinguishable and can be swapped without changing the arrangement (i.e., swapping positions does not create any new unique arrangement).</p></li>
+<li><p>There is only <img src="https://latex.codecogs.com/png.latex?1"> way to arrange the three indistinguishable balls regardless the draw is with or without replacement.</p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="emojione-monotone:letter-b" style="font-size: 20px;" aria-label="Icon letter-b from emojione-monotone Iconify.design set." title="Icon letter-b from emojione-monotone Iconify.design set."></iconify-icon></span> <strong>Multiple distinguishable groups with indistinguishable objects</strong>:</p>
+<ul>
+<li><p>There are some scenarios, where we have multiple distinguishable groups but the objects within each group are indistinguishable.</p></li>
+<li><p>For example, we may be interested in finding the number of ordered arrangements (permutations) that can be formed from the letters in the word <strong>STATISTICS</strong>?</p></li>
+<li><p>The word <span style="color: #0171c3;"><strong>STATISTICS</strong></span> has <img src="https://latex.codecogs.com/png.latex?10"> letters, where the letter <u><strong>S</strong></u> appears <img src="https://latex.codecogs.com/png.latex?3"> times, the letter <u><strong>T</strong></u> appears <img src="https://latex.codecogs.com/png.latex?3"> times, the letter <u><strong>I</strong></u> appears <img src="https://latex.codecogs.com/png.latex?2"> times, the letter <u><strong>A</strong></u> appears <img src="https://latex.codecogs.com/png.latex?1"> time, and the letter <u><strong>C</strong></u> appears <img src="https://latex.codecogs.com/png.latex?1"> time (i.e., there are <img src="https://latex.codecogs.com/png.latex?5"> distinct letter groups but the letters within each group are indistinguishable).</p></li>
+<li><p>If all letters were distinct, the number of permutations without replacement would be <img src="https://latex.codecogs.com/png.latex?10!">.</p></li>
+<li><p>However, since some letters are repeated, we need to adjust the number of permutations because swapping the positions of the repeated letters does not create new unique arrangements. For instance, when the <img src="https://latex.codecogs.com/png.latex?3"> <u><strong>S</strong>’s</u> fill positions <img src="https://latex.codecogs.com/png.latex?4">, <img src="https://latex.codecogs.com/png.latex?7">, and <img src="https://latex.codecogs.com/png.latex?9"> in a permutation, it does not matter which <u><strong>S</strong></u> is in which position.</p></li>
+<li><p>This adjustment can be done by dividing the total number of permutations if all letters were distinct by the number of ways the indistinguishable letters can be swapped.</p></li>
+<li><p>For the <img src="https://latex.codecogs.com/png.latex?3"> <u><strong>S</strong>’s</u>, there are <img src="https://latex.codecogs.com/png.latex?3!"> ways to swap them without changing the arrangement, for the letter <u><strong>I</strong></u>, there are <img src="https://latex.codecogs.com/png.latex?2!"> ways to swap them, and so forth.</p></li>
+<li><p>Therefore, the number of unique permutations that can be formed from the letters in the word <span style="color: #0171c3;"><strong>STATISTICS</strong></span> is:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B10!%7D%7B3!%20%5Ctimes%203!%20%5Ctimes%202!%20%5Ctimes%201!%20%5Ctimes%201!%7D%20=%2050,400%0A"></p></li>
+<li><p><strong>Formula</strong>:</p>
+<ul>
+<li><p>To generalize the above rule, assume we have <img src="https://latex.codecogs.com/png.latex?k"> distinct groups of objects, where the groups contain <img src="https://latex.codecogs.com/png.latex?n_1,%20n_2,%20%5Cldots,%20n_k"> indistinguishable objects and the total number of objects <img src="https://latex.codecogs.com/png.latex?n%20=%20n_1%20+%20n_2%20+%20%5Cldots%20+%20n_k">.</p></li>
+<li><p>The number of unique permutations is given as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7Bn!%7D%7Bn_1!%20%5Ctimes%20n_2!%20%5Ctimes%20%5Cldots%20%5Ctimes%20n_k!%7D%0A"></p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>This formula can also be derived using <strong>combinations</strong> that will be discussed in the next section.</li>
+</ul>
+</div>
+</div></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" aria-controls="tabset-4-1" aria-selected="true"><span style="color: #ba181b">Exercise C.3.1 <iconify-icon inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" aria-labelledby="tabset-4-1-tab">
+<p>How many permutations can be formed from the letters in the word <strong>BANANA</strong>?</p>
+<p>The answer is <input class="webex-solveme nospaces" size="2" data-answer="[&quot;60&quot;]"> permutations.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
+<ul>
+<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
+<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
+<li><p>Penn State University. STAT 414: Introduction to Probability Theory. Online Statistics Education. Retrieved December 02, 2024, from <a href="https://online.stat.psu.edu/stat414" class="uri">https://online.stat.psu.edu/stat414</a></p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">6</span> Add your comments</h2>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://www.amrbiostats.com/posts/biostats/C03_counting1_prob_th.html</guid>
+  <pubDate>Sat, 14 Dec 2024 20:00:00 GMT</pubDate>
+  <media:content url="https://www.amrbiostats.com/images/biostats.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Probability Definition - Axioms</title>
+  <link>https://www.amrbiostats.com/posts/biostats/C02_def_prob_th.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="methods-of-assigning-probability" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="methods-of-assigning-probability"><span class="header-section-number">1</span> Methods of assigning probability</h2>
+<ul>
+<li><p>Probability ranges between <img src="https://latex.codecogs.com/png.latex?0"> and <img src="https://latex.codecogs.com/png.latex?1"> and describes how likely an event is to occur.</p></li>
+<li><p>Probability can be assigned to events by different ways:</p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="emojione-monotone:letter-a" style="font-size: 20px;" aria-label="Icon letter-a from emojione-monotone Iconify.design set." title="Icon letter-a from emojione-monotone Iconify.design set."></iconify-icon></span> <strong>Subjective probability</strong>:</p>
+<ul>
+<li><p>This measures how an individual feels or is confident that an event will occur.</p></li>
+<li><p>This is based on personal judgment and experience, not on repeated trials.</p></li>
+<li><p>It is simple but less reliable.</p></li>
+<li><p>For example, a person may feel that the probability of rain today is <img src="https://latex.codecogs.com/png.latex?30%5C%25">.</p></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="emojione-monotone:letter-b" style="font-size: 20px;" aria-label="Icon letter-b from emojione-monotone Iconify.design set." title="Icon letter-b from emojione-monotone Iconify.design set."></iconify-icon></span> <strong>Relative frequency approach</strong>:</p>
+<ul>
+<li><p>This is an objective way that depends on repeating an experiment many times and counting the number of times an event occurs.</p></li>
+<li><p>The probability of an event <img src="https://latex.codecogs.com/png.latex?A%20=%20%5Cdisplaystyle%20%5Cfrac%7Bm%7D%7Bn%7D">, where <img src="https://latex.codecogs.com/png.latex?m"> is the number of times event <img src="https://latex.codecogs.com/png.latex?A"> occurs and <img src="https://latex.codecogs.com/png.latex?n"> is the total number of trials.</p></li>
+<li><p>As the number of the trials <img src="https://latex.codecogs.com/png.latex?n"> increases and tends to infinity, keeping the experimental conditions constant, the probability of the event <img src="https://latex.codecogs.com/png.latex?A"> converges to a limiting value interpreted as the probability of event <img src="https://latex.codecogs.com/png.latex?A">:</p></li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BProbability%20of%7D%5C%20A%20=%20%5Clim_%7Bn%20%5Cto%20%5Cinfty%7D%20%5Cfrac%7Bm%7D%7Bn%7D%0A"></p>
+<ul>
+<li><p>In this context, the relative frequency approach is an approximation or an estimate of the probability of the event.</p></li>
+<li><p>This approach is referred to as a posteriori concept of probability because it is based on empirical data or experimentation (i.e., calculated after the experiment is conducted.)</p></li>
+<li><p>For example, if we toss a fair coin <img src="https://latex.codecogs.com/png.latex?1000"> times and get <img src="https://latex.codecogs.com/png.latex?480"> heads, then the probability of getting a head is <img src="https://latex.codecogs.com/png.latex?%5Clarge%20%5Cfrac%7B480%7D%7B1000%7D%20=%200.48">. When the number of trials increases and <img src="https://latex.codecogs.com/png.latex?n"> tends to infinity, the probability of getting a head will converge to <img src="https://latex.codecogs.com/png.latex?0.5">.</p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A fair coin means that the probability of getting a head is equal to the probability of getting a tail <img src="https://latex.codecogs.com/png.latex?=%200.5">.</li>
+</ul>
+</div>
+</div></li>
+</ul>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="emojione-monotone:letter-c" style="font-size: 20px;" aria-label="Icon letter-c from emojione-monotone Iconify.design set." title="Icon letter-c from emojione-monotone Iconify.design set."></iconify-icon></span> <strong>Classical approach</strong>:</p>
+<ul>
+<li><p>This is based on abstract reasoning and is used when all outcomes are <strong>equally likely</strong>.</p></li>
+<li><p>If an experiment has mutually exclusive and equally likely <img src="https://latex.codecogs.com/png.latex?N"> outcomes or simple events, then the probability of an event <img src="https://latex.codecogs.com/png.latex?A"> is given by:</p></li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BProbability%20of%7D%5C%20A%20=%20%5Cfrac%7BN(A)%7D%7BN(S)%7D%20=%5Cfrac%7B%5Ctext%7BNumber%20of%20elements%20in%7D%5C%20A%7D%7B%5Ctext%7BTotal%20number%20elements%20in%20the%20sample%20space%7D%7D%0A"></p>
+<ul>
+<li><p>This approach is referred to as a priori concept of probability because it is based on theoretical reasoning and not on empirical data or experimentation (i.e., there is no need to conduct an experiment to determine the probability of an event).</p></li>
+<li><p>For example, refer to <a href="../../posts/biostats/C01_intro_prob_th.html#tabset-C11">Example C.1.1</a> in the previous section about rolling a single die:</p>
+<ul>
+<li><p>All the six numbers are equally likely to occur, and the probability of getting any number is <img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cfrac%7B1%7D%7B6%7D">.</p></li>
+<li><p>The probability of getting an even number is equal to the number of elements in the event <img src="https://latex.codecogs.com/png.latex?B%20=%20%5C%7B2,%204,%206%5C%7D"> divided by the total number of elements in the sample space <img src="https://latex.codecogs.com/png.latex?S%20=%20%5C%7B1,%202,%203,%204,%205,%206%5C%7D">:</p></li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BProbability%20of%7D%5C%20B%20=%20%5Cfrac%7BN(B)%7D%7BN(S)%7D%20=%20%5Cfrac%7B3%7D%7B6%7D%20=%200.5%0A"></p>
+<ul>
+<li>The probability of getting a number divisible by <img src="https://latex.codecogs.com/png.latex?3"> is equal to the number of elements in the event <img src="https://latex.codecogs.com/png.latex?D%20=%20%5C%7B3,%206%5C%7D"> divided by the total number of elements in the sample space:</li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BProbability%20of%7D%5C%20D%20=%20%5Cfrac%7BN(D)%7D%7BN(S)%7D%20=%20%5Cfrac%7B2%7D%7B6%7D%20=%20%5Cfrac%7B1%7D%7B3%7D%0A"></p>
+<ul>
+<li><p>The probability of <img src="https://latex.codecogs.com/png.latex?B%20%5Ccap%20D%20=%20%5C%7B6%5C%7D"> is equal to <img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cfrac%7B1%7D%7B6%7D">.</p></li>
+<li><p>As you notice, we do not need to roll the die to determine the probability of these events, rather we can determine them theoretically.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="formal-definition-and-axioms-of-probability" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="formal-definition-and-axioms-of-probability"><span class="header-section-number">2</span> Formal definition and axioms of probability</h2>
+<section id="definition" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">2.1</span> Definition</h3>
+<ul>
+<li><p>The probability is a set function <img src="https://latex.codecogs.com/png.latex?P"> that assigns a number to each event in the sample space.</p></li>
+<li><p>The probability of an event <img src="https://latex.codecogs.com/png.latex?A"> is denoted by <img src="https://latex.codecogs.com/png.latex?P(A)">.</p></li>
+</ul>
+</section>
+<section id="axioms" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="axioms"><span class="header-section-number">2.2</span> Axioms</h3>
+<ul>
+<li><p>Axioms refer to the basic or elementary rules of probability from which all other rules can be derived.</p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>Axiom 1</strong>:</p>
+<ul>
+<li>For an experiment with mutually exclusive outcomes, the probability of an event <img src="https://latex.codecogs.com/png.latex?A"> is a non-negative number (i.e., the probability is greater than or equal to <img src="https://latex.codecogs.com/png.latex?0"> and less than or equal to <img src="https://latex.codecogs.com/png.latex?1">):</li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0A0%20%5Cle%20P(A)%20%5Cle%201%0A"></p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>Axiom 2</strong>:</p>
+<ul>
+<li>The sum of probabilities of all the mutually exclusive outcomes of an experiment is equal to <img src="https://latex.codecogs.com/png.latex?1">, i.e., the probability of the sample space <img src="https://latex.codecogs.com/png.latex?S"> is equal to <img src="https://latex.codecogs.com/png.latex?1">:</li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0AP(A_1)%20+%20P(A_2)%20+%20P(A_3)%20+%20%5Cldots%20+%20P(A_n)%20=%20P(S)%20=%201%0A"></p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> <strong>Axiom 3</strong>:</p>
+<ul>
+<li>For any two mutually exclusive events <img src="https://latex.codecogs.com/png.latex?A_1"> and <img src="https://latex.codecogs.com/png.latex?A_2">, the probability of the union of these events is equal to the sum of the probabilities of the individual events:</li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0AP(A_1%20%5Ccup%20A_2)%20=%20P(A_1)%20+%20P(A_2)%0A"></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>When the events are not mutually exclusive (i.e., they can occur simultaneously), then the probability of their union will be <img src="https://latex.codecogs.com/png.latex?P(A%20%5Ccup%20B)%20=%20P(A)%20+%20P(B)%20-%20P(A%20%5Ccap%20B)">, this is discussed in detail below.</p></li>
+<li><p>The third axiom can be extended to more than two events: <img src="https://latex.codecogs.com/png.latex?P(A_1%20%5Ccup%20A_2%20%5Ccup%20A_3%20%5Ccup%20%5Cldots%20%5Ccup%20A_n)%20=%20P(A_1)%20+%20P(A_2)%20+%20P(A_3)%20+%20%5Cldots%20+%20P(A_n)"></p></li>
+</ul>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="other-probability-rules" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="other-probability-rules"><span class="header-section-number">2.3</span> Other probability rules</h3>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> <img src="https://latex.codecogs.com/png.latex?P(A)%20=%201%20-%20P(A')"></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="Proof">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?P(A%20%5Ccup%20A')%20=%20P(A)%20+%20P(A')%20=%20P(S)%20=%201">, then <img src="https://latex.codecogs.com/png.latex?P(A)%20=%201%20-%20P(A')">.</li>
+</ul>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> <img src="https://latex.codecogs.com/png.latex?P(%5Cemptyset)%20=%200"></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="Proof">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?P(%5Cemptyset)%20=%20P(S')%20=%201%20-%20P(S)%20=%201%20-%201%20=%200">.</li>
+</ul>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> If <img src="https://latex.codecogs.com/png.latex?A%20%5Csubseteq%20B">, then <img src="https://latex.codecogs.com/png.latex?P(A)%20%5Cleq%20P(B)"></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="Proof">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>As shown in the Venn diagram below, <img src="https://latex.codecogs.com/png.latex?B"> is the bigger circle, <img src="https://latex.codecogs.com/png.latex?A"> is the smaller green circle, and <img src="https://latex.codecogs.com/png.latex?A'"> is the blue area, therefore, <img src="https://latex.codecogs.com/png.latex?B%20=%20A%20%5Ccup%20(B%20%5Ccap%20A')">.</p></li>
+<li><p>Then, <img src="https://latex.codecogs.com/png.latex?P(B)%20=%20P(A)%20+%20P(B%20%5Ccap%20A')%20%5Cge%20P(A)">.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/C02_def_prob_th_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> If <img src="https://latex.codecogs.com/png.latex?A"> and <img src="https://latex.codecogs.com/png.latex?B"> are two non-mutually exclusive events, then:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AP(A%20%5Ccup%20B)%20=%20P(A)%20+%20P(B)%20-%20P(A%20%5Ccap%20B)%0A"></p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;" title="Explanation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explanation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Because the union of <img src="https://latex.codecogs.com/png.latex?A"> and <img src="https://latex.codecogs.com/png.latex?B"> contains the elements in <img src="https://latex.codecogs.com/png.latex?A"> <strong>or</strong> <img src="https://latex.codecogs.com/png.latex?B"> <strong>or</strong> both, we count the elements in <img src="https://latex.codecogs.com/png.latex?A"> and <img src="https://latex.codecogs.com/png.latex?B"> and subtract the elements in both groups (i.e., <img src="https://latex.codecogs.com/png.latex?A%20%5Ccap%20B">) to avoid double counting.</li>
+</ul>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Example C.2.1 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false"><span style="color: #ba181b">Exercise C.2.1 <iconify-icon inline="" icon="fluent:chat-bubbles-question-20-filled" style="font-size: 21px;" aria-label="Icon chat-bubbles-question-20-filled from fluent Iconify.design set." title="Icon chat-bubbles-question-20-filled from fluent Iconify.design set."></iconify-icon></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<p>A pharmaceutical company is conducting clinical trials for two new drugs. The company’s research director believes that the probability of the first drug receiving regulatory approval is <img src="https://latex.codecogs.com/png.latex?0.3">, the probability of the second drug receiving regulatory approval is <img src="https://latex.codecogs.com/png.latex?0.7">, and the probability of both drugs receiving regulatory approval is <img src="https://latex.codecogs.com/png.latex?0.2">.</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> What is the probability that the company receives approval for at least one drug?</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> What is the probability that the company receives approval for the first drug but not the second drug?</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> What is the probability that the company receives approval for neither drug?</p>
+<p><span style="color: #ba181b"><iconify-icon inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> What is the probability that the company receives approval for exactly one drug?</p>
+<p><strong>Answer</strong></p>
+<ul>
+<li>Let <img src="https://latex.codecogs.com/png.latex?A"> be the event that the first drug is approved and <img src="https://latex.codecogs.com/png.latex?B"> be the event that the second drug is approved:</li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%0AP(A)%20=%200.3,%20%5Cquad%20P(B)%20=%200.7,%20%5Cquad%20P(A%20%5Ccap%20B)%20=%200.2%0A"></p>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:1-circle-fill" style="font-size: 20px;" aria-label="Icon 1-circle-fill from bi Iconify.design set." title="Icon 1-circle-fill from bi Iconify.design set."></iconify-icon></span> The probability that the company receives approval for at least one drug means either the first drug is approved or the second drug is approved or both are approved (i.e., <img src="https://latex.codecogs.com/png.latex?A%20%5Ccup%20B">):</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AP(A%20%5Ccup%20B)%20=%20P(A)%20+%20P(B)%20-%20P(A%20%5Ccap%20B)%20=%200.3%20+%200.7%20-%200.2%20=%200.8%0A"></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/C02_def_prob_th_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:2-circle-fill" style="font-size: 20px;" aria-label="Icon 2-circle-fill from bi Iconify.design set." title="Icon 2-circle-fill from bi Iconify.design set."></iconify-icon></span> The probability that the company receives approval for the first drug but not the second drug means the first drug is approved and the second drug is not approved (<img src="https://latex.codecogs.com/png.latex?A%20%5Csetminus%20B">):</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AP(A%20%5Csetminus%20B)%20=%20P(A%20%5Ccap%20B')%20=%20P(A)%20-%20P(A%20%5Ccap%20B)%20=%200.3%20-%200.2%20=%200.1%0A"></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/C02_def_prob_th_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:3-circle-fill" style="font-size: 20px;" aria-label="Icon 3-circle-fill from bi Iconify.design set." title="Icon 3-circle-fill from bi Iconify.design set."></iconify-icon></span> The probability that the company receives approval for neither drug means neither the first drug nor the second drug is approved [i.e., <img src="https://latex.codecogs.com/png.latex?(A%20%5Ccup%20B)'">]:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AP%5B(A%20%5Ccup%20B)'%5D%20=%201%20-%20P(A%20%5Ccup%20B)%20=%201%20-%200.8%20=%200.2%0A"></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/C02_def_prob_th_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span style="color: dodgerblue"><iconify-icon inline="" icon="bi:4-circle-fill" style="font-size: 20px;" aria-label="Icon 4-circle-fill from bi Iconify.design set." title="Icon 4-circle-fill from bi Iconify.design set."></iconify-icon></span> The probability that the company receives approval for exactly one drug means either the first drug is approved and the second drug is not approved or the first drug is not approved and the second drug is approved (i.e., <img src="https://latex.codecogs.com/png.latex?A%20%5Csetminus%20B"> or <img src="https://latex.codecogs.com/png.latex?B%20%5Csetminus%20A">):</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AP%5B(A%20%5Csetminus%20B)%20%5Ccup%20(B%20%5Csetminus%20A)%5D%20=%20%5BP(A)%20-%20P(A%20%5Ccap%20B)%5D%20+%20%5BP(B)%20-%20P(A%20%5Ccap%20B)%5D%20=%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AP(A)%20+%20P(B)%20-%202P(A%20%5Ccap%20B)%20=%20P(A%20%5Ccup%20B)%20-%20P(A%20%5Ccap%20B)%20=%200.8%20-%200.2%20=%200.6%0A"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<ul>
+<li>In a survey of a population, the proportion of people who use smartphones is <img src="https://latex.codecogs.com/png.latex?0.65">, the proportion of people who use laptops is <img src="https://latex.codecogs.com/png.latex?0.50">, and the proportion of people who use both is <img src="https://latex.codecogs.com/png.latex?0.30">. What proportion of the population uses neither smartphones nor laptops?</li>
+</ul>
+<p>The answer is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.15&quot;]"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="references" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
+<ul>
+<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
+<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
+<li><p>Penn State University. STAT 414: Introduction to Probability Theory. Online Statistics Education. Retrieved December 02, 2024, from <a href="https://online.stat.psu.edu/stat414" class="uri">https://online.stat.psu.edu/stat414</a></p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">4</span> Add your comments</h2>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://www.amrbiostats.com/posts/biostats/C02_def_prob_th.html</guid>
+  <pubDate>Mon, 09 Dec 2024 20:00:00 GMT</pubDate>
+  <media:content url="https://www.amrbiostats.com/images/biostats.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Basic Concepts</title>
+  <link>https://www.amrbiostats.com/posts/biostats/C01_intro_prob_th.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="sample-space" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="sample-space"><span class="header-section-number">1</span> Sample Space</h2>
+<ul>
+<li>When we perform a random experiment, the set of all possible outcomes is called the sample space and is denoted by <img src="https://latex.codecogs.com/png.latex?S"> or <img src="https://latex.codecogs.com/png.latex?%5COmega">.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A random experiment is an experiment that can be repeated many times under the same conditions and its outcome is uncertain (can be known only after the experiment is performed).</li>
+</ul>
+</div>
+</div>
+<ul>
+<li><p>Example 1:</p>
+<ul>
+<li><p>Let’s assume that we are interested in answering the question “Are customers satisfied with the quality of a product?”:</p>
+<ul>
+<li><p>We can select a random sample of customers and ask them about their satisfaction (satisfied or not satisfied).</p></li>
+<li><p>The sample space: <img src="https://latex.codecogs.com/png.latex?S%20=%20%5C%7B%5Ctext%7Bsatisfied,%20not%20satisfied%7D%5C%7D"></p></li>
+</ul></li>
+</ul></li>
+<li><p>Example 2:</p>
+<ul>
+<li><p>Let’s assume that we are interested in answering the question “How many days you go shopping per week?”:</p>
+<ul>
+<li><p>We can select a random sample of people and ask them about the number of days they go shopping per week.</p></li>
+<li><p>The sample space: <img src="https://latex.codecogs.com/png.latex?S%20=%20%5C%7B0,%201,%202,%203,%204,%205,%206,%207%5C%7D"></p></li>
+</ul></li>
+</ul></li>
+<li><p>The sample space can be finite, countably infinite, or infinite.</p>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>A countably infinite set contains infinite elements, however, its elements can be put in one-to-one correspondence with the set of natural numbers <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BN%7D"> (positive integers: <img src="https://latex.codecogs.com/png.latex?%7B1,%202,%203,%20%5Cldots%7D">)</p></li>
+<li><p>This simply means the elements can be listed sequentially using the natural numbers without skipping any element.</p></li>
+<li><p>For example the set of integers <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BZ%7D%20=%20%5C%7B%5Cldots,%20-3,%20-2,%20-1,%200,%201,%202,%203,%20%5Cldots%5C%7D"> is a countably infinite set:</p>
+<ul>
+<li>It has infinite elements that can be listed sequentially using the natural numbers: <img src="https://latex.codecogs.com/png.latex?1%20%5Crightarrow%200,%202%20%5Crightarrow%201,%203%20%5Crightarrow%20-1,%204%20%5Crightarrow%202,%205%20%5Crightarrow%20-2,%206%20%5Crightarrow%203,%20%5Cldots">.</li>
+</ul></li>
+</ul>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="events" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="events"><span class="header-section-number">2</span> Events</h2>
+<ul>
+<li><p>An event is a subset of the sample space <img src="https://latex.codecogs.com/png.latex?S"> and is denoted by uppercase letters <img src="https://latex.codecogs.com/png.latex?A,%20B,%20C,%20%5Cldots">.</p></li>
+<li><p>For an event <img src="https://latex.codecogs.com/png.latex?A"> that belongs to the sample space <img src="https://latex.codecogs.com/png.latex?S">, we write <img src="https://latex.codecogs.com/png.latex?A%20%5Csubseteq%20S">.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?S"> is considered an event as it contains all the possible outcomes (because <img src="https://latex.codecogs.com/png.latex?S"> will always occur it is referred to as a <strong>certain</strong> or <strong>sure</strong> event).</p></li>
+<li><p>The empty or null set <img src="https://latex.codecogs.com/png.latex?%5Cemptyset%20=%20%5C%7B%5C%7D"> is also considered an event (this event will never occur and is referred to as an <strong>impossible</strong> event).</p></li>
+<li><p>The event that contains a single possible outcome of the random experiment is referred to as a <strong>simple event</strong> or an <strong>elementary event</strong>.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%5Ec%20=%20A'%20=%20%5Cbar%7BA%7D"> is known as the <strong>complement</strong> of <img src="https://latex.codecogs.com/png.latex?A"> and contains the elements that are in <img src="https://latex.codecogs.com/png.latex?S"> but not in <img src="https://latex.codecogs.com/png.latex?A">.</p></li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Example C.1.1 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<div id="tabset-C11" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tabset figure">
+<div aria-describedby="tabset-C11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Assume a dice is rolled and we are interested in the number that appears on the top face:</p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tabset quarto-uncaptioned" id="tabset-C11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Example C.1.1
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>The sample space (sure event): <img src="https://latex.codecogs.com/png.latex?S%20=%20%5C%7B1,%202,%203,%204,%205,%206%5C%7D">.</p></li>
+<li><p>The event of getting a particular number (e.g., <img src="https://latex.codecogs.com/png.latex?3">) is an elementary event: <img src="https://latex.codecogs.com/png.latex?A%20=%20%5C%7B3%5C%7D"> (<img src="https://latex.codecogs.com/png.latex?A%20%5Csubset%20S">).</p></li>
+<li><p>The event of getting an even number: <img src="https://latex.codecogs.com/png.latex?B%20=%20%5C%7B2,%204,%206%5C%7D"> (<img src="https://latex.codecogs.com/png.latex?B%20%5Csubset%20S">).</p></li>
+<li><p>The event of getting an odd number: <img src="https://latex.codecogs.com/png.latex?C%20=%20%5C%7B1,%203,%205%5C%7D"> (<img src="https://latex.codecogs.com/png.latex?C%20%5Csubset%20S">).</p></li>
+<li><p>The event of getting a number divisible by <img src="https://latex.codecogs.com/png.latex?3">: <img src="https://latex.codecogs.com/png.latex?D%20=%20%5C%7B3,%206%5C%7D"> (<img src="https://latex.codecogs.com/png.latex?D%20%5Csubset%20S">).</p></li>
+<li><p>The event of getting a negative number: <img src="https://latex.codecogs.com/png.latex?E%20=%20%5Cemptyset"> (<img src="https://latex.codecogs.com/png.latex?E%20%5Csubset%20S">), is an impossible event.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="some-properties-of-sets-and-events" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="some-properties-of-sets-and-events"><span class="header-section-number">3</span> Some properties of sets and events</h2>
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%20%5Ccup%20B"> is known as the <strong>union</strong> of <img src="https://latex.codecogs.com/png.latex?A"> and <img src="https://latex.codecogs.com/png.latex?B"> and contains the elements that are in <img src="https://latex.codecogs.com/png.latex?A"> <strong>or</strong> <img src="https://latex.codecogs.com/png.latex?B"> <strong>or</strong> both (green-shaded).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(venn)</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">venn</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">zcolor =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lightgreen"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">opacity =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sncs =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.5</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/C01_intro_prob_th_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%20%5Ccap%20B"> is known as the <strong>intersection</strong> of <img src="https://latex.codecogs.com/png.latex?A"> and <img src="https://latex.codecogs.com/png.latex?B"> and contains the elements that are in both <img src="https://latex.codecogs.com/png.latex?A"> <strong>and</strong> <img src="https://latex.codecogs.com/png.latex?B"> (blue-shaded).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(venn)</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">venn</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1-, 11, -1"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">zcolor =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"white, dodgerblue, white"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sncs =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.5</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/C01_intro_prob_th_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p>If <img src="https://latex.codecogs.com/png.latex?A%20%5Ccap%20B%20=%20%5Cemptyset">, then <img src="https://latex.codecogs.com/png.latex?A"> and <img src="https://latex.codecogs.com/png.latex?B"> are said to be <strong>mutually exclusive</strong> or <strong>disjoint</strong> events.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/C01_intro_prob_th_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p>The events <img src="https://latex.codecogs.com/png.latex?A_1,%20A_2,%20%5Cldots,%20A_n"> are mutually or pairwise disjoint, if <img src="https://latex.codecogs.com/png.latex?A_i%20%5Ccap%20A_j%20=%20%5Cemptyset"> for <img src="https://latex.codecogs.com/png.latex?i%20%5Cne%20j%20=%201,%202,%20%5Cldots,%20n">.</p></li>
+<li><p>If the events <img src="https://latex.codecogs.com/png.latex?A_1,%20A_2,%20%5Cldots,%20A_n"> are pairwise disjoint and <img src="https://latex.codecogs.com/png.latex?A_1%20%5Ccup%20A_2%20%5Cldots%20%5Ccup%20A_n%20=%20S">, then the events are said to be mutually exclusive (i.e., no element belongs to more than one event) and exhaustive (the events together cover the entire sample space) events.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?A'"> (complement of <img src="https://latex.codecogs.com/png.latex?A">) contains the elements that are in <img src="https://latex.codecogs.com/png.latex?S"> (green-shaded) but not in <img src="https://latex.codecogs.com/png.latex?A"> (blue-shaded). It is also described as the difference between <img src="https://latex.codecogs.com/png.latex?S"> and <img src="https://latex.codecogs.com/png.latex?A">, which is denoted by <img src="https://latex.codecogs.com/png.latex?S%20%5Csetminus%20A">.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/C01_intro_prob_th_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%20%5Csetminus%20B%20=%20A%20-%20B"> is known as the <strong>difference</strong> between <img src="https://latex.codecogs.com/png.latex?A"> and <img src="https://latex.codecogs.com/png.latex?B"> and contains the elements that are in <img src="https://latex.codecogs.com/png.latex?A"> <strong>but not</strong> in <img src="https://latex.codecogs.com/png.latex?B"> (blue-shaded area).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.amrbiostats.com/posts/biostats/C01_intro_prob_th_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+<div class="grid">
+<div class="g-col-4">
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%20%5Ccup%20A%20=%20A">.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%20%5Ccap%20A%20=%20A">.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%20%5Ccup%20S%20=%20S">.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%20%5Ccap%20S%20=%20A">.</p></li>
+</ul>
+</div>
+<div class="g-col-4">
+
+</div>
+<div class="g-col-4">
+<ul>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%20%5Ccup%20%5Cemptyset%20=%20A">.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%20%5Ccap%20%5Cemptyset%20=%20%5Cemptyset">.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%20%5Ccup%20A'%20=%20S">.</p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?A%20%5Ccap%20A'%20=%20%5Cemptyset">.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" style="color: #0466c8;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>The figures used above to visualize the set operations are called Venn diagrams.</p></li>
+<li><p>Each set is represented by a circle, and the overlap between the circles represents the intersection between the sets.</p></li>
+</ul>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true">Example C.1.2 <iconify-icon inline="" icon="ic:round-menu-book" style="font-size: 21px;" aria-label="Icon round-menu-book from ic Iconify.design set." title="Icon round-menu-book from ic Iconify.design set."></iconify-icon></a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
+<ul>
+<li><p>In Example C.1.1, we defined different events based on the outcomes of rolling a dice.</p></li>
+<li><p>Let’s define some new events to apply the set operations:</p>
+<ul>
+<li><p>The event of getting an even number <strong>or</strong> divisible by <img src="https://latex.codecogs.com/png.latex?3"> is the union of the events <img src="https://latex.codecogs.com/png.latex?B%20=%20%5C%7B2,4,6%5C%7D"> and <img src="https://latex.codecogs.com/png.latex?D%20=%20%5C%7B3,6%5C%7D">: <img src="https://latex.codecogs.com/png.latex?B%20%5Ccup%20D%20=%20%5C%7B2,3,4,6%5C%7D">.</p></li>
+<li><p>The event of getting an even number <strong>and</strong> divisible by <img src="https://latex.codecogs.com/png.latex?3"> is the intersection of the events <img src="https://latex.codecogs.com/png.latex?B%20=%20%5C%7B2,4,6%5C%7D"> and <img src="https://latex.codecogs.com/png.latex?D%20=%20%5C%7B3,6%5C%7D">: <img src="https://latex.codecogs.com/png.latex?B%20%5Ccap%20D%20=%20%5C%7B6%5C%7D">.</p></li>
+<li><p>The event of getting an even number not divisible by <img src="https://latex.codecogs.com/png.latex?3"> is the difference between the events <img src="https://latex.codecogs.com/png.latex?B%20=%20%5C%7B2,4,6%5C%7D"> and <img src="https://latex.codecogs.com/png.latex?D%20=%20%5C%7B3,6%5C%7D">: <img src="https://latex.codecogs.com/png.latex?B%20%5Csetminus%20D%20=%20%5C%7B2,4%5C%7D">.</p></li>
+<li><p>The event of getting an odd number is the complement of the event of getting an even number <img src="https://latex.codecogs.com/png.latex?B%20=%20%5C%7B2,4,6%5C%7D">: <img src="https://latex.codecogs.com/png.latex?B'%20=%20%5C%7B1,3,5%5C%7D">.</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
+<ul>
+<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
+<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
+<li><p>Penn State University. STAT 414: Introduction to Probability Theory. Online Statistics Education. Retrieved December 02, 2024, from <a href="https://online.stat.psu.edu/stat414" class="uri">https://online.stat.psu.edu/stat414</a></p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">5</span> Add your comments</h2>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://www.amrbiostats.com/posts/biostats/C01_intro_prob_th.html</guid>
+  <pubDate>Sun, 01 Dec 2024 20:00:00 GMT</pubDate>
+  <media:content url="https://www.amrbiostats.com/images/biostats.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Describing the shape of distribution</title>
   <link>https://www.amrbiostats.com/posts/biostats/B08_distrib_shape_stats.html</link>
@@ -518,11 +1956,24 @@ Note
 <li><p>Therefore, it is more informative to report the mean <img src="https://latex.codecogs.com/png.latex?(59.60)"> (<i class="bi bi-circle-fill" style="color: orange;"></i>) and standard deviation <img src="https://latex.codecogs.com/png.latex?(5.68)"> for Group <img src="https://latex.codecogs.com/png.latex?A"> and the mean <img src="https://latex.codecogs.com/png.latex?(89.54)"> (<i class="bi bi-circle-fill" style="color: #7209b7;"></i>) and standard deviation <img src="https://latex.codecogs.com/png.latex?(5.68)"> for Group B separately, given the distribution within each group is approximately symmetric.</p></li>
 </ul></li>
 </ul>
+</section>
+</section>
+</section>
+</section>
+<section id="references" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="references"><span class="header-section-number">2</span> References</h2>
+<ul>
+<li><p>Daniel, W. W. and Cross, C. L. (2013). Biostatistics: A Foundation for Analysis in the Health Sciences, Tenth edition. Wiley</p></li>
+<li><p>Heumann, C., Schomaker, M., and Shalabh (2022). Introduction to Statistics and Data Analysis: With Exercises, Solutions and Applications in R. Springer</p></li>
+<li><p>Hoffman, J. (2019). Basic Biostatistics for Medical and Biomedical Practitioners, Second Edition. Academic Press</p></li>
+<li><p>Lane, D. M. et al., (2019). Introduction to Statistics. Online Edition. Retrieved September 14, 2024, from https://openstax.org/details/introduction-statistics</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="add-your-comments" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="add-your-comments"><span class="header-section-number">3</span> Add your comments</h2>
 
 
-</section>
-</section>
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>

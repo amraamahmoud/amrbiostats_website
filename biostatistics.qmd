@@ -22,7 +22,18 @@ listing:
     sort-ui: true
     feed: true
     image-height: 70%
-    fields: [title, subtitle, reading-time, date, image]  
+    fields: [title, subtitle, reading-time, date, image]
+  - id: probability
+    contents: "/posts/biostats/*prob_th.qmd"
+    type: grid
+    sort: "date"
+    categories: false
+    grid-columns: 4
+    filter-ui: true
+    sort-ui: true
+    feed: true
+    image-height: 70%
+    fields: [title, subtitle, reading-time, date, image]    
 format: 
   html: 
     page-layout: full
@@ -39,4 +50,9 @@ format:
 ## Descriptive Statistics
 
 ::: {#desc_stats}
+:::
+
+## Probability Theory
+
+::: {#probability}
 :::

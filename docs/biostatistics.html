@@ -125,6 +125,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-probability .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-subtitle','listing-reading-time','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-probability'] = new List('listing-probability', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
@@ -323,6 +351,47 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./posts/biostats/B09_selection_measures_stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to choose the right summary measures</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Probability Theory</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/biostats/C01_intro_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic Concepts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/biostats/C02_def_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Definition - Axioms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/biostats/C03_counting1_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Combinatorics 1 - Permutations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/biostats/C04_counting2_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Combinatorics 2 - Combinations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/biostats/C05_counting3_prob_th.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Examples</span></a>
   </div>
 </li>
       </ul>
@@ -619,7 +688,7 @@ Nov 10, 2024
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-listing-date-sort="1731614400000" data-listing-file-modified-sort="1734277622245" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2724">
+<div class="g-col-1" data-index="7" data-listing-date-sort="1731614400000" data-listing-file-modified-sort="1737201454000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2724">
 <a href="./posts/biostats/B08_distrib_shape_stats.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -641,7 +710,7 @@ Nov 15, 2024
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="8" data-listing-date-sort="1731614400000" data-listing-file-modified-sort="1734933346302" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3389">
+<div class="g-col-1" data-index="8" data-listing-date-sort="1731614400000" data-listing-file-modified-sort="1735015871157" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3468">
 <a href="./posts/biostats/B09_selection_measures_stats.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -652,11 +721,153 @@ Nov 15, 2024
 How to choose the right summary measures
 </h5>
 <div class="listing-reading-time card-text text-muted">
-17 min
+18 min
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
 Nov 15, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="probability-theory" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="probability-theory"><span class="header-section-number">3</span> Probability Theory</h2>
+<div id="listing-probability" class="quarto-listing quarto-listing-container-grid">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-probability-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-probability'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list grid quarto-listing-cols-4">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1733083200000" data-listing-file-modified-sort="1737623663396" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688">
+<a href="./posts/biostats/C01_intro_prob_th.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Basic Concepts
+</h5>
+<div class="listing-reading-time card-text text-muted">
+9 min
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Dec 2, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1733774400000" data-listing-file-modified-sort="1737624489650" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2585">
+<a href="./posts/biostats/C02_def_prob_th.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Probability Definition - Axioms
+</h5>
+<div class="listing-reading-time card-text text-muted">
+13 min
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Dec 10, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1734206400000" data-listing-file-modified-sort="1737626406436" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3076">
+<a href="./posts/biostats/C03_counting1_prob_th.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Combinatorics 1 - Permutations
+</h5>
+<div class="listing-reading-time card-text text-muted">
+16 min
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Dec 15, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1734379200000" data-listing-file-modified-sort="1737643804429" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2347">
+<a href="./posts/biostats/C04_counting2_prob_th.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Combinatorics 2 - Combinations
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Dec 17, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-date-sort="1734638400000" data-listing-file-modified-sort="1737644867014" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1268">
+<a href="./posts/biostats/C05_counting3_prob_th.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/biostats.jpg" class="thumbnail-image card-img" style="height: 70%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Probability Examples
+</h5>
+<div class="listing-reading-time card-text text-muted">
+7 min
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Dec 20, 2024
 </div>
 </div>
 </div>
