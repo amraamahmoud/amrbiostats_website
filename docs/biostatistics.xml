@@ -518,7 +518,7 @@ Note
 <section id="motv_ex" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="motv_ex"><span class="header-section-number">2</span> Motivational example</h2>
 <ul>
-<li><p>Suppose that we have a set of <img src="https://latex.codecogs.com/png.latex?4"> colored balls in a box: <img src="https://latex.codecogs.com/png.latex?2"> red <span data-fg="white" data-bg="red" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: red;">red</span> balls <img src="https://latex.codecogs.com/png.latex?(R_1,%20R_2)">, <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="#0171c3" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #0171c3;">blue</span> ball <img src="https://latex.codecogs.com/png.latex?(B)">, and <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="green" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: green;">green</span> ball <img src="https://latex.codecogs.com/png.latex?(G)">.</p></li>
+<li><p>Suppose that we have a set of <img src="https://latex.codecogs.com/png.latex?4"> colored balls in a box: <img src="https://latex.codecogs.com/png.latex?2"> <span data-fg="white" data-bg="red" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: red;">red</span> balls <img src="https://latex.codecogs.com/png.latex?(R_1,%20R_2)">, <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="#0171c3" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #0171c3;">blue</span> ball <img src="https://latex.codecogs.com/png.latex?(B)">, and <img src="https://latex.codecogs.com/png.latex?1"> <span data-fg="white" data-bg="green" style="color: white;border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: green;">green</span> ball <img src="https://latex.codecogs.com/png.latex?(G)">.</p></li>
 <li><p>If we want to draw two balls from the box, then in how many different ways can we do this?</p></li>
 <li><p>After drawing the first ball and before drawing the second ball, an important question to ask is whether we should put the first ball back in the box or not:</p>
 <ul>
@@ -805,7 +805,7 @@ font-style: inherit;">0</span>)</span></code></pre></div>
 <section id="formula-1" class="level4" data-number="4.2.1">
 <h4 data-number="4.2.1" class="anchored" data-anchor-id="formula-1"><span class="header-section-number">4.2.1</span> Formula</h4>
 <ul>
-<li><p>This can be generalized as follows:</p>
+<li><p>This rule can be generalized as follows:</p>
 <ul>
 <li><p>The number of unique permutations of <img src="https://latex.codecogs.com/png.latex?n"> <strong>distinguishable</strong> objects <strong>with replacement</strong> is given as:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0An%5Er%0A"></p></li>
