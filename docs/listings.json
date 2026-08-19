@@ -16,12 +16,6 @@
     ]
   },
   {
-    "listing": "/courses.html",
-    "items": [
-      "/posts/courses/r4beginners.html"
-    ]
-  },
-  {
     "listing": "/biostatistics.html",
     "items": [
       "/posts/biostats/A01_intro.html",
@@ -44,7 +38,9 @@
     ]
   },
   {
-    "listing": "/maths_refresher 2.html",
-    "items": []
+    "listing": "/courses.html",
+    "items": [
+      "/posts/courses/r4beginners.html"
+    ]
   }
 ]
