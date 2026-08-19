@@ -1,5 +1,21 @@
 [
   {
+    "listing": "/maths_refresher.html",
+    "items": [
+      "/posts/maths_refresher/001_math_operations.html",
+      "/posts/maths_refresher/002_simplify_brackets.html",
+      "/posts/maths_refresher/003_factorization.html",
+      "/posts/maths_refresher/004_surd_indices.html",
+      "/posts/maths_refresher/005_summation.html",
+      "/posts/maths_refresher/006_product.html",
+      "/posts/maths_refresher/007_logs_and_exp.html",
+      "/posts/maths_refresher/008_matrices.html",
+      "/posts/maths_refresher/009_limits.html",
+      "/posts/maths_refresher/010_derivatives.html",
+      "/posts/maths_refresher/011_integrals.html"
+    ]
+  },
+  {
     "listing": "/courses.html",
     "items": [
       "/posts/courses/r4beginners.html"
@@ -28,7 +44,7 @@
     ]
   },
   {
-    "listing": "/maths_refresher.html",
+    "listing": "/maths_refresher 2.html",
     "items": [
       "/posts/maths_refresher/001_math_operations.html",
       "/posts/maths_refresher/002_simplify_brackets.html",

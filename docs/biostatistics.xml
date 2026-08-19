@@ -5935,8 +5935,8 @@ font-style: inherit;">FALSE</span></span>
 <span id="cb13-24">)</span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-d958f552b44ca1578ebc" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d958f552b44ca1578ebc">{"x":{"filter":"none","vertical":false,"data":[[1.3,2.1,3.5,4.1,5.2],[2,3,1,4,2],[0.1666666666666667,0.25,0.08333333333333333,0.3333333333333333,0.1666666666666667]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Value<\/th>\n      <th>Frequency<\/th>\n      <th>Weight<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Value","targets":0},{"name":"Frequency","targets":1},{"name":"Weight","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-04488983b35ba875f8aa" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-04488983b35ba875f8aa">{"x":{"filter":"none","vertical":false,"data":[[1.3,2.1,3.5,4.1,5.2],[2,3,1,4,2],[0.1666666666666667,0.25,0.08333333333333333,0.3333333333333333,0.1666666666666667]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Value<\/th>\n      <th>Frequency<\/th>\n      <th>Weight<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Value","targets":0},{"name":"Frequency","targets":1},{"name":"Weight","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p><br></p>
@@ -6912,8 +6912,8 @@ font-style: inherit;">FALSE</span></span>
 <span id="cb62-22">)</span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-d61f69c2f8f3f822b975" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d61f69c2f8f3f822b975">{"x":{"filter":"none","vertical":false,"data":[[5,9,10,22,13,50],[0.69897,0.95424,1,1.34242,1.11394,1.69897]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Original<\/th>\n      <th>Log10_transformed<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Original","targets":0},{"name":"Log10_transformed","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-d45e1fa0671d9be028a8" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d45e1fa0671d9be028a8">{"x":{"filter":"none","vertical":false,"data":[[5,9,10,22,13,50],[0.69897,0.95424,1,1.34242,1.11394,1.69897]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Original<\/th>\n      <th>Log10_transformed<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Original","targets":0},{"name":"Log10_transformed","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -8080,8 +8080,8 @@ Table&nbsp;1: Frequency distribution of the mpg variable
 </figcaption>
 <div aria-describedby="tbl-mpg-freq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-d35829c3d8acb9ebfbc5" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d35829c3d8acb9ebfbc5">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","Total"],["6","12","8","2","4","32"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-453d26747a802d408f39" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-453d26747a802d408f39">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","Total"],["6","12","8","2","4","32"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </figure>
@@ -8438,8 +8438,8 @@ Table&nbsp;2: Cumulative frequency distribution of the mpg variable
 </figcaption>
 <div aria-describedby="tbl-mpg-cum-freq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-bcff67ee14fbb4130937" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-bcff67ee14fbb4130937">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","Total"],["6","12","8","2","4","32"],["6","18","26","28","32",null],["0.1875","0.375","0.25","0.0625","0.125","1"],["0.1875","0.5625","0.8125","0.875","1",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Cumulative Frequency<\/th>\n      <th>Relative Frequency<\/th>\n      <th>Cumulative Relative Frequency<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 5, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 5, 3, \",\", \".\", null);\n  }"},{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"cum_freq_1","targets":2},{"name":"rel_freq_1","targets":3},{"name":"cum_rel_freq_1","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':value == 1 ? \"skyblue\" : null});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':value == 1 ? \"skyblue\" : null});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-6b59d79608762051ff94" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-6b59d79608762051ff94">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","Total"],["6","12","8","2","4","32"],["6","18","26","28","32",null],["0.1875","0.375","0.25","0.0625","0.125","1"],["0.1875","0.5625","0.8125","0.875","1",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Cumulative Frequency<\/th>\n      <th>Relative Frequency<\/th>\n      <th>Cumulative Relative Frequency<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 5, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 5, 3, \",\", \".\", null);\n  }"},{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"cum_freq_1","targets":2},{"name":"rel_freq_1","targets":3},{"name":"cum_rel_freq_1","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':$.inArray(dataIndex + 1, [3]) >= 0 ? \"lightgreen\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':value == 1 ? \"skyblue\" : null});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':value == 1 ? \"skyblue\" : null});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 </figure>
@@ -8529,8 +8529,8 @@ font-style: inherit;">"_all"</span></span>
 <span id="cb21-22">   )</span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-9f22f7d859f3fd8fe72d" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-9f22f7d859f3fd8fe72d">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","&lt;NA&gt;","Total"],[6,12,8,2,4,0,32],[18.75,37.5,25,6.25,12.5,null,100],[18.75,56.25,81.25,87.5,100,null,100],[18.75,37.5,25,6.25,12.5,0,100],[18.75,56.25,81.25,87.5,100,100,100]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Freq<\/th>\n      <th>% Valid<\/th>\n      <th>% Valid Cum.<\/th>\n      <th>% Total<\/th>\n      <th>% Total Cum.<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Freq","targets":1},{"name":"% Valid","targets":2},{"name":"% Valid Cum.","targets":3},{"name":"% Total","targets":4},{"name":"% Total Cum.","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-bc63765b6f6f6f60d7c1" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-bc63765b6f6f6f60d7c1">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","&lt;NA&gt;","Total"],[6,12,8,2,4,0,32],[18.75,37.5,25,6.25,12.5,null,100],[18.75,56.25,81.25,87.5,100,null,100],[18.75,37.5,25,6.25,12.5,0,100],[18.75,56.25,81.25,87.5,100,100,100]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Freq<\/th>\n      <th>% Valid<\/th>\n      <th>% Valid Cum.<\/th>\n      <th>% Total<\/th>\n      <th>% Total Cum.<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Freq","targets":1},{"name":"% Valid","targets":2},{"name":"% Valid Cum.","targets":3},{"name":"% Total","targets":4},{"name":"% Total Cum.","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div></li>
 </ul>
@@ -9380,8 +9380,8 @@ font-style: inherit;">FALSE</span></span>
 <span id="cb30-49">)</span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-e4ee1e68a15232b79ec6" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-e4ee1e68a15232b79ec6">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]"],[6,12,8,2,4],[12.5,17.5,22.5,27.5,32.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Midpoints<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"midpoints","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-43ec4268ccb3d426c111" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-43ec4268ccb3d426c111">{"x":{"filter":"none","vertical":false,"data":[["[10,15]","(15,20]","(20,25]","(25,30]","(30,35]"],[6,12,8,2,4],[12.5,17.5,22.5,27.5,32.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Midpoints<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"midpoints","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div></li>
 <li><div style="margin-top: 1rem; margin-bottom: 1rem">
@@ -9499,8 +9499,8 @@ font-style: inherit;">FALSE</span></span>
 <span id="cb31-27">      )</span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-1ac57074755b22156076" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-1ac57074755b22156076">{"x":{"filter":"none","vertical":false,"data":[["[5, 10)","[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","(35, 40]"],["0","6","12","8","2","4","0"],[7.5,12.5,17.5,22.5,27.5,32.5,37.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Midpoints<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"midpoints","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-12f568430e2881890846" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-12f568430e2881890846">{"x":{"filter":"none","vertical":false,"data":[["[5, 10)","[10,15]","(15,20]","(20,25]","(25,30]","(30,35]","(35, 40]"],["0","6","12","8","2","4","0"],[7.5,12.5,17.5,22.5,27.5,32.5,37.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Class Interval<\/th>\n      <th>Frequency<\/th>\n      <th>Midpoints<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"mpg_class","targets":0},{"name":"Freq","targets":1},{"name":"midpoints","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div></li>
 <li><div style="margin-top: 1rem; margin-bottom: 1rem">
@@ -11236,23 +11236,23 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
 <span id="cb15-9">)</span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
-<div id="cckgzrttsh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cckgzrttsh table {
+<div id="ljsvtxtolq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ljsvtxtolq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cckgzrttsh thead, #cckgzrttsh tbody, #cckgzrttsh tfoot, #cckgzrttsh tr, #cckgzrttsh td, #cckgzrttsh th {
+#ljsvtxtolq thead, #ljsvtxtolq tbody, #ljsvtxtolq tfoot, #ljsvtxtolq tr, #ljsvtxtolq td, #ljsvtxtolq th {
   border-style: none;
 }
 
-#cckgzrttsh p {
+#ljsvtxtolq p {
   margin: 0;
   padding: 0;
 }
 
-#cckgzrttsh .gt_table {
+#ljsvtxtolq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -11278,12 +11278,12 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-left-color: #D3D3D3;
 }
 
-#cckgzrttsh .gt_caption {
+#ljsvtxtolq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cckgzrttsh .gt_title {
+#ljsvtxtolq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -11295,7 +11295,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-width: 0;
 }
 
-#cckgzrttsh .gt_subtitle {
+#ljsvtxtolq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -11307,7 +11307,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-top-width: 0;
 }
 
-#cckgzrttsh .gt_heading {
+#ljsvtxtolq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -11319,13 +11319,13 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#cckgzrttsh .gt_bottom_border {
+#ljsvtxtolq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cckgzrttsh .gt_col_headings {
+#ljsvtxtolq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -11340,7 +11340,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#cckgzrttsh .gt_col_heading {
+#ljsvtxtolq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -11360,7 +11360,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   overflow-x: hidden;
 }
 
-#cckgzrttsh .gt_column_spanner_outer {
+#ljsvtxtolq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -11372,15 +11372,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 4px;
 }
 
-#cckgzrttsh .gt_column_spanner_outer:first-child {
+#ljsvtxtolq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cckgzrttsh .gt_column_spanner_outer:last-child {
+#ljsvtxtolq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cckgzrttsh .gt_column_spanner {
+#ljsvtxtolq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -11392,11 +11392,11 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   width: 100%;
 }
 
-#cckgzrttsh .gt_spanner_row {
+#ljsvtxtolq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cckgzrttsh .gt_group_heading {
+#ljsvtxtolq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -11422,7 +11422,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   text-align: left;
 }
 
-#cckgzrttsh .gt_empty_group_heading {
+#ljsvtxtolq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -11437,15 +11437,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   vertical-align: middle;
 }
 
-#cckgzrttsh .gt_from_md > :first-child {
+#ljsvtxtolq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cckgzrttsh .gt_from_md > :last-child {
+#ljsvtxtolq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cckgzrttsh .gt_row {
+#ljsvtxtolq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -11464,7 +11464,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   overflow-x: hidden;
 }
 
-#cckgzrttsh .gt_stub {
+#ljsvtxtolq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -11477,7 +11477,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#cckgzrttsh .gt_stub_row_group {
+#ljsvtxtolq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -11491,15 +11491,15 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   vertical-align: top;
 }
 
-#cckgzrttsh .gt_row_group_first td {
+#ljsvtxtolq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cckgzrttsh .gt_row_group_first th {
+#ljsvtxtolq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cckgzrttsh .gt_summary_row {
+#ljsvtxtolq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -11509,16 +11509,16 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#cckgzrttsh .gt_first_summary_row {
+#ljsvtxtolq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cckgzrttsh .gt_first_summary_row.thick {
+#ljsvtxtolq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cckgzrttsh .gt_last_summary_row {
+#ljsvtxtolq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -11528,7 +11528,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#cckgzrttsh .gt_grand_summary_row {
+#ljsvtxtolq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -11538,7 +11538,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#cckgzrttsh .gt_first_grand_summary_row {
+#ljsvtxtolq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -11548,7 +11548,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-top-color: #D3D3D3;
 }
 
-#cckgzrttsh .gt_last_grand_summary_row_top {
+#ljsvtxtolq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -11558,11 +11558,11 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#cckgzrttsh .gt_striped {
+#ljsvtxtolq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cckgzrttsh .gt_table_body {
+#ljsvtxtolq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -11571,7 +11571,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-bottom-color: #D3D3D3;
 }
 
-#cckgzrttsh .gt_footnotes {
+#ljsvtxtolq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -11585,7 +11585,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#cckgzrttsh .gt_footnote {
+#ljsvtxtolq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -11594,7 +11594,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#cckgzrttsh .gt_sourcenotes {
+#ljsvtxtolq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -11608,7 +11608,7 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   border-right-color: #D3D3D3;
 }
 
-#cckgzrttsh .gt_sourcenote {
+#ljsvtxtolq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -11616,72 +11616,72 @@ font-style: inherit;"># set the number of digits, 0 for frequency and 1 for rela
   padding-right: 5px;
 }
 
-#cckgzrttsh .gt_left {
+#ljsvtxtolq .gt_left {
   text-align: left;
 }
 
-#cckgzrttsh .gt_center {
+#ljsvtxtolq .gt_center {
   text-align: center;
 }
 
-#cckgzrttsh .gt_right {
+#ljsvtxtolq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cckgzrttsh .gt_font_normal {
+#ljsvtxtolq .gt_font_normal {
   font-weight: normal;
 }
 
-#cckgzrttsh .gt_font_bold {
+#ljsvtxtolq .gt_font_bold {
   font-weight: bold;
 }
 
-#cckgzrttsh .gt_font_italic {
+#ljsvtxtolq .gt_font_italic {
   font-style: italic;
 }
 
-#cckgzrttsh .gt_super {
+#ljsvtxtolq .gt_super {
   font-size: 65%;
 }
 
-#cckgzrttsh .gt_footnote_marks {
+#ljsvtxtolq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cckgzrttsh .gt_asterisk {
+#ljsvtxtolq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cckgzrttsh .gt_indent_1 {
+#ljsvtxtolq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cckgzrttsh .gt_indent_2 {
+#ljsvtxtolq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cckgzrttsh .gt_indent_3 {
+#ljsvtxtolq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cckgzrttsh .gt_indent_4 {
+#ljsvtxtolq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cckgzrttsh .gt_indent_5 {
+#ljsvtxtolq .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cckgzrttsh .katex-display {
+#ljsvtxtolq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cckgzrttsh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ljsvtxtolq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

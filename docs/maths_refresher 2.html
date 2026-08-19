@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Courses – AMRBiostats</title>
+<title>Maths Refresher – AMRBiostats</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -75,20 +75,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-r4beginners .list');
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-reading-time','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-r4beginners'] = new List('listing-r4beginners', options);
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -135,9 +135,12 @@ window.Quarto = {
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
-<meta property="og:title" content="AMRBiostats: Learn Biostatistics &amp; R Programming">
-<meta property="og:image" content="https://www.amrbiostats.com/images/opengraph1.jpg">
+<link rel="alternate" type="application/rss+xml" title="AMRBiostats" href="maths_refresher 2.xml" data-external="1"><meta property="og:title" content="AMRBiostats: Learn Biostatistics &amp; R Programming">
+<meta property="og:image" content="https://www.amrbiostats.com/images/math-operation.png">
 <meta property="og:site_name" content="AMRBiostats">
+<meta property="og:image:alt" content="Colorful arithmetic operation symbols">
+<meta property="og:image:height" content="222">
+<meta property="og:image:width" content="800">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -184,7 +187,7 @@ window.Quarto = {
 <span class="menu-text">Biostatistics <iconify-icon role="img" inline="" icon="uis:graph-bar" style="font-size: 20px;" aria-label="Icon graph-bar from uis Iconify.design set." title="Icon graph-bar from uis Iconify.design set."></iconify-icon></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./courses.html" aria-current="page"> 
+    <a class="nav-link" href="./courses.html"> 
 <span class="menu-text">Courses <iconify-icon role="img" inline="" icon="hugeicons:course" style="font-size: 24px;" aria-label="Icon course from hugeicons Iconify.design set." title="Icon course from hugeicons Iconify.design set."></iconify-icon></span></a>
   </li>  
 </ul>
@@ -198,13 +201,15 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
 <main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Courses</h1>
+<h1 class="title">Maths Refresher</h1>
 </div>
 
 
@@ -221,16 +226,404 @@ window.Quarto = {
 </header>
 
 
+<style>
+
+.quarto-title-block.default .quarto-title .title {
+    margin-bottom: 3px !important;
+    display: none;
+}
+
+.amr-maths-hero {
+  --amr-maths-blue: #0466c8;
+  --amr-maths-blue-deep: #033c73;
+  --amr-maths-muted: #5f6f8b;
+  --amr-maths-line: #dce9f8;
+  --amr-maths-soft: #f4f8ff;
+  --amr-maths-card: #ffffff;
+  --amr-maths-shadow: 0 18px 42px rgba(2, 73, 171, 0.1);
+  --amr-maths-copy-width: 68ch;
+  display: grid;
+  place-items: center;
+  width: min(90%, 1040px);
+  margin: 0 auto 34px;
+  padding: 34px 38px 36px;
+  border: 1px solid var(--amr-maths-line);
+  border-radius: 24px;
+  background:
+    radial-gradient(560px 300px at 90% -15%, rgba(4, 102, 200, 0.13), transparent 70%),
+    linear-gradient(180deg, var(--amr-maths-card), var(--amr-maths-soft));
+  box-shadow: var(--amr-maths-shadow);
+  overflow: hidden;
+  text-align: center;
+}
+
+.amr-maths-hero * {
+  box-sizing: border-box;
+}
+
+.amr-maths-inner {
+  width: min(100%, 960px);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.amr-maths-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-inline: auto;
+  margin-bottom: 14px;
+  padding: 6px 14px;
+  border: 1px solid var(--amr-maths-line);
+  border-radius: 999px;
+  color: var(--amr-maths-blue-deep);
+  background: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.amr-maths-hero h2 {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 0;
+  border-bottom: 0 !important;
+  color: var(--amr-maths-blue);
+  font-size: clamp(2rem, 4vw, 3.55rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.amr-maths-hero h2::after {
+  content: "";
+  display: block;
+  width: min(100%, var(--amr-maths-copy-width));
+  height: 1px;
+  margin: 20px auto 0;
+  background: var(--amr-maths-line);
+  font-size: 1rem;
+}
+
+.amr-maths-hero h2 .anchorjs-link {
+  display: none !important;
+}
+
+.amr-maths-hero .amr-maths-subtitle {
+  margin: 12px auto 0;
+  color: #172033;
+  font-size: clamp(1.08rem, 1.7vw, 1.34rem);
+  font-weight: 750;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.amr-maths-copy {
+  max-width: var(--amr-maths-copy-width);
+  margin-inline: auto;
+  text-align: justify;
+}
+
+.amr-maths-copy p {
+  margin: 14px 0 0;
+  color: var(--amr-maths-muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.amr-maths-points {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding-left: 1.2rem;
+  color: var(--amr-maths-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+  text-align: justify;
+}
+
+.amr-maths-points li::marker {
+  color: var(--amr-maths-muted);
+}
+
+
+
+@media (max-width: 980px) {
+  .amr-maths-hero {
+    padding: 30px 24px;
+  }
+
+  .amr-maths-copy {
+    text-align: left;
+  }
+}
+
+@media (max-width: 520px) {
+  .amr-maths-hero {
+    padding: 26px 18px;
+    border-radius: 20px;
+  }
+
+  .amr-maths-hero h2 {
+    font-size: clamp(1.85rem, 12vw, 2.45rem);
+  }
+}
+</style>
+
+<section class="amr-maths-hero" aria-labelledby="maths-refresher-intro">
+  <div class="amr-maths-inner">
+    <div class="amr-maths-eyebrow">START WITH THE FOUNDATIONS</div>
+    <h2 id="maths-refresher-intro" class="anchored">Maths Refresher</h2>
+    <div class="amr-maths-subtitle">Refresh some mathematical concepts behind biostatistics</div>
+    <div class="amr-maths-copy">
+      <ul class="amr-maths-points">
+        <li>This section is a practical bridge between the mathematics you learned before and biostatistics. It is not a full mathematics course; it simply refreshes the concepts you'll need to follow statistical methods confidently.</li>
+        <li>Use the lesson cards below to jump straight into the topic you want to revisit.</li>
+      </ul>
+      
+    </div>
+  </div>
+</section>
+<hr>
 
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-r4beginners">
-<div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1787154638404" data-listing-reading-time-sort="8" data-listing-word-count-sort="1555">
-<a href="./posts/courses/r4beginners.html" class="quarto-grid-link">
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list grid quarto-listing-cols-4">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1723147200000" data-listing-file-modified-sort="1781169650000" data-listing-date-modified-sort="1780776000000" data-listing-reading-time-sort="4" data-listing-word-count-sort="741">
+<a href="./posts/maths_refresher/001_math_operations.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="images/r4beginners_1.png" alt="R for Beginners with Amr Mahmoud" style="height: 100%;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top">
+<img loading="lazy" src="./images/math-operation.png" class="thumbnail-image card-img" style="height: 100%;" alt="Colorful arithmetic operation symbols">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Mathematical Operations
+</h5>
+<div class="listing-reading-time card-text text-muted">4 min</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 9, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1723233600000" data-listing-file-modified-sort="1781075946000" data-listing-date-modified-sort="1780776000000" data-listing-reading-time-sort="5" data-listing-word-count-sort="842">
+<a href="./posts/maths_refresher/002_simplify_brackets.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/brackets.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Simplifying Algebraic Expressions
+</h5>
+<div class="listing-reading-time card-text text-muted">5 min</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 10, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1723492800000" data-listing-file-modified-sort="1781076377000" data-listing-date-modified-sort="1780862400000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1341">
+<a href="./posts/maths_refresher/003_factorization.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/factorization.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Factorization
+</h5>
+<div class="listing-reading-time card-text text-muted">7 min</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 13, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1723579200000" data-listing-file-modified-sort="1781081291000" data-listing-date-modified-sort="1780948800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="547">
+<a href="./posts/maths_refresher/004_surd_indices.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/surds.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Surds and Indices
+</h5>
+<div class="listing-reading-time card-text text-muted">3 min</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 14, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-date-sort="1723752000000" data-listing-file-modified-sort="1781164544000" data-listing-date-modified-sort="1780948800000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1111">
+<a href="./posts/maths_refresher/005_summation.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/summation.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Summation Notation
+</h5>
+<div class="listing-reading-time card-text text-muted">6 min</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 16, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="5" data-listing-date-sort="1724011200000" data-listing-file-modified-sort="1737526497000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="527">
+<a href="./posts/maths_refresher/006_product.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/product.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Product Notation
+</h5>
+<div class="listing-reading-time card-text text-muted">3 min</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 19, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="6" data-listing-date-sort="1724443200000" data-listing-file-modified-sort="1732595912000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1091">
+<a href="./posts/maths_refresher/007_logs_and_exp.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/logarithm.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Exponential and Logarithmic Functions
+</h5>
+<div class="listing-reading-time card-text text-muted">6 min</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 24, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="7" data-listing-date-sort="1724788800000" data-listing-file-modified-sort="1732595913000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3802">
+<a href="./posts/maths_refresher/008_matrices.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/matrix.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Matrices
+</h5>
+<div class="listing-reading-time card-text text-muted">20 min</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 28, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="8" data-listing-date-sort="1725134400000" data-listing-file-modified-sort="1732595913000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2191">
+<a href="./posts/maths_refresher/009_limits.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/limits.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Limits
+</h5>
+<div class="listing-reading-time card-text text-muted">11 min</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Sep 1, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="9" data-listing-date-sort="1725307200000" data-listing-file-modified-sort="1732595913000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3419">
+<a href="./posts/maths_refresher/010_derivatives.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/derivative.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Differentiation
+</h5>
+<div class="listing-reading-time card-text text-muted">18 min</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Sep 3, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="10" data-listing-date-sort="1725480000000" data-listing-file-modified-sort="1734260839000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2394">
+<a href="./posts/maths_refresher/011_integrals.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/integral.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Integration
+</h5>
+<div class="listing-reading-time card-text text-muted">12 min</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Sep 5, 2024
+</div>
+</div>
+</div>
 </div></a>
 </div>
 </div>
