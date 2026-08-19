@@ -7,11 +7,11 @@ website:
     giscus:
       repo: amraamahmoud/amrbiostats_website
   open-graph:
-    title: "AMRBiostats"
+    title: "AMRBiostats: Learn Biostatistics & R Programming"
   title: "AMRBiostats"
   image: /images/opengraph1.jpg
   site-url: https://www.amrbiostats.com
-  description: "A reliable resource for biostatistics and R programming"
+  description: "A reliable resource for biostatistics & R programming"
   favicon: /images/fav.png
   search:
     location: navbar
@@ -32,10 +32,12 @@ website:
     - text: Contact {{< iconify mdi:email-arrow-right size=23px >}}
       href: mailto:consultation@amrbiostats.com
     right:
-      - text: Maths Refresher {{< iconify hugeicons:calculate size=24px >}} 
+      - text: Maths Refresher {{< iconify hugeicons:calculate size=24px >}}
         href: maths_refresher.qmd
       - text: Biostatistics {{< iconify uis:graph-bar size=20px >}}
         href: biostatistics.qmd
+      - text: Courses {{< iconify hugeicons:course size=24px >}}
+        href: courses.qmd
     background: info
     foreground: light
   sidebar:
@@ -58,6 +60,7 @@ website:
             - section: "Probability Theory"
               contents:
                 - auto: "posts/biostats/*prob_th.qmd"
+    
   page-footer:
     border: true
     left:
@@ -88,6 +91,6 @@ format:
     include-after-body: include/webex.js
     number-sections: true
     number-depth: 5
-editor: visual
+editor: source
 execute:
   freeze: true

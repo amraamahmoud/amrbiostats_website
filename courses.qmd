@@ -1,0 +1,23 @@
+---
+title: "Courses"
+listing: 
+  - id: r4beginners
+    contents: "/posts/courses/r4beginners.qmd"
+    type: grid
+    categories: false
+    grid-columns: 2
+    filter-ui: false
+    sort-ui: false
+    feed: false
+    image-height: 100%
+    fields: [image]  
+format: 
+  html: 
+    page-layout: full
+    title-block-banner: false
+    comments: false
+    toc: false
+---
+
+
+

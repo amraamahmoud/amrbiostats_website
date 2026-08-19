@@ -1,7 +1,397 @@
 ---
-title: Page Not Found
+title: ""
+pagetitle: "404 - Page Not Found | AMRBiostats"
+description: "The requested AMRBiostats page could not be found."
+format:
+  html:
+    page-layout: full
+    toc: false
+    sidebar: false
+    comments: false
+    grid:
+      body-width: 1260px
+      margin-width: 0px
+      sidebar-width: 0px
+      gutter-width: 0rem
 ---
 
-The page you requested cannot be found (perhaps it was moved or renamed).
+```{=html}
+<main class="amr-404" aria-labelledby="amr-404-title">
+  <div class="amr-404-glow amr-404-glow-one" aria-hidden="true"></div>
+  <div class="amr-404-glow amr-404-glow-two" aria-hidden="true"></div>
 
-You may want to try searching to find the page's new location.
+  <div class="amr-404-shell">
+    <div class="amr-404-copy">
+      <p class="amr-404-kicker"><span></span> Diagnostic alert</p>
+      <h1 id="amr-404-title">
+        <span class="amr-404-title-top">Page Not Found</span>
+        <span class="amr-404-title-bottom">This Page Escaped the Dataset.</span>
+      </h1>
+      <p class="amr-404-lead">
+        We could not locate the page you requested. It may have moved, been
+        renamed, or no longer be available.
+      </p>
+
+      <div class="amr-404-console" aria-live="polite">
+        <div class="amr-404-console-top">
+          <span></span><span></span><span></span>
+          <code>diagnostic.R</code>
+        </div>
+        <code id="amr-404-diagnostic">&gt; locate(page)<br><b>Error:</b> object 'page' not found</code>
+      </div>
+
+      <div class="amr-404-actions">
+        <a class="amr-404-button amr-404-button-primary" href="/">
+          Return to home
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="amr-404-visual" aria-label="Animated scatterplot showing that page 404 was not found">
+      <div class="amr-404-chart-head">
+        <div>
+          <span>Model diagnostic</span>
+          <strong>Page location analysis</strong>
+        </div>
+        <span class="amr-404-status"><i></i> anomaly detected</span>
+      </div>
+
+      <div class="amr-404-plot">
+        <span class="amr-404-axis amr-404-axis-y">relevance</span>
+        <span class="amr-404-axis amr-404-axis-x">location</span>
+        <div class="amr-404-grid" aria-hidden="true"></div>
+        <div class="amr-404-line" aria-hidden="true"></div>
+        <span class="amr-404-dot dot-1"></span>
+        <span class="amr-404-dot dot-2"></span>
+        <span class="amr-404-dot dot-3"></span>
+        <span class="amr-404-dot dot-4"></span>
+        <span class="amr-404-dot dot-5"></span>
+        <span class="amr-404-dot dot-6"></span>
+        <span class="amr-404-dot dot-7"></span>
+        <div class="amr-404-missing">
+          <span>404</span>
+          <small>not found</small>
+        </div>
+      </div>
+
+      <div class="amr-404-metrics">
+        <div><span>Pages scanned</span><strong>404</strong></div>
+        <div><span>Pages found</span><strong>403</strong></div>
+        <div><span>Missingness</span><strong>0.25%</strong></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<style>
+.amr-404 {
+  --ink: #082647;
+  --blue: #0466c8;
+  --deep: #033c73;
+  --cyan: #19b8d1;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  min-height: calc(100vh - 190px);
+  overflow: hidden;
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem);
+  border-radius: clamp(12px, 1.6vw, 24px);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 18%, rgba(25,184,209,.13), transparent 28%),
+    radial-gradient(circle at 88% 82%, rgba(4,102,200,.12), transparent 30%),
+    linear-gradient(145deg, #f8fcff 0%, #eef7ff 50%, #f9fbff 100%);
+}
+
+.amr-404-glow {
+  position: absolute;
+  z-index: -1;
+  width: 28rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(4px);
+  opacity: .45;
+  background: repeating-radial-gradient(circle, transparent 0 21px, rgba(4,102,200,.09) 22px 23px);
+  animation: amr404Spin 24s linear infinite;
+}
+.amr-404-glow-one { top: -15rem; right: -10rem; }
+.amr-404-glow-two { bottom: -18rem; left: -12rem; animation-direction: reverse; }
+
+.amr-404-shell {
+  display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  grid-template-columns: minmax(430px, 1.12fr) minmax(340px, .88fr);
+  gap: clamp(2rem, 3vw, 3.5rem);
+  align-items: center;
+  justify-self: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.amr-404-copy { min-width: 0; }
+
+.amr-404-kicker {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  margin: 0 0 1rem;
+  color: var(--blue);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.amr-404-kicker span {
+  width: .65rem;
+  height: .65rem;
+  border-radius: 50%;
+  background: #ff784f;
+  box-shadow: 0 0 0 .35rem rgba(255,120,79,.16);
+  animation: amr404Pulse 1.8s ease-in-out infinite;
+}
+
+.amr-404 h1 {
+  display: grid;
+  gap: .16em;
+  margin: 0;
+  max-width: 100%;
+  color: var(--ink);
+  font-size: clamp(3rem, 3.4vw, 3.8rem);
+  font-weight: 800;
+  line-height: .94;
+  letter-spacing: -.06em;
+}
+.amr-404-title-top {
+  display: block;
+  font-size: .9em;
+  overflow-wrap: anywhere;
+}
+.amr-404-title-bottom {
+  max-width: 15ch;
+  font-size: .56em;
+  line-height: 1.12;
+  letter-spacing: -.045em;
+}
+.amr-404-lead {
+  max-width: 32rem;
+  margin: 1.6rem 0;
+  color: #526b84;
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.7;
+}
+
+.amr-404-console {
+  max-width: 34rem;
+  overflow: hidden;
+  border: 1px solid rgba(3,60,115,.13);
+  border-radius: 14px;
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 15px 45px rgba(3,60,115,.09);
+  backdrop-filter: blur(12px);
+}
+.amr-404-console-top {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .65rem .8rem;
+  border-bottom: 1px solid rgba(3,60,115,.1);
+  background: rgba(236,246,255,.8);
+}
+.amr-404-console-top span { width: .55rem; height: .55rem; border-radius: 50%; background: #ff7d68; }
+.amr-404-console-top span:nth-child(2) { background: #ffc45d; }
+.amr-404-console-top span:nth-child(3) { background: #50c98b; }
+.amr-404-console-top code { margin-left: auto; color: #6d8297; font-size: .72rem; }
+#amr-404-diagnostic { display: block; min-height: 4.7rem; padding: 1rem 1.15rem; color: var(--deep); font-size: .82rem; line-height: 1.65; }
+#amr-404-diagnostic b { color: #d94d4d; }
+
+.amr-404-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.4rem; }
+.amr-404-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  min-height: 3rem;
+  padding: .72rem 1.15rem;
+  border: 1px solid var(--blue);
+  border-radius: 8px;
+  font-size: .96rem;
+  font-weight: 750;
+  text-decoration: none;
+  transform-origin: center;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.amr-404-button svg { width: 1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 160ms ease; }
+.amr-404-button:hover,
+.amr-404-button:focus {
+  color: #fff !important;
+  border-color: var(--blue);
+  background: var(--blue);
+  transform: translateY(-3px) scale(1.045);
+  box-shadow: 0 18px 36px rgba(2,73,171,.22);
+}
+.amr-404-button:hover svg,
+.amr-404-button:focus svg {
+  color: #fff !important;
+  transform: translateX(3px);
+}
+.amr-404-button-primary,
+.amr-404-button-primary:visited { color: #fff !important; background: var(--blue); }
+
+.amr-404-visual {
+  width: min(100%, 470px);
+  justify-self: end;
+  padding: clamp(.9rem, 1.7vw, 1.3rem);
+  border: 1px solid rgba(4,102,200,.14);
+  border-radius: 24px;
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 35px 80px rgba(3,60,115,.15);
+  backdrop-filter: blur(18px);
+  transform: perspective(1000px) rotateY(-1.5deg) rotateX(1deg);
+}
+.amr-404-chart-head { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; padding: .3rem .3rem 1.15rem; }
+.amr-404-chart-head div { display: grid; gap: .18rem; }
+.amr-404-chart-head div span { color: #8193a7; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.amr-404-chart-head strong { color: var(--ink); font-size: 1rem; }
+.amr-404-status { display: flex; align-items: center; gap: .45rem; padding: .38rem .6rem; border-radius: 999px; color: #b44632; background: #fff0ec; font-size: .66rem; font-weight: 800; text-transform: uppercase; white-space: nowrap; }
+.amr-404-status i { width: .42rem; height: .42rem; border-radius: 50%; background: #ff684b; animation: amr404Pulse 1.8s ease-in-out infinite; }
+
+.amr-404-plot {
+  position: relative;
+  min-height: clamp(240px, 25vw, 315px);
+  overflow: hidden;
+  border: 1px solid #dceaf6;
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(247,252,255,.9), rgba(235,246,255,.75));
+}
+.amr-404-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .65;
+  background-image: linear-gradient(#dceaf6 1px, transparent 1px), linear-gradient(90deg, #dceaf6 1px, transparent 1px);
+  background-size: 20% 20%;
+}
+.amr-404-line {
+  position: absolute;
+  left: 9%;
+  top: 62%;
+  width: 84%;
+  height: 3px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, transparent, var(--cyan) 12%, var(--blue) 88%, transparent);
+  transform: rotate(-24deg);
+  transform-origin: center;
+  opacity: .75;
+  box-shadow: 0 0 18px rgba(25,184,209,.35);
+  animation: amr404Line 2s ease-out both;
+}
+.amr-404-dot {
+  position: absolute;
+  width: .75rem;
+  height: .75rem;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 3px 10px rgba(4,102,200,.35);
+  animation: amr404Dot 3.2s ease-in-out infinite alternate;
+}
+.dot-1 { left: 13%; top: 72%; }
+.dot-2 { left: 24%; top: 59%; animation-delay: -.6s; }
+.dot-3 { left: 37%; top: 61%; animation-delay: -1.2s; }
+.dot-4 { left: 49%; top: 44%; animation-delay: -.3s; }
+.dot-5 { left: 63%; top: 38%; animation-delay: -1.7s; }
+.dot-6 { left: 73%; top: 26%; animation-delay: -.9s; }
+.dot-7 { left: 86%; top: 22%; animation-delay: -2.1s; }
+.amr-404-missing {
+  position: absolute;
+  left: 69%;
+  top: 68%;
+  display: grid;
+  place-items: center;
+  width: 4.4rem;
+  aspect-ratio: 1;
+  border: 2px dashed #ff684b;
+  border-radius: 50%;
+  color: #d94d36;
+  background: rgba(255,240,236,.85);
+  box-shadow: 0 0 0 10px rgba(255,104,75,.06);
+  animation: amr404Missing 2.3s ease-in-out infinite;
+}
+.amr-404-missing span { font-size: 1.1rem; font-weight: 850; line-height: 1; }
+.amr-404-missing small { font-size: .5rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.amr-404-axis { position: absolute; z-index: 2; color: #8ca0b5; font-size: .62rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.amr-404-axis-y { left: .3rem; top: 50%; transform: rotate(-90deg) translateY(-50%); }
+.amr-404-axis-x { bottom: .3rem; left: 50%; transform: translateX(-50%); }
+
+.amr-404-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; padding-top: .8rem; }
+.amr-404-metrics div { display: grid; gap: .1rem; padding: .65rem .75rem; border-radius: 10px; background: #f3f9ff; }
+.amr-404-metrics span { color: #7b91a7; font-size: .62rem; font-weight: 750; text-transform: uppercase; }
+.amr-404-metrics strong { color: var(--deep); font-size: 1rem; }
+
+@keyframes amr404Spin { to { transform: rotate(360deg); } }
+@keyframes amr404Pulse { 50% { opacity: .45; transform: scale(.82); } }
+@keyframes amr404Dot { to { transform: translateY(-7px); } }
+@keyframes amr404Missing { 50% { transform: translateY(-8px) rotate(3deg); box-shadow: 0 0 0 18px rgba(255,104,75,.03); } }
+@keyframes amr404Line { from { width: 0; opacity: 0; } }
+
+@media (max-width: 1080px) {
+  .amr-404-shell { grid-template-columns: 1fr; }
+  .amr-404-copy { max-width: 46rem; }
+  .amr-404 h1 { max-width: 100%; font-size: clamp(3.25rem, 7vw, 4.8rem); }
+  .amr-404-title-top { overflow-wrap: normal; }
+  .amr-404-lead { max-width: 40rem; }
+  .amr-404-visual { width: 100%; justify-self: stretch; transform: none; }
+}
+@media (max-width: 650px) {
+  .amr-404 {
+    min-height: auto;
+    padding: 2rem 1rem;
+    border-radius: 12px;
+  }
+  .amr-404-shell { gap: 2rem; }
+  .amr-404-kicker { font-size: .7rem; }
+  .amr-404 h1 {
+    font-size: clamp(2.35rem, 12vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: -.05em;
+  }
+  .amr-404-title-top { overflow-wrap: normal; }
+  .amr-404-title-bottom { max-width: 14ch; font-size: .68em; }
+  .amr-404-lead { margin: 1.25rem 0; font-size: 1rem; line-height: 1.6; }
+  .amr-404-console { width: 100%; }
+  #amr-404-diagnostic { overflow-wrap: anywhere; padding: .85rem; font-size: .75rem; }
+  .amr-404-actions,
+  .amr-404-button { width: 100%; }
+  .amr-404-visual { padding: .75rem; border-radius: 18px; }
+  .amr-404-chart-head { display: grid; padding-bottom: .85rem; }
+  .amr-404-status { width: max-content; }
+  .amr-404-plot { min-height: 230px; border-radius: 12px; }
+  .amr-404-missing { left: 66%; width: 3.8rem; }
+  .amr-404-metrics { grid-template-columns: 1fr; }
+}
+@media (max-width: 380px) {
+  .amr-404 { padding-inline: .75rem; }
+  .amr-404 h1 { font-size: clamp(2.1rem, 11.5vw, 2.7rem); }
+  .amr-404-title-bottom { max-width: none; }
+  .amr-404-chart-head strong { font-size: .9rem; }
+  .amr-404-status { font-size: .58rem; }
+  .amr-404-plot { min-height: 210px; }
+  .amr-404-axis-y { left: -.15rem; }
+  .amr-404-missing { left: 63%; top: 66%; width: 3.45rem; }
+  .amr-404-missing span { font-size: .95rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .amr-404 *, .amr-404 *::before, .amr-404 *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+
+```

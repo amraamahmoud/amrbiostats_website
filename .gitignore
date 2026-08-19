@@ -1,3 +1,4 @@
+/images/pane_layout.gif
 .Rproj.user
 .Rhistory
 .RData
@@ -6,3 +7,5 @@
 /_resources/
 
 /.quarto/
+
+**/*.quarto_ipynb
