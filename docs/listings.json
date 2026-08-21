@@ -16,6 +16,12 @@
     ]
   },
   {
+    "listing": "/courses.html",
+    "items": [
+      "/posts/courses/r4beginners.html"
+    ]
+  },
+  {
     "listing": "/biostatistics.html",
     "items": [
       "/posts/biostats/A01_intro.html",
@@ -33,14 +39,7 @@
       "/posts/biostats/C02_def_prob_th.html",
       "/posts/biostats/C03_counting1_prob_th.html",
       "/posts/biostats/C04_counting2_prob_th.html",
-      "/posts/biostats/C05_counting3_prob_th.html",
-      "/posts/biostats/C06_cond_prob_th.html"
-    ]
-  },
-  {
-    "listing": "/courses.html",
-    "items": [
-      "/posts/courses/r4beginners.html"
+      "/posts/biostats/C05_counting3_prob_th.html"
     ]
   }
 ]
