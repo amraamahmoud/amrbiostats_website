@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://www.amrbiostats.com/courses.html</loc>
-    <lastmod>2026-08-19T17:10:48.602Z</lastmod>
+    <lastmod>2026-09-21T15:05:22.961Z</lastmod>
   </url>
   <url>
     <loc>https://www.amrbiostats.com/LICENSE.html</loc>
@@ -155,5 +155,9 @@
   <url>
     <loc>https://www.amrbiostats.com/index.html</loc>
     <lastmod>2026-09-09T22:57:17.142Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.amrbiostats.com/course-cards.ejs.html</loc>
+    <lastmod>2026-09-20T20:58:35.775Z</lastmod>
   </url>
 </urlset>

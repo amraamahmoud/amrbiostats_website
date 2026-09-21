@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,10 +44,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-02ef6cabe1f76426ee49245f1d0eed9b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b3d6ad2b22bce8a3975e15cfdaa02785.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -75,20 +78,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-r4beginners .list');
+    const listingTargetEl = window.document.querySelector('#listing-course-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-project','listing-website','listing-format','listing-editor','listing-execute','listing-engines','listing-language','listing-comments','listing-title','listing-lang','listing-path','listing-outputHref','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-editor","listing-execute","listing-engines","listing-language","listing-comments","listing-title","listing-lang","listing-path","listing-outputHref","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-r4beginners'] = new List('listing-r4beginners', options);
+    window['quarto-listings']['listing-course-listing'] = new List('listing-course-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -104,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -136,8 +139,11 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
 <meta property="og:title" content="AMRBiostats: Learn Biostatistics &amp; R Programming">
-<meta property="og:image" content="https://www.amrbiostats.com/images/opengraph1.jpg">
+<meta property="og:image" content="https://www.amrbiostats.com/images/r4beginners_1.png">
 <meta property="og:site_name" content="AMRBiostats">
+<meta property="og:image:alt" content="R for Beginners">
+<meta property="og:image:height" content="4320">
+<meta property="og:image:width" content="7680">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -228,21 +234,148 @@ window.Quarto = {
 </header>
 
 
+<style>
+.amr-course-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--course-columns, 2), minmax(0, 1fr));
+  gap: 1.75rem;
+  margin-block: 1.5rem 3rem;
+}
+.amr-course-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #cfe3f7;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(3, 60, 115, .08);
+  font-family: inherit;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .amr-course-card:hover {
+    transform: translateY(-4px);
+    border-color: #94bfe9;
+    box-shadow: 0 20px 42px rgba(3, 60, 115, .14);
+  }
+}
+.amr-course-card:focus-within {
+  border-color: #94bfe9;
+  box-shadow: 0 20px 42px rgba(3, 60, 115, .14);
+}
+.amr-course-card .amr-course-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+.amr-course-footer {
+  padding: clamp(1.1rem, 2.5vw, 1.75rem);
+  border-top: 1px solid #dce9f8;
+  background: linear-gradient(145deg, #fff, #f0f7ff);
+  text-align: center;
+}
+.amr-course-footer .amr-course-status {
+  display: inline-block;
+  margin: 0 0 1.2rem;
+  padding: .25rem .8rem;
+  border: 1px solid #fecaca;
+  border-radius: 999px;
+  background: #fef2f2;
+  color: #b42318;
+  font-size: .85rem;
+  font-weight: 600;
+}
+.amr-course-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+}
+.amr-course-actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  min-height: 48px;
+  padding: .7rem .65rem;
+  border: 1px solid #a9cbea;
+  border-radius: 10px;
+  background: #fff;
+  color: #033c73;
+  font-weight: 700;
+  font-size: .95rem;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: box-shadow 180ms ease;
+}
+.amr-course-actions .amr-course-pay {
+  border-color: transparent;
+  background: linear-gradient(135deg, #033c73, #0466c8, #147ed5);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(4, 102, 200, .18);
+}
+.amr-course-actions a:hover {
+  color: #033c73 !important;
+  background: #eaf4ff;
+  text-decoration: none !important;
+  box-shadow: 0 8px 20px rgba(3, 60, 115, .16);
+}
+.amr-course-actions .amr-course-pay:hover,
+.amr-course-actions .amr-course-pay:focus-visible {
+  color: #fff !important;
+  background: linear-gradient(135deg, #022e59, #0357ae, #106dc0);
+}
+.amr-course-actions svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 180ms ease;
+}
+.amr-course-actions a:hover svg { transform: translateX(-3px); }
+.amr-course-actions a:focus-visible {
+  outline: 3px solid #0466c8;
+  outline-offset: 3px;
+}
+@media (max-width: 767px) {
+  .amr-course-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 380px) {
+  .amr-course-actions { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .amr-course-card { transition: none; }
+  .amr-course-card:hover { transform: none; }
+  .amr-course-actions a { transition: none; }
+  .amr-course-actions svg { transition: none; }
+  .amr-course-actions a:hover svg { transform: none; }
+}
+</style>
+<div id="listing-course-listing" class="quarto-listing quarto-listing-container-custom">
+<div class="amr-course-grid" style="--course-columns: 2">
 
+  <article class="amr-course-card" aria-label="R for Beginners">
+    <img class="amr-course-image" src="./images/r4beginners_1.png" alt="R for Beginners">
+    <div class="amr-course-footer" dir="rtl" lang="ar">
+      <p class="amr-course-status">التسجيل مغلق</p>
+      <div class="amr-course-actions">
+        <a href="./posts/courses/r4beginners.html"><span>عرض تفاصيل الدورة</span><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"></path></svg></a>
+        <a class="amr-course-pay" href="https://www.amrbiostats.com/pay/r4beginners"><span>دفع رسوم الدورة</span><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"></path></svg></a>
+      </div>
+    </div>
+  </article>
 
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-r4beginners">
-<div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1787746559698" data-listing-reading-time-sort="10" data-listing-word-count-sort="1821">
-<a href="./posts/courses/r4beginners.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="images/r4beginners_1.png" alt="دورة R للمبتدئين مع د. عمرو محمود" style="height: 100%;"  class="thumbnail-image card-img"/></p>
-</div></a>
-</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+</div>
+
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -882,7 +1015,7 @@ window.onload = function() {
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./terms.html">
+    <a class="nav-link" href="./terms.qmd">
 <p>Terms &amp; Conditions <iconify-icon role="img" inline="" icon="tabler:file-description" aria-label="Icon file-description from tabler Iconify.design set." title="Icon file-description from tabler Iconify.design set."></iconify-icon></p>
 </a>
   </li>  

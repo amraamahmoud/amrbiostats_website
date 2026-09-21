@@ -1,23 +1,148 @@
 ---
 title: "Courses"
-listing: 
-  - id: r4beginners
-    contents: "/posts/courses/r4beginners.qmd"
-    type: grid
+listing:
+  - id: course-listing
+    contents:
+      - "/posts/courses/r4beginners.qmd"
+    template: course-cards.ejs.md
+    template-params:
+      grid-columns: 2
+      payment-url: "https://www.amrbiostats.com/pay/r4beginners"
+    sort: false
     categories: false
-    grid-columns: 2
     filter-ui: false
     sort-ui: false
     feed: false
-    image-height: 100%
-    fields: [image]  
-format: 
-  html: 
+format:
+  html:
     page-layout: full
     title-block-banner: false
     comments: false
     toc: false
 ---
 
+```{=html}
+<style>
+.amr-course-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--course-columns, 2), minmax(0, 1fr));
+  gap: 1.75rem;
+  margin-block: 1.5rem 3rem;
+}
+.amr-course-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #cfe3f7;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(3, 60, 115, .08);
+  font-family: inherit;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .amr-course-card:hover {
+    transform: translateY(-4px);
+    border-color: #94bfe9;
+    box-shadow: 0 20px 42px rgba(3, 60, 115, .14);
+  }
+}
+.amr-course-card:focus-within {
+  border-color: #94bfe9;
+  box-shadow: 0 20px 42px rgba(3, 60, 115, .14);
+}
+.amr-course-card .amr-course-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+.amr-course-footer {
+  padding: clamp(1.1rem, 2.5vw, 1.75rem);
+  border-top: 1px solid #dce9f8;
+  background: linear-gradient(145deg, #fff, #f0f7ff);
+  text-align: center;
+}
+.amr-course-footer .amr-course-status {
+  display: inline-block;
+  margin: 0 0 1.2rem;
+  padding: .25rem .8rem;
+  border: 1px solid #fecaca;
+  border-radius: 999px;
+  background: #fef2f2;
+  color: #b42318;
+  font-size: .85rem;
+  font-weight: 600;
+}
+.amr-course-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+}
+.amr-course-actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  min-height: 48px;
+  padding: .7rem .65rem;
+  border: 1px solid #a9cbea;
+  border-radius: 10px;
+  background: #fff;
+  color: #033c73;
+  font-weight: 700;
+  font-size: .95rem;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: box-shadow 180ms ease;
+}
+.amr-course-actions .amr-course-pay {
+  border-color: transparent;
+  background: linear-gradient(135deg, #033c73, #0466c8, #147ed5);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(4, 102, 200, .18);
+}
+.amr-course-actions a:hover {
+  color: #033c73 !important;
+  background: #eaf4ff;
+  text-decoration: none !important;
+  box-shadow: 0 8px 20px rgba(3, 60, 115, .16);
+}
+.amr-course-actions .amr-course-pay:hover,
+.amr-course-actions .amr-course-pay:focus-visible {
+  color: #fff !important;
+  background: linear-gradient(135deg, #022e59, #0357ae, #106dc0);
+}
+.amr-course-actions svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 180ms ease;
+}
+.amr-course-actions a:hover svg { transform: translateX(-3px); }
+.amr-course-actions a:focus-visible {
+  outline: 3px solid #0466c8;
+  outline-offset: 3px;
+}
+@media (max-width: 767px) {
+  .amr-course-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 380px) {
+  .amr-course-actions { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .amr-course-card { transition: none; }
+  .amr-course-card:hover { transform: none; }
+  .amr-course-actions a { transition: none; }
+  .amr-course-actions svg { transition: none; }
+  .amr-course-actions a:hover svg { transform: none; }
+}
+</style>
+```
 
-
+::: {#course-listing}
+:::
