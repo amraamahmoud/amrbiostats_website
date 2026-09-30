@@ -7,7 +7,7 @@ listing:
     template: course-cards.ejs.md
     template-params:
       grid-columns: 2
-      payment-url: "https://www.amrbiostats.com/pay/r4beginners"
+      payment-url: "https://r4beginners.amrbiostats.com/"
     sort: false
     categories: false
     filter-ui: false

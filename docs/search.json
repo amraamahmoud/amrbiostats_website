@@ -892,7 +892,7 @@
     "href": "courses.html",
     "title": "Courses",
     "section": "",
-    "text": "التسجيل مغلق\n      \n        عرض تفاصيل الدورة\n        دفع رسوم الدورة\n      \n    \n  \n\n\nNo matching items\n\n\n\n\n\n Back to top"
+    "text": "Registration Closed\n      \n        Course Details\n        Course Materials\n      \n    \n  \n\n\nNo matching items\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "LICENSE.html",
@@ -1781,6 +1781,6 @@
     "href": "course-cards.ejs.html",
     "title": "AMRBiostats",
     "section": "",
-    "text": "&lt;% for (const item of items) { %&gt;\n  \n    \n    \n      التسجيل مغلق\n      \n        عرض تفاصيل الدورة\n        دفع رسوم الدورة\n      \n    \n  \n&lt;% } %&gt;\n\n\n\n\n Back to top"
+    "text": "&lt;% for (const item of items) { %&gt;\n  \n    \n    \n      Registration Closed\n      \n        Course Details\n        Course Materials\n      \n    \n  \n&lt;% } %&gt;\n\n\n\n\n Back to top"
   }
 ]
